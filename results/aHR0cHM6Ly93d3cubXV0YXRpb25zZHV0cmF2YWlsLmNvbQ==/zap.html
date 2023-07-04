@@ -1,0 +1,4757 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ZAP Scanning Report</title>
+<style type="text/css">
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	font-size: 13px;
+}
+
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 32px
+}
+
+h3 {
+	font-size: 16px;
+}
+
+table {
+	border: none;
+	font-size: 13px;
+}
+
+td, th {
+	padding: 3px 4px;
+	word-break: break-word;
+}
+
+th {
+	font-weight: bold;
+	background-color: #666666;
+}
+
+td {
+	background-color: #e8e8e8;
+}
+
+.spacer {
+	margin: 10px;
+}
+
+.spacer-lg {
+	margin: 40px;
+}
+
+.indent1 {
+	padding: 4px 20px;
+}
+
+.indent2 {
+	padding: 4px 40px;
+}
+
+.risk-3 {
+	background-color: red;
+	color: #FFF;
+}
+
+.risk-2 {
+	background-color: orange;
+	color: #FFF;
+}
+
+.risk-1 {
+	background-color: yellow;
+	color: #000;
+}
+
+.risk-0 {
+	background-color: blue;
+	color: #FFF;
+}
+
+.risk--1 {
+	background-color: green;
+	color: #FFF;
+}
+
+.summary {
+	width: 45%;
+}
+
+.summary th {
+	color: #FFF;
+}
+
+.alerts {
+	width: 75%;
+}
+
+.alerts th {
+	color: #FFF;
+}
+
+.results {
+	width: 100%;
+}
+
+.results th {
+	text-align: left;
+}
+
+.left-header {
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+	<h1>
+		<!-- The ZAP Logo -->
+		<img
+			src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABqbAAAamwHdbkbTAAAAB3RJTUUH4QsKDDQPKy6k8AAABxpJREFUWMO9l31sVWcdxz+/55xzbwt9QddJExClvIzNxTKJDZi22oJSbFZpmRb4g8sfhpEIwXQNTKh0NYgiMKIwo5AsdIxdQldGNBN5W2OTFRVcIZE1YwExcXOdc1DK+nLvOc/PP87tC9CWsj98bp6ck3Ofc57v7+37/T3wYGMucBR4F/gK/8exAugAdPXq1bpx40YFekZdHYuP+8PuGP+lAc8CmzIyMtLq6uqora3FcRwAzp49m/7Wv5O95tsNEfyEKvwH9B1V2hT7GnB+PABkhGePAvVA9dy5c6mvr2fp0qX3LOru7iYrK4toSQ1OXhGKohpOiyVQe0NVn9PGFb8iFofGFSMCMMPulwEXgbdXrlxZ3dHRQXt7+4ibA2RmZtLc3Ex/y/O4fg8RMUSMS8RxiRiPqPE+4xrnl07syA3Q+aN5wADlwO1oNPpqQ0NDfl9fH4cPH2bOnDn3dV9VVRWVlVV88vsteNF0XCO4xuA6Bs9xiBgPz/EmueKcIxavHyk/BPjnli1bpm3btu1TZ2hmxkTk8aeYMK8aay1WFVWwqgSqBDYgqQFJGxygccWa4e86IhJpbW39Zk5ODgUFBZ8KwOLFZeyr/wHZs0vw0jMxIqFpAuFt+EOYZ/OrAi41t96dhF8HThcWFnpnzpwhGo0+MIhnamvZs+8AM55uIhn4+Cnrkza8Wqv4NiBhfXwNCgxy3jauuKMKPOCPrpHSU2fOUlJS8sAg8qZP50bGY0xeuIFk4JO0SnIYiMAqSRuQDPyPgsbqh++ugqSsPXGC+WsoLS1lzZqnHxhA40svcfPvfyDNjRARwTOCJ+E0IjgiOGIwRnIkFl97NwBMX9dPvEfLSC+t5cCB/eTk5Ix78ylTplBcXMxDjy3EweIZISKSqoxwcyOCYwRXHETkuSEAsTjE4kVGTLrjpdP7p33U1NTQ2dk5bgCbN28Ow7BoA8YmcVOWR1KWuyKIgEEwYjBiJhN75Ushr15qRp747g9dcRZ4RtCuf3HhdBMlpQuZNm3auAAUFBRw+fJlWl/dy9SCaqwGIBIyJGBTUwemWqzy/mAIRPmaEUGsJeNbz+IVfJ+ioiI2bNgwbi80NTUxJWciV47/GM9Lwwg4CA6CSblbBqYYRPjqEACRR8JaVcRPkPHlJ5m66kX27W8kL2/6uMPR3t7Ox+++yQcXjmLEIEYQA8YIkuIHSYVDkBnDk3DSEDwAi5c5mUfWNtGVPovc3FwOHTp0XwDZ2dm0nTvH9Td+zSedVxDVkIQAEQ1BoIgKCpnmflqpQcAXyjYxo6KeVatWUVZWRiKRGPO1+fPns2vXLjoOr7uvFA8HcHMoQ8IHmkqOINnH1d81kJeXR0VFRcqKkUcQBLS0tHD79u2QXHq7UmkIqgKqoIKKAnQPNiSqXFG0QFVCXbcGK4pVIdnTBcDOnTupqqoa06q2tjZKS0uZ8LmZzKiox5nwWXzfx9qBfmGgCkDRa4MeUNE3repg2QSEiwMFk5nDF8vrWLZsGTNnzqS9vX1UAEVFRezYsYOeD68y8fNPEFifAL2rDAfBnJdhGv0NzzgtoYYbHGOICkSMIWKEqBE8x+X91v18cKGJyspKDh48SFZW1ohAlixZQstfLzM99iK9iQQJqySsxVfFDyz9Nolv/fw7gumsPtIbMZE0zxhcR3DFEDVCZIDTjeA5Drb3Jv84sYOu639j69atNDQ0jAgiN3cyPQ/NJXvhM/QnEwRW8dWSDAL6bbLTHlyee0cVWNWfBhpgVbEWfFUSqiSGqVoyCCCaxayndjKn+nm2736BzIyJHDt27B4AFy9eovvtU3R3nA5DkFJEXwNUtWHEptSsPtIXNW7UMy4mJSLeMA+4IrhCKC6A46XR+VYz772xj/z8fJqampg1a9bg906ePElZWRlZy3+DZuSGPUGQ/G/QuDznHjVMeaEyaS2+WqxVbMryxMDVKv0W+qzSr0pPoo/Mx8uZs/51rgdTmD17NrFYbJArFi9ezKZNm7h1dD1B4JO0PgG23KR6QxnlYLHXM846z7i4oX4P6vmA9Q6ENMsQZyiGxK1OPjr5M5Kd77B7925qamoAWLBgAX+59jFU7tmivy3fPvq5INXDSyx+3DXOd1xx8YzBiGBMKCIDwmKMDLEWEnoMUDdK37U2bp/6BQ9PSueV+BEWLVpEdnYW3be6f67wo7EOJoMgiMX3uuKs84zBEQcjghjBMCAmhF1niskGCMaiqFWs8ehrj+Off5nCwkK2b99OcXExwFTgvdEB3AmizIi85oqTNgDCSKrPFWV4DFRD/beqWLX4YUXdst0ffk+b168CVqZWpwN9YwO4Wzhi8c1GpM6ISTcYREJPMOSAQYZLHc1upY5meyjfBq/XAUwGbgL9Y4dgrBGLFwtSITAPkekCk1L73wS9qsoFxR6nceWfx/O5/wGLCSMJ+zJrfwAAAABJRU5ErkJggg=="
+			alt="" />
+		ZAP Scanning Report
+	</h1>
+	<p />
+	
+
+	<h2>
+		
+		Site: https://www.mutationsdutravail.com
+		
+	</h2>
+
+	<h3>
+		Generated on Tue, 4 Jul 2023 16:33:30
+	</h3>
+
+	<h3>
+		ZAP Version: 2.12.0
+	</h3>
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tr>
+				<th width="45%"
+					height="24">Risk Level</th>
+				<th width="55%"
+					align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>High</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Medium</div>
+				</td>
+				<td align="center">
+					<div>6</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td align="center">
+					<div>6</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informational</div>
+				</td>
+				<td align="center">
+					<div>5</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk--1">
+					<div>				False Positives:</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alerts</h3>
+		<table class="alerts">
+			<tr>
+				<th width="60%" height="24">Name</th>
+				<th width="20%"
+					align="center">Risk Level</th>
+				<th width="20%"
+					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10099">Source Code Disclosure - PHP</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">9</td>
+			</tr>
+			<tr>
+				<td><a href="#10003">Vulnerable JS Library</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">10</td>
+			</tr>
+			<tr>
+				<td><a href="#10110">Dangerous JS Functions</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10037">Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">5</td>
+			</tr>
+			<tr>
+				<td><a href="#10035">Strict-Transport-Security Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10094">Base64 Disclosure</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">5</td>
+			</tr>
+			<tr>
+				<td><a href="#10027">Information Disclosure - Suspicious Comments</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">5</td>
+			</tr>
+			<tr>
+				<td><a href="#10109">Modern Web Application</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">9</td>
+			</tr>
+			<tr>
+				<td><a href="#10015">Re-examine Cache-control Directives</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Storable and Cacheable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">12</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10202"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Absence of Anti-CSRF Tokens</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>No Anti-CSRF tokens were found in a HTML submission form.</div>
+							<br />
+						
+							<div>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</div>
+							<br />
+						
+							<div>CSRF attacks are effective in a number of situations, including:</div>
+							<br />
+						
+							<div>    * The victim has an active session on the target site.</div>
+							<br />
+						
+							<div>    * The victim is authenticated via HTTP auth on the target site.</div>
+							<br />
+						
+							<div>    * The victim is on the same local network as the target site.</div>
+							<br />
+						
+							<div>CSRF has primarily been used to perform an action against a target site using the victim&#39;s privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form action=&quot;phps/contact.php&quot; method=&quot;post&quot; onsubmit=&quot;return controlform(this);&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form action=&quot;phps/contribuer.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; onsubmit=&quot;return controlform(this);&quot;&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Phase: Architecture and Design</div>
+							<br />
+						
+							<div>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</div>
+							<br />
+						
+							<div>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</div>
+							<br />
+						
+							<div>Phase: Implementation</div>
+							<br />
+						
+							<div>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</div>
+							<br />
+						
+							<div>Phase: Architecture and Design</div>
+							<br />
+						
+							<div>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</div>
+							<br />
+						
+							<div>Note that this can be bypassed using XSS.</div>
+							<br />
+						
+							<div>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</div>
+							<br />
+						
+							<div>Note that this can be bypassed using XSS.</div>
+							<br />
+						
+							<div>Use the ESAPI Session Management control.</div>
+							<br />
+						
+							<div>This control includes a component for CSRF.</div>
+							<br />
+						
+							<div>Do not use the GET method for any request that triggers a state change.</div>
+							<br />
+						
+							<div>Phase: Implementation</div>
+							<br />
+						
+							<div>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/Cross-Site-Request-Forgery">http://projects.webappsec.org/Cross-Site-Request-Forgery</a>
+							<br />
+						
+							<a href="http://cwe.mitre.org/data/definitions/352.html">http://cwe.mitre.org/data/definitions/352.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/352.html">352</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">9</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10202/">10202</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10038"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Content Security Policy (CSP) Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</a>
+							<br />
+						
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html">http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</a>
+							<br />
+						
+							<a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">http://www.html5rocks.com/en/tutorials/security/content-security-policy/</a>
+							<br />
+						
+							<a href="http://caniuse.com/#feat=contentsecuritypolicy">http://caniuse.com/#feat=contentsecuritypolicy</a>
+							<br />
+						
+							<a href="http://content-security-policy.com/">http://content-security-policy.com/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10020"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Missing Anti-clickjacking Header</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response does not include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options to protect against &#39;ClickJacking&#39; attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</div>
+							<br />
+						
+							<div>If you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10020/">10020</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10099"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Source Code Disclosure - PHP</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Application Source Code was disclosed by the web server - PHP</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/videos/rectoverso.ogv">https://www.mutationsdutravail.com/videos/rectoverso.ogv</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;?=@=HHJ;&lt;@FEFGEEEÿ3ÿCÿ+ÿ.ÿ*ÿ4ÿ7ÿDÿX6-zÊÂCÂLè$4ê){+&lt;,Ô~ ôû6q}`±¥ªTÅ$Qy   ,	Ñds²1Ì[&#39;coõUåÅt#ZºQ/÷ÚõhéoQ,åõt´Ð&gt;×«Ü¶iù¢ä&#39;ZNàXv~qÈÒ EKfUÀþÒ«w_¹5ýUUW=­AÛ¥ª½Rv¶¡ÜÌY¸^ÔÛ¹Eðâ&#39;»_J|`&amp;lMK»G#mõ(oD&amp;(`P9ä@ ª¬°&amp;îl,ÆôB] N*×¶G^`b(kGÔä J·ì1!`Ü÷0XMX cÐ,¦e¥q-à¥&quot;d ^@F¢àHQÙQ&quot;@rQFlnÀ øÄ	ðØôI¸0×]Ð¯jìÈ(ìáÝ·\nKÍ/¿ã}Ô|F»?@S°ø &gt;ûFÓ&lt;Ó¹õ|®ÆÙ{²á¼Tæqz¢Ê&gt;PJ¸´ |jÝÊÍÊìt:³êà¼Ùð}g¨ÉL	tãðìV0dïgÚ·v&amp;tíÅ. v
+;VR©- $VùÀ0l!îMÍ¬kKø´Ê0Á&#39;¶±Äm°ã·	¤ì%¢¦°väbõsA¬RRp ¡} $Nq-3T5Èb²³ñ¨Æ òó×K±°PâªÅcj=ÙÄCÄtgÿF®ÉWWüR LjÝ {çß Ô|K°-à0A	&gt;u¸ý,£«çè(ç&lt;Õñ½F°dôÔ+FÉµ¾îÌîÒ&amp;&lt;ÆG db]ËÕWØ¡ï²WYÞ³½èuÓHÔdJp]goµ&amp;kf&gt;Qq£DºÅSS3bÂ/?röbàS \Zsñ}½Ç*_ÿ2ÍÍG	|XFÚñ¿§òã¿Çáë~ççn7.Ç[ª¤§ñÂÚÂä)ÅüaÛt¢&gt;IAè]#£&lt;ó4&#39;NÞ¶çsûu1RËi_µ+,¬´U%AãEqK&quot;ôeÓuáî6 7Q8ZJ  ´5Í`óµ¶§±1ÊÔÅ¾ä`;[\§½u¸Á²Þì­s&lt;ñAÎ¯d¯RÎ±*zìòõ®Rf¸°¼{¢}(K~.J«&lt; TFuTÓÌØBeZÅ@éÅxÕYDbe\0ÛÝ9ZæÔjD;@§ M¨Â2HE¢@=¼W  bOGn&#39;9ñnëVä}Ì÷Te@°ÚQ)ìS²ï¹ÏjJ;¦ÂöÈ-:h(Ütq5ØÃ bór³¥G±öD:Ã»ÿgª(£Ùy.14A½;A$ÙÃUù¾¾4¹k_VCAH%6K¨meduCbûÁ¾½Ò-ÍN6|Â÷ÕJµJ`u{[mÛ/s·-µ×T&lt;ö¢j­¡i~±ìë#MäÉl­µÕÈÊÍç bõÛVH³¤Ò[Í]þû&gt;5E%°k9ÄBé¬¼X6LmËAw{à|õ¶ÈÇ°È½Eõú|bÃ!Øï~F³õ*ßÊçÚ¢¬Q¸ÃmZYõqÛú]¬,ïíjæ¬@[¿K¨_.¦£ê´¶ÜäJä©ºk_²×  ¤bËÆí[HØ_ª¶ÌDú½×½µj°ZÆsqÖxÈÓ![n²u]DQã&gt;p§Y³Äk9î´ ,^®B¤ jóÉpÍünóJ¯¿ñÞÚ§·ª°¯,q ¸%y.¬i{g)-÷ìhòçr5Á. ,H¡%³_z£àlfÕÔ¶·ôjËIÈì;¯S¤}4M±û/¾%{i!£Cz½F¨(°ElGæ°ý½d^õAÚ7u;³y#ËëÜçMÞKÉ&gt;&#39;æ/5íMó¥*Å3òoJïèmøì×[VÉ²&#39;b¥W7ó;  úH¥lÉñûY,)jÍôJÙÛìg1§è ÀÚr*#s«&amp;[£;Êk   Q2­HC1IY32£Ñ?=7êâ³_5Å:.ÂØ¾jZÝãð»Ô}oy5Öö~óïè¾×ú@×¬)Ö òIA°£0áª* pRî°¸Ö*(»®¶&quot;Ëv)5AHÐlF4¡dÀ8*0²Êoñh
+Ñ*7
+U(È®ÎfÔ­2hX	¸ÈR&#39;Þ§×¥È®OÂº¤]0°hì
+À$O$ud{Æ dÐ(tØDB,2ºÇÙÊã@h É¢ÀÊk`xZlµ¾#áZÏÖÑÐ©ä­ªïÎÅüÍ¬¡ þI]Ê
+4P3éî~ÍB)2ÔLþ    WcsU±ò¸
+   È
+25 ÷q^$dßO{NC]eùÞJÙh¿a)¦ßóÜæV=\vUÁOË7»«G~îö·³.ußúõÄátá8uÉ·?nPd]Â¤iPmî«RISZw%Mû`ç¦P 0 ÝËß+Y®Åjp,PÍ,#L9V,{?%ó$Ý¦i33Lmä~âMe5n³L§ïw¨|÷iµp.[¢
+ü2TrÙ²&quot;$YkájºrÍtR&quot;@ ¡J_Äê§2pp;P9)SôrTE%4LI¤=ö-+µ_M÷}*â¼Aý\ Yå%y±ÔÕÙLéj£AÍø l2Og¨dvÈ#7«rbØB&amp;#Où¸
+   È&amp;NÕT&#39;í´óý$CVcËÛ·ësr¾Ó_Õy¬®ÃU{y{ªyÉðxÉäm¥ÙaT8fáOif}É&quot;_«tÏÊ5ëú¯1&amp;mjÐR-Ã«j2°Úè.Ä_»Àõ±å:¦3k= Ë÷ZJfVÜôºb
+Æ7~ Iü´O%ò`Ú	#&#39;ZÐíÝ©«Ç tC(#tEMG%9C#I&quot;¶qÌÌ¨5!µÇÓr9ÚØs§.ç$yU.ÉYð(ÜÆQd
+Ò ¾YuiMo*ídûjG6­¦iÝAÉBmø ¨bÙµ#êyÍH@ê ¨ÜçTlbsbÇU   $,R½-Õ=¹Þpõ»ty±,Íù$Ôn-* âoÎ¨×«¶ÂÇZ)µ¸È]ê­ÜLáj¦ôØqk´	U @ÄA·?²fjmHEhRÔ8ÉYÉ2ñýØ©U±v¥@p((3!:jÕ0¸ÜØÁ
+JÊMÏ±	 ÷ëÁJ`Àn¦ÌÍû-LD®0#Xµ6¸{¡0Óâ%+@º±@¢ v,B&quot;4ÂØi cUIF`#hÍâ  æ!Â+jõ.Wâ»ê±îS°O°#²ifÁäWR÷{%Ø^InJodì¤x­lV}SÀ.äÐÚá àXéL(k^õl	ÙW¿±eÌ5*   ´9|øG:W	1¤&quot;ueIÞËNñ©þ
+ß~îoÝËößm×·7?ÕÛß$FW¨ ËàØYu» jàÔ  Ñ
+ÔÛ°Öz±G ¥dR4*#TAó³±)³,á=*lch:¬±&amp;Æá¨l&#39;ËHå&quot;ÁQ5ø÷&quot; =. ÊéFC
+zËxrñU&quot;HÐ¢¶Zà ;Ö@;¢$sdò¶ $ÂÇÏ3/9£L	/D\]*¡£5±zÃÙ=ÖëÈ£úüÞÁ9A¾IuiÌ¢|
+»8µwmdr*L{Ó~±ú»6ú   8x©YyÒL£òq   X BõzmÐïÏúýÎWþf­G;zß{e¾ne6jÎb§[JµÖUWä¨µ¼t©¢í&lt;oÏrØ	].»ß@3Å2&amp;)6À4Í,øµ±D^@è-$RYÒYÊ@Ý¡Ê5x °$0Õm`B;#KÑÁ¬aFÖ2DXa\ê&lt;&amp;1*XÃQ¶&quot;©ðJËÁ£Æö&quot;ÖØ)XÀàÜ kÛ$ ´«E@«%]ïL ;im `cÄÀ6 íI²&quot; zVÝ&lt;¢0°#ÁTi[ýHlÃrK^OF ¡D$à³ ~%¢P8]©BÇÖ£µÄ_D2Ê®õø eQçteö¦WNÅî#nïô/ ¬U¹ªÉ3.%«   hÁU³Iß6jýþ´/ßq NÍü¸°´+é
+^ºð3ÏîhjÀ·ji7OKAGÕ[L «&amp;qô`YqSssÂb´B,­	#ô}ÚQµ°²bêîAÌ,f¦ |bÂÂÈÈË,&amp;Ã ï§QÒÀé¡ÖÜ´52&gt;
+÷)-Æ4&amp;v]¼îTÖ-K¹J$ÓÄ)&quot;
+º$wqûð´Êb9OK^0Vc-dÀ=;ÑÖF¡Ì4jÈÅ`.»¤&lt;°~HýÂËÊ&amp;j¿	Ðb&quot;@ &amp;ÂI´ÉÉüM&gt;ê&lt;Ç%jJKÇ2¡¦ôÒ«Û/ ÷4ca¯fbW¦ªÃh   PsóÀm¾êª°` Àè}¨9×k§`ôËizóËæÇûÙZýNzçPýçíÝå¬PºÑÔäJýþþÚÿd3dm²:òA -¶ÌAÔ;&amp; Þ;[zîl­&amp;Vh®8[S ÏÅ×u]æßª°î÷óÏébæ&quot;gÈ{]µÈpµzxÍ55Ó+µ!¾É,LtFÌB§ë¡sT eCNÍ sñÊÛµ#Æ&quot;sé^GUJA3O2L½Ä{A;À¬¨a°én3ëcRì æÂÖSèâá%ÂAÀ ØÖ ÷ød#F·ýJö	bò ,DCvèLf* ºJ25¥Î¨§¸â&quot;åê
+5¥? VMçFt«Gÿ à¤ÖZÙZ«ØÁ0¨W  ¢f2Á~×ÿYÍÐ« :Ã×2²KÈì©Ý:Åç.\ÅÓok­¾Æ?èÏ6%X©VÎ#ÕÊtþ~p¿¦äåy¢þ1q¦£YìF9.æZ9½ë¯L83ì¯Mþ
+.s¡ú7ÚªCÌw#æeûöÛÜ©vÉÎit¦
+[\[ùbt{ªlT^&amp; Yá¦ûôÚ%Øå±èÝI¢442µ@Gb*APÉ2Î²³ä(Aê%nªz
+HÈ»±ìª×xÖöÚa@êz¼Ä ºXé¶ yÚµ/å&amp;îMµË ÂÈ8µëC¬«ärxïç.Ù¸Õ[± OggS  À?     m½#  G!£#LFIÿ,ÿ6ÿ&quot;ÿ%ÿ1ÿ7ÿK8&lt;9?;:;GJNÿDÿZÿKÿMBåtÝl1ûÆÀö~íÎs§A¢Ý¥«^4Á//ÇñþcìýÏ_öÕ½hý,ÖÓÕ7Ò¶+öÙì¤bÆa  *	7ªjÁ¿O­Vÿ½Mûj&lt;ÁÏúÜmÎ~Ò?ô2ª·j¦ñ¬jTå¦xhÀa\¡QH0ÂBÚ]G;^I«ïØY8ö~·ý&amp;Ïà]0ðý&amp;×l-ð¿òWÁëñÔ¶ávëG?£XqÈü¯Æ&amp;ª6tèEôì»0µeúØlÅÕ&lt;xôªµÆgL¢P=Jw)N-µ#? §&quot;ïÛ·íÈµWF¾N{8\M°ÖYÍð,L§Th  @ÖqF\GÙuCtö¢¯t]GyöGÿáð/V­s£W&lt;óeO]Þ^\^w°I~íëy&gt;ìã¨¹Ãõ´­YÌ4áW,X,pq¼×Y9³j ÛHÁ½vìf¢	vÂ¢xµ¶¶Cì59PÅí$ÖP A¡C-¬@ ÌfE&quot;	L&amp;³g.òÍÅK××»ú÷D	WÃpÎÁô8-`Æ`aX ùTÑßù
+äA»NÁ|èÔ²MQ¼ªy@¶  ¾NÏVEïÄÔ;SY\Âª¬S15À{c£AQ¡Âûzóc°ht¶#¾ëÌ&lt;Z&amp;&amp;Ép  @/×í×}IÏ&amp;,oëú;÷ï1¨Sæ¶¼²Ý±Û¯îm {~oqÕâ{dÈ¤h}a©éZ¦r½KãÕÀ;KM¦*ZÆæ?5(L«&gt;	 W0I&quot;Ú4-1Z!Â¢IC(VläÀD\E5mÀÈ¯V³ `dÝ¶Ö6ì&lt;~, \ÝM«@&#39;Àìd$TA@&quot;	IHÇF TVÓ=0 H,Å G ®ÑAì(DåHAëÄ²ÄÓÏáúóO,Sð¸fÒc þ\gÌ¡.FM;Ë u= ÆÇâF&quot;56^?üÆ£Ð1ãXþú®9 k&lt;33ÅTUB¦:   ÚÝ;ë%ÃLÿZ]{V1F¹æCØyUïý`¦ÿùpñÌf¬¯.ï{ÿ±úrÞÃaÚÝ´MHí×1s¢ Å$ó¤EÁ´âÐ­A­cä«iR !	@eO:² DN¥]$¡äÀ
+R4#´ $V1´ 7dEàÕVX¨  °M `q b@Q `Â£Jq  ¤&lt;Y dí]Ñæ#ÏeÅcÕ4ÈdfM   pÇ)Eê\tÉ«)×èu®¢/¹#;AÊ58^&quot;)fk*¯ÉÚ æf;Ô¬\1)åNbÔÀã*   éUü)-¬ªVÛaüë¤T{ÇÜvÓY«2Ôêñ²&amp;û±)Ë,,¬íÎäÓïÅÓ×^Òjùü5IRÖ	CÃÙ4 ÖºyôQ·ïñ®aÛ,Û R©HÂ3Ø HJlC/ºB ÚÉ+ÌZÕ7 ÜÚ¬È¢MÞ2ÚÊ11IÀXAÈ¹õøXÐÃ¨)&quot;h °)àDuÀ! ¨&lt;¡$&lt;ÇUËçÃü}d$:pûûÓ&gt;c&lt;64½PXÄâ ¾MÏm¸Ø&#39;«¯\3Ý.ºç$0gÖ4S®ü  ²n=eà:(pÚ6°Æ9l¥bbI&#39;È#  * -Ï^b1%É3ËBª?Òù½ÉÜ(/KOÆX¿¯
+Ûm&gt;íÐñ¸eÆôG§÷ãúþ²¦b±ÒgÀÝ$ô îË 60)ªóª)8ÀªgV¤*SsyÙ$PP¥	Ç:r°+A¦åe N+jØQ¶djÌXÌ³RNhJRh ÝP@@¬AÌ2V¬±äbbó[½HUJd)£ÀÐÈr`£6! 
+ @V&quot;¢x¨óTd}Cà&gt;°Æ@Îè2D®wÞ×&lt;àHd, ¹&lt;}M5&gt;¨^.SÓmãÂjJßrÅn½Rr{ÀW / lý¨Q[1\ÓÀÇU   »®kæLIKÅb»èÚ¼ØÍX²  ¼ ?,*.ÝÁÉÆd6¶Óph¯?
+¹ÿ½bï¿ÚÕ£ØBé$L]¿¸k¥ÄGéë¶Ku¬æÏh¨¸0è=ã	Õ3 ®f(a¦âwàAËPlÁq¤#¤¤	ËBÇCÁ$$¥PHyeU!W·ÂL$²1
+Ö  Pa!$À61	ìF1ii$	Å#Ù2H$Èvà¢¶rQ¶ÎrPñ¡Ô9¨0 pÀïðv¸ìµV[±
+5¦ÍØ¦/,fé©1ý \_{|~ö&lt;Vï_ w8Ù °æfæÃ°Xò¸
+  @ã11ãÑ!Ç¡¯`_òæô#ÿ´Ù  õ³&lt;¤RÝLÊ{Ü×ÿÜÀÃ¨Û+-XwÍõÅ|zÑ7´sáµe¯3´8íã_ýÛÚßvUSð?ì4õo:}è¦@¡Q³ÄâÇN#D&quot;â¢`P]¢µo9rÌXÆMGÌuVÚ¾NÑèÆ×Lc¨õgtEá£ÑÀCiÍnJÌÚXí·{dÅ5¤eÕÔ2,T4)Ã#½ÝSß+Ú%|.ÌpEÉäÃ ÙeÂ&quot;&#39;2AÈx, ÁLRP ¨!&quot;ßaÊ0·&quot;Ðì&quot;ÂÊ/þø18jc!Ïßs&amp;B $BÉ3Ùñð	V¶ÖÙª«&lt;=Ë$«D	Ö4nì5B:ó%ó^qGNµ©HNQ»°BåwÛý9ý;qù±ÅøêÎlfcsýÓà´Õã­DÅ¡Í+îhr1%AÔ¢ÂãÎ}v ä9ýt9Õçô®8ÎA¿w&gt;ÛjGPÅ ê&#39;ïH±VÎíÚETe°ã@Â&quot;q±#¦ ì9Mé¾í æ¯i^nf[ `9ÀsÚcé§_ë§ÈGyÇºi2T-	shwk¼dùZ=Ý ¼9ÎAÿU¥¹³;@¾(Áâ\´ùà&quot;(=F£¢½.ýâr,ÄUn#cPù[±Ibc$:q+É©JÌ³íD|5gFhÅ¬ÿõE[|­DÑ­òàÔ(Yq¶nù-gú ,^í
+2®Yr&#39;s}ì?UH`1xé·j$®´s[¼­¢÷ãEíÞÉí	XI v¢òÜ^Jq+ÍÍ$J&gt;ßcKøîgE`­Ú¿ÜóE#\xÜ¿Ì`?îjRÊµs¸7ZbxnmH$+#H£K2 ^=dc&#39;Ô!Cèûæ´À[ÞöXx7¡(÷Î¦&amp;6ÚYAaW_Á9÷§û©uY_-Ãæ¦nÅQ,?\½o ,NAdíàK|Êäõû~]÷=ÒÚ¹ ¿öiÍ_}Ý^ý é=¾úPÛõùèÃÑ´dqõøüùsÔãLü~þÓuE$½½ø úÄ²%tAM/b0	ã!½´
+5&quot;oO¿ÿ}ÝS³û¦ÖõvÏqECõ à,1GË°L31È4ÀU  ÷Mèo¦-áWÜtÚaÀq·|ËHwðm¸  ¡ÿe¾ë¥±RMÛ»oÒÿ^){yÆèI&lt;ûÊPóâÒ¥WzéÔÊÌ&quot;ïÏZÔr@rî6RUè?-Ú=e»²caup§úFd»Õ¹2, ¸LvÎÝ£Êé¤K¡²YèL:@ßÅwËÕ|PÚ«pårUVt@ìË +¢¨Ç ·ÛÒ*4¬r=e¯¬E²ÌË_+ Ô$èÄ&quot;éRÚæüþc&amp; 	çí9 ë[{õÖ/¯þÿ8 L§c &gt;¹ýÆj5rªññèLuJP
+µÑo èFg_ Nû¨9SeªRR2   ú0{éÉ×­LN??®wõÿÙ àþn_ÙæÒyï+f&#39;gþ+ýÏë&#39;­°Ç¾/oHS#ál§	­¥ÿáhYGËÍLÌ¦F«h±3¯Cz­(ÿR²ÌîMëSdÔyèQ~¿Z¶ÆYm^ÃF´ki&#39;=&amp;pnó,ËA_ëi¹ÄQ03}ð&#39;¯v^Í³qþ¼PÌòvW×$=_Ó#³&quot;å òxp	B:§ÏÆ¨æ¡ÛµÖÓÊóÏÑHEïÝiTI®Ò$s¤S94	sÖ``nE¢!YÆôBN ±´	ÐÀPx2$+ÀÀmHWx×]ÈäUzÄ`Òð;àÐ)ADG &quot; +xh ¾¹ÜFcA¯ÑÐæv± ê¬©ñqÙî*ß  8é1ªª­&quot;%|  çú.yÈöUmµû_j½3Ó~×£&gt;ØæÃ2µ/ÔT¡¥kâ½baÍÕKüðíCýÐèÏßùë¬,ålI&#39;ä.çäÚÝ½ãjß÷³V:g}fNMvLíëó&lt;¨íükejúvÕDûÊ·ÚÏlsÑ¿7õ|&amp;âd5Ýk ×¬&amp;gªzí^JsÙ:
+ ö![e®éìäÌ2ÍUdÔPWY°h$%Pî:&quot;¬Ùcµâ[`HÚcð ;÷	Ò¦	ªiÁÀÚ\ hÀ0]°ØÙ%ÀG p
+ ·YÐ)&amp;Dð9\3¸{Ý(MØ=lÿ{æN(D EßL ^ÜÖ`qa¦Íméq=¨ÑñÇíf§ìò.| l¹ØGÉVË°\S«   jêô¦ñoOþúG²TÑ@úRÞMòÙA. s¯JÅ¹;;ÍÌÄÎ&amp;BÎä&gt;A»C¼q¾ÓBÛ.ÇzÇ-Í7Cí÷^¾ÖyÖ&gt;ì{Þúá^â_~È°ÏeÍ¨ÿ&quot;ÚºæRù¤53êõöâª$.¸ðSÅ&lt;¨ôiÉ¢¡8}¹º¿T³Õxä«q¥pÇHÐõFkIq¶XPéRî&lt; K¦ÅC¹^0JZK$AÄ$ë&quot;#&#39;kL´dç*0	©kïM¸Ô¢ÄKd@ Xà&#39;K×*)È;þ
+Î¿Ó4/;0Ù&quot;òÉ !­nÈ OggS  S      ¥c9[¢  òºß&quot;7      Z6ÿÿÿÿÿÿ ÿ®ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÉwÙýý@¿ç÷¢èÞÀpxÛýùP¿&#39;ç¼ü0÷ñº&#39;àfü1_ûÅ³£ËìýpzykËÛ¯ô0&gt;^ÞÀ @&#39;Ìc}=Gk¡öß} n¨	ð¶UdU,­^ÀÏM^#&lt;a xÝýù¿géð&gt;ã&gt;üLßÞdù=Ïü8jÏ@/ 	À  ç£ÃLKL¡rç¶ªÀ}åýø4£ð~AïÀNþÎÃðy? ÷àBüëðZ~(~¯ÁÇË~rWÉ¿Kðßqðß§ÊoÉrü1ðßÁÀ×&gt;§Òû!_j|Táï:}{á?¼úØõjÎgÀÃ£î{&lt;^&gt;Gè§³ä|Og§q8y9:&gt;&#39;g³àvSâ	DûÙÅLCÀÑ-ykË^Z×3âP¤À¡äS¡=t|Î©÷4ùÎM;è LxDF&gt;_CÁàô{=@ø}PÿåO±äú3è3ÑéDð4Òòx0ÃÁúîS£ìièöù&lt;=@àòC!NÄòt}L?/£èKà ®¨RQ ü3DDIåçÇ&amp;@ñxOï:?FÉ­î¿¿ùÞAO&lt;ßÞÞü&lt;¾ ÞÞ CÀ Àýíííííííííííííííííííðøøð÷À (Þo`/_ q3ÃãÚ_&lt;×/ Ç¾@ 7gògoï`ÈüA  Ç÷0&gt;Á ÇÇÄ&lt;µà¨ øøöøööñß  º&lt;=  =ò#Ïf+ÙÀ@&quot;&#39; Ï ýð ö { =&lt;ð¾\i×Èõø¿¥+ñ^.1´cèÆî3Åx?gñqÞ&gt;&gt;;&lt;nöaD|tw$O¨w*|\\Ü¼}ÍÅÍÃ×$+©hw//)o/1ý8Fqº¼|y¨gæ÷î.. 8y9iðpÉÃOß&#39;7J {çàv~ì/2fL»âÌÌÌÌÌÌÌÌÌ«ä .ó1ÀwA;.Ëâ9Ô?ÁõG·ç¡^zèW¡^zèW¡^zèW¡^zèW¡^{%@yáÇK©&quot;&gt;«&#39;1KmÉÎÂÁ¨#ñ¾&#39;îslO×Np°c=uXÓØýã	§äò[pTn¤.Gè  åË¤ì\	G` ¤xBsxéOi0 È)öPùî]ãÆýmaõ ]ùËËau,ñgÁrãv3ÓíÃêqÉÓ¯Y¬wsí¯ãÂðZ&gt;fËnÑ(l½ÐmÝüoM£¡ô²A$N¨Ä,xh-d_¸dBí°B&amp;à»2C\º.VE$ê5¿¬+½Ù¨G¥,ÑíÝeôD:öï&gt;rv¬¶ðäÄ¬·º´hÞ A	våCmî-p)º;&#39; ó oÝ¾,ÐB®ËËÿO`*YËt7unîÙ&amp;¸AÞ¯»3¶F¤³ÕÕ`ûè&#39;oY&amp;ú09ÆpÙ6H­¯vúð»Ê×Ê°ª½*ÇüÈFïydÚï~ñ²Åo¥ÊyÚÄalÕmàç3Yjús¿Y£CëY²I&#39;ËÜC ¢@µöþ(àõøm`Ë F ä@0j¶eâï nÁho@ÙW³÷@æ¬%£(ÀºË²	âmááÝNå ^`¡¡²ËâQW)ñ²Ð ;ed|¥z!Ð #m¹!¶KhÙlªÃ²1 b¡P}úþx Q¿¢Ìæ`g¯ÐÀ7ÐxÕÝ`zÏôÿþõ¾ë°ùAìî#sÛzCàû  ×&gt;Ç	×ïCïç] ú$ò&gt;ÿíõ×Øwñ¿åÚáþ^4¼.ãÿ·Ot¥ópÕèðÿè5GÂá¶6ügÂµ,²Ë,²Ë,²Ë,²Ë,ïk­á
+Cð2j#wô7ôT}mD*Ò½¾ºÝÖÎDtôûùtû½ª;ÿ?wÛàÛþ£ußÊ~ßá·øá+ÂDCüfÿ~?P ¡èAóþ;üf~q	¾`~çýør?Ä~Ê?pKWà,üyß»ðÌ~ÀÖ}Sï7æ~ ø._Äø¡÷¾÷Äü)_ÝÓ¡&gt;bkú!ø(W³ §&gt;£ËåOÉÓèô~Äþx&gt;êû&gt;G&gt;$?bjHr{É÷8?bv&#39;£êZ uJHPr-âþ7q @/Q ´+.k|;nÆ1y=½½½£ÔÈ5ýò&#39;÷·¸¢ýñì ×n¨j|Øfxg CDP¼þÿåááïWkÃB]E¸ÄB´BæýæëN¥Zh]¡IÞãP8 ]æA6zÅs`þ`cªûiL,¹eí¯*l÷U¶ö)²Ä@mÄ(oj¥K+;þÝØ(rÛâ­]Ãç&#39;­Ç`ÖL°p,ë²6øë0áM?Ã±§¯\#ë¸k ~&quot;{^Fû,Ýußý¿
+4­Ðßm.÷é°ZÛaÜ8ïÑÔíCÚ°n4ßÃl!ðØBPâ?76Â0nÓðø)\7ÒÓóæð}/Àn~ ãÁ&#39;àìWà&amp;ðdÀUÃðGà*Çà²à=ßQ_wà^b7ÀUøÊò~/À9Û¶£ðV¸}/7á&amp;üaø
+8ÀJø¨ÀV~¼§ÇÂ|^Åßñ÷ó÷Á¿¿G­xúÙ®&gt;Tú/Ù&gt;h/?FüáÇ&#39;Éâ{÷_=ë¯zW}&gt;8|©~b&lt;ð?×ãÜòp~¯Ì÷&lt;3³ú|Nßg£üSèúy!ú!ø!åÃÙÑ§ ?£³îx&gt;JPM)¨¯%zcÅz M8¾by~Ú(H7dvA ç¤TPDô¦óÚ aì§ER@V%@^@Q99=òðigR©øSâ~ßgÄä¢SÑèàÃòt}M&gt;äèû+ÉOáàøôôx)¤1òSäÀ?ä?D&gt;Ä=Ì0ð|ø;0ê@§hxËÙpDJuÑ1láèE&#39;ìsèaD( ÅuN`&quot;U&quot;!ì E5á¼&amp;ó0OÙð!âwÔ`  ÀQNªZ9áM$Ñ&lt;jR)àè7Íó|Þ 0â
+«  ¤@@i b¤¥ I^PìM8
+¢âqyHBb&amp;¶,	×z@5`$ÁÐ à¾¸R½ØáFsHÌ9)ÂÐ
+@ap	éåD iBO ª§DpL{:&gt;x6ODC¦ÇíNOÑÑÉN-8¾@ìAgÌø¾ÒÐaíè¥9?&amp;s·³p@àú©ò&lt;&amp;¢pÐàD ÅÃcOñ;ñ!ØóÍÕ!ì ÑàÛQÜ`.ês·¢¾ÞZÓÒ¨22 ÃC²¶  	i&gt;;!Ù$5&#39;&amp;\ÑN=:5òSä&quot;5`©­&gt;d9Jêi@Eú  &gt;`t/GGSàgÌð&#39;O©òb WHCGðèL&gt;&#39;Øèðüi4ä±6t~ ÉAù¿ÀÀkÙõ)ðè§U(E)]¨HÀ ®    -ªõp   éÀKÔÂ¶nÜÛ[Vµ£0Q ápgRks£d©±+G4Ç¦îgw~ùªMxY@	)4=¦DD*dÐwÀÐ`ê@0p0n¾Rö÷ ÑÀtñâ¼ø¶ü&quot;¥åíýøòKÿ&gt;@1=?ø0øp(5|Ç_7yó¬I 	È  ¿Á@øeDáù
+ ¥ââCF^Á  (ü¿¤ÉüyÞ ªç À ^ê`Æõ¾vàñ&gt;:eàÇ&lt;×·¸ûàãÇ  ^¾&lt;%õï9ÿÉ)óÄ¼ çTxÀ(AH @QÅ×³1¦(ï¦ùáøÂn¢7Ñ©ÕíñÚ	{Gñ0ýdò[µ	DPÅQ§@Æ WèZvS W_!sÑ}d _ |k½|&gt; !N!NÞ&quot;{7Ãx¼==¿|x|xx||x{xz|yðñãÃûëÜ3&lt;&lt;?¼s^&lt;¾=¼??âaiïÐ` øø |{ ã@ ;ãóÃããÀ  ðððøððøeá&amp;&lt;&lt;=ÃÃÀ0ÃÙÀA ß/OÛãããããÃãÃãÇ°ZôÈ½ÅCø#ÃÌQ?ÌÆøð| ?¾=½¿½¿^8CÛÜ^&quot;|x{|||x&#39;°CÃûûç	xxx   ð x|xx2þøeáñò7÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷þr.x0ðø	|ðð|ðþeñþ&lt;¿øx|áÏÈx ?Æaò?ï~@÷ç¿C	Äþð yðcÇçÌ6&lt;xðÿ(òøðö4^&quot;¼&gt;=¼D xðaâçú/yäâùóÇ¿¼kq^o&lt;x0ö{ãÌ DçÈoïoCxxp ï0Ëã¯ G·THTD)¢ !QóÄ*!àGðCÛÂ`ÈfòøCãÃÀñùýíà9üz1ï °SØãÀl7&gt;&lt;¼CûçÇÈc0`!ññüxðù~  ¿__x3·fxxxxz``òü¼Cl0C#à  þø`ß@2^ü &lt;&gt;ÐÏïïq&quot;áðaôÀ øðxòø  DñûÃãÛÇ À   |!ñêÞ!¼fÀ Çhz|xðø ãü0Ä{Døùcà!ìËÀ = :x¾&lt;=¾qáò&#39;o÷¨Zx¡Õñðøööù|@áîañü ôò&lt;¼ ·ÀP!ðÃÀÞsãâ!NÐÿûä7&lt; áyã&lt;Dyè¡!ñíèÃÃø ð ¯&quot;||1áþ#/ÛËÅñâ&#39;&gt; ^Á~CÃü@ÇÇ$OðøòÏ CÁÀ#ÃãÇÎ¾&lt;&lt;&gt;jðÃ 7§±&quot;áðù	Û-íðeó&gt;&lt;\eýýüËÜ$?¾qðæ,ôñÇh   &#39;ÇCÃß·Îà 	ñàÇÛá=¿ß ¢ðöð{|||  oï ÄA¡¨BP#Bnx|&lt;zy|Fùâ \z|àáñíáññà ëá ÷ÃÃÃãû×¸=ñ#|òaáíñà¢|uóTÊtWß??½½¿!&quot;&#39;üþÕA¤ðeï¸àÁÇ§ä¾ ÁaióÈ#~oáñãËà$ËããÅGÁ&amp;@|&lt;&gt;&gt;½{xÃµ S/ò òù)¿¾&lt;E	§áðañáàäÏÇÈÞÌx2öðÏùáìø÷^.[±¿mD!V+p4H°±jEcùÏ:óW·Æ|æ{é&gt;ûè}óÈ]|=În0ëqæþn¢·P*0B0&amp;ÇZ£Ívðã1Î×øçµ­ü/ðû¼×ö×Û×|a&lt;¢ÍÅ°×á%ÆZ±¶Ä¯ÄágÐ±¨Ç&#39;\¼ÏYp®½fÁgÆÝ·óË«¾PÉ$Ìó-ÏfÇDV&quot;Íõ¶ÄA¥f*0­×,Ø6`vgæ×Íáõzù¹-s;®sáL&gt;~s5kÆç5-lË¬î³Ûöý!aaaaaaaaax½½·¹öç?eÓóµd³ªöÅ«*G3imðÁ·8yÁñÃÏN8Pâh.çYø¤:àÚ¬ü*5+/b#,V®0Ã-}Áì_&gt;·gÿQì&#39;ò4&quot;H¾&#39;b_Rî&#39;¯ n½¬:·ß´$ñÂI$NÒR5ß;% C!ÁªI»×fxÌ7ÊéïÖJ»jìòðíCÉ»îvî$Ó½ÇJ|@IW½«O2äø!¸j}~D±Kâ­·UiÙäÓô/	àO?Þu¬Tf5Ædâ¦W®Ùñ¹Ù^ÁpJ¬ÎÞwzeU|C¤aÝ9W§O[NgNÖ@Á-²æ Ê`Ð\§_*\l¯¤=n·XHNëÄf «VÞ²à&amp;¡	ÉÐÒÎî ¬ ª4éH7Ã·M@ª®CgÑÂ¹!¤¥4¸»z£Â÷jã3Ä­7ÙÙ×wh*eÚÑT×yÚ ãÜ7ý;6WC íÝ¶4¨o3¼qõní¦¸Xm/3§}Px Ô¹¨6êÕ¦­%íEp]VÎs;tõöÁ§NòvM! 5óÈÈq^ Õ!R«D5*zæùZ­O`ðH*Ôª;djÛhÜÔZáÙPC0ìÔø}}Ã(õÊ°
+À4èám(qåz|ýgWÈù¸±è°üuq¢äW¤ëÁÊ\ g§ ÊEÔkñ&quot; &#39;²è:°lGN®uÂ!E&lt;mÁp(ÀáÉ&lt; @M|¤&gt;!qÈ
+OâEÕ8ë%øë¶þëõTÏ½èv8(9/rM w\K &quot;VÞJ&quot;wíA­
+FþH\$8ÕÂJg1É2´;ÑÜ}ÊæRXê¤µxÂ--dRæ²ÎòDûá±OpªD,-BHò«Àc¼é¼ïéùþõ²ÓÞæsê $  &amp;$@jR:ó¤E.$yåÁI	H¤Üú¤	ÒV|§ÿè}¨ÿñùÞKD3úI$I$I +`0V~@$QeâVñ ÈBêQ#Ë@+àð!y~¥ò§ ÐLDò:6 L!2+Òø#«z_E3| WäUGx=R%ï$¾é
+µú±S©_ÿÿÿÿÿÿÈ #4  .R$¢I&gt;÷ÃÖ¯y¢:9°.8Êb¸AxDª¼EuÿÏXVÍW,Aéâ pÄÅÉ$÷®wV&quot;÷Õ³.iÀ&amp;JDJJxBR)&quot; +Ä7ïò+zßÁDëzõ§¿Î÷¯^·âµïÕ=zÐ´gü« õ@D¤¼ ¯Ø ä8BDHë*D¡×ÄÑ5þµYº®?áPéC¤ËYWd@J%.OeÔÀLµ,ÏÔkø&quot; $å¾®8Ö¸ú¢-VµîùIl( ïoßBD $&quot;NÊ3iLò§2dî$^ô`ëo^Iß¼±Þ0{Èü
+NëÈò!#uß5rÂ1{ÀÜh¤P$.ÀÇ/Äq]q;@øI9Â2L$%Ð
+$ò&quot;P #1©ìáR&quot;¶$DI&quot;2 ª,IUåÁe&quot;(DE¡C°êCYÐ@  ¤¹W¤J$Pí&quot; v¢(kï&quot;(pR#ñHa#zàHÿ8Éà9:kF´J HÍ\ú:	$fLÔÄ
+IÞ ó¸%Dø£5YP(¢ZDÑs)
+Áâ&lt;ép	ÐDTHy&gt;v3cÏ	®AÀ¾ª3_ðùEMNÐ	ÌA{á1©kULa(úJ×ùB­5i.¥Px V&#39;Û6Ô&quot;¥ð+^èI¦a@S$I»üÕ»}õÙr0 A·7Ä¤s¹?&amp;I´dWÖÃ5ÙT³ºÅ °´é( #ÉÌ9)!9ßFþ&quot;_ÚÀØGáR-mH¬$H«Dj³zÐòA(Ï@Y`²í&quot;zl&amp;IF ¯ædiw	Èºz¸Nâ|i9$l\Y8D(Äç¾,9¡*¿àGJM
+{¤¹&lt;qâ&#39;Ù¾$&gt;ýõ!G|«fip=]=ïMjªR^^ q9$Éõù#v?ry?Ñòü=^ÎíÚüHyÞ§ÈÝhÔ#åëßßðµ£yØxç
+;&gt;????úðè\)&gt;D~ð¨
+ô²6WðFhHxcR\!ñE3Ìý/ñLù©ò¶pµ¿3Æãô!éf7Òáâö\I~Ç&amp;¤¬ §hÿçTÿÀ2Å^ûÏ(¦YÌ )b5IKzÔB&quot;8JTùèâ8#R¦máóÀºg.H¥ÀHlËI«¤ÞÛÓ¥è`«½oZâ áÚÓþ¶¥zz¼ÈÐjéoÚÙ7§/v½@EÖþZ©ûÛÝÞâµºÝ[j¥²ÓrqÕi~µxX-·Ô´ ¤Ø wlyÛØ Ám	Jè´µ#Ô´ôVöõ¤KÓ ÀA©Czî[kC$ã~±ß6I¼e.gø­­´Ý` (E°½ëcti-ýw»½oF¤¶jøâ7¦X5üRR0Óüqkìku¾%ü® EHõ¦ëbHL¦?ÔçYßÍª:ä¸5Ã&quot;%ÿÜó&lt;Þ£¥Úid0iÊG§nª ¨½ìU]==&gt;·Ãe«ééW·Uµ½x=+§Äj·ÂÐOÁí½*ýÖyøxtÅ¡ÑMí6kÉ#ÖÛzIiÊÃ µE-6ÒOCé¢´;ËÀå[×©}!ÞÖ÷ÁYii¦?qM¦(4ÌnúzoÕÁ×»Ò9öÛö·­l tÞ*ô©¸­ð»ÓÓ·VÄ¶úw®a|:iéx)Å=Ýkc¦«¨UO¨UìRæ¹1j²PM*ÿJsÚ¹ÿóâhHC:ÚHEèCë{m]l_­æù½¥/àÔµ§x2&amp;mK­É²¿{Ç¾í¶«+¥ÊôOqÖ®\Ë^{{ÛÜ&quot;´!õS{@×fÙ¶6ÞÖ¸´Ðk/Ô5&amp;2[ý½=¬=0v;m6`,ØêºþìBrÖßí&#39;vÑùúzÛÓWMø-_ZX­J¯öõÅ§±OÏZKÏÚØ³p1!ÍlÔ
+&gt;y9ÉñaùBTì6k6=ZÊ½ûÈÁéD è;eM·!ú4ñë&lt; Xñ×ÇM+cÖÒm6ÓÞö~ôõªßPì%-oaþÜëÄßÀz~ým{&amp;&lt;u%¿ÁÚt Ám1Ðµ.½½/M|Û±Z|êÖô	¦	åºè*Röi­¿åKôÖYCzÚ¢za¥¿uôõ­·q°MßIø¯ZôlL!ëz¿þÇ
+gPÖ,ÿ6aµÊ¼Ád·éV¥Û-$½°L:Þ´¯­kzßºý­
+e°^ýV¶ê.ºÒa¡Ãÿízõ/ã#Mé¬îéï[C¿Bwù¥wþ)RØIúm&#39;½×¯m¡Ç#ÛZoÉx;a¯i!Ø~zié­¹ZÆ-í·Öý¯^ý)}ûI!vÒl¢Ç³Ð´Ë{©ÈÜÓ´.¦b¥«ë{õ_­ÑºÝà{cSj	
+gê&lt;þ¹Z«Gkl9&amp;Cå±+ÀD¥½¥i!ÒÖ²:1u
+Pÿ ïîË°kn¸ÞLE ðXb¥ß¸½6Øö[ÁÏêí&gt;zÓzÞ­¦½6ÒLt;ÒÖ¿oIû{ØI.ÓByÄkI·¶Ù
+ËIm°5u*ôZÍÄ]ùiúA+vDF5üéëê©§UnG$²IXÄOâ¾Z-ýý$QB§ÿMÃ9mì Z[Nµì4·tþõ\=º´j¶$©-×ñë0ÞOöo%¥»ú¢xB&quot;&quot;:HZbÐJ®á)óé¦÷+8§ìxËzZ-µ¥°çz`¶Ê:Òô:kM¤)_¶é h·©]l§º5AÓIjÛKL¾µþÒÞ¶À²=ÈÙøõ+¢éB7À¢Å¸8ÖWðLÄa8ßørÛ§m¯_RKlb®ùÖß´E{®7WTw­?¸ÓÇ³QOM¸Åßcm¼-´+åµ¿eñRMaÖ|2m==ø_b:üAkmhG2{@!¤Ãk^­G{Þ±ïWÒd\|i7Ã¯jâÚ«[Ò&lt;~¤,o____\7Ã¿ ùmk28ò|ðpÖH%×kéýbLí­«M=¤½í-ly¥ZÚ|jVåÝÄô¿Ð0{Óõ­&#39;­$VÓOhA­éÍ½´a±ñ6ÖÁlCäåÖÐ`#¿zOkmaÑ6K Ø§°¯kl÷RÚÒ	\Z`frIrÌ¦(µ0/\ÛN±ZMÜ@·R`-ª¶F¹µÀäÍ½m¤Ö-]­²¢&gt;TØ¶½µßiï[iØ½=vVûe[oz^0ùt~öHA­t¤¶`;&#39;¨¦`­oiïZáÕyÞ­þh^Ý[á¾!à¹¼&amp;;_çÊB5ýÁÏG8wúu.Ç¤²¼ÙYUÊVÖµ­ÞkdÚzIbûRyÝà-¿z{ßÌhû|)±Rm-zäôäÚM)E4ÞÿZBÊ¶ÿÚOIoNF ¥ÑA¿Ö´#°zÐí%+iJÛik­4ëT*lÛ¤ýk ¬ÍiGíW­lt´¬N*a)ªzB8T.ÏD|¿ìäCÑ.zäÖ¿ô½Ë#^YÃRjüÝou·_»­&#39;¿oÖÚyÃm®´·¯zÿÑi½!,\°õ¶&gt;×é­ ùí=é==·¹v´´i¯öôÅµ¶ÖãàöEºùÒ²Ø7íkÜO½Y¯imIëeíz{[×½åôµr¶ÊMmÇü_éÿWY²c®z¹AVK!&amp;CºÅ\×_	2I=ìBOF*àzJ¹%C¤L»«ôZ_¦Ð­=Ç@µ¶Û²¥¹86?A­üô/~ ÷zOzhCmïÂØj]èd-¤¨çßÚu·ëMY.ISR&quot;þýé~£WÛcìü_Ù5v5ô/ôýµÃâ÷è5j?â0¯xü½Á©}&gt;Þè_ûþÚ¶û·ÆÍx­ÿÿøw&amp;l£[ÚÎ×lÝöÁiìsùâ×]¹Ü;~Ö3¸æ3xÃf1`nÍüfû1÷ýß¶oîß1Ðhæy í¶o²=K·ÿþÜö»ZÖâôçÙÒ¶^Û´à41@ï»Y°×=&gt;Ãd Ç+ïvß7°³7W3æf5Ã±ÊË&gt;Áó6c1nÖª;|Æó4?±àyÍkíû0·³³îõÛ3Tno¦úÈ³µMfNvthvØ´ôìí3nèá§ÞËôQvoÛ÷í?ÍÌür4ýÁ\òÏûvã³[ôaÆ4ïÍÌÝ¯lfùMÊÌù¬ìßnßÁM·k;~ëÇå&gt;ýÿvf´8µ§ÚÛþÖì¯ê7QsùY`áÑ}nWTÿÙÿÂüïnûw/»|¡ ìq{k\ûÍÛûS+ÛÆéàÛfí÷cs7æÅÿv}ºÿì¸rXÞÍÆîÁßýþáñÆq§¾ìÝÁ@Û3øßZD6D&amp;:z ËÞt(QG¦~é÷mÚ8jýÉ³ÿæeZÝñßkZÆfö0qö9öãMokï·iÔpfý¸ÿW&gt;&gt;Þ¦ÍÝ­öËØ=¿bXgÌkA¿m/\{èÓ¹¬×÷ÓÆÄÆ&gt;¤N×ßÛ³ÃUõ×ôËìÛ4ç9´û´Û·n7æùÞþÛ°Ëvß4Öµ7ïÕìû·~¼Ê½ÁìÝhý³&gt;kWf±F3·k[£ûYZf~Ö·nÏû;^[í&quot;3 s*&#39;¸eå	Oadñ	»=øóg¯¾^ß¾kTnSüÎÝ¶Ë·Sqk¯ûsìß±V|[ÿe7Í%ÍëÅªlÞYÍnÛÿ·M÷aÎ;75MÔfào±c&gt;c3.¦¦í#ã¿ã½ ËÞÛB[Û;fê³±¬Wæ½Ý¿Ã|ÎÖ7Õb;ÎÖ.oUcNæ´ãÆ1­ý­W7l¬fÌSvæ7ænÖ31þÎlwíní`õÝÃbÕê3ônÂÃÞPêÐ0vÈ5ÅXÁíÝÙ¹¿Ý¿Æ¾¶cÆ¾Íj3ï³:«¿cvc6ÌÙÁ¼¶Ä³aø²Ì?5­ÿ¿id1-ÿí×c´Êåo¸KnËÛü&gt; Ø,i¦}Þ]3vÿf3s]àÆw]Ø¯ùÛæïÙÝ»37ß1¹Æþfê|ÁË³&gt;oÝ¹¤á°¶íßLc·³lÏØÖµÝ¬û|£pÛ,·ý?ÍÄ|@`®Ü9 3~}¬êü[Ùî§fÿ±|Õÿevc¬ìû7àÜÖµ½ýðn§cu[ØÆ³üÖööæ1ºÁÏº»ý°XÞÜuÛfö7vöìâ:7÷HÔúY|wÐ0íøÚìù¾0XÝ^Üöø#1­ØÇªÿÚÜ9­nîÎÝ·ßyÛ¶ß~y»v}³nÙÀÛ·7ûíØ¹¿®ßæ|ÖìßgüÕyÃ9»jJ.$_§ÿÿæû±XÅýëÍ¶ofÛ71­a¦»wÜÌÿùÛ¶oííoß®ÓïÌíöÌ³30þ]·ßå|c?øpìïnàÙgàkÇÝëþÛÿþamónÐ¸huËâOèMlâm¢ær{úÍû;?øo³:Í2ÒUí|íÌÙ¹½Vææ³qÿîÍÚgüq7ûÌ½pík[¾nßíÙÿZµÿÌÖff·³àÍogfù»uZ¿ö|cwìÙ{Ïlá¾käïöÝÃbIþª¢-ìÊ}§ÝU?êæxB±8ÝÁ¬ßñÿ·ÿÔfQUX¡[±ø¶õ?lF;ÀYÅµøÖýÙªý§Ú,ûìiþ?o·lûæ§®327¸cìdoÞ3îÆµ»æ{¿iÛöo²Æµ¹¡3[ÿù­gÌê±¹­²ÌÆv³væöüq¿3Í?ÏíÙ·Úu?e­ãÜkÊ³o»yÌÖíûX®ßïÚÈÞß2ëêM³	Ñ¬kvÜÇ³·g%­ÍÊßªÌÆF7ÿfÌígÌêcMýV7³³³lßcqþÜÜë¶ìÌÿ33ýÛ¿ùõ÷ííêÏüÈJx¸ËwÍÍk2¬ý½Û7«ó{XÑíÿcj3mÙ¿S6Ù\ßöSo·ÌÎn§öT#~ß¿oìkÉoí]·Ífûß5ÞÞ£7oÌÑªö³7µ¯vÇâsî¹V1qoÚÉ±óMý?³&gt;Ífc®þÖF3ítfnÿµþù|ß¨a¦íWuàÅ|Üe]×NöÕÙcÝ¦[úûæmÎ7m£~lüÇ¼5ÊøÙÍ3S)©HÝÙ×µ°Æ³Ôß36»|¦%ç3~¢¼öóe&gt;ÖiØÛ.Ýùv1~ÃwÊÿ¾oULÓ Ínf9àüóLÆßµ¿¢k[gÅkööfýrkßæ~Æ³ïÔÛ35F·â[ØÌ¬&amp;Í¥¬c&gt;3¾1½l¯Û3)ÕùrüÖf3vÿþäb~f\ÏÚ\iô6ÍCæ31¬onÆ¼S3·~½­Ý­Êý¿kSg¦5¬üÇöªÜ§Ó3lßý7yùNÞß&lt;fÌ9¿û±§t&#39;¹fæuöwíTßpÑæic5ª5ùHÖ}ÌÌfcm«nU§4ý­oS7±výÙ¡ÌÅ?ßçc7Ìoíß®ìÍbùª£vùFÝs57ãÊi¿ÌÌdÄííj¬jæo6c[ÛqNÜÌÍ´1»Y¦f\4øÒoÆTpî-k}ííÛþÌÍ]¬c&gt;VµåÛhßós;ÙÙ£[óíý¸.;ëY÷óeªµ¤v«¹&#39;?cvÿþ£ZÆ5±\Ææ±½ÍüÁCñF+Ø9­öU\Ò[Ènìßm»F§ý¶oëîÎÙÙó[ÛþÛlË7g¢ZÉÛ[m?¾k|ÞoÍÙÍ§kwÛf671k,C1MiþÏøso¬°§W|Íû}v}ú³áQ1Ic·ö¦vßû¶ó´ó}X{,÷Ø«7ÌßýÙ_Ïã;¦gÐëï¥ªO,¬þ;Mý)¶ÃâL­W~¢³éÔßÿÔó+7ÝßjR&gt;WyUb¬­¶ûvjúyµó}Å¨fÖRó³7mJÏ¾g©ÿoÓ©üSyõúæÅ#úý1±·g@Ýº³Iÿ_Ê_OÙïüßå|RäiÛ¼Ý_i5¨(Êdèææ«£)V±µÉØÆýëN¼û{úàOggS  ÀH?     m½$  gÝyzÿEÿMÿ7ÿ/ÿ0ÿBÿ.ÿ8ÿXÿ[ÿRÿ]ÿZÉ\KÞjJ&#39;k	è fú xwÛÆoe ù
+ pºûÀ¨UÅ²Å2òø¸
+  @ô 8´Ïqó|ý ð.öè£òhdZÚº¿±hí»2»Â)ýÊßZµÍ2&quot;Z;ÎõÛû=ëÂ¤\4)¨ÚËApSÓõC^Î¾ÍðáÔí.vê«DÖ®õëû&gt;wLZ¼g Ô?r	]vÑ,ÀpR=Ê|*EüIjm2Ãc]Ù³Ò]éõ³ÎÓwl
+R»ÆKºé|õ©wª¦0ÀP´àb(I@EYJ9ÛfÁ	yUÅÚ+@¸°ì	X©ÊZAY@gLIDf À»29¤À=à	t DJn×AäÆ3×ZËMf$@ÐK  ÝÀ6¸V¼ÕÆR¸ Ç%ó,-åÅ ÓQãã¡J÷tgé?Èß  7àTÌªÊU¹K¹
+   éï¯Ï{®¥&lt;u6MÇÏ[ËÍ½H °ðe-ËÒë»^ÛñÅ£R¾íâ¤w#ÓÕ¼q·Æ°$÷¦òkgîs¯wÙ&gt;¼ÃW®cæ(ûúÉûÔâql&quot;¬&gt;]ÉýT¶:ÕV&gt;è)îàbÖ×¯Ì}^r[Ù³jm¶*¹f:¹{hgwD×ÊJarâN·VÞ0÷&quot;EÓIh{¨ Wâ¦áIËOP¿§rf# «É1î11¦q/Í Ð Ï}ÎÔMÉ9X ¤h&quot;ÁÁÈ¸ »ÑíºæÒE¾Å%øCåSëÉ|U&gt;d­F#~¹¼¶b.\PcÓy­=J ¨éñ±Ê©wV³9â°ßõúììZ£a&lt;ß}Õ+WU*NE&quot;Sy|\  À1¡ãs²&#39;ýð%ç3ã2^¿ZuË9³ûÞl­7oIQd®81ãÛí4woÅÅ£õ:yç»ü~lzò¨µ3ZëQ²sàsõt,ÈÃé%KdÍ$(XsI÷åÙ-Ò°ãaª.º@»Ê5MfBÞ²ß;ÎIrQJ¨0à ìfc ºåóC&quot;L	*ª ¢.ÊåÌ¶cË #,ÍZ fI¥&quot;  T@-&quot;£2µÆú¶ø¬3#ä\Ò{&lt;Óüæ@¡ó 5øÒ`±¬p]³ þ\RÞ ¤ÕLÌåÑÆPX¡×[~v²j#Éñ+\=Ç´QUJ,[Q)ÂU  1sèyN¢Q±¯Ï±òxÂÛ·&quot;yhT³ÓÅÇ@è-KÞîü¢,zìXko§&gt;ìÁ«yªnÊÊ8Þîy&lt;Z¸ùiMk%1-Rdy»B4}HB`´Z6=KõÏ\3µ´`Gå)rx&lt;×*G2nrSSÉÛÍUªi%ÒD(2trXn0R7÷dr¤iXJ¬ÈÑ&amp;VT7HR@T@cP Hi$$äµ ¤Áõ20/?G%ò¹ÎäOQÎMi 02Óçeë4WD Þ¸Sâ»¯Hç\{¨tP#ú hñÇ®Ñä¹í&#39;ç«F.®:*W  ¤21!ªüÞÃqñ?ü}î5}¨tÛJ×Øû¢íirHñ¸åàÎï=Õ_&quot;jØkü]áÓ9õúóyf]Ô¶EÆ)&amp;«ÖîMyàe
+FqrRgPÃnUôBè³·GÈ
+Iµ(°Ý&#39; ¤wºèÎÄ
+JEfÁ9,ÓMJO
+ÁJ&amp;ñÊ,CÜ¤²XË ,Û¶aÌH1 %*@:¨Ð({/Ðá±h ËÈ¬Ç­Ð¼@iDæ¸ðHRIÓË´üI×µÖ¤Ö|2Ò&quot;ÑsM®kÎ  ;@º4ï\æªA±©F&quot;çÚ½°`QKÍäÍ£)áâ¢µr .ÏËßW ãöã 5­Ql2d*oã*  Ô
+¾É:Éßóýd«ÍßXqx¦Þîß¹ þr1µÍXçÎ÷xc0$è|·²g~Ø!__ô¬ZdóvN-ÇMbz_5~L¹mòî!k^óÀòËLÖ°&lt;8ûÒ=O«ç	6©kå\L:ã«¥Nªä¾óPv!©)¤¤pzb [¦%j
+»cêJódÑ·&quot;·B¡VKô  e`!áJ¡ Ä$4(2`ÊPF)`&#39; $­F:@Ð	JàM!ÅJd ©¦^Åð	O´á+èômÎfñùpr÷  5¡  &quot;F@^õ&gt;©&lt;|Í¬¢¼°(SSZÙÜº¢(ÁÔL_&quot;o}è¯ât¾4:°6k$¶­B&amp;CG&quot;«   Øók/mó3P?Þîë¾(ÿ\Øôÿ{~å`ãdyz·æ7KÞl÷Þ«&gt;¥eæýRT:nÞý¦V:äXû,ê¬e&#39;Z&gt;¦H·fÄx)ÑkÅ=VW¹ÛÔ&lt;kÙU¸ÁÑË[ÄEêW,Ý3ÝtO¤9AzÉ&#39;i1ZÀAÓÓ³ZÒ¼ 
+duÁ!@aX±ÀÆÑø2R Ü°
+&quot;+H,Ei0n¡)A¬r©Q H,HéÊ1 ¨Hä½/üIùz ÙæXÎ+ÆsÍ9¦&gt;ZÎ&#39;ÑBùùQXð=CI$ \§¦§U&gt;FÇ#ôâz%jtÜZÓ&quot;¡P&#39;ç¯é	kUNÕHaXµm  DÒùzÕªDÙó¿¹]_9wq§Öþ9þí&gt;BÚ×xr=Þ´¶ÇÖMs®Õê&quot;Z®&amp;;UcÆ°IjÊåfiå$¶dS&amp;®(W6áÆà ÜÄÕRU§·§KHÏ¢ QD8«òø&quot;$;°@éª2;K3b ìÓ tãÕaèXTËw{ï4ÛJI¦ªIp1àf«
+/oÄäâ§°KÉn4«à5©Ókì÷@Ã¾,¨Dx.ü«^  ÀÆ,kiQ[Ëµ ÷ûËZb@êX  ¶&gt;&gt;	­©OõÔ^FÇTQx CMÉ7 æpY8û% Àé¿*6WU[LR  ¬ °­ÿ+çäóÏÇß£^9 ÀL=_!Q¬ð9E4ua5;ÈKÏ]çóy¯&lt;ÂÑPZQr¤XoÏçêÛCûsì¬ÑÃ(&#39;ó³NªæÒWWEéøÿ&lt;ÅO}j:|ªòïSI}»vogC?_w­ÔäÆ;g áé¾\Ñþü¡&gt;kéR3#!5TÎ®ÓSô=xj¥ÿYìðS¼ûÎó01¨zÁdÁîz hÝ*É3Uè¨ª¾f`ÑX­a`m(±¾ªmÒ@Ñ¿hY£HL&gt; ôÍ3ì¢Ê®ÎÊhP¸;t´&amp;N@}u%@Õéiö@$¥&amp;ö3VF_ÍQZÁñÉüS®Ì/®.æÑ2&gt;ê¼Ö§(V¨:ÏÒµqÉ¡7¢Vzoî¢Gè&lt;Õ[zß¬#^}ªÙ*¶Tª  `¸«5X½^îõcÆYDû©ÇEc#ùùbÛÿøöêÝrÏæ+Þ/×¼9ÃÎÝõ&gt;»ØzOf®;Î|÷»ë¼¾$íÞý²s¦=Åüî¦ÏË|ròE¹ª°ýøZ¤ ¦yé)Í{LÆÔÉ3YÉ:Ô:ÞËå2&#39;ÓÑbòÙÔÒ#çóÃ}NnâKéÓUQkLO ÀÒùM&amp;\´ñ¯u*÷C÷|¦æ ß	KÍjÝf:Óùüi:y7Lq§2L÷ùªhaê_ÔÐªÔ0¡×Èè¨1Õ? &amp;ïPö6tþFfA©´&lt;ìÖ-àÈc¢09 ÀØQ±/ -DtÁ Þ&lt;{LÀ5¢É¹·Ð&#39;q1)ÔèxËHeÙ¿nNÚ±H&gt;=°¯  k³g9rbÙ&amp;&#39;«
+   9oOõø]$ð¾0y»êÄµÜ
+ |îá¼½Èá¢}ye=ýRøry2Qºé;üWÞ÷#Óù»©ÏÒ0Q]§û¬wÐöMcF!|þuç%{áÓÜSÎ¼äÍ}¿rHªÈêkÇLVtäZç×¹_ïÓ¼®B$°4$PP¬kæÁkï¾jvL«)Å ½ïwqÌ4}­ÂyÓ®_X0s²·ÚvBçs£w÷ý³½LBÉpÓGotY)Êdó}`r*týÕåÌôc5;²ÿkMØ@÷Ëðn¦È*­YÉC©øZÈéÇ¢c5eb°êiÿ}¥®ÈâË¹9ë©VÉ}ËÑEgÕLÎæ2Ö4Õoyªå ù}Ìgè¨®-½5GÍ\;8érµWfj[ÅÊ&#39;  æuC_ÇßRÉã.¾ðè&gt;oõÙàu¹N{g6ÒN^í_Ý´ï}-ý÷åÔC¦ªiè;êGÓcâè¼;yO²Nw%YEíðmôeL%ñ5y3,.jãñäó·1iEô½¶ºIfsuUr
+æç,vBT­:KÇÍY*(ÿ^t{Ú´)mf ÿxf6û=ÿy¼ÒÓPìâÁçñ=LÍ&lt;^Ms¾ú!C÷äÃ4Ý¢×Ó&#39;VM9½Yõ-é¢Rs²« @Ì$ ×ó§¸§ë%ùUÓÝk(hþÃY²û§¬èâüÈÖ?ûw¥¸`úÙ ¬u²G¬Uþ$Ò§
+Ô	±xgA aD¥ó &gt;º¼±ÅZéçò(5Ý&#39;ØV#¥Zé-æÖ&amp;y-½Ëôã¼±  ïUÕ,­Zð5   ñÑ¡ÔöðÞ&gt;SíËM]éö&gt;..Â¥-c&quot;kÎíx|·Én.õÒà¥%Ï?|ëÅ5òU·Nô4lþÿê·×ÖûbÍ±Hq¬s¡&gt;/·u·®§ôÞ&lt;´ûçJ; îiW¢u² ýS&#39;¿§I ³´î|z¦yèd]Ã×²&quot;Ð7èkmö~Õá;ÚZFßðGùXùUûúr¸~2KP»¦^j(Û,ìÉb?Õ9ôd	¸ödBBô@6×í!É³B¥ *ù$¼ ! Ð:ó §èvÇº8É%V) fP0ÿÙdÀjV¥Ð
+b ` v`À OggS  À|?     m½%  ÏOÐ²ÿRÿJÿdÿWÿRÿOÿJÿPÿPÿGÿAÿ@ÿO&gt;ºÜ¶¦ÆÖAiiòÒKD6%-©ÑqÛ=_kK_ ÎïwÀ+gXv¨|  `3æ\ì1öÖÕÏ;d2Þ½»º^ä Ë]HQÝéã§ÚIcñA+ç7A?|ùÕ
+6cuSîÍ Ø$¿ÖÝuwñÕ4CÀÊ·¾ÝAèê}Xß9¢î}WõÍöP }xö©hìû®3dV¼ú?DBUÃðyÿIJÖ°Ù¿°Tåu0@ÄP$ct
+sÆáTV¼aÚ&amp;ÙmoÔv²
+ºùCUOÕôàGRw.qdªY(£Çä´DE8À+§ïjªP_kO¿C¥W&amp;±:AÍ $`-L´N}L8°Ún¬$P(p#æKÈ7¶Íâj3£lux
+¢ Û ö^ þÉÜkI«I«Îq¨1]n[Kó&amp;ôÅL7yéùÄâ l¸4PôÄÇ ulåT,Ø¦J   ÁÐâx8²yit_åçS±¯÷þ&gt;²÷F]Nv~Ô®îv¡j´Ó©!(mqo÷ÞøtñRþ ¯kÍÌs¿ìÂãÙ¼ÐXÂvÓû¨$©D,h¹DÏ	Äw¾*#æß\_±5¬nWPº ê¬ßµß3êßÎìÐ°e¨Y¾×oªk&#39;È*¡º´ÍÖP¦JÜ 5½¬ªw9!þï]ý&lt;$TM¢ª¦©rI¡ññõlú)9ûêTY0¦&gt;W¤ÈÈ2Y¶cL4mL  àü=4âæHäÍ&quot;§9c¢á%66Hs _tÔ³ÀyzÇà ¹ÜÆ.qéôLè&amp;ó¨5ªKYm½a¥Ñ2&quot;Ï÷E?ÝJ§:ò@8¶o  Eà,Pdlì+&#39;%­¦^   âä^ÏwpÎoge]!ï¬Ò~nÞ cEæ;ävîìÂ_HÝ[¾É9S&gt;½´þëë]²séðÿÉ?Pæ=Va6Õµ{&gt;ÎuûD²ÜpØ¥¹¸Gx/^m¿[uÆåÊÌ¹ùËO±Û=lFæ8QôWXçãéÌ5¤;ë¿Ü^ëåT³
+Rª\Øôª2Þ[ûjmæB(OA÷éªð Ûµ?«huþKÖä@ÎLÑ&amp;ËSUOW@l ylÑ¡]d_]H3mÞÆKzÉlE¬·*8ðmHS8ÍÀrY - ê§$.H$äÓ% ÁE«Wèd­Éop	5 ~©ÜMI±ìE55¥Ë±öàBX¬©)}ssÙjú¬ufù1µ-} 8ûH[Usebª¾  ÔßÞ®}îwg¨}»¬¯_¼Îÿ^­ÜSÞf;­ìTÑB|ïüÍ)ð}Ý3QR;ÿ5ÁtoÕüÖä¾PÍ¥½²¬&#39;¥ìOG&amp;{2j&amp;ÿT÷!~ö­ËvTpýµ¿ÖÐïù¸µBi 7¸]§UÙÀl.{ÃÆI&lt;ÉlöT­ëÕ7&gt;©1/õlyÛ¯=dn&quot;Z¨h9ÓI÷ýªh&#39;11-T¤?÷õÔÄvÂ¶Eÿ ìvã¬¤³)ºÛ½4p»¿¨$s&gt;çj5ÖÓ |§ 8ýô´HuÐW34Z,ïÔ1ÀXm²û? rk	¬¾# |êâ:÷   ÌNìqH ¾©ÜÖÁ2aÊcé!&amp;Hi5S£ãMq`µ¿ìe5¢:Oé+ Àq»õ$ Q[M¶*§RI«   ¹wo÷0+öæK?Ô[ÃßmÚtÛÖðõ Ýï&amp;çõåûW,2A½6å	Ø}õz;÷ìL°£«3¯âé&quot;¢6Îßìøáÿ#fìa¡&amp;fÚïÃdµõõ¿þÚàßÛ ¸ÑÛy&quot;$fð6µUÊ¦(Çx¡©û¥ÙûéÍÛÏé÷]Ôqq)`îÇ¢zf2¿0+äm&amp;ÜL10Cz¬ÞR&gt;âýEC^ÂÂÏuZOSSÜMÓ¦8 ¾dx{),ø5h@!`Å2ç´Csi.¢Ob.´í@¼Æ °üÕ§î{46 ~É&lt;JIqh¨W@¡Ë[/)1ñ,N$\ã%&lt;vtw³àK Ë ¹Ö\·XeSP&gt;®  Ð}Ò`ÆíÜ·ÞñåR  .z¡_|Ò~õöoøùºò&lt;é©-4u19û¾¶Ï¯×²r þh ½PQZêÿ÷ù»½©:MRíIo&amp;Óg&#39;äõ?ÿ.Þ&gt;Sº(&amp;ó¦IÆò»bpÃL];(x|ãfké/jôû
+à¢ÐÎ®3ä°ß©±?M¤T¸j»w¡2+yÏr2CÁ4]U`ÕYYßf-ZÑÐóénAæjìô6¹å}âaród5@V9*Ç PSÓdjo°A©~ÓÐ0Þ  &lt;ù¬B&lt;.É1h.½q±4z¹Ü§Äl1SCW&amp;ó¨%Åj¾euíN2&quot;¼	_ ïõ´@­UcTbS£ò¸
+   fæêEÏNú,´~Äø¨í~ÎâcÍ
+oã´þe?óÙÆ?&quot;B®	vBÉöpïõôþõ¢$©çÓSç×U3ÛP_;lMOÄÌ·=06É\DHí\zIE½¼}Ï}C#çB3¨[»EtÊ¡«ÿ;Èçé³ ®8ÜÙOJÐ&#39;áíëk]DæäZÙ¼Ê¦)3LÎ½
+±ÛöH¹(§Êc òý¢äz§BðÏPÍ±&amp;Ã6JÊõ¬Ým)NqJgÎL*êIµJø$ ¢ë3 ³ qTuzÚ¤¤0ÉWô¢®Aj¹òí%«¬-¡CWÆ;\:És#Þ¨¬µ`&gt;2óÔOô%kp¼ÃçFóÈåO`	¯:CwæÇõM ÆZ¹YaY:Jø¸
+  ðópÿHÖ?ÕMÓü2Lî.½\üu¥ù¬®aÕVûæ$&lt;¿cÕKYål&lt;¡ú³y×§&gt;Úf^$Ìô.qw¡ëÉ}2ÉK¯/z÷ËÒîjÚÍÆIåÕtñê_²×dÛÍT_§ÐïÍ35}òÏÀ Ýfê¿¢ &#39;5µ_·k%ùg³ô©tñÃ¨V¯1;OO]5P/QÐPS³`2;÷¨îÊeª3_ÐºgÇ½RÓ­vHz°âi4]½5Ä»®NýXÒû[ÎEß®Û²ø. øà·±Vy&amp;¡2XÀ8yÇËP=ªú(´:äè¡v¦µ»` Wæ|þ¨Zz%jD=ÕÀ,P£ãêîìk¿e9Õ¯  &#39;}`¬Ul³©eÔ  01s¥qßK|^y±]ÌÃÞrÍkÓSù XNg|Î¥aé;+R)JdrSlléî4Ï=fÙS².ÿÂixâòÀkO³r}1ÛÔ¿!»¦§÷&amp;µªÈ/7¢|¸{ÿÏ&gt;×K·ÿ¼{
+Ý^)O½ÐÈw7Óý£êRçy7ï\ÐöU~ÆÏ½Ui¬úÑôÉK9PÏ¹×ÎK:ÐO ÝoåZr!VfÁëÚ°ÒI? Ý1Å8¥jÚÆà3c3í4@I¤£,ÖbR¾$ §À} XÂP÷Jf¤ß07+¡ä1¸[«iû´õxDíµC@A þwnD¾¹Ü)Î¢G¯Dé¥rkÐ	XÌÔè¸µlÅõäõ0ã5Esu®ÏYçPÕ2§a×   $5¹åxpøÅ·?¹Xú_L¢«ñãä9¾³æµ´¹-lé/gÝùøé  tN¬s¸,Yµr®pú³¯Çõ2¦jpÏ&amp;Ðõw¬;/?s­êfXpPû ¹.º×ôÏË  :^E«ë!ªpúeAEJ¡×¤_«8VQ²· ¼kwZ7V²¦\&lt;ÿ?¾ª=üID×Åê+ôò¿ÒTUBI²º`Ú	`A´(ZÚÕ?G;d¸^bTZE*|Ú=³kj&lt;&gt;©ÛÄª4 ýÊC¦êÍÒ[E¹øauUqE¼ FÁøD¡e0 ~¹&lt;[	¾@×P3Í\^j0°@M[o´=|y¯&#39;IÎ¹ ÖÚr*¦ª:W  H6g§«ç÷¡?G×ü¿äWÚÙüiðÙªú2[ç8ÃéPÿÜÉ4OìÖ¿ÃfKú*?·%fßÎá)¯ÑnOvªë¬oµ¡/Z]¾*¢êârZÌ&gt;±õÚ&lt;~~¹&#39;­¨\¹¨n û¦çøyh ¸Sà3h$År²MK@n-Ó»FJÌMG&lt;qVMMQd1ÜQmÖ2&lt;ÕÄ&lt;ÇYàBMzJß(­]©ÄðÞþÈ@ÛÕ`Ö
+H
+´¥d
+I%Xq1T$+QµÔ¨0z&lt;a¡æ#B!ýÊµ%sïx6ks¬czp«;îgMrÝ!èÊh þ¨\R	º¨Ôj¦Ë¥ÔÔJß^±¶7ú.àtÇ¯ã3fXN{f¶*1  l÷Ý,&#39;¹ÂþÍ¾{?osºÆ0¾^ËÖ.~¡ÿ¼&#39;6Óý¯¹_!Þµ=ú%*¼töRâmmOÏ?9ê¾ªÍZ¬.6¨_åtnâÉvóí³jLxEi	¯ú=¨&#39;IjÞfÅíMÝ.4ùÑxª&amp;õ&lt;Þ8jtÝ
+Smô+Nh`Ñ &lt;¤*Úv-X3-u­ßMQX#w,©¦ gv-ÀÊ jCU&amp;µñ¼£eá¤$¢Ú¹{ ÕAûXE;¸qï^¬³&lt;¿coÍ×³³äÔA\bZ! ¾]bAÔCÉä4Õ$½y×àø DÀXW6Üý PrÀºUy°Å²&lt;®  pAîåEÌ¹9/xMv7£½É{opéÆ®/ï½{ßºvoz§Jîößä~&#39;Ò2)Øö¦ÿ¾xiïÏ9&amp;®.jÚ÷Ypf]6pXa8õSÂ½Jdgpu1s7~oùÓËùWp³VwWdVÄÀãvÙ ê¡x{¨z!©Zö©Ê&lt;sü«Ïö2çíMÈTeÉ¬dC¿¿¥&quot;Ê#ÈÜ zwÄí6	k:Î¤&amp;¦óté¦©&amp;Ààªñ¢,H¤S (Å:cÌdP.Â&amp;1é¸qÊÁ 0âBZ%gîXJzdN±íÄG2/º6µè6TuCâ¶äoÖÿF*jÃ
+/ù(OggS  `      ¥c9[£  ßâ9&amp;Yÿqÿÿÿÿ.ÿÿÑì&lt;ÿk¯ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿî~KsðU~ ïÎÅýç²¿Çáâ!/iL@ÌàÍf·1Àî~KðÊvükñ¾GáüÇà,?V¿gà ü½_ÝëËð=Gà~Èà&gt;GFÉàö}NO±Ô  6±bö(ð;Âà0¤%Xð}/Ã!øgµø.?·àóÃð
+Hà$üßKðÕ~¯Æ­¯cð8GàtúùB|¡Ûð¿ÂÏÀâtùGÊíøÍ8ú/àüþäß©ÑàäöÊ}&amp;#ô{4_gb¯ì§³ê}&gt;GGÌüÓËó:=Ñàýz&gt;&#39;³¡&gt;iôÙÉõ§è&#39;B³òaüà
+øºªSGhI_|ü&quot;$x%íáö;¤Õ¼;`T}@ â|z{ò5x~|=½½í@´À5BQyÞÅûÃãÀ0
+ðcÎòdõ¶ÆìðJÌ·vY»n
+Bq?Ña¢0ñ~(ã³ÆÀÓÀQþaÂa%ÿEBµ¨ F/&lt;-¸YY&gt;É÷x_Lsîú1æyýÖ³,;³I_÷ÃmS8í_MÛ¹Ü^ò~¯Ãø	¿§à(íø	¸¼×àä~J¢OÀÓð~ð~/wà? ·ÂÀøOÂGà(?7à6ü.ó¾±Ãä
+~Èø¿#Iñ#æT}ÀX|ÏÀuð¨¥ô#è©ø&lt;½-µË+å}úGÐíAèàü÷&lt;Éó)È}Ñæp|&lt;üaàèÀ¡ð=4ÓTèù)ô)ó&gt;gÉàÓ§¢Ùü0ü½4ü/&#39;¶{= p|àø	èO&quot;1èAåöxüéû_µöiÙø|BøæýO÷3æaNgÀÕúÜ&amp;àýöü\&gt;ªÿ°àb|ìNãä¯gêiJ|©ô4øÕ ¯{xÅ à*UUjQ¤z±ü$b!¾NNz&gt;Ð
+ñÅ½ÞFN!èçÀ/8 Ø]zß¸Hæ0j  c Ç¨b8]ø]ë ÐWª&amp;   03ÃÜOÏà&#39;½Á{ÞA ·÷°Hýìeæ?`øÞ#Ä~^    
+àHh{{âßÁ^ø|{||*_ WÀZ ÀG|x½Äðÿ þðöø&gt;%þ0G÷Ã ³àï`&#39;´¿¤&lt;?¼y0þ÷ÞlÍwxÉ\Çuüác¼lí¢Å³ôiíe¬EÁ³eKaaB1«(f[×ðÈECN±0ìfÊpP3QkÀ4aAÂW^âl ,Ýfr3Nä&gt;&lt;d|Mq8¢J=ýf5&quot;²Iy`aÙ&#39;á+ïXÄ¤ÞºÌá¸
+zC0Ã0ÇÁRÀ`0
+~Î¥F80Ãäøb¡*8ñ¦½óOÕO± ÀüÌù&quot;¨&quot;\1øÇüsE+ßWí»³tHÐó¶Íâ×(ãóOíí6ÆÙ·öÉoçü$*Ö¥j$lÜÜÜLÓ·gÑ®EóÃS©wÿ_Ëû)ÿ¬©3Áè¥o5ôxÉ§+GÏuEI4ûoó~þ¶ÀÛ¾ßýø{ßm¯rÓM&quot;ªh{á&amp;O&#39;UjéÆÒ©?²3ÇSòZá¹þ}ÿûmlDçºÓÛÿ
+ü¯ï:%Ã8Õ%ù&gt;+WÜ?
+ßÞräZüZ°ÿ%Ð þq3ÁÏÃõºè°Ç4ìðì¾?¸?8ÿkÙ`\?9ÆÍ®µÇâ-Ç\®Ä0îóÐ÷ÐEÃ}åUÐ¦Ñ
+UR_éu3@¼c.8ã]N¥Ë$Þ¬Ú{¹Çl¯ÆmP[¨4aªpÇ$pò~ÇQø,±øgà°üGà4ül}ïÀ±ø
+¿ûøÁIÀübþÀì}êÎ@ú&#39;Þû_º&gt;V½bçÚùÑô?wÖ&gt;4¿cð»û{;áNO
+{dG7æ}O¨	OGmËô?¯ú0¯ÀN$£ÙÝÒ©¤&lt;	ÙìÓìz=tr§³ÐÁúi§ÉÐSÈ#ÉO¡¯Ä@Ó_ÉÑò:&gt;Ä×îp}$x84¯¶?#ÁÙHr&lt;Ps à
+÷´µ¶¶»m«5@%Ö»÷¿¨&gt;ç(-ýÐEä¯  h6ávN?À] §5éûËá§ø#Àááüyñâ8ãKÛÄ2  ÑTh@Ç·°@ x&gt;ýo KàP(ãÇ hóÀ5B  ðáà±c0á_^ÞÖúH°¬ïê²¿e» ã	Ñ±I01Bôx½ ¡°S0=	3æ#2Ø£QMXo±h4ÐÔDfÂ±«äâðÕNI5cÑ¿E,0ß
+¥òF÷_àEª½1´æ¡&quot;FAÍ&amp;A¦&#39;k´2eZï&gt;RÅx Ê?&lt;©t
+½¿añ»¬¸»ôj	³¶Ïï]Óâ:êuó­GZJA^ À) ¢£ÌñêCÃÔ¥ÅxJ4:wìø;±E½Êl9Î}íCöYW¼´¶¼`ÓÛ)&gt;5p¨8§Àsg¶°Æ¢:³g¬©{.ôLÑ$¯u±W¨½Í2nTº£ÇªÐºW4ÓZqÕ£Mß´GW	à×îì½­ íeã×¢K»ÚÂxçp­Z»Ê^&#39;ãÅá9j{»ã»Àò~bïÀMø»?	Gå¾ûDüa_XoÄ øÄøß3û¸C_o ~H~Ä94ô{¿ÓpÂ¢|Ì&lt;#ÁòH|ÏÉT@r ³p$=à ÃØ!íò0y CÀ¯8^ÄÞhnËR0y6
+Ì;Ö@±ªâ/ýóÝ ÍÄô((¾Õõê¨&#39;´Ï ebJË)4©BG8\Ø¦üxL2}FÉERzcÄtãÙå/HNpì²MiÞzÝ arÀx4Wà6ËÑ¨bh4¯z ò~vïÀi_¶Ûð~oï5ìð|Î¦ ÐàñV4LqÓf©¦êÕùÏÎßöÍ&quot;â}(ò~OÁUøz?¯ÀD~~¯ÀmøCð}~°üUöçà&amp;ùpø]±èüT_[ðT{¿ `ø{ð6z¿ºtCèy&gt;g&lt;ù&gt;&#39;Ðý §O&#39;³êaú;&gt;gd8äpàû0ùÊ{4öWì~d;4ò£â{&lt;Ò&gt;Ég¢Ï@ JYé~øÛ CÀ ØÀ1ýýóËÃÇÄ5 wmCà?È&quot;&#39;ðPÉxëø 
+ |a@;e dÈ®ù]&amp;6«´b^²R¾è 0ð nÚÄÞÌ³¹,Q B¸Kô)LpÎ4Ivg£^fÛÇÚõ)¦ò¥Øxî.ç¾þgÙvëxorR®½Ì{~b°&lt;­&lt;#PG7ª!Lo¨8&lt;,füPÃìø¹B,aúËN?êF·7û&#39;æîlF~ÇKWú$öÕeµò~bÏÀaø(¿ ·á&amp;üòøb?ãØþñÜÙÁô0ý8w&gt;³ ^ (&#39; l-¾^À@  %óc +ø+ãÿ¬Òõñ½$0·w2Psâ®F$ºÝKRD+;YÂç±1¶k×qeúj®÷q|ow¢&#39;¿2xÚ©È½è ß5ßýÏ&#39;= òOÀÉó5ød&gt;ûø¾°}/ø:?w÷òy4ò|Z|ÏTäÙü&gt;G°çÈXà z@o@/?^­Àdi»ÁÝ&gt;ÔXV( ÿY¥zTðX)¯z3DDô`$kD_1¡£jAWma«8 &lt;üÙ¡ßJï¥þ³ñõ¥æÃË ù0ò~ÑÏÔýèÞÅ ò~(üÔWà8~,óðð~÷ð~
+$Gàüükà/?¿	à:ü6Ûðötz~GÔäùÏgà¢sæ&#39;Ñýòü=y:&gt;î}DÓØ?æ}H}NÙàO&#39;BéØ¸z&gt;Jr~M^à7 0!¥@Bömèìùw¤&gt;ÜÒ#ª=1Ú&#39;øpEpCËÚ¥Áêª;.Çm ò~¾_rÜ~Ï	øµðdÉøµÀ9àü¼¿ÁøÎß$×à9Àù9¿÷âYÏÊHùQ+_/?[ð|ï­øcóò¢&gt;TÊ¯ÁU_ð(~
+¼þÞoo_owì9~\ùwñÏü¹øµ¹Ûß=ß9×£Àot;¾§yèã¾q|ü¿X&gt;#³ëPÓÉö_8ô=«Ú½«Ú½«Ú½«Ú½«Ú½ª&gt;B|ÏùÑÉåÙìú¸þË&#39;4çyæÆ&gt;Ïo8ô|0óæ9Î&lt;óÏ&lt;óÈr³äb}Î¡yð/póËõD{ùÇaàò6tÑsÑúÎyçyçq°!kUn³lí«UõTnâ09CÎÞ»ªùULw~ñÛ»»ÿs¼ÍÂ©¿UTÞîss³½ÎÕ_*ªv;Ý¸æOª©læíîíîçwnvkU_U-~æw¸Üýåª¨Ûsgg7÷g66í´ÝRÓk[m¾³äû1ÖzÇÚ8Fñ¬8!3AØ&lt;pîCøñö~GË|¯Óò~ÇÈó^cíÎ±*ðËªC da¨qcÄ:2òËÉ{%ð}#àÿâøû^ãÔw¯UÞ=_Ä|ßç&lt;çyÞ5ã[çXÅk^qEæÑ)
+Â¬ &quot;ì¬XJÊnaf¡¨òcÙ&gt;øþ]ø£ùUý ñö?Góã´tÒ7çxëÆ±g9FV1Æ1XÆ-)$8&quot;P¸T1Ä6CpÔtÌ9èC²{º} öù7·?ñþ ¯ñö&gt;Gé£xãGÚ5ãXÎ0Ê&quot;¡` \*
+Ã Ä4ÃPÜ92âÃ°w¥à:°ôÐ|áüÿcì{±ò&lt;ÇXåcq1´qãHÎ5ãÂ-E¢BTA aP¸P.VC`Ü9PîÀvað=°þãì|1Þ&lt;Çxó#¤tQ¼kFQ¬cÅ£´^$B¸Á¸T1K`àCtAÐ:pêCØ}àãü~ú=ÏëFÑ´mÆ±iÅ¢B&quot;á@¸T.áÄ9æ^Cøh &#39;²%RøÙ,âFøwGa=õ#K4$F®»º;îxsÐp¥É ·HÁ¾Â\FãßÃÙÁRÓX¨Ùå8¦@R¢µ,Öûß±$³ÈñáIQeÆðû:F¨ô¹t¬H$(}yd®LN`2xÙstÖ/Á×{­qL6Wr/wNÍü ÿ*z¢PLÚ&gt; ÀKÅÇïÏ·¹VL&quot;ý#£ µ¤0#jA ~ÛýÏ¾T&lt;#9+Ú­¨ØB XP zÄH9H :Gk]«B¢+ßôÆyXÑA¯ãÖµÍ¢bx &lt;1kõýQ±¿ÞÀThTa_ï ÀÌï\H°@%­	Góß#&lt;/Lð·L¨´LÊ¡i è|@·` ëÀ°úb@N`&amp;@M`&amp;»jÓóêXÿxÖLþÖ6FþîûéQò+úéÆÐ!Ý(îk5ñKÞòïç&#39;ù´VíìwmåF?Õ\ñßÝé7é*þ6B!EùMöZ@	½®fpòÀ{E­b9b5 æ(Ìbj[Z&amp;lyëdüõ#Qy9;þ¸ðð&#39;ºûêîiï:[$û;&quot;_£:+ ¸xÂöRÏÚU2ñÔ;ÊËÉò?è\;þ¨ét¥°\ÍwwD_ÙÑõ`}v^ J&amp;@`	ëQÖÖyóÕ¤å²Þ´Ú&amp;¡Dò&amp;íþ	æ¬O¬o÷\{ÀµoQº~dzJ;ÇnòmER}7Ò_êßAZ27}Çìv&lt;÷íD?]{ÊÉXíd®ÌÆÎJñüÏ6©¤ÆÌ° Z M( °( 8 æl&amp;äèA%LLÜM +JÀ¦Ñl 2ôËQo£»qÜKº7ýñ³IõZænÁÿÆßô ªû®FÃâ`gî0Ækz¦Ü6%ýÙÃümÿT)âXýó÷·ÍäÌqÕ  I@  ªÔ %L¢yªµMY&amp;DÄÌë5`£&amp;zQ=y³: ÀHó)±å¿ÓÙ*é4³Ùåd¬ÿ¢]ßÛçoÎöø¯#aüÊçÑ¢·*%ûÅÿ¾£&#39;î.É¢ÿV3f_ôüð±¢ºIò Fkf -JÌøB ¡ QphN HXVônNIg&lt;õ Ú2tÒ¤Òô¿ðýþ¤&quot;½rÎò~æ[ª#ó)0íf}ãÌR+?òÈç.+Q %&#39;¯É% Pç P¬T%iªJÀHH RÑs7&lt;òÞ ÑÊ?î+¿ýõasÓùE6kPbÔ,I bÂ FEbüÄi§ÚC^ºð~SRôjG³Ôw~bî®àÄ}*&lt;&gt;9&#39;æöiKÛ  Jà%cr2Ô×ÒN7ëæ¨×Þá
+²7Kã~¿¥rS¼x¤JW Ç4QÇi¥&gt;·ZîW7J &quot;Åª#èuep,q?Û×Þ7ÉcxGF8þO
+J:Q£RxØßq ÓÍséªi¦RCL5ólmh¸\» ö¾fÞºx$Õãñ@sÁø	yhLÜV«$Ä_[¬|«õ·ß¥uo-6OJUQ/9¤ãúößì¨V
+÷1uð,yÍW¯®&quot;àôØÿ[ÿY´ZgþVSÒ³jûfôÖ¤ôR=êIÌýÆ«Öô×Çö«¾5ð·øðTsèV+)´¬$4:Î§ûô|uÃ1øñ|_ì¹÷ÿRdÇÝÿè¤£tùí*ù»±CoM¹gÉJ&#39;ïZÿFÀØ2¨ÄýàqÎ8ß1òæ&gt;úés«Hµnôcv±5hÄùF&amp;Â15¨ÛsjZÜÖ0Ù³Âóuæ&gt;X¼%G¯ÏÙ]5µsTF!f#ND¯th1IF7&quot;1¹Õ#²¨ÌÄbh#ÈÄÅ×¯-~ëe.ÏåtßjMM?jÐ
+å)Ý%¿;gÑfPÝúòZ³òmÎÔåZ¸ÉHêÌ6 ç=1Û¨ÆÖF6ÆcqÕ£ùÄsF%vÆÂ úzZõ`8/£bGË{ÌJÍîüSM4Ûe1ô[veÅþL+Ê+?¶¬¬EÀ&#39;«ÆØF6Ú1¶ämº£1ÈÄmF#1¦Á±lJ&amp;­»oÅ;1u`ËkGSæauX&#39;;Ål(ÊÜÂ&amp;×ÝËìÐ&gt;_Ç¥WA)ËÜød(#{`&lt;ì5£MÌÜÑiDi¨ÆËª8H¤b*£{jñ1hÜ&lt;ÈÙÄÔâ~ú«½nKÛD&amp;ó$×óù&lt;Á_ãçî~äÇO´&amp;LknYÔú)¡0Å°l yuÉ4cj£ÓöÄ#¶¨(ÄF#1=TÕÿÔlÑc³Ïê³Ôewg8Z±è®¯QôÎH,îk dmgJm 2ÂEt¯ åj kWJëëùHõV¤b¡°n¤cs£F7ePp£ÙÄóÔâqËQédÉÉ«ldáE2ÿ¬aåñ»6$cwnÚ²CÌ?ÆÅp²!qR¯ÙMWÛF^Tbtc£Z7Z¹ÕGÉ&amp;Iöã y¾_&amp;3ÄDF&quot;21Q¹£wF&quot;UiÏ3&amp;aæØc#	ÀºÑl¾[  .,Ó±Äb#AÑ)æ=®ÑÃñ1M~N×9}º×¨ïtRO*Tì	èÞQD´bËÎA¢kmº1¹ç«û´]ôF&quot;U&#39;=fÃõ¡è«iÔ5ïÿ0AH]&quot;É¤åÏbüûo·IR
+)IªSÕ\&quot;õûyØ¦dÖßª³÷*áïñ[òÉð;Çy?Å¹fßÃT³±ÕhÒö?6 Oòlëü)yþ}¶vx|äm^m±{ylêCüü
+³`Pp¶G$ ý(á&amp;_GøO¢ÒKð®%½^¾ ?Ú=ý$JÛ¹zLxb¨S¡Mþd;«ví¢Yï8^&quot;fCîbÉÍTÎ&amp;°múhÒÿ¼¥ I?ÀßÄðHäØ´IPÞÒØVcB(dµÛ%ÒÌÍkj»8mA&quot;áá¹%fv±+ÎþÖ(âüYø«;Bõ3p´
+WëÐsZý*tí çyÿÆðeü?£?&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/">http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/540.html">540</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10099/">10099</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="90003"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Sub Resource Integrity Attribute Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&quot; rel=&quot;stylesheet&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&quot; rel=&quot;stylesheet&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&quot; rel=&quot;stylesheet&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">9</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Provide a valid integrity attribute to the tag.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10003"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Vulnerable JS Library</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The identified library bootstrap, version 4.0.0 is vulnerable.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/bootstrap.min.js">https://www.mutationsdutravail.com/js/bootstrap.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">* Bootstrap v4.0.0</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/jquery.min.js">https://www.mutationsdutravail.com/js/jquery.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/*! jQuery v1.11.1</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Please upgrade to the latest version of bootstrap.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://github.com/twbs/bootstrap/issues/28236">https://github.com/twbs/bootstrap/issues/28236</a>
+							<br />
+						
+							<a href="https://github.com/twbs/bootstrap/issues/20184">https://github.com/twbs/bootstrap/issues/20184</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10003/">10003</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10017"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cross-Domain JavaScript Source File Inclusion</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The page includes one or more script files from a third-party domain.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://platform.twitter.com/widgets.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.googletagmanager.com/gtag/js?id=UA-6559532-13</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.google.com/recaptcha/api.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.googletagmanager.com/gtag/js?id=UA-6559532-13</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://platform.twitter.com/widgets.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.googletagmanager.com/gtag/js?id=UA-6559532-13</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.google.com/recaptcha/api.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.googletagmanager.com/gtag/js?id=UA-6559532-13</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.google.com/recaptcha/api.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://www.googletagmanager.com/gtag/js?id=UA-6559532-13</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=UA-6559532-13&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">10</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure JavaScript source files are loaded from only trusted sources, and the sources can&#39;t be controlled by end users of the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10017/">10017</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10110"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Dangerous JS Functions</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A dangerous JS function seems to be in use that would leave the site vulnerable.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/jquery.min.js">https://www.mutationsdutravail.com/js/jquery.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>See the references for security advice on the use of these functions.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://angular.io/guide/security">https://angular.io/guide/security</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/749.html">749</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10110/">10110</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10063"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Permissions Policy Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/cookiechoices.js">https://www.mutationsdutravail.com/js/cookiechoices.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/updates/2018/06/feature-policy">https://developers.google.com/web/updates/2018/06/feature-policy</a>
+							<br />
+						
+							<a href="https://scotthelme.co.uk/a-new-security-header-feature-policy/">https://scotthelme.co.uk/a-new-security-header-feature-policy/</a>
+							<br />
+						
+							<a href="https://w3c.github.io/webappsec-feature-policy/">https://w3c.github.io/webappsec-feature-policy/</a>
+							<br />
+						
+							<a href="https://www.smashingmagazine.com/2018/12/feature-policy/">https://www.smashingmagazine.com/2018/12/feature-policy/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10063/">10063</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10037"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Server Leaks Information via &quot;X-Powered-By&quot; HTTP Response Header Field(s)</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The web/application server is leaking information via one or more &quot;X-Powered-By&quot; HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.0</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.0</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/rectoverso/epub/">https://www.mutationsdutravail.com/rectoverso/epub/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.0</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.0</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.0</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">5</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to suppress &quot;X-Powered-By&quot; headers.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx">http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</a>
+							<br />
+						
+							<a href="http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html">http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10037/">10037</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10035"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Strict-Transport-Security Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png">https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/robots.txt">https://www.mutationsdutravail.com/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/sitemap.xml">https://www.mutationsdutravail.com/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							<br />
+						
+							<a href="http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a>
+							<br />
+						
+							<a href="http://caniuse.com/stricttransportsecurity">http://caniuse.com/stricttransportsecurity</a>
+							<br />
+						
+							<a href="http://tools.ietf.org/html/rfc6797">http://tools.ietf.org/html/rfc6797</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/319.html">319</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10035/">10035</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10021"></a>
+						<div>Low</div></th>
+					<th class="risk-1">X-Content-Type-Options Header Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png">https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/robots.txt">https://www.mutationsdutravail.com/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/sitemap.xml">https://www.mutationsdutravail.com/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &#39;nosniff&#39; for all web pages.</div>
+							<br />
+						
+							<div>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10021/">10021</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10094"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Base64 Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">6LcEEksUAAAAAGWaOtowgDn8DWjGL7hlcD9j32gk</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">6LcEEksUAAAAAGWaOtowgDn8DWjGL7hlcD9j32gk</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/jquery.min.js">https://www.mutationsdutravail.com/js/jquery.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">D27CDB6E-AE6D-11cf-96B8-444553540000</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">AQ+CzIAAkOIA6AAIAAASQAVgXAlAAQAmAAAbAdQAcAeAAAqQAAArgcAdQgbAegmAAQglAAgVgYIAABggASFgdQgNANAAAVQAAAVANANQANANAUAAQAVAAANgNQANgNgBgVQABgVgNgNQgNgMgVAAQgUAAgNAMgAEuCzIAAkOIA7AAIAAASQAUgXAlAAQAmAAAbAdQAbAeAAAqQAAArgbAdQgbAegmAAQglAAgUgYIAABggAF1gdQgNANABAVQgBAVANANQANANAVAAQAUAAANgNQANgNgBgVQABgVgNgNQgNgMgUAAQgVAAgNAMgEAlkAA9IAygdQAIAXAZAAQAVAAAAgMQAAgGgPgFIghgKQgvgRAAgmQAAgeAWgRQAWgQAfAAQAzAAAZApIgyAbQgJgRgRAAQgQAAAAALQAAAHAPAEIAhAJQAwAPgBAqQABAggZARQgWAPgiAAQg9AAgWgugEAisABNQgdgcAAgsQAAgrAcgdQAegdAtAAQAqAAAcAdQAcAdAAArQAAANgCAKIiKAAQALAbAkAAQAYAAANgPIAuAbQgdAog3AAQgxAAgdgegEAkegAOQgHgfghAAQgiAAgIAfIBSAAIAAAAgAYhBNQgdgdAAgrQAAgrAdgdQAegdArAAQAdAAAXANQAXAOANAWIgzAeQgLgWgbAAQgSAAgMAMQgNANAAATQAAAUANAMQAMANASAAQAcAAAKgWIAzAdQgNAXgXANQgXAOgdAAQgrAAgegegAVCBNQgdgcAAgsQABgrAcgdQAdgdAuAAQAqAAAbAdQAcAdAAArQAAANgCAKIiJAAQAKAbAkAAQAYAAANgPIAvAbQgdAog3AAQgxAAgegegAW1gOQgIgfghAAQgjAAgHAfIBTAAIAAAAgAN8A9IAygdQAIAXAZAAQAUAAAAgMQAAgGgOgFIghgKQgwgRABgmQAAgeAWgRQAVgQAgAAQAzAAAZApIgyAbQgJgRgRAAQgQAAAAALQAAAHAPAEIAhAJQAwAPAAAqQAAAggZARQgWAPgiAAQg+AAgVgugAIzBNQgdgcAAgsQAAgrAcgdQAegdAtAAQArAAAbAdQAcAdAAArQAAAOgDAJIiIAAQAKAbAkAAQAXAAAOgPIAuAbQgcAog4AAQgwAAgegegAKlgOQgIgfghAAQgiAAgHAfIBSAAIAAAAgAiOBNQgdgcAAgsQAAgrAcgdQAdgdAuAAQAqAAAbAdQAcAdAAArQAAALgCAMIiJAAQAKAbAlAAQAXAAAOgPIAtAbQgcAog3AAQgxAAgdgegAgcgOQgIgfghAAQgiAAgIAfIBTAAIAAAAgAnFA9IAzgdQAHAXAaAAQAUAAAAgMQAAgGgPgFIgggKQgwgRAAgmQAAgeAXgRQAVgQAgAAQAYAAATAKQAVALALAUIgxAbQgKgRgQAAQgQAAAAALQgBAHAQAEIAgAJQAwAPAAAqQAAAggYARQgXAPghAAQg+AAgWgugAp8BNQgdgcAAgsQAAgrAcgdQAegdAsAAQArAAAcAdQAbAdABArQgBANgBAKIiKAAQAKAbAlAAQAXAAAOgPIAuAbQgdAog3AAQgxAAgdgegAoKgOQgIgfghAAQgjAAgHAfIBTAAIAAAAgAtOA9IAygdQAIAXAZAAQAUAAAAgMQABgGgQgFIgggKQgvgRAAgmQgBgeAXgRQAVgQAgAAQAYAAAUAKQATALAMAUIgxAbQgJgRgRAAQgQAAAAALQAAAHAPAEIAgAJQAwAPAAAqQAAAggZARQgVAPgiAAQg+AAgVgugAyYBNQgcgcAAgsQgBgrAdgdQAegdAsAAQArAAAcAdQAcAdAAArQAAALgCAMIiKAAQAKAbAlAAQAXAAAOgPIAuAbQgdAog3AAQgxAAgegegAwlgOQgIgfghAAQghAAgJAfIBTAAIAAAAgA48BNQgegdAAgrQAAgqAegeQAegdAqAAQAsAAAdAdQAeAeAAAqQAAArgeAdQgdAegsAAQgqAAgegegA4TgbQgNAMAAAUQAAAUANANQANAMASAAQAUAAANgMQAMgNAAgUQAAgUgMgMQgNgNgUAAQgSAAgNANgEgkhABNQgegdAAgrQAAgqAegeQAegdArAAQAqAAAeAdQAeAeAAAqQAAArgeAdQgeAegqAAQgrAAgegegEgj4gAbQgNAMAAAUQAAAUANANQANAMATAAQATAAANgMQAMgNAAgUQAAgUgMgMQgNgNgTAAQgTAAgNANgEgnpABNQgegdAAgrQAAgqAegeQAdgdAsAAQAcAAAYANQAXAOANAWIgzAeQgKgWgbAAQgUAAgMAMQgMANAAATQAAAUAMAMQAMANAUAAQAbAAAKgWIAzAdQgNAXgXANQgYAOgcAAQgsAAgdgegAb9BaQgVgQAAgqIAAhDIgeAAIAAg4IAeAAIAAglIA7gRIAAA2IAnAAIAAA4IgnAAIAABDQAAAMAKADQAIADAVgBIAAA1IgYABQgkAAgRgNgABcBaQgUgQAAgqIAAhDIggAAIAAg4IAgAAIAAglIA5gRIAAA2IAoAAIAAA4IgoAAIAABDQAAAMAKADQAJADAVgBIAAA1IgZABQgjAAgRgNgA9MBaQgUgQAAgqIAAhDIgfAAIAAg4IAfAAIAAglIA6gRIAAA2IAoAAIAAA4IgoAAIAABDQAAAMAKADQAJADAVgBIAAA1IgZABQgjAAgSgNgEAgCABmIhHjBIBAAAIAoB6IAoh6IBBAAIhIDBgAdrBmIAAjBIA6AAIAADBgAMABmIAAjBIA6AAIAAAjQAFgTARgKQAQgKAUAAIAABCQgWgDgQAJQgUAMAAAZIAABYgAvKBmIAAjBIA5AAIAAAjQAGgTASgKQAPgKAUAAIAABCQgVgDgSAJQgTAMgBAZIAABYgA1CBmIhHjBIBAAAIApB6IAnh6IBBAAIhIDBgA7ZBmIAAjBIA5AAIAAAjQAGgTASgKQAPgKAUAAIAABCQgWgDgRAJQgTAMgBAZIAABYgA/SBmIAAhuQABgRgLgJQgJgJgOAAQgkAAAAAoIAABpIg6AAIAAjBIA6AAIAAASQARgXAnAAQAeAAAUAUQAVAWABAmIAAB2gAdvh2QgKgKAAgPQAAgOAKgKQALgLAOAAQAPAAAKALQAKAKAAAOQAAAPgKAKQgKAKgPAAQgOAAgLgKg</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/videos/rectoverso.ogv">https://www.mutationsdutravail.com/videos/rectoverso.ogv</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Fv11111111111111111111111111111111111111111111111111111111111111111</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">5</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10094/">10094</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10027"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Information Disclosure - Suspicious Comments</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/bootstrap.min.js">https://www.mutationsdutravail.com/js/bootstrap.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">from</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/jquery.min.js">https://www.mutationsdutravail.com/js/jquery.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">db</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/js/jquery.min.js">https://www.mutationsdutravail.com/js/jquery.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">username</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">bug</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/createjs.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">user</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">5</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10027/">10027</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10109"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Modern Web Application</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a class=&quot;active&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a class=&quot;active&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Haut de page&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a class=&quot;active&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;createjs.min.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contribuer.php">https://www.mutationsdutravail.com/phps/contribuer.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">9</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>This is an informational alert and so no changes are required.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10109/">10109</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10015"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Re-examine Cache-control Directives</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/robots.txt">https://www.mutationsdutravail.com/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/sitemap.xml">https://www.mutationsdutravail.com/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/phps/contact.php">https://www.mutationsdutravail.com/phps/contact.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>For secure content, ensure the cache-control HTTP header is set with &quot;no-cache, no-store, must-revalidate&quot;. If an asset should be cached consider setting the directives &quot;public, max-age, immutable&quot;.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching">https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</a>
+							<br />
+						
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</a>
+							<br />
+						
+							<a href="https://grayduck.mn/2021/09/13/cache-control-recommendations/">https://grayduck.mn/2021/09/13/cache-control-recommendations/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/525.html">525</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10015/">10015</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Storable and Cacheable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com">https://www.mutationsdutravail.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/">https://www.mutationsdutravail.com/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contact.html">https://www.mutationsdutravail.com/contact.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/contribuer.html">https://www.mutationsdutravail.com/contribuer.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/index.html">https://www.mutationsdutravail.com/index.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/mentions.html">https://www.mutationsdutravail.com/mentions.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png">https://www.mutationsdutravail.com/recto-verso/OEBPS/images/icon-iphone.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=900</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=900</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml">https://www.mutationsdutravail.com/recto-verso/OEBPS/pages/intro.xhtml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/robots.txt">https://www.mutationsdutravail.com/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/sitemap.xml">https://www.mutationsdutravail.com/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.mutationsdutravail.com/telecharger.html">https://www.mutationsdutravail.com/telecharger.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">12</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</div>
+							<br />
+						
+							<div>Cache-Control: no-cache, no-store, must-revalidate, private</div>
+							<br />
+						
+							<div>Pragma: no-cache</div>
+							<br />
+						
+							<div>Expires: 0</div>
+							<br />
+						
+							<div>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a>
+							<br />
+						
+							<a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
+							<br />
+						
+							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+	
+</body>
+</html>
+
