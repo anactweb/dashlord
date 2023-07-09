@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Wed, 5 Jul 2023 08:40:08",
+	"@generated": "Sun, 9 Jul 2023 03:38:24",
 	"site":[ 
 		{
 			"@name": "https://www.centre.aract.fr",
@@ -355,7 +355,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1563"
+					"sourceid": "1561"
 				},
 				{
 					"pluginid": "90003",
@@ -529,7 +529,34 @@
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p>https://github.com/jquery/jquery.com/issues/162</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "969"
+					"sourceid": "968"
+				},
+				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1866"
 				},
 				{
 					"pluginid": "10017",
@@ -719,7 +746,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "969"
+					"sourceid": "968"
 				},
 				{
 					"pluginid": "10063",
@@ -847,6 +874,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.centre.aract.fr/*/action~*/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: PHP/7.4",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.centre.aract.fr/calendar/action~*/",
 							"method": "GET",
 							"param": "",
@@ -856,22 +891,6 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: PHP/7.4",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~default/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: PHP/7.4",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~http:/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -935,7 +954,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
@@ -1002,6 +1021,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.centre.aract.fr/calendar/action~poster/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
 							"method": "GET",
 							"param": "",
@@ -1042,7 +1069,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
@@ -1069,7 +1096,7 @@
 							"otherinfo": "1672674458, which evaluates to: 2023-01-02 15:47:38"
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1152,14 +1179,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.centre.aract.fr/agenda/action~poster/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://www.centre.aract.fr/agenda/action~posterboard/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -1169,6 +1188,14 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/agenda/action~stream/",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/agenda/action~undefined/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -1217,6 +1244,14 @@
 							"attack": "",
 							"evidence": "fr/wp-content/uploads/2023/07/MCE-e1688394099536-415x250",
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0002\\x0013\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD=\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDy\uFFFDnt"
+						},
+						{
+							"uri": "https://www.centre.aract.fr/*controller=ai1ec_exporter_controller",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "6LdbXZYUAAAAAF_62a9o9xM9mkVQIO_ijHit-g_n",
+							"otherinfo": "\uFFFD[]\uFFFD\\x0014\\x0000\\x0000\\x0000\\x0000_\uFFFD\u066Fh\uFFFD\\x0013=\uFFFDEP \uFFFD\uFFFDx\uFFFD\uFFFD\\x000f\uFFFD"
 						},
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
@@ -1299,7 +1334,7 @@
 							"otherinfo": "\uFFFD[]\uFFFD\\x0014\\x0000\\x0000\\x0000\\x0000_\uFFFD\u066Fh\uFFFD\\x0013=\uFFFDEP \uFFFD\uFFFDx\uFFFD\uFFFD\\x000f\uFFFD"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0002\\x0013\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD=\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDy\uFFFDnt</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1420,7 +1455,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "577"
+					"sourceid": "574"
 				},
 				{
 					"pluginid": "10027",
@@ -1513,7 +1548,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~undefined/",
+							"uri": "https://www.centre.aract.fr/calendar/action~stream/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1521,7 +1556,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='mkd-like-js-extra'>\n/* <![CDATA[ */\nvar mkdLike = {\"ajaxurl\":\"https:\\/\\/www.centre.aract.fr\\/\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~undefined/",
+							"uri": "https://www.centre.aract.fr/calendar/action~stream/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1703,14 +1738,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/agenda/action~poster/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.centre.aract.fr/agenda/action~posterboard/",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1751,7 +1778,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1883,7 +1910,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "167"
+					"sourceid": "165"
 				},
 				{
 					"pluginid": "10031",
@@ -2126,7 +2153,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "655"
+					"sourceid": "673"
 				}
 			]
 		}
