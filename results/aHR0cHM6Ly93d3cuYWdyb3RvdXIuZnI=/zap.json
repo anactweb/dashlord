@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 9 Jul 2023 02:45:41",
+	"@generated": "Tue, 11 Jul 2023 13:27:15",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1041"
+					"sourceid": "1042"
 				},
 				{
 					"pluginid": "10202",
@@ -79,6 +79,22 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						},
 						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
+						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
+						},
+						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -127,7 +143,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -333,22 +349,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "X-Frame-Options",
@@ -357,7 +357,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "11",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
@@ -623,7 +623,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "289"
+					"sourceid": "297"
 				},
 				{
 					"pluginid": "10010",
@@ -636,6 +636,14 @@
 					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -674,15 +682,23 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"method": "POST",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "821"
+					"sourceid": "1110"
 				},
 				{
 					"pluginid": "10054",
@@ -695,6 +711,14 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -733,15 +757,23 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"method": "POST",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "821"
+					"sourceid": "1110"
 				},
 				{
 					"pluginid": "10017",
@@ -875,7 +907,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "280"
+					"sourceid": "292"
 				},
 				{
 					"pluginid": "10063",
@@ -1126,6 +1158,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
@@ -1159,14 +1199,6 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1247,7 +1279,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "957"
+					"sourceid": "955"
 				},
 				{
 					"pluginid": "10021",
@@ -1346,17 +1378,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
@@ -1469,25 +1493,9 @@
 							"attack": "",
 							"evidence": "AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
 							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
-							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
-							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
 						}
 					],
-					"count": "14",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c</p><p>\uFFFD(@q</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1506,21 +1514,37 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where cookie parameters might be controlled. This is called a cookie poisoning attack, and becomes exploitable when an attacker can manipulate the cookie in various ways. In some cases this will not be exploitable, however, allowing URL parameters to set cookie values is generally considered a bug.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
+						},
+						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR",
 							"method": "GET",
 							"param": "wp_lang",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
 						}
 					],
-					"count": "1",
+					"count": "3",
 					"solution": "<p>Do not allow user input to control cookie names and values. If some query string parameters must be set in cookie values, be sure to filter out semicolon's that can serve as name/value pair delimiters.</p>",
-					"otherinfo": "<p>An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).</p><p></p><p>This was identified at:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR</p><p></p><p>User-input was found in the following cookie:</p><p>wp_lang=fr_FR; path=/; secure</p><p></p><p>The user input was:</p><p>wp_lang=fr_FR</p>",
+					"otherinfo": "<p>An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).</p><p></p><p>This was identified at:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR</p><p></p><p>User-input was found in the following cookie:</p><p>wp_lang=fr_FR; path=/; secure</p><p></p><p>The user input was:</p><p>wp_lang=fr_FR</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "837"
+					"sourceid": "1117"
 				},
 				{
 					"pluginid": "10027",
@@ -1565,6 +1589,38 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.agrotour.fr/entreprises/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.agrotour.fr/entreprises/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -1613,7 +1669,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "10",
+					"count": "14",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'></p><p>/* <![CDATA[ */</p><p>var MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1704,7 +1760,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1712,7 +1768,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
+							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1980,30 +2036,6 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [role] attribute \r\n\r\nThe user input found was:\r\nselect_resource=document\r\n\r\nThe user-controlled value was:\r\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nselect_resource=document\r\n\r\nThe user-controlled value was:\r\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers",
-							"method": "GET",
-							"param": "select_thematique",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nselect_thematique=developper-les-competences-des-managers\r\n\r\nThe user-controlled value was:\r\ndevelopper-les-competences-des-managers"
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
 							"method": "GET",
 							"param": "redirect_to",
@@ -2188,13 +2220,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/contact/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nvotre-telephone=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						}
 					],
-					"count": "26",
+					"count": "23",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=developper-les-competences-des-managers</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [div] tag [role] attribute </p><p></p><p>The user input found was:</p><p>select_resource=document</p><p></p><p>The user-controlled value was:</p><p>document</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://www.agrotour.fr/wp/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://www.agrotour.fr/</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "652"
+					"sourceid": "363"
 				}
 			]
 		}
