@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 9 Jul 2023 02:34:03",
+	"@generated": "Tue, 11 Jul 2023 13:17:10",
 	"site":[ 
 		{
 			"@name": "https://normandie.aract.fr",
@@ -34,7 +34,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "818"
+					"sourceid": "839"
 				},
 				{
 					"pluginid": "10202",
@@ -77,23 +77,15 @@
 							"attack": "",
 							"evidence": "<form action=\"/formulaires-2021/formulaire-de-reclamation-des-formations-de-l-aract-normandie.html\" id=\"form\" method=\"post\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ]."
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils/autodiagnostic-chsct---faire-le-point-sur-son-fonctionnement-et-son-action.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/?p=2550&amp;preview=true#usermessage3b\" class=\"cform autodiagnostic-chsct \" enctype=\"multipart/form-data\" id=\"cforms3form\" method=\"post\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"cf3_field_2\" \"cf3_field_4\" \"cf3_field_5-1\" \"cf3_field_5-2\" \"cf3_field_5-3\" \"cf3_field_7\" \"cf_codeerr3\" \"cf_customerr3\" \"cf_failure3\" \"cf_popup3\" \"cf_working3\" \"sendbutton3\" ]."
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "93"
+					"sourceid": "114"
 				},
 				{
 					"pluginid": "10038",
@@ -427,7 +419,7 @@
 					"desc": "<p>The identified library jquery, version 3.3.1 is vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://normandie.aract.fr/js/laboweb.min.64aa1bae737ba60d5ceb8581.js",
+							"uri": "https://normandie.aract.fr/js/laboweb.min.64ad550897727a11887d9972.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -441,7 +433,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "855"
+					"sourceid": "867"
 				},
 				{
 					"pluginid": "10011",
@@ -775,7 +767,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://normandie.aract.fr/js/laboweb.min.64aa1bae737ba60d5ceb8581.js",
+							"uri": "https://normandie.aract.fr/js/laboweb.min.64ad550897727a11887d9972.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -789,7 +781,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "855"
+					"sourceid": "867"
 				},
 				{
 					"pluginid": "10063",
@@ -923,7 +915,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "447"
+					"sourceid": "471"
 				},
 				{
 					"pluginid": "10037",
@@ -1257,6 +1249,22 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1479478846",
+							"otherinfo": "1479478846, which evaluates to: 2016-11-18 14:20:46"
+						},
+						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1672533315",
+							"otherinfo": "1672533315, which evaluates to: 2023-01-01 00:35:15"
+						},
+						{
 							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract.html",
 							"method": "GET",
 							"param": "",
@@ -1393,13 +1401,13 @@
 							"otherinfo": "1647884647, which evaluates to: 2022-03-21 17:44:07"
 						}
 					],
-					"count": "17",
+					"count": "19",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1483388376, which evaluates to: 2017-01-02 20:19:36</p>",
+					"otherinfo": "<p>1479478846, which evaluates to: 2016-11-18 14:20:46</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "95"
+					"sourceid": "88"
 				},
 				{
 					"pluginid": "10021",
@@ -1523,105 +1531,105 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3AUqrPiSjHW3UUIPFHtGbSLYRvAShlYZmp",
+							"otherinfo": "\uFFFD\\x0005*\uFFFD\uFFFD\uFFFD\uFFFDu\uFFFDQB\\x000f\\x0014{Fm\"\uFFFDF\uFFFD\\x0012\uFFFDV\\x0019\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AgXBKgOwxqZSKNXmAsrnX_O7OZKNpMdEU",
-							"otherinfo": "\uFFFD\\x0008\\x0017\\x0004\uFFFD\\x000e\uFFFD\\x001a\uFFFDH\uFFFDW\uFFFD\\x000b+\uFFFD\uFFFD\uFFFD\uFFFDJ6\uFFFD\\x001d\\x0011"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/contactez-nous.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/espace-collaboratif.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-anact.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-aract-normandie.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/s-inscrire-a-la-newsletter.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AD1XlkejyUipYDtsn4FZJajm1pTpF8_6d",
-							"otherinfo": "\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD"
+							"evidence": "3A75dJkl8IRcJBkw7XbCxK7yuqJxO1tems",
+							"otherinfo": "\uFFFD\\x000e\uFFFDt\uFFFD%\uFFFD\uFFFD\\$\\x00190\uFFFDv\uFFFD\u012E\uFFFDq;[^\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AjNq3aXR_9ryaG3UCZT6g6Xzwg1bam7_i",
-							"otherinfo": "\uFFFD\\x0008\u036Bv\uFFFDG\uFFFDk\u0261\uFFFDP&S\uFFFD\\x000e\uFFFD\uFFFD\\x00085m\uFFFD\uFFFD\uFFFD"
+							"evidence": "3Ai_WctygdZj68w_-Po7EJeDh_C3czQf4f",
+							"otherinfo": "\uFFFD\\x0008\uFFFDY\uFFFDr\uFFFD\uFFFDc\uFFFD\uFFFD?\uFFFD\uFFFD;\\x0010\uFFFD\uFFFD\uFFFD\uFFFDs4\\x001f\uFFFD"
 						},
 						{
 							"uri": "https://normandie.aract.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AS4AH7dt0zTLtdekvaePVTumQXwiZNfQf",
-							"otherinfo": "\uFFFD\\x0004\uFFFD\\x0000~\u0777L\uFFFD.\uFFFD^\uFFFD\uFFFD\uFFFD=T\uFFFD\\x0005\uFFFD\uFFFD\uFFFD_A"
+							"evidence": "3A5FtqPOrKvd1SvLV46PjibYGHU06zGCtw",
+							"otherinfo": "\uFFFD\\x000eE\uFFFD\uFFFD\u03AC\uFFFD\uFFFD\uFFFD+\uFFFDW\uFFFD\uFFFD\uFFFD&\uFFFD\\x0018u4\uFFFD1\uFFFD\uFFFD"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\\x0000\uFFFD^Y\\x001e\uFFFD%\"\uFFFD\uFFFD\uFFFD~\\x0005d\uFFFD\uFFFD\uFFFDZS\uFFFD_?\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\\x0005*\uFFFD\uFFFD\uFFFD\uFFFDu\uFFFDQB\\x000f\\x0014{Fm\"\uFFFDF\uFFFD\\x0012\uFFFDV\\x0019\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "28"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -1801,8 +1809,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"mailto:info@laboweb.fr\" target=\"_self\" class=\"network\" data-ui-icon=\"mail\"></a>",
-							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
+							"evidence": "<a href=\"#\" class=\"ui-icon lwt-search-close\" data-ui-icon=\"close\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/s-inscrire-a-la-newsletter.html",
