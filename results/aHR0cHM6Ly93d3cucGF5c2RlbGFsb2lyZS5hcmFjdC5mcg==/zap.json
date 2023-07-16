@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
-	"@version": "2.12.0",
-	"@generated": "Tue, 11 Jul 2023 13:58:03",
+	"@version": "2.13.0",
+	"@generated": "Sun, 16 Jul 2023 03:25:57",
 	"site":[ 
 		{
 			"@name": "https://www.paysdelaloire.aract.fr",
@@ -76,14 +76,6 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"get\" class=\"form_header\" action=\"https://www.paysdelaloire.aract.fr/\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
-						},
-						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
 							"method": "GET",
 							"param": "",
@@ -100,7 +92,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
 						}
 					],
-					"count": "10",
+					"count": "9",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -167,7 +159,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
+							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -228,7 +220,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -236,7 +228,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -244,7 +236,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -252,7 +244,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -260,7 +252,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -268,7 +260,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/equipe/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -276,7 +268,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -284,7 +276,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -292,7 +284,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/animations/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -300,7 +292,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-consultants/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -308,7 +300,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-partenaires/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -357,7 +349,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -365,7 +357,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -373,31 +365,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LcJIL8UAAAAACLyC2O3Q5zUF92cnyLUZQcLJD2q&#038;ver=3.0' id='google-recaptcha-js'></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-G6BSZZDXSP\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -437,7 +405,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "10",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
@@ -461,16 +429,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "* Bootstrap v3.3.5",
-							"otherinfo": "CVE-2019-8331\nCVE-2018-14041\nCVE-2018-14040\nCVE-2018-20677\nCVE-2018-20676\nCVE-2018-14042\nCVE-2016-10735\n"
+							"otherinfo": "CVE-2019-8331\nCVE-2018-14041\nCVE-2018-20677\nCVE-2018-20676\nCVE-2018-14042\nCVE-2016-10735\n"
 						}
 					],
 					"count": "1",
 					"solution": "<p>Please upgrade to the latest version of bootstrap.</p>",
-					"otherinfo": "<p>CVE-2019-8331</p><p>CVE-2018-14041</p><p>CVE-2018-14040</p><p>CVE-2018-20677</p><p>CVE-2018-20676</p><p>CVE-2018-14042</p><p>CVE-2016-10735</p><p></p>",
+					"otherinfo": "<p>CVE-2019-8331</p><p>CVE-2018-14041</p><p>CVE-2018-20677</p><p>CVE-2018-20676</p><p>CVE-2018-14042</p><p>CVE-2016-10735</p><p></p>",
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "680"
+					"sourceid": "679"
 				},
 				{
 					"pluginid": "10017",
@@ -515,7 +483,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3",
 							"attack": "",
@@ -523,7 +491,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6LcJIL8UAAAAACLyC2O3Q5zUF92cnyLUZQcLJD2q&ver=3.0",
 							"attack": "",
@@ -531,7 +499,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key",
 							"attack": "",
@@ -539,7 +507,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "https://www.googletagmanager.com/gtag/js?id=G-G6BSZZDXSP",
 							"attack": "",
@@ -580,7 +548,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "703"
+					"sourceid": "684"
 				},
 				{
 					"pluginid": "10063",
@@ -641,7 +609,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
+							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -737,7 +705,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -745,7 +713,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -753,7 +721,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -761,7 +729,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -769,7 +737,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -777,7 +745,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/equipe/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -785,7 +753,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/robots.txt",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -793,7 +761,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -801,7 +769,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -809,15 +777,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/animations/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-consultants/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -825,13 +785,13 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/sitemap_index.xml",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
@@ -898,7 +858,7 @@
 							"otherinfo": "\uFFFD\uFFFD?M\\x001f\uFFFD\u0665\uFFFD\uFFFD\uFFFD\\x000f\uFFFDa\uFFFDiu\uFFFD\uFFFDk\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
+							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1059,7 +1019,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "677"
+					"sourceid": "672"
 				},
 				{
 					"pluginid": "10027",
@@ -1104,7 +1064,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"text/javascript\">\n\t\ttarteaucitron.init({\n\t\t\"privacyUrl\": \"\", /* Privacy policy url */\n\t\t\"hashtag\": \"#tarteaucitron\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1112,7 +1072,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='custom-js-extra'>\n/* <![CDATA[ */\nvar ajaxurl = \"https:\\/\\/www.paysdelaloire.aract.fr\\/wp-adm\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1120,7 +1080,7 @@
 							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"<script type='text/javascript' src='https://www.paysdelaloire.aract.fr/wp-content/themes/aract/js/ie10-viewport-bug-workaround.j\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1128,7 +1088,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
+							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1315,7 +1275,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1323,7 +1283,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1331,7 +1291,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1339,7 +1299,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1347,7 +1307,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1355,7 +1315,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/a-propos/equipe/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1363,7 +1323,15 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/robots.txt",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/services/",
+							"method": "GET",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1371,15 +1339,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
 							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-consultants/",
-							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1387,7 +1347,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/sitemap_index.xml",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1395,7 +1355,7 @@
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/wp-json/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1613,7 +1573,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "736"
+					"sourceid": "727"
 				}
 			]
 		}
