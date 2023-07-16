@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
-	"@version": "2.12.0",
-	"@generated": "Tue, 11 Jul 2023 13:27:15",
+	"@version": "2.13.0",
+	"@generated": "Sun, 16 Jul 2023 02:48:25",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1042"
+					"sourceid": "1070"
 				},
 				{
 					"pluginid": "10202",
@@ -79,22 +79,6 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						},
 						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
-						},
-						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
-						},
-						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -143,7 +127,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -234,7 +218,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -271,7 +255,7 @@
 						{
 							"uri": "https://www.agrotour.fr",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -279,7 +263,7 @@
 						{
 							"uri": "https://www.agrotour.fr/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -287,7 +271,7 @@
 						{
 							"uri": "https://www.agrotour.fr/categorie/actualite/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -295,7 +279,7 @@
 						{
 							"uri": "https://www.agrotour.fr/contact/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -303,7 +287,7 @@
 						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -311,7 +295,7 @@
 						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -319,7 +303,7 @@
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -327,7 +311,7 @@
 						{
 							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -335,7 +319,7 @@
 						{
 							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -343,7 +327,7 @@
 						{
 							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -351,7 +335,7 @@
 						{
 							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
-							"param": "X-Frame-Options",
+							"param": "x-frame-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -406,7 +390,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1018"
+					"sourceid": "986"
 				},
 				{
 					"pluginid": "10099",
@@ -449,7 +433,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "913"
+					"sourceid": "906"
 				},
 				{
 					"pluginid": "90003",
@@ -506,15 +490,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-6559532-12\" id=\"google_gtagjs-js\" async></script>",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
 							"otherinfo": ""
 						},
 						{
@@ -570,15 +546,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-6559532-12\" id=\"google_gtagjs-js\" async></script>",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
 							"otherinfo": ""
 						},
 						{
@@ -590,7 +558,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "16",
+					"count": "14",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
@@ -614,16 +582,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "this.close)};s.VERSION=\"3.3.6\",s.TRANSITION_DURATION=150,s.prototype.close",
-							"otherinfo": "CVE-2019-8331\nCVE-2018-14041\nCVE-2018-14040\nCVE-2018-20677\nCVE-2018-20676\nCVE-2018-14042\nCVE-2016-10735\n"
+							"otherinfo": "CVE-2019-8331\nCVE-2018-14041\nCVE-2018-20677\nCVE-2018-20676\nCVE-2018-14042\nCVE-2016-10735\n"
 						}
 					],
 					"count": "1",
 					"solution": "<p>Please upgrade to the latest version of bootstrap.</p>",
-					"otherinfo": "<p>CVE-2019-8331</p><p>CVE-2018-14041</p><p>CVE-2018-14040</p><p>CVE-2018-20677</p><p>CVE-2018-20676</p><p>CVE-2018-14042</p><p>CVE-2016-10735</p><p></p>",
+					"otherinfo": "<p>CVE-2019-8331</p><p>CVE-2018-14041</p><p>CVE-2018-20677</p><p>CVE-2018-20676</p><p>CVE-2018-14042</p><p>CVE-2016-10735</p><p></p>",
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "297"
+					"sourceid": "293"
 				},
 				{
 					"pluginid": "10010",
@@ -698,7 +666,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1110"
+					"sourceid": "1106"
 				},
 				{
 					"pluginid": "10054",
@@ -773,7 +741,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1110"
+					"sourceid": "1106"
 				},
 				{
 					"pluginid": "10017",
@@ -812,17 +780,9 @@
 						{
 							"uri": "https://www.agrotour.fr",
 							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-94079663-40",
 							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-6559532-12",
-							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-6559532-12\" id=\"google_gtagjs-js\" async></script>",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
 							"otherinfo": ""
 						},
 						{
@@ -852,21 +812,13 @@
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
 							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-94079663-40",
 							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-6559532-12",
-							"attack": "",
-							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-6559532-12\" id=\"google_gtagjs-js\" async></script>",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "8",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
@@ -907,7 +859,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "292"
+					"sourceid": "284"
 				},
 				{
 					"pluginid": "10063",
@@ -1279,7 +1231,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "955"
+					"sourceid": "956"
 				},
 				{
 					"pluginid": "10021",
@@ -1294,7 +1246,7 @@
 						{
 							"uri": "https://www.agrotour.fr",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1302,7 +1254,7 @@
 						{
 							"uri": "https://www.agrotour.fr/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1310,7 +1262,7 @@
 						{
 							"uri": "https://www.agrotour.fr/categorie/actualite/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1318,7 +1270,7 @@
 						{
 							"uri": "https://www.agrotour.fr/contact/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1326,7 +1278,7 @@
 						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1334,7 +1286,7 @@
 						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1342,7 +1294,7 @@
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1350,7 +1302,7 @@
 						{
 							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1358,7 +1310,15 @@
 						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"method": "GET",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1366,15 +1326,7 @@
 						{
 							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
 							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
+							"param": "x-content-type-options",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
@@ -1485,17 +1437,9 @@
 							"attack": "",
 							"evidence": "AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
 							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
-							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c</p><p>\uFFFD(@q</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1544,7 +1488,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1117"
+					"sourceid": "1109"
 				},
 				{
 					"pluginid": "10027",
@@ -1589,38 +1533,6 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.agrotour.fr/entreprises/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.agrotour.fr/entreprises/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -1659,6 +1571,14 @@
 							"attack": "",
 							"evidence": "admin",
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "From",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"<script>\r\n  var _paq = window._paq = window._paq || [];\r\n  /* tracker methods like \"setCustomDimension\" should be called before \", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
@@ -1669,7 +1589,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "14",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'></p><p>/* <![CDATA[ */</p><p>var MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1774,17 +1694,9 @@
 							"attack": "",
 							"evidence": "<a class=\"cmplz-close\" tabindex=\"0\" role=\"button\">\n\t\t\t<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"times\" class=\"svg-inline--fa fa-times fa-w-11\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 352 512\"><path fill=\"currentColor\" d=\"M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z\"></path></svg>\n\t\t</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"cmplz-close\" tabindex=\"0\" role=\"button\">\n\t\t\t<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"times\" class=\"svg-inline--fa fa-times fa-w-11\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 352 512\"><path fill=\"currentColor\" d=\"M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z\"></path></svg>\n\t\t</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
@@ -1848,7 +1760,7 @@
 						{
 							"uri": "https://www.agrotour.fr",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1856,7 +1768,7 @@
 						{
 							"uri": "https://www.agrotour.fr/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1864,7 +1776,7 @@
 						{
 							"uri": "https://www.agrotour.fr/categorie/actualite/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1872,7 +1784,7 @@
 						{
 							"uri": "https://www.agrotour.fr/contact/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1880,7 +1792,7 @@
 						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1888,7 +1800,7 @@
 						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1896,7 +1808,7 @@
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1904,7 +1816,7 @@
 						{
 							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1912,15 +1824,15 @@
 						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1928,7 +1840,7 @@
 						{
 							"uri": "https://www.agrotour.fr/wp-json/",
 							"method": "GET",
-							"param": "Cache-Control",
+							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -1941,6 +1853,41 @@
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "WP%20Cookie%20check",
+							"otherinfo": "\ncookie:wordpress_test_cookie"
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "WP%20Cookie%20check",
+							"otherinfo": "\ncookie:wordpress_test_cookie"
+						}
+					],
+					"count": "2",
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p></p><p>cookie:wordpress_test_cookie</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "360"
 				},
 				{
 					"pluginid": "10049",
@@ -2226,7 +2173,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "363"
+					"sourceid": "360"
 				}
 			]
 		}
