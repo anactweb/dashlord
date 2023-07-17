@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Mon, 17 Jul 2023 12:23:39",
+	"@generated": "Mon, 17 Jul 2023 14:38:41",
 	"site":[ 
 		{
 			"@name": "https://www.paysdelaloire.aract.fr",
@@ -349,7 +349,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/",
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -357,7 +357,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/",
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -365,7 +365,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/",
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -438,7 +438,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "679"
+					"sourceid": "680"
 				},
 				{
 					"pluginid": "10017",
@@ -690,7 +690,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "317"
+					"sourceid": "308"
 				},
 				{
 					"pluginid": "10021",
@@ -1019,7 +1019,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "665"
+					"sourceid": "672"
 				},
 				{
 					"pluginid": "10027",
@@ -1094,9 +1094,41 @@
 							"attack": "",
 							"evidence": "user",
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"text/javascript\">\n\t\ttarteaucitron.init({\n\t\t\"privacyUrl\": \"\", /* Privacy policy url */\n\t\t\"hashtag\": \"#tarteaucitron\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='custom-js-extra'>\n/* <![CDATA[ */\nvar ajaxurl = \"https:\\/\\/www.paysdelaloire.aract.fr\\/wp-adm\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "bug",
+							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"<script type='text/javascript' src='https://www.paysdelaloire.aract.fr/wp-content/themes/aract/js/ie10-viewport-bug-workaround.j\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"text/javascript\">\n\t\ttarteaucitron.init({\n\t\t\"privacyUrl\": \"\", /* Privacy policy url */\n\t\t\"hashtag\": \"#tarteaucitron\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "8",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='custom-js-extra'></p><p>/* <![CDATA[ */</p><p>var ajaxurl = \"https:\\/\\/www.paysdelaloire.aract.fr\\/wp-adm\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1195,7 +1227,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-partenaires/",
+							"uri": "https://www.paysdelaloire.aract.fr/services/dispositifs/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1260,7 +1292,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "11"
+					"sourceid": "16"
 				},
 				{
 					"pluginid": "10015",
@@ -1573,7 +1605,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "736"
+					"sourceid": "727"
 				}
 			]
 		}
