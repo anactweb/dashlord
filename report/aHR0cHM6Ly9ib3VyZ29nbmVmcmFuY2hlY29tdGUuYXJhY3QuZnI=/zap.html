@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Mon, 17 Jul 2023 14:52:07
+		Generated on Wed, 19 Jul 2023 16:43:24
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -172,7 +172,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>9</div>
+					<div>8</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
@@ -220,7 +225,7 @@ td {
 			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">6</td>
 			</tr>
 			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
@@ -235,7 +240,7 @@ td {
 			<tr>
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">11</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#10040">Secure Pages Include Mixed Content</a></td>
@@ -260,7 +265,7 @@ td {
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">11</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#10024">Information Disclosure - Sensitive Information in URL</a></td>
@@ -278,11 +283,6 @@ td {
 				<td align="center">11</td>
 			</tr>
 			<tr>
-				<td><a href="#10049">Non-Storable Content</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				<td align="center">1</td>
-			</tr>
-			<tr>
 				<td><a href="#10015">Re-examine Cache-control Directives</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				<td align="center">11</td>
@@ -290,12 +290,12 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">6</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">10</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
@@ -308,6 +308,82 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/maintien-en-emploi-0">https://bourgognefranchecomte.aract.fr/maintien-en-emploi-0</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4219715652113</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -992,7 +1068,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$">https://bourgognefranchecomte.aract.fr/profiles/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1530,7 +1606,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/">https://bourgognefranchecomte.aract.fr/index.php/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1556,7 +1632,59 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-obpDtRxzjSvTCZN7TufQDozUxDsfNx4NS6a6PTxLi_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-obpDtRxzjSvTCZN7TufQDozUxDsfNx4NS6a6PTxLi_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1633,7 +1761,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">6</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2312,6 +2440,32 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$">https://bourgognefranchecomte.aract.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
@@ -2337,7 +2491,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2455,7 +2609,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nQUkVz8Qp-DbTP47xiHOikKiYZyHrl5ad_vXLwScaAM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nQUkVz8Qp-DbTP47xiHOikKiYZyHrl5ad_vXLwScaAM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x1enSj9iu98vkaX1sNhFrkZpzHaW_zzvRG8i4XIUkiE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x1enSj9iu98vkaX1sNhFrkZpzHaW_zzvRG8i4XIUkiE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2800,7 +2954,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3116,7 +3270,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3142,7 +3296,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3464,7 +3618,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3490,7 +3644,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3864,9 +4018,35 @@ td {
 						<td width="80%">/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/">https://bourgognefranchecomte.aract.fr/search/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3920,7 +4100,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3946,7 +4126,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-UA9alUv_eiprSGRN7q1jLL29KnEb0s91uC7EvJBZh9k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-UA9alUv_eiprSGRN7q1jLL29KnEb0s91uC7EvJBZh9k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-SX45sqR5C2vjCTzRfuvGroW21lJwdXd17yxPXIQURZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-SX45sqR5C2vjCTzRfuvGroW21lJwdXd17yxPXIQURZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3972,7 +4152,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-mMXLQHmIOln-3NE-IyVzRiR9qCeJ0LCtg-GAxUWMII8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-mMXLQHmIOln-3NE-IyVzRiR9qCeJ0LCtg-GAxUWMII8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5uhh2vFfsAokxAcUJ3zzUXPENEuPKcfkhV7kOmh2noA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5uhh2vFfsAokxAcUJ3zzUXPENEuPKcfkhV7kOmh2noA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3998,7 +4178,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-0e138XsjhA8KlNzbIvUd2TAYJxHQn_e5gMqpiEU_kI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-0e138XsjhA8KlNzbIvUd2TAYJxHQn_e5gMqpiEU_kI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-jwnAfBmj2ytGLrob2K79fd9VLgY4G19J2qzR0FK55TQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-jwnAfBmj2ytGLrob2K79fd9VLgY4G19J2qzR0FK55TQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4024,7 +4204,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--1H4ygPyM-i_5ZVjXP0Fsp4bMy05Ot_1roRZEHl7PFY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--1H4ygPyM-i_5ZVjXP0Fsp4bMy05Ot_1roRZEHl7PFY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-73Ms-Eis-P4keeYGVWmbeeoJpLR8PVhUTnYYdGY-WyI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-73Ms-Eis-P4keeYGVWmbeeoJpLR8PVhUTnYYdGY-WyI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4050,7 +4230,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-37K0TxFGUc3diTvl4UuQbY1iZKR9kFgTtaNjl-2oTow&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-37K0TxFGUc3diTvl4UuQbY1iZKR9kFgTtaNjl-2oTow&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-AYcMaLqDrAFw1EKabsD8DF674WkYYqe63ge9Hutq5W0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-AYcMaLqDrAFw1EKabsD8DF674WkYYqe63ge9Hutq5W0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4076,7 +4256,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4102,7 +4282,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JcFYGOGIZg2R9ZNL9-9H55vgbe8nfvMbNwd9nUtsVg8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JcFYGOGIZg2R9ZNL9-9H55vgbe8nfvMbNwd9nUtsVg8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fol6bjBGubo77Bn-TjloX1ve7jxIp7LNYayjqwftDsA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fol6bjBGubo77Bn-TjloX1ve7jxIp7LNYayjqwftDsA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4128,7 +4308,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xhnFJxFXM4BwbQbK8hUy6fMOhQTOKGUlzYLNmyCb0LA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xhnFJxFXM4BwbQbK8hUy6fMOhQTOKGUlzYLNmyCb0LA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-iXEqtjjFuxXXc7qcR9fMnEMaDNkizTNAQr66g1YwnEM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-iXEqtjjFuxXXc7qcR9fMnEMaDNkizTNAQr66g1YwnEM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4154,7 +4334,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-9E63ocJFyFlabd08DKBKM5mls8S6alWRtJzapY7UnJg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-9E63ocJFyFlabd08DKBKM5mls8S6alWRtJzapY7UnJg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-K9qR8E-DByD7IAAhPMPzesoMqgC2KjpQsuceZXb-e8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-K9qR8E-DByD7IAAhPMPzesoMqgC2KjpQsuceZXb-e8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4180,7 +4360,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gp77QY8qCNwtXzFSr_KGkJptPnSTUV8GpDoO7HTm6c8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gp77QY8qCNwtXzFSr_KGkJptPnSTUV8GpDoO7HTm6c8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-keUSG8H-mKW8nAsF-0Vd31RBavpv_8o_YODRc7Qww8U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-keUSG8H-mKW8nAsF-0Vd31RBavpv_8o_YODRc7Qww8U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4206,7 +4386,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fI4yeNj4FMOxi16oHV0Jx1ZN504j7Scu2Q7e3LQUG9Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fI4yeNj4FMOxi16oHV0Jx1ZN504j7Scu2Q7e3LQUG9Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Uh5TTdybd_rXbnD0f7xlDZ3mrxi1vJXbvGKt-bZ9tW8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Uh5TTdybd_rXbnD0f7xlDZ3mrxi1vJXbvGKt-bZ9tW8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4852,7 +5032,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4872,7 +5052,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;&quot;&gt;L&amp;#039;Aract&lt;/a&gt;</td>
+						<td width="80%">&lt;script&gt;(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-152795908-1&#39;, &#39;auto&#39;);ga(&#39;require&#39;, &#39;displayfeatures&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);&lt;/script&gt;</td>
 					</tr>
 				
 					<tr>
@@ -4935,124 +5115,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-0"><a
-						id="10049"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Non-Storable Content</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">1</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>The content may be marked as storable by ensuring that the following conditions are satisfied:</div>
-							<br />
-						
-							<div>The request method must be understood by the cache and defined as being cacheable (&quot;GET&quot;, &quot;HEAD&quot;, and &quot;POST&quot; are currently defined as cacheable)</div>
-							<br />
-						
-							<div>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</div>
-							<br />
-						
-							<div>The &quot;no-store&quot; cache directive must not appear in the request or response header fields</div>
-							<br />
-						
-							<div>For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;private&quot; response directive must not appear in the response</div>
-							<br />
-						
-							<div>For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;Authorization&quot; header field must not appear in the request, unless the response explicitly allows it (using one of the &quot;must-revalidate&quot;, &quot;public&quot;, or &quot;s-maxage&quot; Cache-Control response directives)</div>
-							<br />
-						
-							<div>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</div>
-							<br />
-						
-							<div>It must contain an &quot;Expires&quot; header field</div>
-							<br />
-						
-							<div>It must contain a &quot;max-age&quot; response directive</div>
-							<br />
-						
-							<div>For &quot;shared&quot; caches such as &quot;proxy&quot; caches, it must contain a &quot;s-maxage&quot; response directive</div>
-							<br />
-						
-							<div>It must contain a &quot;Cache Control Extension&quot; that allows it to be cached</div>
-							<br />
-						
-							<div>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a>
-							<br />
-						
-							<a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
-							<br />
-						
-							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
 						id="10015"></a>
 						<div>Informational</div></th>
 					<th class="risk-0">Re-examine Cache-control Directives</th>
@@ -5072,6 +5134,32 @@ td {
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr">https://bourgognefranchecomte.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600, public</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/">https://bourgognefranchecomte.aract.fr/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5279,32 +5367,6 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">must-revalidate, no-cache, private</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login">https://bourgognefranchecomte.aract.fr/user/login</a></td>
 					</tr>
 					<tr>
@@ -5416,7 +5478,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/">https://bourgognefranchecomte.aract.fr/index.php/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5436,13 +5498,13 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">WJXmX%2CQNCsWog-pL6dtVGMG78SoAPTceYl6yXjkQPCo6%2CwZS</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5462,7 +5524,59 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">nCIMATKjp%2Czwi6BDRKQEfxBjRT9enAx3k1IN455fR50e5wXl</td>
+						<td width="80%">wddhOyV3PcgpifKtWPVjJU0QL8GMnTyKNXFnOE4DtUM%2CbcRs</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-obpDtRxzjSvTCZN7TufQDozUxDsfNx4NS6a6PTxLi_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-obpDtRxzjSvTCZN7TufQDozUxDsfNx4NS6a6PTxLi_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
 					</tr>
 				
 					<tr>
@@ -5488,7 +5602,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">WJXmX%2CQNCsWog-pL6dtVGMG78SoAPTceYl6yXjkQPCo6%2CwZS</td>
+						<td width="80%">wddhOyV3PcgpifKtWPVjJU0QL8GMnTyKNXFnOE4DtUM%2CbcRs</td>
 					</tr>
 				
 					<tr>
@@ -5514,13 +5628,13 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">nCIMATKjp%2Czwi6BDRKQEfxBjRT9enAx3k1IN455fR50e5wXl</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nhQZz5NaLGcRtnNPWKlgJ2gukl2ILsRnHFwBVKANPDk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/">https://bourgognefranchecomte.aract.fr/index.php/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5540,13 +5654,13 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">WJXmX%2CQNCsWog-pL6dtVGMG78SoAPTceYl6yXjkQPCo6%2CwZS</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-09QcAPmPVNRXTFjrfsZSGNVmeln9uvJJG90wLUjkm0k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-5RVWmFKr9TRFawoSqalHgxPhSrlzVxQ39xc21imsD5g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5566,12 +5680,38 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">nCIMATKjp%2Czwi6BDRKQEfxBjRT9enAx3k1IN455fR50e5wXl</td>
+						<td width="80%">wddhOyV3PcgpifKtWPVjJU0QL8GMnTyKNXFnOE4DtUM%2CbcRs</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-LSfXVj1qYXrxcgvEbd-s1FeS0fru8p0T7hZOP-qZcgg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Uqs7gOObmxam3N2u9Ps1R6ajk23Jj8iPdjpEC614wMd1x%2CgJ</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">6</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5858,6 +5998,32 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -5883,7 +6049,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5955,7 +6121,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5981,7 +6147,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Rv9fHaS47M3G3vQ6MlTCFO6Dhy8lhniGN0o9tdZFmgQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-L32n_c-NK6-xPzxPa7uFQ6e7ixCZP9piALLAor5mQ-E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6007,7 +6173,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6033,7 +6199,59 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7BhBTiKVrOdH_OtnJMoew2x3mG4SPP8zqMdMll_A4oE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dK_PKKFK74p6987BWFUQYVTGQ8aFOoUAI4cBKkp6n_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">op</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OfxJ86lFyhDayXde8U7lYKq4T2vnxPdmEzeKLXYvQ4U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OfxJ86lFyhDayXde8U7lYKq4T2vnxPdmEzeKLXYvQ4U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">form_id</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OfxJ86lFyhDayXde8U7lYKq4T2vnxPdmEzeKLXYvQ4U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OfxJ86lFyhDayXde8U7lYKq4T2vnxPdmEzeKLXYvQ4U&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6096,58 +6314,6 @@ td {
 						<td width="20%"
 							class="indent2">Parameter</td>
 						<td width="80%">search_api_fulltext</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-E2wVcyw1DkZao1EpSX7StsoFMPKjbdaoDji42VgzpUk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-E2wVcyw1DkZao1EpSX7StsoFMPKjbdaoDji42VgzpUk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">form_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-E2wVcyw1DkZao1EpSX7StsoFMPKjbdaoDji42VgzpUk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-E2wVcyw1DkZao1EpSX7StsoFMPKjbdaoDji42VgzpUk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">op</td>
 					</tr>
 					<tr>
 						<td width="20%"
