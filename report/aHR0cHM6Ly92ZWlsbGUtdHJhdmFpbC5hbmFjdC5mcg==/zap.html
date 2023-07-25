@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 23 Jul 2023 01:48:59
+		Generated on Tue, 25 Jul 2023 09:54:41
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -164,7 +164,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>12</div>
+					<div>14</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,9 +198,14 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">10</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#90022">Application Error Disclosure</a></td>
@@ -243,6 +248,16 @@ td {
 				<td align="center">12</td>
 			</tr>
 			<tr>
+				<td><a href="#10010">Cookie No HttpOnly Flag</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10011">Cookie Without Secure Flag</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
 				<td align="center" class="risk-1">Low</td>
 				<td align="center">12</td>
@@ -255,7 +270,7 @@ td {
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10023">Information Disclosure - Debug Error Messages</a></td>
@@ -270,7 +285,7 @@ td {
 			<tr>
 				<td><a href="#10040">Secure Pages Include Mixed Content</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">7</td>
+				<td align="center">8</td>
 			</tr>
 			<tr>
 				<td><a href="#10036">Server Leaks Version Information via &quot;Server&quot; HTTP Response Header Field</a></td>
@@ -310,7 +325,7 @@ td {
 			<tr>
 				<td><a href="#10015">Re-examine Cache-control Directives</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">11</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
@@ -335,7 +350,7 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">7</td>
+				<td align="center">5</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
@@ -358,6 +373,82 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?queryosiros=RSE&amp;sort_define=date_crea_notice">https://veille-travail.anact.fr/osiros/result/resultat.php?queryosiros=RSE&amp;sort_define=date_crea_notice</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">5877762534439011679</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -606,6 +697,58 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/modules/*.js$">https://veille-travail.anact.fr/modules/*.js$</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form class=&quot;form-horizontal form-header&quot; action=&quot;/osiros/result/resultat.php&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/modules/*.js$">https://veille-travail.anact.fr/modules/*.js$</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form class=&quot;webform-client-form webform-client-form-1&quot; enctype=&quot;multipart/form-data&quot; action=&quot;/modules/*.js$&quot; method=&quot;post&quot; id=&quot;webform-client-form-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -657,7 +800,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2900,6 +3043,164 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
+						id="10010"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie No HttpOnly Flag</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/front/vignette.php?id=99618&amp;isbn&amp;size=small&amp;type=video">https://veille-travail.anact.fr/osiros/front/vignette.php?id=99618&amp;isbn&amp;size=small&amp;type=video</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">PHPSESSID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: PHPSESSID</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the HttpOnly flag is set for all cookies.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://owasp.org/www-community/HttpOnly">https://owasp.org/www-community/HttpOnly</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1004.html">1004</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10010/">10010</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10011"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie Without Secure Flag</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/front/vignette.php?id=99618&amp;isbn&amp;size=small&amp;type=video">https://veille-travail.anact.fr/osiros/front/vignette.php?id=99618&amp;isbn&amp;size=small&amp;type=video</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">PHPSESSID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: PHPSESSID</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html">https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/614.html">614</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10011/">10011</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
 						id="10054"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Cookie without SameSite Attribute</th>
@@ -2914,6 +3215,32 @@ td {
 				<TR vAlign="top">
 					<TD colspan="2"></TD>
 				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/index.php">https://veille-travail.anact.fr/osiros/result/index.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
 				
 					<tr>
 						<td width="20%"
@@ -2970,7 +3297,111 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php">https://veille-travail.anact.fr/osiros/result/resultat.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP">https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=titres_tous&amp;sort_define=tri_annee&amp;sort_order=0&amp;spec_date_crea_notice_end&amp;spec_date_crea_notice_start&amp;spec_expand=1&amp;spec_tri_annee_end=ZAP&amp;spec_tri_annee_start=ZAP&amp;type_rech=ra&amp;typedoc=a&amp;value%5B%5D=ZAP">https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=titres_tous&amp;sort_define=tri_annee&amp;sort_order=0&amp;spec_date_crea_notice_end&amp;spec_date_crea_notice_start&amp;spec_expand=1&amp;spec_tri_annee_end=ZAP&amp;spec_tri_annee_start=ZAP&amp;type_rech=ra&amp;typedoc=a&amp;value%5B%5D=ZAP</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?fq&amp;osirosrows=10&amp;queryosiros=sujets_tous%3A%28sante%29%20AND%20sujets_tous%3A%28prevention%20des%20risques%29%20&amp;sort_define=date_crea_notice&amp;sort_order=1">https://veille-travail.anact.fr/osiros/result/resultat.php?fq&amp;osirosrows=10&amp;queryosiros=sujets_tous%3A%28sante%29%20AND%20sujets_tous%3A%28prevention%20des%20risques%29%20&amp;sort_define=date_crea_notice&amp;sort_order=1</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?queryosiros=fulltext%3A%28zapf%29&amp;repl=zapf&amp;sort_define=tri_annee&amp;sort_order=1&amp;spec_expand&amp;sugg=zap">https://veille-travail.anact.fr/osiros/result/resultat.php?queryosiros=fulltext%3A%28zapf%29&amp;repl=zapf&amp;sort_define=tri_annee&amp;sort_order=1&amp;spec_expand&amp;sugg=zap</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3022,7 +3453,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/">https://veille-travail.anact.fr/</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/panier_resultat.php">https://veille-travail.anact.fr/osiros/result/panier_resultat.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3048,7 +3479,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/comment/reply/">https://veille-travail.anact.fr/comment/reply/</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/rechav.php">https://veille-travail.anact.fr/osiros/result/rechav.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3074,137 +3505,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.css$">https://veille-travail.anact.fr/misc/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.js$">https://veille-travail.anact.fr/misc/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/node/add/">https://veille-travail.anact.fr/node/add/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/user/password/">https://veille-travail.anact.fr/user/password/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/user/register/">https://veille-travail.anact.fr/user/register/</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP">https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3593,6 +3894,32 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/misc/ajax.js?v=7.60-dev">https://veille-travail.anact.fr/misc/ajax.js?v=7.60-dev</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/front/js/jquery-1.9.1.js">https://veille-travail.anact.fr/osiros/front/js/jquery-1.9.1.js</a></td>
 					</tr>
 					<tr>
@@ -3694,9 +4021,61 @@ td {
 						<td width="80%">eval</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sites/all/modules/jquery_update/replace/misc/jquery.form.min.js?v=2.69">https://veille-travail.anact.fr/sites/all/modules/jquery_update/replace/misc/jquery.form.min.js?v=2.69</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sites/all/themes/bootstrap/js/misc/ajax.js?ro26kx">https://veille-travail.anact.fr/sites/all/themes/bootstrap/js/misc/ajax.js?ro26kx</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4177,6 +4556,32 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/produits-documentaires/cobotique-risques-et-opportunites-pour-lhomme-au-travail">https://veille-travail.anact.fr/produits-documentaires/cobotique-risques-et-opportunites-pour-lhomme-au-travail</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">http://www.etui.org/var/plain_site/storage/images/topics/health-safety-working-conditions/hesamag/the-future-of-work-in-the-digital-era/308020-2-fre-FR/Ou-va-le-travail-humain-a-l-ere-du-numerique_vignette.png</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://veille-travail.anact.fr/produits-documentaires/comment-ameliorer-les-conditions-de-travail-des-travailleurs-atteints-de">https://veille-travail.anact.fr/produits-documentaires/comment-ameliorer-les-conditions-de-travail-des-travailleurs-atteints-de</a></td>
 					</tr>
 					<tr>
@@ -4358,7 +4763,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">7</td>
+					<td width="80%">8</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4626,7 +5031,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/modules/*.css">https://veille-travail.anact.fr/modules/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.png">https://veille-travail.anact.fr/misc/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4974,7 +5379,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/modules/*.css">https://veille-travail.anact.fr/modules/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.png">https://veille-travail.anact.fr/misc/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5619,7 +6024,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/cron.php">https://veille-travail.anact.fr/cron.php</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/install.php">https://veille-travail.anact.fr/install.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5639,7 +6044,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">fr/sites/all/themes/themedemo/src/font/Pe-icon-7-stroke</td>
+						<td width="80%">org/TR/xhtml1/DTD/xhtml1-strict</td>
 					</tr>
 				
 					<tr>
@@ -6834,9 +7239,35 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/xmlrpc.php">https://veille-travail.anact.fr/xmlrpc.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">no-cache, must-revalidate</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -6922,7 +7353,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.css">https://veille-travail.anact.fr/misc/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6948,7 +7379,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7053,7 +7484,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.css">https://veille-travail.anact.fr/misc/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7079,7 +7510,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7184,7 +7615,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.css">https://veille-travail.anact.fr/misc/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7210,7 +7641,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7315,7 +7746,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.css">https://veille-travail.anact.fr/misc/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7341,7 +7772,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/robots.txt">https://veille-travail.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7440,7 +7871,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">C40xtgZdXslG1ZSx3rBM-CSXLcbxPA_mZPqSXqX4CC4</td>
+						<td width="80%">5OEeA7ui36n_DJG41LG_U74_8i5ftnsL2lQFTY5aQEk</td>
 					</tr>
 				
 					<tr>
@@ -7466,33 +7897,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">rCTjbvFbUhchOfqAyc7o5SplHmeEvCtlCQp51floSaE</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP">https://veille-travail.anact.fr/osiros/result/resultat.php?bool%5B%5D&amp;index%5B%5D=fulltext&amp;nouveaute=Nouveaut%C3%A9&amp;type_rech=rs&amp;value%5B%5D=ZAP</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Yge-sXeTlzVRCOyqonBt-69r8nM_Pib30O-6LWlneAk</td>
+						<td width="80%">5OEeA7ui36n_DJG41LG_U74_8i5ftnsL2lQFTY5aQEk</td>
 					</tr>
 				
 					<tr>
@@ -7518,33 +7923,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">UsYGFjyPrPmlmGiHuOnu01-l5bwmC9O7Wn1h1AEYfkE</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/sitemap.xml">https://veille-travail.anact.fr/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS835103f430ee31852815462c05d70c86</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">TenB4Tcfp3aI-xVIPajRRv_Gkv4nzRzkRtJDNQhhlzo</td>
+						<td width="80%">a4GXxoBeoQ-lXnawkyuViZXumI3m9asvz_OuSBWIu0U</td>
 					</tr>
 				
 					<tr>
@@ -7570,7 +7949,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">rCTjbvFbUhchOfqAyc7o5SplHmeEvCtlCQp51floSaE</td>
+						<td width="80%">5OEeA7ui36n_DJG41LG_U74_8i5ftnsL2lQFTY5aQEk</td>
 					</tr>
 				
 					<tr>
@@ -7596,12 +7975,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">UsYGFjyPrPmlmGiHuOnu01-l5bwmC9O7Wn1h1AEYfkE</td>
+						<td width="80%">a4GXxoBeoQ-lXnawkyuViZXumI3m9asvz_OuSBWIu0U</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">7</td>
+					<td width="80%">5</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7959,7 +8338,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://veille-travail.anact.fr/modules/*.css">https://veille-travail.anact.fr/modules/*.css</a></td>
+						<td width="80%"><a href="https://veille-travail.anact.fr/misc/*.png">https://veille-travail.anact.fr/misc/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
