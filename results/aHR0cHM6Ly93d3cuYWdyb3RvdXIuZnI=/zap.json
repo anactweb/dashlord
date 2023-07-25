@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 23 Jul 2023 02:26:20",
+	"@generated": "Tue, 25 Jul 2023 10:29:29",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1040"
+					"sourceid": "1039"
 				},
 				{
 					"pluginid": "10202",
@@ -79,22 +79,6 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						},
 						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
-						},
-						{
-							"uri": "https://www.agrotour.fr/categorie/actualite/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
-						},
-						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -143,7 +127,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -457,7 +441,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "933"
+					"sourceid": "952"
 				},
 				{
 					"pluginid": "90003",
@@ -615,7 +599,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "286"
+					"sourceid": "280"
 				},
 				{
 					"pluginid": "10010",
@@ -627,14 +611,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "GET",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
@@ -668,15 +644,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "POST",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -690,7 +674,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1138"
+					"sourceid": "846"
 				},
 				{
 					"pluginid": "10054",
@@ -702,14 +686,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "GET",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
@@ -743,15 +719,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "POST",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -765,7 +749,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1138"
+					"sourceid": "846"
 				},
 				{
 					"pluginid": "10017",
@@ -883,7 +867,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "287"
+					"sourceid": "292"
 				},
 				{
 					"pluginid": "10063",
@@ -1340,7 +1324,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1447,7 +1431,7 @@
 							"otherinfo": "\\x0000\uFFFD\uFFFDK \uFFFDoP6\u0624F\uFFFDAp5\uFFFDL\uFFFD\uFFFD\uFFFDo\uFFFD\\x001c\n\uFFFD(@q"
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1512,7 +1496,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1142"
+					"sourceid": "1143"
 				},
 				{
 					"pluginid": "10027",
@@ -1704,7 +1688,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2083,7 +2067,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "355"
+					"sourceid": "362"
 				},
 				{
 					"pluginid": "10049",
@@ -2369,7 +2353,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "355"
+					"sourceid": "362"
 				}
 			]
 		}
