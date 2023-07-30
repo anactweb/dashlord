@@ -31,15 +31,15 @@
               "id"           : "TLS1",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_1",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_2",
@@ -52,8 +52,8 @@
               "id"           : "TLS1_3",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "not offered + downgraded to weaker protocol"
+              "severity"     : "OK",
+              "finding"      : "offered with final"
           }
 ,         {
               "id"           : "ALPN_HTTP2",
@@ -132,34 +132,6 @@
               "finding"      : "offered"
           }
 ,         {
-              "id"           : "cipher_order-tls1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES256-SHA"
-          }
-,         {
-              "id"           : "cipher_order-tls1_1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1_1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES256-SHA"
-          }
-,         {
               "id"           : "cipher_order-tls1_2",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
@@ -199,21 +171,21 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "sect283k1 sect283r1 sect409k1 sect409r1 sect571k1 sect571r1 secp256k1 prime256v1 secp384r1 secp521r1 brainpoolP256r1 brainpoolP384r1 brainpoolP512r1"
+              "finding"      : "prime256v1 secp384r1 secp521r1"
           }
 ,         {
               "id"           : "TLS_extensions",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "'server name/#0' 'renegotiation info/#65281' 'EC point formats/#11' 'session ticket/#35' 'heartbeat/#15' 'application layer protocol negotiation/#16'"
+              "finding"      : "'renegotiation info/#65281' 'server name/#0' 'EC point formats/#11' 'supported versions/#43' 'key share/#51' 'supported_groups/#10' 'max fragment length/#1' 'application layer protocol negotiation/#16' 'encrypt-then-mac/#22' 'extended master secret/#23'"
           }
 ,         {
               "id"           : "TLS_session_ticket",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "valid for 300 seconds only (<daily)"
+              "finding"      : "no -- no lifetime advertised"
           }
 ,         {
               "id"           : "SSL_sessionID_support",
@@ -227,7 +199,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "supported"
+              "finding"      : "not supported"
           }
 ,         {
               "id"           : "sessionresumption_ID",
@@ -244,11 +216,11 @@
               "finding"      : "random"
           }
 ,         {
-              "id"           : "cert_compression",
+              "id"           : "certificate_compression",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "N/A"
+              "finding"      : "none"
           }
 ,         {
               "id"           : "clientAuth",
@@ -374,7 +346,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "65 >= 30 days"
+              "finding"      : "60 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -577,7 +549,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1690283227"
+              "finding"      : "1690685028"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -699,7 +671,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2014-0160",
               "cwe"          : "CWE-119",
-              "finding"      : "not vulnerable"
+              "finding"      : "not vulnerable, no heartbeat extension"
           }
 ,         {
               "id"           : "CCS",
@@ -717,7 +689,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
-              "finding"      : "not vulnerable"
+              "finding"      : "no session ticket extension"
           }
 ,         {
               "id"           : "ROBOT",
@@ -777,7 +749,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "supported"
+              "finding"      : "no protocol below TLS 1.2 offered"
           }
 ,         {
               "id"           : "SWEET32",
@@ -834,22 +806,13 @@
               "finding"      : "not vulnerable, no DH EXPORT ciphers,"
           }
 ,         {
-              "id"           : "BEAST_CBC_TLS1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cve"          : "CVE-2011-3389",
-              "cwe"          : "CWE-20",
-              "finding"      : "ECDHE-RSA-AES256-SHA DHE-RSA-AES256-SHA AES256-SHA ECDHE-RSA-AES128-SHA DHE-RSA-AES128-SHA AES128-SHA"
-          }
-,         {
               "id"           : "BEAST",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2011-3389",
               "cwe"          : "CWE-20",
-              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+              "finding"      : "not vulnerable, no SSL3 or TLS1"
           }
 ,         {
               "id"           : "LUCKY13",
@@ -883,7 +846,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-SHA"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_70",
@@ -904,56 +867,56 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_11",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_12",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_100_win10",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_6_xp",
@@ -967,7 +930,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.0 ECDHE-RSA-AES256-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_8_xp",
@@ -981,21 +944,21 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-SHA384"
+              "finding"      : "TLSv1.2 DHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win81",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-SHA384"
+              "finding"      : "TLSv1.2 DHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_winphone81",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-SHA"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win10",
@@ -1016,35 +979,35 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_121_ios_122",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_130_osx_10146",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_154_osx_1231",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java_7u25",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.0 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-java_8u161",
@@ -1058,21 +1021,21 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1703",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-go_1178",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-libressl_283",
@@ -1100,14 +1063,14 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_303",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-apple_mail_16_0",
@@ -1121,7 +1084,7 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "rating_spec",
@@ -1142,14 +1105,14 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "95"
+              "finding"      : "100"
           }
 ,         {
               "id"           : "protocol_support_score_weighted",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "28"
+              "finding"      : "30"
           }
 ,         {
               "id"           : "key_exchange_score",
@@ -1184,34 +1147,20 @@
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "79"
+              "finding"      : "81"
           }
 ,         {
               "id"           : "overall_grade",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "B"
-          }
-,         {
-              "id"           : "grade_cap_reason_1",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.1 offered"
-          }
-,         {
-              "id"           : "grade_cap_reason_2",
-              "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.0 offered"
+              "severity"     : "OK",
+              "finding"      : "A+"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "www.nouvelle-aquitaine.aract.fr/80.245.41.213",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "89"
+              "finding"      : "80"
           }
 ]
