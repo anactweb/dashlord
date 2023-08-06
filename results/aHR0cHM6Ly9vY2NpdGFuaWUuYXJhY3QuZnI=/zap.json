@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 30 Jul 2023 02:05:49",
+	"@generated": "Sun, 6 Aug 2023 02:01:00",
 	"site":[ 
 		{
 			"@name": "https://occitanie.aract.fr",
@@ -9,33 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://occitanie.aract.fr/nos-missions",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "672126163944",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 672126\nBrand: MAESTRO\nCategory: \nIssuer: WUESTENROT BANK AG PFANDBRIEBANK"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 672126</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: WUESTENROT BANK AG PFANDBRIEBANK</p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "362"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -368,6 +341,14 @@
 							"otherinfo": "Location header URI length: 27 [https://occitanie.aract.fr/].\nPredicted response size: 327.\nResponse Body Length: 843."
 						},
 						{
+							"uri": "https://occitanie.aract.fr/index.php/user/password",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 37 [https://occitanie.aract.fr/index.php/].\nPredicted response size: 337.\nResponse Body Length: 883."
+						},
+						{
 							"uri": "https://occitanie.aract.fr/user/password",
 							"method": "POST",
 							"param": "",
@@ -376,13 +357,13 @@
 							"otherinfo": "Location header URI length: 27 [https://occitanie.aract.fr/].\nPredicted response size: 327.\nResponse Body Length: 843."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 37 [https://occitanie.aract.fr/index.php/].</p><p>Predicted response size: 337.</p><p>Response Body Length: 883.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "309"
+					"sourceid": "303"
 				},
 				{
 					"pluginid": "10054",
@@ -403,7 +384,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://occitanie.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-35eR8ngcrKPY-v5MfEgWoxWwPYIAz6jB2mPkXFTRO54&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/index.php/laract-occitanie",
 							"method": "GET",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
@@ -411,8 +392,32 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ffbfYFw3BevecMD8LUGXfrvAOGhGVmzutrppKUiUVEY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/index.php/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-AjHGQb7cz1-5kvbkf8-t1mR7GiOdnWaDSTFlwfMhPzI&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
+							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://occitanie.aract.fr/index.php/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-dzlk2rIKZVPSHsQIkKsinnWZv-kudqjndsahUlQ2TXY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://occitanie.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-jACrGQSyW6EebDP24PBLlkE803CBL8shq5dz9yPTWeQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://occitanie.aract.fr/index.php/user/password",
+							"method": "POST",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
 							"evidence": "Set-Cookie: SSESSe72fbb07ad67ae96842ab77410358f5f",
@@ -427,13 +432,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "7",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1207"
+					"sourceid": "1198"
 				},
 				{
 					"pluginid": "10017",
@@ -505,7 +510,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://occitanie.aract.fr/sites/default/files/js/js_SPuXD1kGfxbrD3or6SgExmKnhxsakP_zusLyPqLYSik.js",
+							"uri": "https://occitanie.aract.fr/sites/default/files/js/js_Ofss0Pa4GgbkwYpoqCoj1wmYveSji4olmP_O4zky6IQ.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://occitanie.aract.fr/sites/default/files/js/js_WRYSM5sD80Xv5SqJxUq0drSqbLo54JjBEyoaQzlsNHs.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -513,7 +526,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
@@ -972,8 +985,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_KRG9uakX1LpAY4y3sjlrz-lFmTZkBa9dYikyTsyHRcQ",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFDF\uFFFD\uFFFD_R\uFFFD\\x0001\uFFFD2\uFFFD\uFFFD\uFFFD?\uFFFD\\x0016d\u0650\\x0016\uFFFDu\uFFFD\uFFFD\uFFFD;2\\x001d\\x0017\\x0010"
+							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						},
 						{
 							"uri": "https://occitanie.aract.fr/comment/reply/",
@@ -1067,7 +1080,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1075,7 +1088,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-U41-tqQ91nmg1Y5tuzyV_v91eSW6DnwbLWDIXSRBP0A&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-2bJzWmAHU2Ol4TsW4bGCQWASU57ig9VmmPhj9XgUlww&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1083,7 +1096,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NQLJuPKV3KdsGUV1WZ4D7P4q8q6ck6q-g_5J8P30Dcc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ANIxAlVTs6hTz57J2M7pDXmhRVHufOMXckM_mo-q7pU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1091,7 +1104,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UOCmMMW40URnbZCUdC7Xy3Z57biBZrpNEsYzY1_7cU4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-kxfYNhykOFIFa8Ija5DIOYIHqlqCQkBwvYdoq5vBuxM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1099,7 +1112,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-4ZcMGoOv0RYCSeatlWyoYc4sogYAimcvlgvtYP653fQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-2qF6Q4mQxksIJl72FvsKGXcoNQUHv4DMJe-4qWQlM6c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1107,7 +1120,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-q9EVxU-5P-RNChkXuZntZUWgAyRoHpXL8LcR3LYvW4A&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EV-wAjd7zucoqqFohzzk3875rQWPwFxAnVnqmg6TXLY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1115,7 +1128,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Jb1yi7mwjDnNFuH52iyNkFR-yYLk2o0nrMsdCSjTc4Q&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-xR0kfLW1blhoIU7Z9UyspkhJuUxpHi7jztEFzyxuS1g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1123,7 +1136,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-y49IfbxFl79boHs4oFtDEjqUmxQrmwdWFZXruPGIyR8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-5RF1dAtASFbBVVwc_mq8Xy9bHJRXh8ANSB0CrLqd7UQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1131,7 +1144,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-PgArp-dhXevRhYemAQSMlqrJduaCeBg7rRjWyuq2yKw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Dxtra6zGYsGHZ4boRaytYYiUHkTdPVsqW80Tjxex6fY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1139,7 +1152,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-773d-_K2_ZQdoKTMuTq0xMZbQaL_6gMnDyianaDUKAc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-aHAaMLHa_z9D7z1Evaxpr0MtU9_0zmoNKfGs6M_tKO4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1147,7 +1160,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LhXOH9q8OXbHWlqHBcZS4TgGvnbGqcJo6LxyFopmEA8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IgWQ_JA99SdpO7ATeidZh9vxzCJZ2GwfeH63VPdzOmc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1155,7 +1168,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://occitanie.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ZU3E-NYTUbHC1yS_G6FgCaY-qFHIfOHwiwXc-DYZpZ8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-V7nVyN3-8ij70Lq9V4VV2g1k8W4lKD9U4EjHWiyOzVg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1169,7 +1182,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1080"
+					"sourceid": "1090"
 				},
 				{
 					"pluginid": "10027",
@@ -1410,7 +1423,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "12"
 				},
 				{
 					"pluginid": "10015",
@@ -1706,23 +1719,31 @@
 							"method": "GET",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
-							"evidence": "K9g%2C5WDUq%2CKujRXOx4ZczOr%2CDNsVEdVtqePf%2CDYJUePrAZNS",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
 							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
 						},
 						{
-							"uri": "https://occitanie.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-35eR8ngcrKPY-v5MfEgWoxWwPYIAz6jB2mPkXFTRO54&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/index.php/laract-occitanie",
 							"method": "GET",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
-							"evidence": "K9g%2C5WDUq%2CKujRXOx4ZczOr%2CDNsVEdVtqePf%2CDYJUePrAZNS",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
 							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
 						},
 						{
-							"uri": "https://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ffbfYFw3BevecMD8LUGXfrvAOGhGVmzutrppKUiUVEY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-jACrGQSyW6EebDP24PBLlkE803CBL8shq5dz9yPTWeQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
-							"evidence": "K9g%2C5WDUq%2CKujRXOx4ZczOr%2CDNsVEdVtqePf%2CDYJUePrAZNS",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
+							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
+						},
+						{
+							"uri": "https://occitanie.aract.fr/index.php/user/password",
+							"method": "POST",
+							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"attack": "",
+							"evidence": "OIkPwqQ2Q-SxJ8iXN4dT0ifGktOSQ7Zi9LUZ3I6Mjh9a9tPe",
 							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
 						},
 						{
@@ -1730,7 +1751,7 @@
 							"method": "POST",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
-							"evidence": "K9g%2C5WDUq%2CKujRXOx4ZczOr%2CDNsVEdVtqePf%2CDYJUePrAZNS",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
 							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
 						},
 						{
@@ -1738,17 +1759,25 @@
 							"method": "GET",
 							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
 							"attack": "",
-							"evidence": "K9g%2C5WDUq%2CKujRXOx4ZczOr%2CDNsVEdVtqePf%2CDYJUePrAZNS",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
+							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
+						},
+						{
+							"uri": "https://occitanie.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-jACrGQSyW6EebDP24PBLlkE803CBL8shq5dz9yPTWeQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESSe72fbb07ad67ae96842ab77410358f5f",
+							"attack": "",
+							"evidence": "zn7onYPJqDyguZD8BQoo-gNdMN3zCviNcO2W13AZNAFuNcwS",
 							"otherinfo": "\ncookie:SSESSe72fbb07ad67ae96842ab77410358f5f"
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESSe72fbb07ad67ae96842ab77410358f5f</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1207"
+					"sourceid": "1198"
 				},
 				{
 					"pluginid": "10049",
@@ -1860,36 +1889,44 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
-							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Jb1yi7mwjDnNFuH52iyNkFR-yYLk2o0nrMsdCSjTc4Q&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-xR0kfLW1blhoIU7Z9UyspkhJuUxpHi7jztEFzyxuS1g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Jb1yi7mwjDnNFuH52iyNkFR-yYLk2o0nrMsdCSjTc4Q&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-xR0kfLW1blhoIU7Z9UyspkhJuUxpHi7jztEFzyxuS1g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Jb1yi7mwjDnNFuH52iyNkFR-yYLk2o0nrMsdCSjTc4Q&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-xR0kfLW1blhoIU7Z9UyspkhJuUxpHi7jztEFzyxuS1g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Jb1yi7mwjDnNFuH52iyNkFR-yYLk2o0nrMsdCSjTc4Q&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-xR0kfLW1blhoIU7Z9UyspkhJuUxpHi7jztEFzyxuS1g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+						},
+						{
+							"uri": "https://occitanie.aract.fr/index.php/recherche?search_api_fulltext=ZAP",
+							"method": "GET",
+							"param": "search_api_fulltext",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/index.php/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
 							"uri": "https://occitanie.aract.fr/recherche?search_api_fulltext=ZAP",
@@ -1898,6 +1935,22 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+						},
+						{
+							"uri": "https://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-1Bj-RbLLCGPbKASVfNudIzAUczW7lm4Womit7O--OlM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "form_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-1Bj-RbLLCGPbKASVfNudIzAUczW7lm4Womit7O--OlM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+						},
+						{
+							"uri": "https://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-1Bj-RbLLCGPbKASVfNudIzAUczW7lm4Womit7O--OlM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "op",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-1Bj-RbLLCGPbKASVfNudIzAUczW7lm4Womit7O--OlM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
 							"uri": "https://occitanie.aract.fr/user/login",
@@ -1932,13 +1985,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://occitanie.aract.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\npass=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-G60fJVTbtHTThV0T0_JEDBQqCLMybyybn18C6goNqTo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://occitanie.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-m79WMXWvXUKDhn3TcAUsEykd9x-idjFggTuiPkhTehU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1080"
+					"sourceid": "1090"
 				}
 			]
 		}
