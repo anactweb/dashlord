@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 30 Jul 2023 02:00:56",
+	"@generated": "Sun, 6 Aug 2023 01:52:43",
 	"site":[ 
 		{
 			"@name": "https://normandie.aract.fr",
@@ -9,33 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "2",
-					"riskdesc": "High (Medium)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/mentions-legales.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "410 691 620 0067",
-							"otherinfo": "Credit Card Type detected: Visa"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: Visa</p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "836"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -69,31 +42,58 @@
 							"attack": "",
 							"evidence": "<form action=\"/a-propos-de-l-aract/s-inscrire-a-la-newsletter.html\" id=\"form\" method=\"post\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ]."
-						},
-						{
-							"uri": "https://normandie.aract.fr/formulaires-2021/formulaire-de-reclamation-des-formations-de-l-aract-normandie.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/formulaires-2021/formulaire-de-reclamation-des-formations-de-l-aract-normandie.html\" id=\"form\" method=\"post\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ]."
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils/autodiagnostic-chsct---faire-le-point-sur-son-fonctionnement-et-son-action.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/?p=2550&amp;preview=true#usermessage3b\" class=\"cform autodiagnostic-chsct \" enctype=\"multipart/form-data\" id=\"cforms3form\" method=\"post\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"cf3_field_2\" \"cf3_field_4\" \"cf3_field_5-1\" \"cf3_field_5-2\" \"cf3_field_5-3\" \"cf3_field_7\" \"cf_codeerr3\" \"cf_customerr3\" \"cf_failure3\" \"cf_popup3\" \"cf_working3\" \"sendbutton3\" ]."
 						}
 					],
-					"count": "5",
+					"count": "3",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
 					"sourceid": "115"
+				},
+				{
+					"pluginid": "10055",
+					"alertRef": "10055-4",
+					"alert": "CSP: Wildcard Directive",
+					"name": "CSP: Wildcard Directive",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://normandie.aract.fr/agenda/atelier---maintien-en-emploi-des-seniors-parlons-en--caen.html",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'self'",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
+							"uri": "https://normandie.aract.fr/zoom-sur--/les-matinales-consultants-2023/matinale-consultants-2023--3-a-caen---attractivite-et-conditions-de-travail-quels-liens.html",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'self'",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
+							"uri": "https://normandie.aract.fr/zoom-sur--/les-matinales-consultants-2023/matinale-consultants-2023--3-a-rouen---attractivite-et-conditions-de-travail-quels-liens.html",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'self'",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nframe-ancestors, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
+					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>frame-ancestors, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
+					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "207"
 				},
 				{
 					"pluginid": "10038",
@@ -427,7 +427,7 @@
 					"desc": "<p>The identified library jquery, version 3.3.1 is vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://normandie.aract.fr/js/laboweb.min.64c5c30fd2d21e305d663ea6.js",
+							"uri": "https://normandie.aract.fr/js/laboweb.min.64cefc97b0317c3bb515fc6c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -441,7 +441,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "841"
+					"sourceid": "480"
 				},
 				{
 					"pluginid": "10011",
@@ -775,7 +775,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://normandie.aract.fr/js/laboweb.min.64c5c30fd2d21e305d663ea6.js",
+							"uri": "https://normandie.aract.fr/js/laboweb.min.64cefc97b0317c3bb515fc6c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -789,7 +789,122 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "841"
+					"sourceid": "480"
+				},
+				{
+					"pluginid": "10009",
+					"alertRef": "10009",
+					"alert": "In Page Banner Information Leak",
+					"name": "In Page Banner Information Leak",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>The server returned a version banner string in the response content. Such information leaks may allow attackers to further target specific issues impacting the product and version in use.</p>",
+					"instances":[ 
+						{
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/egalite-professionnelle.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/management.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/projets-d-investissement-et-innovation.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/responsabilite-sociale-de-l-entreprise-rse.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/stress-et-risques-psychosociaux.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services/accompagnement-des-entreprises.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services/animation-regionale.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services/fact---financez-votre-projet-d-amelioration-des-conditions-de-travail.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services/formations-2023.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/offre-de-services/information-sensibilisation.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						},
+						{
+							"uri": "https://normandie.aract.fr/ressources.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.12.0",
+							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
+						}
+					],
+					"count": "12",
+					"solution": "<p>Configure the server to prevent such information leaks. For example:</p><p>Under Tomcat this is done via the \"server\" directive and implementation of custom error pages.</p><p>Under Apache this is done via the \"ServerSignature\" and \"ServerTokens\" directives.</p>",
+					"otherinfo": "<p>There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body.</p>",
+					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "156"
 				},
 				{
 					"pluginid": "10063",
@@ -897,33 +1012,6 @@
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10040",
-					"alertRef": "10040",
-					"alert": "Secure Pages Include Mixed Content",
-					"name": "Secure Pages Include Mixed Content",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
-					"instances":[ 
-						{
-							"uri": "https://normandie.aract.fr/ressources/web-tv.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "http://img.youtube.com/vi/VxbtHbZad80/0.jpg",
-							"otherinfo": "tag=img src=http://img.youtube.com/vi/VxbtHbZad80/0.jpg\ntag=img src=http://img.youtube.com/vi/8C-B7Ti8GEg/0.jpg\ntag=img src=http://img.youtube.com/vi/oT_06VHPsGk/0.jpg\ntag=img src=http://img.youtube.com/vi/orp3WcjRG2g/0.jpg\ntag=img src=http://img.youtube.com/vi/cKMSsgH3avs/0.jpg\ntag=img src=http://img.youtube.com/vi/a8Ir0RxGoRw/0.jpg\ntag=img src=http://img.youtube.com/vi/wlV-GecKtzg/0.jpg\ntag=img src=http://img.youtube.com/vi/qi3SdjDqguk/0.jpg\ntag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg\n"
-						}
-					],
-					"count": "1",
-					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=img src=http://img.youtube.com/vi/VxbtHbZad80/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/8C-B7Ti8GEg/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/oT_06VHPsGk/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/orp3WcjRG2g/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/cKMSsgH3avs/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/a8Ir0RxGoRw/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/wlV-GecKtzg/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/qi3SdjDqguk/0.jpg</p><p>tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg</p><p></p>",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
-					"cweid": "311",
-					"wascid": "4",
-					"sourceid": "454"
 				},
 				{
 					"pluginid": "10037",
@@ -1273,6 +1361,38 @@
 							"otherinfo": "1672533315, which evaluates to: 2023-01-01 00:35:15"
 						},
 						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe/anne-andrieu.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1672533315",
+							"otherinfo": "1672533315, which evaluates to: 2023-01-01 00:35:15"
+						},
+						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe/celine-cablant.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1479478846",
+							"otherinfo": "1479478846, which evaluates to: 2016-11-18 14:20:46"
+						},
+						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe/elsa-mouret.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1923906009",
+							"otherinfo": "1923906009, which evaluates to: 2030-12-19 10:20:09"
+						},
+						{
+							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe/severine-lesueur.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1923906009",
+							"otherinfo": "1923906009, which evaluates to: 2030-12-19 10:20:09"
+						},
+						{
 							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract.html",
 							"method": "GET",
 							"param": "",
@@ -1287,14 +1407,6 @@
 							"attack": "",
 							"evidence": "1483388376",
 							"otherinfo": "1483388376, which evaluates to: 2017-01-02 20:19:36"
-						},
-						{
-							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1825839938",
-							"otherinfo": "1825839938, which evaluates to: 2027-11-10 09:45:38"
 						},
 						{
 							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail.html",
@@ -1313,63 +1425,7 @@
 							"otherinfo": "1979053478, which evaluates to: 2032-09-17 17:04:38"
 						},
 						{
-							"uri": "https://normandie.aract.fr/offre-de-services.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1775482202",
-							"otherinfo": "1775482202, which evaluates to: 2026-04-06 13:30:02"
-						},
-						{
-							"uri": "https://normandie.aract.fr/offre-de-services/formations-2023.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1512470002",
-							"otherinfo": "1512470002, which evaluates to: 2017-12-05 10:33:22"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2004921750",
-							"otherinfo": "2004921750, which evaluates to: 2033-07-14 02:42:30"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1382308910",
-							"otherinfo": "1382308910, which evaluates to: 2013-10-20 22:41:50"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1486123146",
-							"otherinfo": "1486123146, which evaluates to: 2017-02-03 11:59:06"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1559118000",
-							"otherinfo": "1559118000, which evaluates to: 2019-05-29 08:20:00"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1624551471",
-							"otherinfo": "1624551471, which evaluates to: 2021-06-24 16:17:51"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail/qualite-de-vie-au-travail---articles-connexes.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1377,45 +1433,29 @@
 							"otherinfo": "1796895404, which evaluates to: 2026-12-10 09:36:44"
 						},
 						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail/qualite-de-vie-au-travail---articles-connexes.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1818725579",
-							"otherinfo": "1818725579, which evaluates to: 2027-08-20 01:32:59"
+							"evidence": "1923906009",
+							"otherinfo": "1923906009, which evaluates to: 2030-12-19 10:20:09"
 						},
 						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail/qualite-de-vie-au-travail---les-outils-pour-l-ameliorer.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1844402817",
-							"otherinfo": "1844402817, which evaluates to: 2028-06-12 06:06:57"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1882161365",
-							"otherinfo": "1882161365, which evaluates to: 2029-08-23 06:36:05"
-						},
-						{
-							"uri": "https://normandie.aract.fr/ressources/documentations-et-outils.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2004921750",
-							"otherinfo": "2004921750, which evaluates to: 2033-07-14 02:42:30"
+							"evidence": "1640099247",
+							"otherinfo": "1640099247, which evaluates to: 2021-12-21 15:07:27"
 						}
 					],
-					"count": "19",
+					"count": "13",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1479478846, which evaluates to: 2016-11-18 14:20:46</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "88"
+					"sourceid": "90"
 				},
 				{
 					"pluginid": "10021",
@@ -1539,105 +1579,105 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AHaq_g2nA40WojIiCvWWZCjvu4d7OuzNo",
+							"otherinfo": "\uFFFD\\x0001\u06AB\uFFFD6\uFFFD\\x000e4Z\uFFFD\u0208+\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFD\\x001d\uFFFD\uFFFD6"
 						},
 						{
 							"uri": "https://normandie.aract.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AeI6IKMCHvsxHjPGfSy0qEdw3XhNCWflJ",
-							"otherinfo": "\uFFFD\\x0007\uFFFD\u808C\\x0008{\uFFFD\uFFFDx\uFFFD\\x0019\uFFFD\uFFFD\u04A1\\x001d\uFFFDu\uFFFD4%\uFFFD\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/contactez-nous.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/espace-collaboratif.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-anact.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-aract-normandie.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/l-equipe.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/s-inscrire-a-la-newsletter.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G",
-							"otherinfo": "\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD"
+							"evidence": "3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2",
+							"otherinfo": "\uFFFD\\x0004 Q\\x0015\uFFFD\uFFFD\uFFFD\uFFFD\u0361~6Q\uFFFD<\\x0005{y\\x0001z8B\uFFFD?"
 						},
 						{
 							"uri": "https://normandie.aract.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3A_LbUQF6ToxrfgzMmQlPj7AZxYibVTgCv",
-							"otherinfo": "\uFFFD\\x000f\uFFFDmD\\x0005\uFFFD:1\uFFFD\uFFFD32d%>>\uFFFDg\\x0016\"mT\uFFFD\n"
+							"evidence": "3A1o56S7p8Ge7DZUbalkbRaOpwZqCgsheU",
+							"otherinfo": "\uFFFD\rh\u793B\uFFFD\uFFFD\uFFFD\uFFFD6Tm\uFFFDdm\\x0016\uFFFD\uFFFD\\x0006j\n\\x000b!y"
 						},
 						{
 							"uri": "https://normandie.aract.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "3AhIB4R0fd_b2upz2c070BBuiCd5_HnA2l",
-							"otherinfo": "\uFFFD\\x0008H\\x0007\uFFFDt}\uFFFD\uFFFD\uFFFD\uFFFDs\uFFFD\uFFFD;\uFFFD\\x0010n\uFFFD'y\uFFFDy\uFFFD\uFFFD"
+							"evidence": "3AugKLUQ915eAskmTIN106O2kGY6bR8P8-",
+							"otherinfo": "\uFFFD\\x000b\uFFFD(\uFFFD\\x0010\uFFFD^^\\x0002\uFFFD&L\uFFFDu\u04E3\uFFFD\uFFFDf:m\\x001f\\x000f\uFFFD"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\\x0002\uFFFDw\r\uFFFD2\uFFFDd=!+\uFFFD\uFFFD\uFFFD\u06EC{\uFFFD\uFFFDP\\x000c~\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\\x0001\u06AB\uFFFD6\uFFFD\\x000e4Z\uFFFD\u0208+\uFFFDY\uFFFD\uFFFD\uFFFD\uFFFD\\x001d\uFFFD\uFFFD6</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -1769,16 +1809,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"#\" class=\"ui-icon lwt-search-close\" data-ui-icon=\"close\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<a href=\"mailto:info@laboweb.fr\" target=\"_self\" class=\"network\" data-ui-icon=\"mail\"></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"#\" class=\"ui-icon lwt-search-close\" data-ui-icon=\"close\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<a href=\"mailto:info@laboweb.fr\" target=\"_self\" class=\"network\" data-ui-icon=\"mail\"></a>",
+							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
 							"uri": "https://normandie.aract.fr/a-propos-de-l-aract/contactez-nous.html",
@@ -2147,7 +2187,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AHaq_g2nA40WojIiCvWWZCjvu4d7OuzNo.Eir%2F33CrxqqiTzK0dAcKTHzFK2BQquNMBhxbQDZpGwY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2155,7 +2195,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3AeI6IKMCHvsxHjPGfSy0qEdw3XhNCWflJ.L4gtYGZ%2BE%2BlFd4Y0Y0NxWjf03H6eqJEKAlmjjf4gsqw",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2163,7 +2203,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2171,7 +2211,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2179,7 +2219,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2187,7 +2227,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2195,7 +2235,7 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3A_LbUQF6ToxrfgzMmQlPj7AZxYibVTgCv.PHpL7r8jUljjNeOEPUIPMmQSki4dG0uhjNyghLW7LGA",
+							"evidence": "s%3A1o56S7p8Ge7DZUbalkbRaOpwZqCgsheU.Xd23I5vZcoyEVutHGKXSxro9RiJrVlJGEPxtZ06LaWA",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
@@ -2203,49 +2243,25 @@
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3AhIB4R0fd_b2upz2c070BBuiCd5_HnA2l.5k1zI6qH99Z47CY1Q7jqJUHw6%2FLi4Xu4nKy7FJo7alU",
+							"evidence": "s%3AugKLUQ915eAskmTIN106O2kGY6bR8P8-.Flm8Jsmu1sEmmmgoVJEv7Mdv6rrUxlC8Yz570d0Sy0Y",
 							"otherinfo": "\ncookie:connect.sid"
 						},
 						{
-							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/dialogue-social-et-relations-de-travail/dialogue-social-et-relations-de-travail---etapes-cles-de-la-demarche-en-cas-de-situation-degradee.html",
+							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/dialogue-social-et-relations-de-travail.html",
 							"method": "GET",
 							"param": "connect.sid",
 							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
-							"otherinfo": "\ncookie:connect.sid"
-						},
-						{
-							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/dialogue-social-et-relations-de-travail/dialogue-social-et-relations-de-travail---les-acteurs-concernes.html",
-							"method": "GET",
-							"param": "connect.sid",
-							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
-							"otherinfo": "\ncookie:connect.sid"
-						},
-						{
-							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle/penibilite-et-sante-au-travail---que-propose-l-aract-.html",
-							"method": "GET",
-							"param": "connect.sid",
-							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
-							"otherinfo": "\ncookie:connect.sid"
-						},
-						{
-							"uri": "https://normandie.aract.fr/les-dossiers-de-l-aract/stress-et-risques-psychosociaux/stress-et-risques-psychosociaux---de-quoi-parle-t-on-.html",
-							"method": "GET",
-							"param": "connect.sid",
-							"attack": "",
-							"evidence": "s%3ALtdw3nMoVkPSErqMvsmtuse7C9UAx-4G.aqrZ4HnPTthZL%2FE6b%2FQSwlRE%2Fpzjz5i9sCmZ%2BaMOwoo",
+							"evidence": "s%3AQgURX-pLqnzaF-NlG0PAV7eQF6OELjP2.RY%2FUFNUcJrgtJeB9sC2ZmEj1W27FrHSAahfPBxaj%2BKY",
 							"otherinfo": "\ncookie:connect.sid"
 						}
 					],
-					"count": "12",
+					"count": "9",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:connect.sid</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "52"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
