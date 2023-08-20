@@ -1,7 +1,7 @@
 {
-	"@programName": "OWASP ZAP",
+	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 13 Aug 2023 02:05:53",
+	"@generated": "Sun, 20 Aug 2023 02:00:49",
 	"site":[ 
 		{
 			"@name": "https://www.vouspreferez.fr",
@@ -25,7 +25,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"ninja_forms_form_1\" enctype=\"multipart/form-data\" method=\"post\" name=\"\" action=\"\" class=\"ninja-forms-form\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_form_id\" \"_hp_name\" \"_jvY4V\" \"_ninja_forms_display_submit\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_1\" \"ninja_forms_field_1_type\" \"ninja_forms_field_2\" \"ninja_forms_field_22\" \"ninja_forms_field_22_type\" \"ninja_forms_field_2_type\" \"ninja_forms_field_3_type\" \"ninja_forms_field_4\" \"ninja_forms_field_4_type\" \"ninja_forms_field_5\" \"ninja_forms_field_5_type\" \"ninja_forms_field_7\" \"ninja_forms_field_7_type\" \"ninja_forms_field_8\" \"ninja_forms_field_8_type\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_form_id\" \"_hp_name\" \"_ninja_forms_display_submit\" \"_sR2RX\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_1\" \"ninja_forms_field_1_type\" \"ninja_forms_field_2\" \"ninja_forms_field_22\" \"ninja_forms_field_22_type\" \"ninja_forms_field_2_type\" \"ninja_forms_field_3_type\" \"ninja_forms_field_4\" \"ninja_forms_field_4_type\" \"ninja_forms_field_5\" \"ninja_forms_field_5_type\" \"ninja_forms_field_7\" \"ninja_forms_field_7_type\" \"ninja_forms_field_8\" \"ninja_forms_field_8_type\" ]."
 						},
 						{
 							"uri": "https://www.vouspreferez.fr/temoigner/",
@@ -33,16 +33,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"ninja_forms_form_5\" enctype=\"multipart/form-data\" method=\"post\" name=\"\" action=\"\" class=\"ninja-forms-form\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" \"_form_id\" \"_hp_name\" \"_ninja_forms_display_submit\" \"_s2eMH\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_10\" \"ninja_forms_field_10_type\" \"ninja_forms_field_11\" \"ninja_forms_field_11_type\" \"ninja_forms_field_12\" \"ninja_forms_field_12_type\" \"ninja_forms_field_13\" \"ninja_forms_field_13_type\" \"ninja_forms_field_14_type\" \"ninja_forms_field_15\" \"ninja_forms_field_15_type\" \"ninja_forms_field_16\" \"ninja_forms_field_16_type\" \"ninja_forms_field_17\" \"ninja_forms_field_17_type\" \"ninja_forms_field_21\" \"ninja_forms_field_21_type\" \"ninja_forms_field_9\" \"ninja_forms_field_9_type\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" \"_form_id\" \"_hp_name\" \"_ninja_forms_display_submit\" \"_UtOYj\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_10\" \"ninja_forms_field_10_type\" \"ninja_forms_field_11\" \"ninja_forms_field_11_type\" \"ninja_forms_field_12\" \"ninja_forms_field_12_type\" \"ninja_forms_field_13\" \"ninja_forms_field_13_type\" \"ninja_forms_field_14_type\" \"ninja_forms_field_15\" \"ninja_forms_field_15_type\" \"ninja_forms_field_16\" \"ninja_forms_field_16_type\" \"ninja_forms_field_17\" \"ninja_forms_field_17_type\" \"ninja_forms_field_21\" \"ninja_forms_field_21_type\" \"ninja_forms_field_9\" \"ninja_forms_field_9_type\" ]."
 						}
 					],
 					"count": "2",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_form_id\" \"_hp_name\" \"_jvY4V\" \"_ninja_forms_display_submit\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_1\" \"ninja_forms_field_1_type\" \"ninja_forms_field_2\" \"ninja_forms_field_22\" \"ninja_forms_field_22_type\" \"ninja_forms_field_2_type\" \"ninja_forms_field_3_type\" \"ninja_forms_field_4\" \"ninja_forms_field_4_type\" \"ninja_forms_field_5\" \"ninja_forms_field_5_type\" \"ninja_forms_field_7\" \"ninja_forms_field_7_type\" \"ninja_forms_field_8\" \"ninja_forms_field_8_type\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_form_id\" \"_hp_name\" \"_ninja_forms_display_submit\" \"_sR2RX\" \"_wp_http_referer\" \"_wpnonce\" \"ninja_forms_field_1\" \"ninja_forms_field_1_type\" \"ninja_forms_field_2\" \"ninja_forms_field_22\" \"ninja_forms_field_22_type\" \"ninja_forms_field_2_type\" \"ninja_forms_field_3_type\" \"ninja_forms_field_4\" \"ninja_forms_field_4_type\" \"ninja_forms_field_5\" \"ninja_forms_field_5_type\" \"ninja_forms_field_7\" \"ninja_forms_field_7_type\" \"ninja_forms_field_8\" \"ninja_forms_field_8_type\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "665"
+					"sourceid": "535"
 				},
 				{
 					"pluginid": "10038",
@@ -373,16 +373,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "/*! jQuery v1.12.4",
-							"otherinfo": "CVE-2020-11023\nCVE-2020-11022\nCVE-2015-9251\nCVE-2019-11358\n"
+							"otherinfo": "CVE-2020-11023\nCVE-2020-11022\nCVE-2015-9251\nCVE-2019-11358\nCVE-2020-23064\n"
 						}
 					],
 					"count": "1",
 					"solution": "<p>Please upgrade to the latest version of jquery.</p>",
-					"otherinfo": "<p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2015-9251</p><p>CVE-2019-11358</p><p></p>",
+					"otherinfo": "<p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2015-9251</p><p>CVE-2019-11358</p><p>CVE-2020-23064</p><p></p>",
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p>https://github.com/jquery/jquery.com/issues/162</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "379"
+					"sourceid": "494"
 				},
 				{
 					"pluginid": "10017",
@@ -524,7 +524,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "379"
+					"sourceid": "494"
 				},
 				{
 					"pluginid": "10063",
@@ -674,7 +674,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "756"
+					"sourceid": "602"
 				},
 				{
 					"pluginid": "10036",
@@ -695,7 +695,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -703,7 +703,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/",
+							"uri": "https://www.vouspreferez.fr/post-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -711,7 +711,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/on-trouver-solutions-simples-perennes/",
+							"uri": "https://www.vouspreferez.fr/question-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -719,7 +719,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/quels-sont-les-liens-entre-travail-et-tms/",
+							"uri": "https://www.vouspreferez.fr/quizz-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -802,7 +802,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/",
+							"uri": "https://www.vouspreferez.fr/category-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -810,7 +810,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -818,7 +818,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/a-t-on-vraiment-marges-de-manoeuvre-agir/",
+							"uri": "https://www.vouspreferez.fr/post-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -826,7 +826,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction/",
+							"uri": "https://www.vouspreferez.fr/question-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -834,7 +834,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/on-trouver-solutions-simples-perennes/",
+							"uri": "https://www.vouspreferez.fr/quizz-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -842,7 +842,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/quels-sont-les-liens-entre-travail-et-tms/",
+							"uri": "https://www.vouspreferez.fr/ressource-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -909,21 +909,37 @@
 							"otherinfo": "1444533345, which evaluates to: 2015-10-11 03:15:45"
 						},
 						{
+							"uri": "https://www.vouspreferez.fr/wp-content/uploads/2016/08/Brochure_TMS.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2007530062",
+							"otherinfo": "2007530062, which evaluates to: 2033-08-13 07:14:22"
+						},
+						{
 							"uri": "https://www.vouspreferez.fr/wp-content/uploads/2016/09/Brochure_MDE_0815-HD.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1444533345",
 							"otherinfo": "1444533345, which evaluates to: 2015-10-11 03:15:45"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/wp-content/uploads/2016/09/Brochure_MDE_0815-HD.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2007530062",
+							"otherinfo": "2007530062, which evaluates to: 2033-08-13 07:14:22"
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1444533345, which evaluates to: 2015-10-11 03:15:45</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "610"
+					"sourceid": "1023"
 				},
 				{
 					"pluginid": "10021",
@@ -944,7 +960,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/",
+							"uri": "https://www.vouspreferez.fr/category-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -952,7 +968,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -960,7 +976,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/",
+							"uri": "https://www.vouspreferez.fr/post-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -968,7 +984,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/a-t-on-vraiment-marges-de-manoeuvre-agir/",
+							"uri": "https://www.vouspreferez.fr/question-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -976,7 +992,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction/",
+							"uri": "https://www.vouspreferez.fr/quizz-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -984,15 +1000,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/on-trouver-solutions-simples-perennes/",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/quels-sont-les-liens-entre-travail-et-tms/",
+							"uri": "https://www.vouspreferez.fr/ressource-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1009,6 +1017,14 @@
 						},
 						{
 							"uri": "https://www.vouspreferez.fr/sitemap_index.xml",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/temoignage-sitemap.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1067,14 +1083,6 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05EF\uFFFD\uFFFD\uFFFD'\uFFFD\uFFFD\\x001e\uFFFD7"
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/piloter-sa-demarche-tms/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/wp-content/uploads/2016/08/PiloterDemarcheTMS",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05EF\uFFFD\uFFFD\uFFFD\u258B^\uFFFD7\uFFFDj\uFFFD!y3\\x0012"
-						},
-						{
 							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/reperer-les-difficultes-au-travail/",
 							"method": "GET",
 							"param": "",
@@ -1083,7 +1091,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05EF\uFFFD\uFFFD\uFFFD^\uFFFD\uFFFD\u07AC8\uFFFD~'.\uFFFD\u05ECN\uFFFD\uFFFDj)"
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/sengager-dans-la-demarche-tms/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1129,6 +1137,14 @@
 							"attack": "",
 							"evidence": "2Fquels-sont-les-liens-entre-travail-et-tms",
 							"otherinfo": "\uFFFDZ\uFFFDz[>\uFFFD\uFFFD\uFFFD\uFFFDW\uFFFD\uFFFDX\uFFFD\uFFFD\u03DE\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u06BD\uFFFD\uFFFD\uFFFD\uFFFD~\uFFFDk"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/temoignage-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/wp-content/uploads/2016/07/Capture-d",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u05EF\uFFFD\uFFFD\uFFFD\u06EB{\uFFFD"
 						}
 					],
 					"count": "11",
@@ -1252,7 +1268,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "343"
+					"sourceid": "467"
 				},
 				{
 					"pluginid": "10027",
@@ -1388,7 +1404,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/piloter-sa-demarche-tms/",
+							"uri": "https://www.vouspreferez.fr/comment-faire-la-demarche-pas-a-pas/analyser-situations-de-travail-elaborer-pistes-daction/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1485,7 +1501,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "103"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "10015",
@@ -1506,7 +1522,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/",
+							"uri": "https://www.vouspreferez.fr/category-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1514,7 +1530,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1522,7 +1538,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/a-t-on-vraiment-marges-de-manoeuvre-agir/",
+							"uri": "https://www.vouspreferez.fr/post-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1530,7 +1546,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction/",
+							"uri": "https://www.vouspreferez.fr/question-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1538,7 +1554,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/on-trouver-solutions-simples-perennes/",
+							"uri": "https://www.vouspreferez.fr/quizz-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1546,7 +1562,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/quels-sont-les-liens-entre-travail-et-tms/",
+							"uri": "https://www.vouspreferez.fr/ressource-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1785,7 +1801,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/",
+							"uri": "https://www.vouspreferez.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1793,7 +1809,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/",
+							"uri": "https://www.vouspreferez.fr/post-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1801,7 +1817,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/on-trouver-solutions-simples-perennes/",
+							"uri": "https://www.vouspreferez.fr/question-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1809,7 +1825,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/que-sais-je/quels-sont-les-liens-entre-travail-et-tms/",
+							"uri": "https://www.vouspreferez.fr/quizz-sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1895,84 +1911,12 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.vouspreferez.fr/?question=1",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=1\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=1"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=1",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=1\r\n\r\nThe user-controlled value was:\r\nie=edge,chrome=1"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=1",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=1\r\n\r\nThe user-controlled value was:\r\nwidth=device-width, initial-scale=1"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=19-salaries-se-plaignent-on-ne-changer-de-poste-de-travail-on-ne-rien-y-faire",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=19-salaries-se-plaignent-on-ne-changer-de-poste-de-travail-on-ne-rien-y-faire\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=19-salaries-se-plaignent-on-ne-changer-de-poste-de-travail-on-ne-rien-y-faire\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=19-salaries-se-plaignent-on-ne-changer-de-poste-de-travail-on-ne-rien-y-faire"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=20-association-daide-a-domicile-direction-a-confie-responsabilite-de-prevention-tms-aux-responsables-de-secteurs-ca-changer-choses",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=20-association-daide-a-domicile-direction-a-confie-responsabilite-de-prevention-tms-aux-responsables-de-secteurs-ca-changer-choses\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=20-association-daide-a-domicile-direction-a-confie-responsabilite-de-prevention-tms-aux-responsables-de-secteurs-ca-changer-choses\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=20-association-daide-a-domicile-direction-a-confie-responsabilite-de-prevention-tms-aux-responsables-de-secteurs-ca-changer-choses"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=21-medecin-travail-ne-aider-a-mise-oeuvre-de-demarche-de-prevention-role-se-limite-a-donner-restrictions-daptitudes-direction-ne",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=21-medecin-travail-ne-aider-a-mise-oeuvre-de-demarche-de-prevention-role-se-limite-a-donner-restrictions-daptitudes-direction-ne\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=21-medecin-travail-ne-aider-a-mise-oeuvre-de-demarche-de-prevention-role-se-limite-a-donner-restrictions-daptitudes-direction-ne\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=21-medecin-travail-ne-aider-a-mise-oeuvre-de-demarche-de-prevention-role-se-limite-a-donner-restrictions-daptitudes-direction-ne"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=3",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=3\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=3\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=3"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=4",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=4\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=4\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=4"
-						},
-						{
 							"uri": "https://www.vouspreferez.fr/?question=645",
 							"method": "GET",
 							"param": "question",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=645\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=645\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=645"
-						},
-						{
-							"uri": "https://www.vouspreferez.fr/?question=7-avons-accidents-travail-ont-provoque-lombalgies-problemes-depaules-cest-a-circonstances-exceptionnelles",
-							"method": "GET",
-							"param": "question",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=7-avons-accidents-travail-ont-provoque-lombalgies-problemes-depaules-cest-a-circonstances-exceptionnelles\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=7-avons-accidents-travail-ont-provoque-lombalgies-problemes-depaules-cest-a-circonstances-exceptionnelles\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=7-avons-accidents-travail-ont-provoque-lombalgies-problemes-depaules-cest-a-circonstances-exceptionnelles"
 						},
 						{
 							"uri": "https://www.vouspreferez.fr/?question=question-2-faux",
@@ -1983,21 +1927,93 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=question-2-faux\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=question-2-faux\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=question-2-faux"
 						},
 						{
-							"uri": "https://www.vouspreferez.fr/?question=question-3-vrai-faux",
+							"uri": "https://www.vouspreferez.fr/?quizz=1012",
 							"method": "GET",
-							"param": "question",
+							"param": "quizz",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?question=question-3-vrai-faux\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquestion=question-3-vrai-faux\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?question=question-3-vrai-faux"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=1012\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=1012\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=1012"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=a-t-on-vraiment-possibilites-moyens-daction",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=a-t-on-vraiment-possibilites-moyens-daction\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=a-t-on-vraiment-possibilites-moyens-daction\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=a-t-on-vraiment-possibilites-moyens-daction"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=analyser-situations-de-travail-elaborer-pistes-daction",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=analyser-situations-de-travail-elaborer-pistes-daction\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=analyser-situations-de-travail-elaborer-pistes-daction\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=analyser-situations-de-travail-elaborer-pistes-daction"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=face-a-phenomene-augmentation-y-a-t-vraiment-pistes-daction"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=liens-entre-travail-tms",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=liens-entre-travail-tms\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=liens-entre-travail-tms\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=liens-entre-travail-tms"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=on-trouver-solutions-simples-perennes",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=on-trouver-solutions-simples-perennes\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=on-trouver-solutions-simples-perennes\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=on-trouver-solutions-simples-perennes"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=piloter-demarche-tms",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=piloter-demarche-tms\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=piloter-demarche-tms\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=piloter-demarche-tms"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=reperer-difficultes-travail",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=reperer-difficultes-travail\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=reperer-difficultes-travail\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=reperer-difficultes-travail"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=sengager-demarche-tms",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=sengager-demarche-tms\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=sengager-demarche-tms\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=sengager-demarche-tms"
+						},
+						{
+							"uri": "https://www.vouspreferez.fr/?quizz=suivre-dans-le-temps",
+							"method": "GET",
+							"param": "quizz",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.vouspreferez.fr/?quizz=suivre-dans-le-temps\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nquizz=suivre-dans-le-temps\r\n\r\nThe user-controlled value was:\r\nhttps://www.vouspreferez.fr/?quizz=suivre-dans-le-temps"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.vouspreferez.fr/?question=1</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [meta] tag [content] attribute </p><p></p><p>The user input found was:</p><p>question=1</p><p></p><p>The user-controlled value was:</p><p>https://www.vouspreferez.fr/?question=1</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.vouspreferez.fr/?question=645</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [meta] tag [content] attribute </p><p></p><p>The user input found was:</p><p>question=645</p><p></p><p>The user-controlled value was:</p><p>https://www.vouspreferez.fr/?question=645</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "824"
+					"sourceid": "661"
 				}
 			]
 		}
