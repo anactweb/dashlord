@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 27 Aug 2023 02:08:38",
+	"@generated": "Sun, 3 Sep 2023 02:03:53",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1092"
+					"sourceid": "1091"
 				},
 				{
 					"pluginid": "10202",
@@ -218,7 +218,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -347,7 +347,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "27"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10099",
@@ -398,7 +398,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1034"
+					"sourceid": "1036"
 				},
 				{
 					"pluginid": "10099",
@@ -441,7 +441,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "936"
+					"sourceid": "937"
 				},
 				{
 					"pluginid": "90003",
@@ -599,7 +599,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "320"
+					"sourceid": "280"
 				},
 				{
 					"pluginid": "10010",
@@ -612,14 +612,6 @@
 					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "GET",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -658,23 +650,15 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
-							"method": "POST",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "5",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1140"
+					"sourceid": "850"
 				},
 				{
 					"pluginid": "10054",
@@ -687,14 +671,6 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "GET",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -733,23 +709,15 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
-							"method": "POST",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "5",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1140"
+					"sourceid": "850"
 				},
 				{
 					"pluginid": "10017",
@@ -867,7 +835,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "318"
+					"sourceid": "282"
 				},
 				{
 					"pluginid": "10063",
@@ -1239,7 +1207,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "985"
+					"sourceid": "1000"
 				},
 				{
 					"pluginid": "10021",
@@ -1466,37 +1434,21 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where cookie parameters might be controlled. This is called a cookie poisoning attack, and becomes exploitable when an attacker can manipulate the cookie in various ways. In some cases this will not be exploitable, however, allowing URL parameters to set cookie values is generally considered a bug.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
-							"method": "GET",
-							"param": "wp_lang",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR",
 							"method": "GET",
 							"param": "wp_lang",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
-							"method": "GET",
-							"param": "wp_lang",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).\n\nThis was identified at:\r\n\r\nhttps://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR\r\n\r\nUser-input was found in the following cookie:\r\nwp_lang=fr_FR; path=/; secure\r\n\r\nThe user input was:\r\nwp_lang=fr_FR"
 						}
 					],
-					"count": "3",
+					"count": "1",
 					"solution": "<p>Do not allow user input to control cookie names and values. If some query string parameters must be set in cookie values, be sure to filter out semicolon's that can serve as name/value pair delimiters.</p>",
-					"otherinfo": "<p>An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).</p><p></p><p>This was identified at:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR</p><p></p><p>User-input was found in the following cookie:</p><p>wp_lang=fr_FR; path=/; secure</p><p></p><p>The user input was:</p><p>wp_lang=fr_FR</p>",
+					"otherinfo": "<p>An attacker may be able to poison cookie values through URL parameters.  Try injecting a semicolon to see if you can add cookie values (e.g. name=controlledValue;name=anotherValue;).</p><p></p><p>This was identified at:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F&wp_lang=fr_FR</p><p></p><p>User-input was found in the following cookie:</p><p>wp_lang=fr_FR; path=/; secure</p><p></p><p>The user input was:</p><p>wp_lang=fr_FR</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1141"
+					"sourceid": "866"
 				},
 				{
 					"pluginid": "10027",
@@ -1838,7 +1790,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -2067,7 +2019,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "366"
+					"sourceid": "373"
 				},
 				{
 					"pluginid": "10049",
@@ -2353,7 +2305,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "366"
+					"sourceid": "373"
 				}
 			]
 		}
