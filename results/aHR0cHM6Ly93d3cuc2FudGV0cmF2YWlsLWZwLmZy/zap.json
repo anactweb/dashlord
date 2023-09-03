@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 27 Aug 2023 02:21:21",
+	"@generated": "Sun, 3 Sep 2023 02:22:27",
 	"site":[ 
 		{
 			"@name": "https://www.santetravail-fp.fr",
@@ -9,6 +9,33 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/temoignage/p-douillet-anact-des-rps-la-qvct",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "5697917136879",
+							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 569791\nBrand: MAESTRO\nCategory: \nIssuer: "
+						}
+					],
+					"count": "1",
+					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 569791</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "1309"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -199,7 +226,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -207,7 +234,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -347,15 +374,23 @@
 							"attack": "",
 							"evidence": "/*! jQuery UI - v1.12.1",
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Uj8l82V05_JUcQ80PLKvZ3Hioaex8iIjj7P5QoRB32k.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
 					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
 					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1465"
+					"sourceid": "1442"
 				},
 				{
 					"pluginid": "90022",
@@ -390,7 +425,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1354"
+					"sourceid": "1340"
 				},
 				{
 					"pluginid": "10044",
@@ -505,7 +540,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1254"
+					"sourceid": "1269"
 				},
 				{
 					"pluginid": "10017",
@@ -631,7 +666,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1437"
+					"sourceid": "1444"
 				},
 				{
 					"pluginid": "10063",
@@ -716,7 +751,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -724,7 +759,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -807,7 +842,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.png",
+							"uri": "https://www.santetravail-fp.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -815,7 +850,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -914,7 +949,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.png",
+							"uri": "https://www.santetravail-fp.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -922,7 +957,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1003,7 +1038,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "745"
+					"sourceid": "759"
 				},
 				{
 					"pluginid": "10021",
@@ -1508,7 +1543,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.png",
+							"uri": "https://www.santetravail-fp.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1516,7 +1551,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1849,54 +1884,6 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B1%5D=1&field_audience_target_id%5B40%5D=40&field_audience_target_id%5B55%5D=55&site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n22"
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[42]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[42]=42\r\n\r\nThe user-controlled value was:\r\n42"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[43]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[43]=43\r\n\r\nThe user-controlled value was:\r\n432"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[43]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[43]=43\r\n\r\nThe user-controlled value was:\r\n43"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n217"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n219"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n21"
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B22%5D=22",
 							"method": "GET",
 							"param": "field_audience_target_id[42]",
@@ -1958,16 +1945,24 @@
 							"param": "site[22]",
 							"attack": "",
 							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n224"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22",
+							"method": "GET",
+							"param": "site[22]",
+							"attack": "",
+							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n22"
 						}
 					],
-					"count": "17",
+					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B1%5D=1&field_audience_target_id%5B40%5D=40&field_audience_target_id%5B55%5D=55&site%5B22%5D=22</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_audience_target_id[40]=40</p><p></p><p>The user-controlled value was:</p><p>40</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "867"
+					"sourceid": "884"
 				}
 			]
 		}
