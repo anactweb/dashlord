@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 3 Sep 2023 02:57:22",
+	"@generated": "Sun, 10 Sep 2023 02:53:39",
 	"site":[ 
 		{
 			"@name": "https://bourgognefranchecomte.aract.fr",
@@ -20,21 +20,21 @@
 					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/nos-partenaires",
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-vz6pbIlQq8zgXhYJ3niIqvBrUA-BmKN5AaCjYJHMyvw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "58548962411988",
-							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 585489\nBrand: MAESTRO\nCategory: \nIssuer: "
+							"evidence": "58599943168874",
+							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 585999\nBrand: MAESTRO\nCategory: \nIssuer: "
 						}
 					],
 					"count": "1",
 					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 585489</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 585999</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "301"
+					"sourceid": "916"
 				},
 				{
 					"pluginid": "10202",
@@ -226,7 +226,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -234,7 +234,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -336,7 +336,7 @@
 					"count": "9",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
 					"sourceid": "1"
@@ -403,7 +403,7 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/",
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-zoWGjsk2ZROdancAwsMQ1slzM56b3feRsfmNCz41h2s&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
@@ -411,39 +411,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/aract-bourgogne-franche-comte-bienvenue",
-							"method": "GET",
-							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/conseil-dadministration-comite-dorientation",
-							"method": "GET",
-							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/lequipe",
-							"method": "GET",
-							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ZfHISrxBOKfFYlXWHwNR2461kQB6WnrAVAUC26FkSA8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "GET",
-							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-fAY6U-X6gRTqjxOf1er0Zn8EAFCadgFGVMjiiow-a4k&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-vbUHxiTIk9sCZEj-ltHmOLfpaqs-rNvUr0AH6RLOgFs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
@@ -467,13 +435,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "4",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "788"
+					"sourceid": "936"
 				},
 				{
 					"pluginid": "10017",
@@ -569,6 +537,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://bourgognefranchecomte.aract.fr/sites/default/files/js/js_Qravz5BMZgwv5-S5uegzRPdTqPJYaX-5JjroT2WrkRE.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bourgognefranchecomte.aract.fr/sites/default/files/js/js_WRYSM5sD80Xv5SqJxUq0drSqbLo54JjBEyoaQzlsNHs.js",
 							"method": "GET",
 							"param": "",
@@ -577,13 +553,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "607"
+					"sourceid": "603"
 				},
 				{
 					"pluginid": "10063",
@@ -668,7 +644,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -676,7 +652,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -687,7 +663,7 @@
 					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
@@ -719,7 +695,7 @@
 							"otherinfo": "tag=img src=http://bourgognefranchecomte.aract.fr/download/site-principal/image/logos/etat2016.jpg\ntag=img src=http://bourgognefranchecomte.aract.fr/download/site-principal/image/logos/region2016.jpg\ntag=img src=http://bourgognefranchecomte.aract.fr/download/site-principal/image/logos/anact2015.jpg\ntag=img src=http://bourgognefranchecomte.aract.fr/download/site-principal/image/logos/direccte2016.jpg\n"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-jGyuZrUQf9uoffAF3uCHBmV4-AWjneILicXcd54MW7k&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/nos-partenaires?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-l3TWdObd15-OlIMVYW5PLBzHj1PusIR-aaAKB83de-I&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -818,7 +794,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1083,6 +1059,14 @@
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						},
 						{
+							"uri": "https://bourgognefranchecomte.aract.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
+						},
+						{
 							"uri": "https://bourgognefranchecomte.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1145,20 +1129,12 @@
 							"attack": "",
 							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
@@ -1174,7 +1150,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1182,7 +1158,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-yoFcaSNmDUU6BmtGiRr4A0By8p0QHtewtDQNDH6FO0k&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-I5Tj0oT73WEWv0aJZXKUOg7nZDIykBj2a3wKOBeWYYU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1190,7 +1166,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QeHHU67c7SiMMHT9lD9RwWsdLzZd-wt8Rely3MxCCtU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-MKKjWzRsXz_Urm3GhKA3QvbmvMGq7fW43jyNmeTlD88&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1198,7 +1174,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UCtCMCyptagxI6LGU_vaNxgdG_mQBTCAIqxmuPScZN4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-d88c0v0gdDn8hyuBYy5DZpRq_AT9fprIDo4OoBvBWDo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1206,7 +1182,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-9KFSWLIcUPMDpm4n1WO2aRD9BIJLewNDf645BO_KvT8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-a9A2FoikDViqyLmq9NwiL3P0xM5SD6eWeYNPk0PQ_ss&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1214,7 +1190,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-MzCSd0Bo-39myry4fgrpyPczF1Vp4oey59_xTFEZwKM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-R0wQb7DLvjsLSXhO4hH5joo3pi88xgk4NYhyYAA9GdE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1222,7 +1198,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-O9FECSu74-x5Y0kl_mnmsobMVT8WgbKZ0BTDvs50pfU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Tz8DVFddOO4T7a9lLwOsnd2HVs6Ssngo76XNcF6T0ps&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1230,7 +1206,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UmfF3FdMqZzp2RtGWWaJJ8G-24KkNo32OT80VJVEJ7g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Uzc4onctDd1ylB5up60AWiIXuLcB8lqGhZH44E1mSy0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1238,7 +1214,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-edePJFW1mNrHdm41XQAJfSM0RiQdPxgNRcY-nCn3t9E&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cRHuxUmoKIMUWX2lss1NQlbuRLAFNdwh_ZUUlYhxDAE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1246,7 +1222,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-YNflL5Ugcs2_torCT58KX2GeqJ6FlKSAcVk35TSdzAk&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-wDEqjqpeuBAeqKEDLtkIYmfRDmVlhLwAgljo6iKN9_s&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1254,7 +1230,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-c7sOfmTKcj8O_aKA-wglRKOqjN9MoOyVBBisUSMTbW8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ZrW0hkAPLi8r0Ieari3sCb2aCWZTe7SdyoHpsELggxg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1262,7 +1238,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-KJNHlix8cMEVS4Vdv5-y0K9yjGsSJ7EL81wQwGYZ5fc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-uJJqA4yioO-4hC1GQTixLJdtt_wvueleubWUqUE1QLI&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1276,7 +1252,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "663"
+					"sourceid": "669"
 				},
 				{
 					"pluginid": "10027",
@@ -1468,20 +1444,20 @@
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"\">L&#039;Aract</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-152795908-1', 'auto');ga('require', 'displayfeatures');ga('send', 'pageview');</script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"\">L&#039;Aract</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
 					"count": "11",
@@ -1514,10 +1490,10 @@
 					"count": "1",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "44"
 				},
 				{
 					"pluginid": "10015",
@@ -1531,6 +1507,14 @@
 					"instances":[ 
 						{
 							"uri": "https://bourgognefranchecomte.aract.fr",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=3600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/aract-bourgogne-franche-comte-bienvenue",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1563,14 +1547,6 @@
 						},
 						{
 							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/password",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=3600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/lequipe",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1809,35 +1785,27 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/",
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-zoWGjsk2ZROdancAwsMQ1slzM56b3feRsfmNCz41h2s&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
+							"evidence": "bGV280dP1qJhr8EMXoaBV2nBP0E6I7d83LVmqxWjHGuBOeek",
 							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/aract-bourgogne-franche-comte-bienvenue",
+							"uri": "https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-vbUHxiTIk9sCZEj-ltHmOLfpaqs-rNvUr0AH6RLOgFs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
+							"evidence": "6wXapeJz1n1tLaECumT7m%2Cx8sKBCAcr6BJlaTT8xH0KQdmMP",
 							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/conseil-dadministration-comite-dorientation",
-							"method": "GET",
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/password",
+							"method": "POST",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
-							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/lequipe",
-							"method": "GET",
-							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
-							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
+							"evidence": "bGV280dP1qJhr8EMXoaBV2nBP0E6I7d83LVmqxWjHGuBOeek",
 							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
 						},
 						{
@@ -1845,15 +1813,23 @@
 							"method": "POST",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
+							"evidence": "6wXapeJz1n1tLaECumT7m%2Cx8sKBCAcr6BJlaTT8xH0KQdmMP",
 							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/index.php/conseil-dadministration-comite-dorientation",
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-zoWGjsk2ZROdancAwsMQ1slzM56b3feRsfmNCz41h2s&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
 							"attack": "",
-							"evidence": "SfT69pM-s3qEKMAAuNNt8gDitN54OOOBrrE2t4D9l5UQKfez",
+							"evidence": "bGV280dP1qJhr8EMXoaBV2nBP0E6I7d83LVmqxWjHGuBOeek",
+							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-vbUHxiTIk9sCZEj-ltHmOLfpaqs-rNvUr0AH6RLOgFs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESS49e53a5abe49f4ba45962eb650cbe78c",
+							"attack": "",
+							"evidence": "6wXapeJz1n1tLaECumT7m%2Cx8sKBCAcr6BJlaTT8xH0KQdmMP",
 							"otherinfo": "\ncookie:SSESS49e53a5abe49f4ba45962eb650cbe78c"
 						}
 					],
@@ -1863,7 +1839,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "788"
+					"sourceid": "936"
 				},
 				{
 					"pluginid": "10049",
@@ -1959,7 +1935,7 @@
 					"count": "10",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
@@ -1975,36 +1951,60 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-O9FECSu74-x5Y0kl_mnmsobMVT8WgbKZ0BTDvs50pfU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Tz8DVFddOO4T7a9lLwOsnd2HVs6Ssngo76XNcF6T0ps&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-O9FECSu74-x5Y0kl_mnmsobMVT8WgbKZ0BTDvs50pfU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Tz8DVFddOO4T7a9lLwOsnd2HVs6Ssngo76XNcF6T0ps&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-O9FECSu74-x5Y0kl_mnmsobMVT8WgbKZ0BTDvs50pfU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Tz8DVFddOO4T7a9lLwOsnd2HVs6Ssngo76XNcF6T0ps&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-O9FECSu74-x5Y0kl_mnmsobMVT8WgbKZ0BTDvs50pfU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Tz8DVFddOO4T7a9lLwOsnd2HVs6Ssngo76XNcF6T0ps&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-VG8Of_JYWWSY3CeaLdr4HzKvQHgOwuUKxz9g5cQSEog&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "form_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-VG8Of_JYWWSY3CeaLdr4HzKvQHgOwuUKxz9g5cQSEog&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-VG8Of_JYWWSY3CeaLdr4HzKvQHgOwuUKxz9g5cQSEog&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "op",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-VG8Of_JYWWSY3CeaLdr4HzKvQHgOwuUKxz9g5cQSEog&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+						},
+						{
+							"uri": "https://bourgognefranchecomte.aract.fr/index.php/recherche?search_api_fulltext=ZAP",
+							"method": "GET",
+							"param": "search_api_fulltext",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/index.php/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
 							"uri": "https://bourgognefranchecomte.aract.fr/recherche?search_api_fulltext=ZAP",
@@ -2013,38 +2013,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-HH7jg7ny3hSX2zXki8X2jj-CmCfcnhGMxSMjP3PQNhQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "GET",
-							"param": "form_id",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-HH7jg7ny3hSX2zXki8X2jj-CmCfcnhGMxSMjP3PQNhQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-HH7jg7ny3hSX2zXki8X2jj-CmCfcnhGMxSMjP3PQNhQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "GET",
-							"param": "op",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-HH7jg7ny3hSX2zXki8X2jj-CmCfcnhGMxSMjP3PQNhQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Ta-swUPzjFUhP4h-ZW_w5aUbU1qF1-Oth1YvN0GcMmQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "GET",
-							"param": "form_id",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Ta-swUPzjFUhP4h-ZW_w5aUbU1qF1-Oth1YvN0GcMmQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
-						},
-						{
-							"uri": "https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Ta-swUPzjFUhP4h-ZW_w5aUbU1qF1-Oth1YvN0GcMmQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "GET",
-							"param": "op",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Ta-swUPzjFUhP4h-ZW_w5aUbU1qF1-Oth1YvN0GcMmQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
 							"uri": "https://bourgognefranchecomte.aract.fr/user/login",
@@ -2079,13 +2047,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://bourgognefranchecomte.aract.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\npass=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hIVPNLzdjjIQZ71H6woMl2rwZJv6v6Q6EKhG1FHnMs8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-D9qGQMlyIpFCYl2N90RnCo5RwnJ9QCzvpF__01Iohqc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "663"
+					"sourceid": "669"
 				}
 			]
 		}
