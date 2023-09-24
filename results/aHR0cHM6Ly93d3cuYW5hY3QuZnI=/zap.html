@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 17 Sep 2023 01:31:32
+		Generated on Sun, 24 Sep 2023 01:32:14
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -172,7 +172,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>12</div>
+					<div>13</div>
 				</td>
 			</tr>
 			<tr>
@@ -196,6 +196,11 @@ td {
 					align="center">Risk Level</th>
 				<th width="20%"
 					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
@@ -225,7 +230,7 @@ td {
 			<tr>
 				<td><a href="#10003">Vulnerable JS Library</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">1</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10054">Cookie with SameSite Attribute None</a></td>
@@ -240,7 +245,7 @@ td {
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">5</td>
+				<td align="center">6</td>
 			</tr>
 			<tr>
 				<td><a href="#10023">Information Disclosure - Debug Error Messages</a></td>
@@ -265,7 +270,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">8</td>
 			</tr>
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
@@ -325,7 +330,12 @@ td {
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">7</td>
+				<td align="center">6</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Storable but Non-Cacheable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
@@ -338,6 +348,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/areso-une-solution-pour-ameliorer-la-qualite-des-relations-sociales-dans-lentreprise">https://www.anact.fr/areso-une-solution-pour-ameliorer-la-qualite-des-relations-sociales-dans-lentreprise</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4823273843400</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 482327
+Brand: VISA
+Category: 
+Issuer: </td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -755,38 +850,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -910,6 +974,37 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/modules/">https://www.anact.fr/modules/</a></td>
 					</tr>
 					<tr>
@@ -972,37 +1067,6 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -1034,7 +1098,38 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/xmlrpc.php">https://www.anact.fr/xmlrpc.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1422,6 +1517,83 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/misc/jquery.js?v=1.4.4">https://www.anact.fr/misc/jquery.js?v=1.4.4</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">* jQuery JavaScript Library v1.4.4</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">CVE-2011-4969
+CVE-2020-11023
+CVE-2020-11022
+CVE-2015-9251
+CVE-2019-11358
+CVE-2020-7656
+CVE-2020-23064
+CVE-2012-6708
+</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2">https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/1.7/jquery.min.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">CVE-2020-11023
+CVE-2020-11022
+CVE-2015-9251
+CVE-2019-11358
+CVE-2020-7656
+CVE-2020-23064
+CVE-2012-6708
+</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_XexEZhbTmj1BHeajKr2rPfyR8Y68f4rm0Nv3Vj5_dSI.js">https://www.anact.fr/sites/anact/files/js/js_XexEZhbTmj1BHeajKr2rPfyR8Y68f4rm0Nv3Vj5_dSI.js</a></td>
 					</tr>
 					<tr>
@@ -1459,7 +1631,7 @@ CVE-2012-6708
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">1</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1714,6 +1886,37 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2">https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_kt92lSRAfe4wodNmFYcp0ngjWdAxSHz4An1nhUYwAi4.js">https://www.anact.fr/sites/anact/files/js/js_kt92lSRAfe4wodNmFYcp0ngjWdAxSHz4An1nhUYwAi4.js</a></td>
 					</tr>
 					<tr>
@@ -1868,7 +2071,7 @@ CVE-2012-6708
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">5</td>
+					<td width="80%">6</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2034,38 +2237,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2189,6 +2361,37 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/modules/">https://www.anact.fr/modules/</a></td>
 					</tr>
 					<tr>
@@ -2251,37 +2454,6 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -2313,7 +2485,38 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/xmlrpc.php">https://www.anact.fr/xmlrpc.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2440,7 +2643,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2471,7 +2674,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/comment/reply/">https://www.anact.fr/comment/reply/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2533,7 +2736,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact">https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact</a></td>
+						<td width="80%"><a href="https://www.anact.fr/filter/tips/">https://www.anact.fr/filter/tips/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2564,7 +2767,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche">https://www.anact.fr/recherche</a></td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2595,7 +2798,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche?sort_by=changed">https://www.anact.fr/recherche?sort_by=changed</a></td>
+						<td width="80%"><a href="https://www.anact.fr/node/add/">https://www.anact.fr/node/add/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2626,7 +2829,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
+						<td width="80%"><a href="https://www.anact.fr/search/">https://www.anact.fr/search/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2688,7 +2891,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2719,7 +2922,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/register">https://www.anact.fr/user/register</a></td>
+						<td width="80%"><a href="https://www.anact.fr/xmlrpc.php">https://www.anact.fr/xmlrpc.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2807,68 +3010,6 @@ CVE-2012-6708
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr">https://www.anact.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2992,6 +3133,99 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.pgsql.txt">https://www.anact.fr/INSTALL.pgsql.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.sqlite.txt">https://www.anact.fr/INSTALL.sqlite.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/modules/">https://www.anact.fr/modules/</a></td>
 					</tr>
 					<tr>
@@ -3055,37 +3289,6 @@ CVE-2012-6708
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3232,12 +3435,74 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1694914235</td>
+						<td width="80%">1695519073</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1694914235, which evaluates to: 2023-09-17 01:30:35</td>
+						<td width="80%">1695519073, which evaluates to: 2023-09-24 01:31:13</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/recherche?q=user/register/">https://www.anact.fr/recherche?q=user/register/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1695519110</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1695519110, which evaluates to: 2023-09-24 01:31:50</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/recherche?q=user/register/&amp;sort_by=changed">https://www.anact.fr/recherche?q=user/register/&amp;sort_by=changed</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1695519110</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1695519110, which evaluates to: 2023-09-24 01:31:50</td>
 					</tr>
 				
 					<tr>
@@ -3263,12 +3528,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1694914225</td>
+						<td width="80%">1695519074</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1694914225, which evaluates to: 2023-09-17 01:30:25</td>
+						<td width="80%">1695519074, which evaluates to: 2023-09-24 01:31:14</td>
 					</tr>
 				
 					<tr>
@@ -3294,12 +3559,43 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1694914232</td>
+						<td width="80%">1695519070</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1694914232, which evaluates to: 2023-09-17 01:30:32</td>
+						<td width="80%">1695519070, which evaluates to: 2023-09-24 01:31:10</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/?q=user/register/">https://www.anact.fr/?q=user/register/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1695519111</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1695519111, which evaluates to: 2023-09-24 01:31:51</td>
 					</tr>
 				
 					<tr>
@@ -3325,17 +3621,48 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1694914248</td>
+						<td width="80%">1695519114</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1694914248, which evaluates to: 2023-09-17 01:30:48</td>
+						<td width="80%">1695519114, which evaluates to: 2023-09-24 01:31:54</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/user/register/">https://www.anact.fr/user/register/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1695519098</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1695519098, which evaluates to: 2023-09-24 01:31:38</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">8</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3645,7 +3972,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw.css">https://www.anact.fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw.css</a></td>
+						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/css/css_P9RYYHSoJhL70A8ZKZmBSiBB5c9nYKq7pwY1j4XUnFA.css">https://www.anact.fr/sites/anact/files/css/css_P9RYYHSoJhL70A8ZKZmBSiBB5c9nYKq7pwY1j4XUnFA.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3863,7 +4190,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3894,7 +4221,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/comment/reply/">https://www.anact.fr/comment/reply/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3956,7 +4283,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact">https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact</a></td>
+						<td width="80%"><a href="https://www.anact.fr/filter/tips/">https://www.anact.fr/filter/tips/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3987,7 +4314,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche">https://www.anact.fr/recherche</a></td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">org/TR/xhtml1/DTD/xhtml1-strict</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">��?M�٥����a�iu��k��</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/node/add/">https://www.anact.fr/node/add/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4018,38 +4376,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche?sort_by=changed">https://www.anact.fr/recherche?sort_by=changed</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">~��׬���r�ߊW���,��,�D�[�O�-gt� /��Q�P&quot;�a�)�љ!�p</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
+						<td width="80%"><a href="https://www.anact.fr/search/">https://www.anact.fr/search/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4111,7 +4438,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4131,18 +4458,18 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw</td>
+						<td width="80%">_rNRO_Uh6_dquNLhmP1d6z9hh7fTCKMxeE8qCXSeQps</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">~��׬���r�ߊW���,��,�D�[�O�-gt� /��Q�P&quot;�a�)�љ!�p</td>
+						<td width="80%">��Q;�!��j����]�?a����1xO*	t�B�</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/register">https://www.anact.fr/user/register</a></td>
+						<td width="80%"><a href="https://www.anact.fr/user/register/">https://www.anact.fr/user/register/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4291,7 +4618,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4322,7 +4649,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4356,7 +4683,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/cron.php">https://www.anact.fr/cron.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4387,7 +4714,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/cron.php">https://www.anact.fr/cron.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4421,7 +4748,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4441,46 +4768,14 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">query</td>
+						<td width="80%">admin</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bQUERY\b and was detected in the element starting with: &quot;&lt;script&gt;jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPrefix&quot;:&quot;&quot;,&quot;setHasJsCookie&quot;:0,&quot;ajaxPageState&quot;:{&quot;theme&quot;:&quot;anact&quot;,&quot;the&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">user</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script&gt;
-    tarteaucitron.user.matomoId = 112;
-    tarteaucitron.user.matomoHost = &#39;https://matomo.ebizproduction.com/&#39;;
-    ta&quot;, see evidence field for the suspicious comment/snippet.</td>
+						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--//--&gt;&lt;![CDATA[//&gt;&lt;!--
+jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPrefix&quot;:&quot;&quot;,&quot;setHa&quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
 					<tr>
@@ -4546,6 +4841,39 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
     tarteaucitron.user.matomoId = 112;
     tarteaucitron.user.matomoHost = &#39;https://matomo.ebizproduction.com/&#39;;
     ta&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">admin</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--//--&gt;&lt;![CDATA[//&gt;&lt;!--
+jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPrefix&quot;:&quot;&quot;,&quot;setHa&quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
 				<tr>
@@ -4632,7 +4960,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/admin/">https://www.anact.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4663,7 +4991,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
+						<td width="80%"><a href="https://www.anact.fr/comment/reply/">https://www.anact.fr/comment/reply/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4725,7 +5053,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact">https://www.anact.fr/lagence-nationale-pour-lamelioration-des-conditions-de-travail-anact</a></td>
+						<td width="80%"><a href="https://www.anact.fr/filter/tips/">https://www.anact.fr/filter/tips/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4756,7 +5084,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche">https://www.anact.fr/recherche</a></td>
+						<td width="80%"><a href="https://www.anact.fr/node/add/">https://www.anact.fr/node/add/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4787,38 +5115,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/recherche?sort_by=changed">https://www.anact.fr/recherche?sort_by=changed</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;#&quot; id=&quot;menu&quot; class=&quot;element-invisible element-focusable&quot; tabindex=&quot;3&quot;&gt;Aller à la navigation&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
+						<td width="80%"><a href="https://www.anact.fr/search/">https://www.anact.fr/search/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4880,7 +5177,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
+						<td width="80%"><a href="https://www.anact.fr/update.php">https://www.anact.fr/update.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No links have been found while there are scripts, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/user/password/">https://www.anact.fr/user/password/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4911,7 +5239,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/register">https://www.anact.fr/user/register</a></td>
+						<td width="80%"><a href="https://www.anact.fr/user/register/">https://www.anact.fr/user/register/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5238,68 +5566,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/">https://www.anact.fr/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">public, max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">public, max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
 					</tr>
 					<tr>
@@ -5393,7 +5659,131 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">no-cache, must-revalidate</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/INSTALL.sqlite.txt">https://www.anact.fr/INSTALL.sqlite.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.txt">https://www.anact.fr/INSTALL.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/LICENSE.txt">https://www.anact.fr/LICENSE.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/MAINTAINERS.txt">https://www.anact.fr/MAINTAINERS.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5455,7 +5845,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
+						<td width="80%"><a href="https://www.anact.fr/UPGRADE.txt">https://www.anact.fr/UPGRADE.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5475,69 +5865,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">public, max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user">https://www.anact.fr/user</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">public, max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/register">https://www.anact.fr/user/register</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">no-cache, must-revalidate</td>
+						<td width="80%">max-age=1209600</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5638,7 +5966,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/includes/">https://www.anact.fr/includes/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5669,7 +5997,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5784,7 +6112,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/includes/">https://www.anact.fr/includes/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5815,7 +6143,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5930,7 +6258,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/includes/">https://www.anact.fr/includes/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5961,7 +6289,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6076,7 +6404,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/includes/">https://www.anact.fr/includes/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6107,7 +6435,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://www.anact.fr/robots.txt">https://www.anact.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6211,7 +6539,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">BWZKfkDPFKPFaoR12Z8QupJ6-UefM-qCe6gtd_xEbIw</td>
+						<td width="80%">_rNRO_Uh6_dquNLhmP1d6z9hh7fTCKMxeE8qCXSeQps</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6243,7 +6571,7 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">BWZKfkDPFKPFaoR12Z8QupJ6-UefM-qCe6gtd_xEbIw</td>
+						<td width="80%">_rNRO_Uh6_dquNLhmP1d6z9hh7fTCKMxeE8qCXSeQps</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6338,38 +6666,7 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/cart">https://www.anact.fr/cart</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.mysql.txt">https://www.anact.fr/INSTALL.mysql.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6400,7 +6697,38 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/INSTALL.mysql.txt">https://www.anact.fr/INSTALL.mysql.txt</a></td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.pgsql.txt">https://www.anact.fr/INSTALL.pgsql.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/INSTALL.sqlite.txt">https://www.anact.fr/INSTALL.sqlite.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6462,37 +6790,6 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/rss">https://www.anact.fr/rss</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=10800</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sitemap.xml">https://www.anact.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -6523,7 +6820,7 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">7</td>
+					<td width="80%">6</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -6543,6 +6840,93 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 							<div>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </div>
 							
 						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://datatracker.ietf.org/doc/html/rfc7234">https://datatracker.ietf.org/doc/html/rfc7234</a>
+							<br />
+						
+							<a href="https://datatracker.ietf.org/doc/html/rfc7231">https://datatracker.ietf.org/doc/html/rfc7231</a>
+							<br />
+						
+							<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Storable but Non-Cacheable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/install.php">https://www.anact.fr/install.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">no-cache</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%"></td>
 				</tr>
 				<tr>
 					<td width="20%">Reference</td>
