@@ -127,11 +127,11 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 8 Oct 2023 01:33:29
+		Generated on Sun, 15 Oct 2023 01:32:58
 	</h3>
 
 	<h3>
-		ZAP Version: 2.13.0
+		ZAP Version: 2.14.0
 	</h3>
 
 	
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -196,6 +196,11 @@ td {
 					align="center">Risk Level</th>
 				<th width="20%"
 					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
@@ -265,7 +270,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">10</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
@@ -338,6 +343,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/recherche?f%5B0%5D=field_themes%3A24">https://www.anact.fr/recherche?f%5B0%5D=field_themes%3A24</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4749381352572</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 474938
+Brand: VISA
+Category: 
+Issuer: </td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -682,7 +772,7 @@ td {
 							<a href="http://projects.webappsec.org/Cross-Site-Request-Forgery">http://projects.webappsec.org/Cross-Site-Request-Forgery</a>
 							<br />
 						
-							<a href="http://cwe.mitre.org/data/definitions/352.html">http://cwe.mitre.org/data/definitions/352.html</a>
+							<a href="https://cwe.mitre.org/data/definitions/352.html">https://cwe.mitre.org/data/definitions/352.html</a>
 							
 						</td>
 				</tr>
@@ -1822,38 +1912,7 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_kt92lSRAfe4wodNmFYcp0ngjWdAxSHz4An1nhUYwAi4.js">https://www.anact.fr/sites/anact/files/js/js_kt92lSRAfe4wodNmFYcp0ngjWdAxSHz4An1nhUYwAi4.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_lEfZgezPDepeHprapd77_NOpQb20oKdwMv_nBmhSXEk.js">https://www.anact.fr/sites/anact/files/js/js_lEfZgezPDepeHprapd77_NOpQb20oKdwMv_nBmhSXEk.js</a></td>
+						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_AxX4Tub2VpCq6j35UvDsoLbhlFMKjyZmBrxU4mpsGI0.js">https://www.anact.fr/sites/anact/files/js/js_AxX4Tub2VpCq6j35UvDsoLbhlFMKjyZmBrxU4mpsGI0.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1916,6 +1975,37 @@ CVE-2012-6708
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_sJ6zLT7fda8EUrgHlPrXVJ7gQYNQj9j3sZPOrG1EXIs.js">https://www.anact.fr/sites/anact/files/js/js_sJ6zLT7fda8EUrgHlPrXVJ7gQYNQj9j3sZPOrG1EXIs.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/js/js_STVxJ6u-FvxtzqwweWcbD6AMgSLfcW37LsYAA43U-Tc.js">https://www.anact.fr/sites/anact/files/js/js_STVxJ6u-FvxtzqwweWcbD6AMgSLfcW37LsYAA43U-Tc.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2945,6 +3035,37 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/ged/">https://www.anact.fr/ged/</a></td>
 					</tr>
 					<tr>
@@ -3070,37 +3191,6 @@ CVE-2012-6708
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/INSTALL.sqlite.txt">https://www.anact.fr/INSTALL.sqlite.txt</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/INSTALL.txt">https://www.anact.fr/INSTALL.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3340,12 +3430,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728748</td>
+						<td width="80%">1697333515</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728748, which evaluates to: 2023-10-08 01:32:28</td>
+						<td width="80%">1697333515, which evaluates to: 2023-10-15 01:31:55</td>
 					</tr>
 				
 					<tr>
@@ -3371,12 +3461,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728784</td>
+						<td width="80%">1697333540</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728784, which evaluates to: 2023-10-08 01:33:04</td>
+						<td width="80%">1697333540, which evaluates to: 2023-10-15 01:32:20</td>
 					</tr>
 				
 					<tr>
@@ -3402,12 +3492,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728784</td>
+						<td width="80%">1697333540</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728784, which evaluates to: 2023-10-08 01:33:04</td>
+						<td width="80%">1697333540, which evaluates to: 2023-10-15 01:32:20</td>
 					</tr>
 				
 					<tr>
@@ -3433,12 +3523,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728750</td>
+						<td width="80%">1697333516</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728750, which evaluates to: 2023-10-08 01:32:30</td>
+						<td width="80%">1697333516, which evaluates to: 2023-10-15 01:31:56</td>
 					</tr>
 				
 					<tr>
@@ -3464,12 +3554,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728745</td>
+						<td width="80%">1697333513</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728745, which evaluates to: 2023-10-08 01:32:25</td>
+						<td width="80%">1697333513, which evaluates to: 2023-10-15 01:31:53</td>
 					</tr>
 				
 					<tr>
@@ -3495,12 +3585,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728785</td>
+						<td width="80%">1697333540</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728785, which evaluates to: 2023-10-08 01:33:05</td>
+						<td width="80%">1697333540, which evaluates to: 2023-10-15 01:32:20</td>
 					</tr>
 				
 					<tr>
@@ -3526,43 +3616,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728786</td>
+						<td width="80%">1697333541</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728786, which evaluates to: 2023-10-08 01:33:06</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/register">https://www.anact.fr/user/register</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1696728789</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1696728789, which evaluates to: 2023-10-08 01:33:09</td>
+						<td width="80%">1697333541, which evaluates to: 2023-10-15 01:32:21</td>
 					</tr>
 				
 					<tr>
@@ -3588,12 +3647,12 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728772</td>
+						<td width="80%">1697333531</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728772, which evaluates to: 2023-10-08 01:32:52</td>
+						<td width="80%">1697333531, which evaluates to: 2023-10-15 01:32:11</td>
 					</tr>
 				
 					<tr>
@@ -3619,17 +3678,17 @@ CVE-2012-6708
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1696728773</td>
+						<td width="80%">1697333532</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1696728773, which evaluates to: 2023-10-08 01:32:53</td>
+						<td width="80%">1697333532, which evaluates to: 2023-10-15 01:32:12</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3939,7 +3998,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/css/css_addWxGBDbLm9OG-w7wSojadm1G0t4yLOQy_MgTE5RTY.css">https://www.anact.fr/sites/anact/files/css/css_addWxGBDbLm9OG-w7wSojadm1G0t4yLOQy_MgTE5RTY.css</a></td>
+						<td width="80%"><a href="https://www.anact.fr/sites/anact/files/css/css_P9RYYHSoJhL70A8ZKZmBSiBB5c9nYKq7pwY1j4XUnFA.css">https://www.anact.fr/sites/anact/files/css/css_P9RYYHSoJhL70A8ZKZmBSiBB5c9nYKq7pwY1j4XUnFA.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4425,18 +4484,18 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Dl0G6f9xgq2LlxpzTjruEX5-fCPED-eZE5NAMwwYLjs</td>
+						<td width="80%">IW9vePA8OT9T7GJ5K0ZWkHEH-JByiVR7qOaoUUStxhs</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">]��q����sN:�~~|#���@3.;</td>
+						<td width="80%">!oox�&lt;9?S�by+FV�q��r�T{��QD��</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/user/password/">https://www.anact.fr/user/password/</a></td>
+						<td width="80%"><a href="https://www.anact.fr/user/register/">https://www.anact.fr/user/register/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5533,6 +5592,37 @@ jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPr
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/INSTALL.mysql.txt">https://www.anact.fr/INSTALL.mysql.txt</a></td>
 					</tr>
 					<tr>
@@ -5802,37 +5892,6 @@ jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPr
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%">max-age=1209600</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/xmlrpc.php">https://www.anact.fr/xmlrpc.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">no-cache, must-revalidate</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6506,7 +6565,7 @@ jQuery.extend(Drupal.settings, {&quot;basePath&quot;:&quot;\/&quot;,&quot;pathPr
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Dl0G6f9xgq2LlxpzTjruEX5-fCPED-eZE5NAMwwYLjs</td>
+						<td width="80%">IW9vePA8OT9T7GJ5K0ZWkHEH-JByiVR7qOaoUUStxhs</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6538,7 +6597,7 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Dl0G6f9xgq2LlxpzTjruEX5-fCPED-eZE5NAMwwYLjs</td>
+						<td width="80%">IW9vePA8OT9T7GJ5K0ZWkHEH-JByiVR7qOaoUUStxhs</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6633,6 +6692,37 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.anact.fr/CHANGELOG.txt">https://www.anact.fr/CHANGELOG.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=1209600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/INSTALL.mysql.txt">https://www.anact.fr/INSTALL.mysql.txt</a></td>
 					</tr>
 					<tr>
@@ -6696,37 +6786,6 @@ cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.anact.fr/INSTALL.sqlite.txt">https://www.anact.fr/INSTALL.sqlite.txt</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=1209600</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.anact.fr/INSTALL.txt">https://www.anact.fr/INSTALL.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
