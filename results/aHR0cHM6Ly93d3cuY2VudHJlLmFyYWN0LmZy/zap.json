@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
-	"@version": "2.13.0",
-	"@generated": "Sun, 8 Oct 2023 02:55:41",
+	"@version": "2.14.0",
+	"@generated": "Sun, 15 Oct 2023 03:46:22",
 	"site":[ 
 		{
 			"@name": "https://www.centre.aract.fr",
@@ -92,12 +92,12 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"checkbox-963[]\" \"confirmer\" \"mme\" \"mr\" \"your-email\" \"your-entreprise\" \"your-firstname\" \"your-fonction\" \"your-lastname\" \"your-mobile-phone\" ]."
 						},
 						{
-							"uri": "https://www.centre.aract.fr/offre-de-formations-reclamation/",
+							"uri": "https://www.centre.aract.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/offre-de-formations-reclamation/#wpcf7-f14208-p14309-o1\" method=\"post\" class=\"wpcf7-form init\" aria-label=\"Formulaire de contact\" novalidate=\"novalidate\" data-status=\"init\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"checkbox-520\" \"checkbox-963[]\" \"date-434\" \"your-consent\" \"your-email\" \"your-entreprise\" \"your-firstname\" \"your-lastname\" \"your-mobile-phone\" \"your-subject\" ]."
+							"evidence": "<form action=\"/contact/#wpcf7-f11037-p11021-o1\" method=\"post\" class=\"wpcf7-form init\" aria-label=\"Formulaire de contact\" novalidate=\"novalidate\" data-status=\"init\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"cbox1\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-lastname\" \"your-phone\" \"your-subject\" ]."
 						},
 						{
 							"uri": "https://www.centre.aract.fr/",
@@ -111,7 +111,7 @@
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"your-email\" \"your-name\" ].</p>",
-					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
+					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
 					"sourceid": "1"
@@ -355,7 +355,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1568"
+					"sourceid": "1561"
 				},
 				{
 					"pluginid": "90003",
@@ -475,7 +475,7 @@
 							"otherinfo": "CVE-2020-11023\nCVE-2020-11022\nCVE-2015-9251\nCVE-2019-11358\nCVE-2020-23064\n"
 						},
 						{
-							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/plugins.js?ver=6.2.2",
+							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/plugins.js?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -492,6 +492,33 @@
 					"sourceid": "1015"
 				},
 				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1871"
+				},
+				{
 					"pluginid": "10017",
 					"alertRef": "10017",
 					"alert": "Cross-Domain JavaScript Source File Inclusion",
@@ -504,9 +531,9 @@
 						{
 							"uri": "https://www.centre.aract.fr",
 							"method": "GET",
-							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.2&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
+							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
 							"attack": "",
-							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.2&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
+							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.3&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -528,9 +555,9 @@
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
-							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.2&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
+							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
 							"attack": "",
-							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.2&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
+							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.3&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -552,9 +579,9 @@
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
 							"method": "GET",
-							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.2&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
+							"param": "//maps.googleapis.com/maps/api/js?ver=6.2.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
 							"attack": "",
-							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.2&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
+							"evidence": "<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?ver=6.2.3&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps' id='google_map_api-js'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -625,7 +652,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/jquery.carouFredSel-6.2.1.js?ver=6.2.2",
+							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/jquery.carouFredSel-6.2.1.js?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -633,7 +660,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/plugins.js?ver=6.2.2",
+							"uri": "https://www.centre.aract.fr/wp-content/themes/burst/js/plugins.js?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -783,7 +810,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~*/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -791,7 +818,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"uri": "https://www.centre.aract.fr/calendar/action~default/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1246,7 +1273,31 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
+							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F01%2F21%2Fjeux_30_octobre_2023%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
 							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F11%2F16%2Fegalite_prof_pas_a_pas%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-atelier%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-club%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1263,6 +1314,14 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F02%2F07%2Fmini_serie_5_min_chrono%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F05%2F30%2Fserious_game_26_09_2023%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1302,7 +1361,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						}
 					],
-					"count": "8",
+					"count": "12",
 					"solution": "<p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.</p>",
 					"otherinfo": "<p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.</p>",
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
@@ -1841,7 +1900,7 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~*/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1849,7 +1908,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"uri": "https://www.centre.aract.fr/calendar/action~http:/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1919,7 +1978,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "164"
+					"sourceid": "152"
 				},
 				{
 					"pluginid": "10031",
@@ -2162,7 +2221,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "678"
+					"sourceid": "666"
 				}
 			]
 		}
