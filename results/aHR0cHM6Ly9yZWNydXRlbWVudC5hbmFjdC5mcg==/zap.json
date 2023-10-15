@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
-	"@version": "2.13.0",
-	"@generated": "Sun, 8 Oct 2023 02:55:19",
+	"@version": "2.14.0",
+	"@generated": "Sun, 15 Oct 2023 03:49:34",
 	"site":[ 
 		{
 			"@name": "https://recrutement.anact.fr",
@@ -42,7 +42,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "458"
+					"sourceid": "357"
 				},
 				{
 					"pluginid": "10202",
@@ -54,6 +54,14 @@
 					"riskdesc": "Medium (Low)",
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
+						{
+							"uri": "https://recrutement.anact.fr/blog/author/duplicator/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https://recrutement.anact.fr/\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
@@ -68,14 +76,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/poste/0yeo203o20-chargee-de-levaluation-au-sein-de-la-delegation-au-pilotage-des-partenariats-et-projets-reseau-d3pr/#wpcf7-f623-p9349-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
-						},
-						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/poste/3petnd3jv2-chargee-de-mission/#wpcf7-f623-p9344-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
@@ -153,11 +153,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ].</p>",
-					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
+					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "134"
+					"sourceid": "643"
 				},
 				{
 					"pluginid": "10038",
@@ -250,7 +250,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.2",
+							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -384,6 +384,14 @@
 					"desc": "<p>Application Source Code was disclosed by the web server - SQL</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr/merci-pour-votre-candidature-spontanee/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
 							"method": "GET",
 							"param": "",
@@ -393,14 +401,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/poste/0yeo203o20-chargee-de-levaluation-au-sein-de-la-delegation-au-pilotage-des-partenariats-et-projets-reseau-d3pr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -448,7 +448,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
@@ -456,7 +456,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/cw5udq1srm-chargee-de-mission-pour-son-departement-elaboration-de-solutions-de-transfert/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
@@ -486,7 +486,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "114"
+					"sourceid": "828"
 				},
 				{
 					"pluginid": "90003",
@@ -503,7 +503,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.2' media='all' />",
+							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
 							"otherinfo": ""
 						},
 						{
@@ -511,7 +511,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=435595465&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1700980572&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -519,7 +519,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=581036681&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=323164321&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -535,7 +535,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.2' media='all' />",
+							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
 							"otherinfo": ""
 						},
 						{
@@ -543,7 +543,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1367187712&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1089093290&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -559,7 +559,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.2' media='all' />",
+							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
 							"otherinfo": ""
 						},
 						{
@@ -567,7 +567,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2077190786&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=415110797&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -598,7 +598,7 @@
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
 						{
-							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.2",
+							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -612,7 +612,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "267"
+					"sourceid": "266"
 				},
 				{
 					"pluginid": "10017",
@@ -627,17 +627,17 @@
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=435595465&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1700980572&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=435595465&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1700980572&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=581036681&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=323164321&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=581036681&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=323164321&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -651,9 +651,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1367187712&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1089093290&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1367187712&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1089093290&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -667,9 +667,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1456327981&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=329941386&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1456327981&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=329941386&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -683,9 +683,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=2077190786&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=415110797&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2077190786&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=415110797&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -697,15 +697,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=400236372&back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2F6z5rf0r48y-un-e-charge-e-de-mission%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1092994475&back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Ff5y8ktm2gp-chargee-des-services-generaux%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=400236372&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2F6z5rf0r48y-un-e-charge-e-de-mission%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1092994475&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Ff5y8ktm2gp-chargee-des-services-generaux%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&ver=3.0",
 							"attack": "",
@@ -762,7 +762,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "434"
+					"sourceid": "320"
 				},
 				{
 					"pluginid": "10023",
@@ -775,7 +775,7 @@
 					"desc": "<p>The response appeared to contain common error messages returned by platforms such as ASP.NET, and Web-servers such as IIS and Apache. You can configure the list of common debug messages.</p>",
 					"instances":[ 
 						{
-							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.2",
+							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -789,7 +789,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "267"
+					"sourceid": "266"
 				},
 				{
 					"pluginid": "10063",
@@ -882,7 +882,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.2",
+							"uri": "https://recrutement.anact.fr/wp-content/plugins/wp-job-manager/assets/css/frontend.css?ver=6.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -923,9 +923,17 @@
 							"attack": "",
 							"evidence": "1664291539",
 							"otherinfo": "1664291539, which evaluates to: 2022-09-27 15:12:19"
+						},
+						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1700980572",
+							"otherinfo": "1700980572, which evaluates to: 2023-11-26 06:36:12"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1664291538, which evaluates to: 2022-09-27 15:12:18</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1000,7 +1008,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/d7n8yo6sdh-chargee-de-mission-numerique/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1099,14 +1107,6 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD?\u06FE\uFFFD\uFFFDM\uFFFD\uFFFDN\\x0004\u03D1?\uFFFD\uFFFD\\x0003@\t?\uFFFDj\\x0007\uFFFD\uFFFDM5"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/politique-traitement-donnees-personnelles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/wp-content/uploads/sites/277/2020/05/BM-RP-et-ANACT_page-0001",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD?\u06FE\uFFFD\uFFFDM\uFFFD\uFFFDN\\x0004\u03D1?\uFFFD\uFFFD\\x0003@\t?\uFFFDj\\x0007\uFFFD\uFFFDM5"
-						},
-						{
 							"uri": "https://recrutement.anact.fr/poste/0yeo203o20-chargee-de-levaluation-au-sein-de-la-delegation-au-pilotage-des-partenariats-et-projets-reseau-d3pr/",
 							"method": "GET",
 							"param": "",
@@ -1137,6 +1137,14 @@
 							"attack": "",
 							"evidence": "fr/wp-content/uploads/sites/277/2022/06/Fichier-61",
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD?\u06FE\uFFFD\uFFFDM\uFFFD\uFFFDN\uFFFD\\x0016'!\uFFFD\uFFFD\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://recrutement.anact.fr/wp-content/uploads/sites/277/useanyfont/uaf.css?ver=1664291538",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/wp-content/uploads/sites/277/useanyfont/191220024017Futura",
+							"otherinfo": "\uFFFD\n~r\uFFFD\uFFFDz{\uFFFD\uFFFDhi\uFFFD?\uFFFD+^\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDy\uFFFD\uFFFD~\uFFFD\uFFFD\uFFFD_u\uFFFDm4\u06CD5\uFFFD[\uFFFD\uFFFD\uFFFD"
 						}
 					],
 					"count": "11",
@@ -1175,6 +1183,14 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D7840",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8039",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1222,14 +1238,6 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2F3petnd3jv2-chargee-de-mission%2F",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2F6z5rf0r48y-un-e-charge-e-de-mission%2F",
 							"method": "GET",
 							"param": "",
@@ -1260,7 +1268,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "295"
+					"sourceid": "294"
 				},
 				{
 					"pluginid": "10027",
@@ -1396,14 +1404,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
 							"method": "GET",
 							"param": "",
@@ -1437,6 +1437,14 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/d7n8yo6sdh-chargee-de-mission-numerique/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
@@ -1527,15 +1535,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/6z5rf0r48y-un-e-charge-e-de-mission/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/robots.txt",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1559,7 +1559,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1578,6 +1578,14 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1587,14 +1595,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1608,7 +1608,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1621,6 +1621,14 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1630,14 +1638,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1651,7 +1651,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1664,6 +1664,14 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1673,14 +1681,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1694,7 +1694,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1706,6 +1706,14 @@
 					"riskdesc": "Informational (High)",
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
+						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
@@ -1721,14 +1729,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "3",
@@ -1737,7 +1737,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1774,14 +1774,6 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/job_listing-sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1799,6 +1791,14 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/page-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1857,181 +1857,165 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7=6832\r\n\r\nThe user-controlled value was:\r\n6832"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7=623\r\n\r\nThe user-controlled value was:\r\n623"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_container_post",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [data-elementor-id] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_container_post=5648\r\n\r\nThe user-controlled value was:\r\n5648"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [data-post_id] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_container_post=9352\r\n\r\nThe user-controlled value was:\r\n9352"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_container_post",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_container_post=5648\r\n\r\nThe user-controlled value was:\r\n5648"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_container_post=9352\r\n\r\nThe user-controlled value was:\r\n9352"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_locale",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_locale=fr_FR\r\n\r\nThe user-controlled value was:\r\nfr_fr"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_locale=fr_FR\r\n\r\nThe user-controlled value was:\r\nfr_fr"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_locale",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_locale=fr_FR\r\n\r\nThe user-controlled value was:\r\nfr_fr"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_locale=fr_FR\r\n\r\nThe user-controlled value was:\r\nfr_fr"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_unit_tag",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [id] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_unit_tag=wpcf7-f6832-p5648-o1\r\n\r\nThe user-controlled value was:\r\nwpcf7-f6832-p5648-o1"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [id] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_unit_tag=wpcf7-f623-p9352-o1\r\n\r\nThe user-controlled value was:\r\nwpcf7-f623-p9352-o1"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_unit_tag",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_unit_tag=wpcf7-f6832-p5648-o1\r\n\r\nThe user-controlled value was:\r\nwpcf7-f6832-p5648-o1"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_unit_tag=wpcf7-f623-p9352-o1\r\n\r\nThe user-controlled value was:\r\nwpcf7-f623-p9352-o1"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7_version",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_version=5.6.3\r\n\r\nThe user-controlled value was:\r\n5.6.3"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7_version=5.6.3\r\n\r\nThe user-controlled value was:\r\n5.6.3"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_hidden_group_fields",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_hidden_group_fields=[]\r\n\r\nThe user-controlled value was:\r\n[]"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_hidden_group_fields=[]\r\n\r\nThe user-controlled value was:\r\n[]"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_hidden_groups",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_hidden_groups=[]\r\n\r\nThe user-controlled value was:\r\n[]"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_hidden_groups=[]\r\n\r\nThe user-controlled value was:\r\n[]"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_options",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_options={\"form_id\":6832,\"conditions\":[],\"settings\":{\"animation\":\"yes\",\"animation_intime\":200,\"animation_outtime\":200,\"conditions_ui\":\"normal\",\"notice_dismissed\":false}}\r\n\r\nThe user-controlled value was:\r\n{\"form_id\":6832,\"conditions\":[],\"settings\":{\"animation\":\"yes\",\"animation_intime\":200,\"animation_outtime\":200,\"conditions_ui\":\"normal\",\"notice_dismissed\":false}}"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_options={\"form_id\":623,\"conditions\":[],\"settings\":{\"animation\":\"yes\",\"animation_intime\":200,\"animation_outtime\":200,\"conditions_ui\":\"normal\",\"notice_dismissed\":false}}\r\n\r\nThe user-controlled value was:\r\n{\"form_id\":623,\"conditions\":[],\"settings\":{\"animation\":\"yes\",\"animation_intime\":200,\"animation_outtime\":200,\"conditions_ui\":\"normal\",\"notice_dismissed\":false}}"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_repeaters",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_repeaters=[]\r\n\r\nThe user-controlled value was:\r\n[]"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_repeaters=[]\r\n\r\nThe user-controlled value was:\r\n[]"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_steps",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_steps={}\r\n\r\nThe user-controlled value was:\r\n{}"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_steps={}\r\n\r\nThe user-controlled value was:\r\n{}"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "_wpcf7cf_visible_groups",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_visible_groups=[]\r\n\r\nThe user-controlled value was:\r\n[]"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\n_wpcf7cf_visible_groups=[]\r\n\r\nThe user-controlled value was:\r\n[]"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
-							"param": "job-metier",
+							"param": "email-candidature",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\njob-metier=Administration gestion\r\n\r\nThe user-controlled value was:\r\nadministration gestion"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nemail-candidature=f5y8ktm2gp5k@emploi.beetween.com\r\n\r\nThe user-controlled value was:\r\nf5y8ktm2gp5k@emploi.beetween.com"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
-							"method": "POST",
-							"param": "job-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\njob-type=Emploi\r\n\r\nThe user-controlled value was:\r\nemploi"
-						},
-						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "your-email",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-email=foo-bar@example.com\r\n\r\nThe user-controlled value was:\r\nfoo-bar@example.com"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-email=foo-bar@example.com\r\n\r\nThe user-controlled value was:\r\nfoo-bar@example.com"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "your-firstname",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-firstname=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-firstname=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
-							"method": "POST",
-							"param": "your-genre",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-genre=M.\r\n\r\nThe user-controlled value was:\r\nm."
-						},
-						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "your-name",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-name=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-name=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/",
 							"method": "POST",
 							"param": "your-tel",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/candidature-spontanee/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-tel=9999999999\r\n\r\nThe user-controlled value was:\r\n9999999999"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nyour-tel=9999999999\r\n\r\nThe user-controlled value was:\r\n9999999999"
 						}
 					],
-					"count": "21",
+					"count": "19",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://recrutement.anact.fr/candidature-spontanee/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>_wpcf7=6832</p><p></p><p>The user-controlled value was:</p><p>6832</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://recrutement.anact.fr/poste/f5y8ktm2gp-chargee-des-services-generaux/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>_wpcf7=623</p><p></p><p>The user-controlled value was:</p><p>623</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "524"
+					"sourceid": "506"
 				}
 			]
 		}
