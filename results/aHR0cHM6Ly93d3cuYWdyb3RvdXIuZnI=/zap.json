@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 15 Oct 2023 02:27:20",
+	"@generated": "Sun, 22 Oct 2023 02:23:03",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1118"
+					"sourceid": "1119"
 				},
 				{
 					"pluginid": "10202",
@@ -398,7 +398,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1075"
+					"sourceid": "1062"
 				},
 				{
 					"pluginid": "10099",
@@ -441,7 +441,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "956"
+					"sourceid": "958"
 				},
 				{
 					"pluginid": "90003",
@@ -599,7 +599,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "295"
+					"sourceid": "341"
 				},
 				{
 					"pluginid": "10010",
@@ -867,7 +867,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "288"
+					"sourceid": "326"
 				},
 				{
 					"pluginid": "10063",
@@ -952,6 +952,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
@@ -968,7 +976,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -1239,7 +1247,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1012"
+					"sourceid": "1017"
 				},
 				{
 					"pluginid": "10021",
@@ -1496,7 +1504,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1168"
+					"sourceid": "1169"
 				},
 				{
 					"pluginid": "10027",
@@ -2163,30 +2171,6 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\r\n\r\nappears to include user input in: \r\n\r\na(n) [div] tag [role] attribute \r\n\r\nThe user input found was:\r\nselect_resource=document\r\n\r\nThe user-controlled value was:\r\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nselect_resource=document\r\n\r\nThe user-controlled value was:\r\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_thematique",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nselect_thematique=concevoir-des-environnements-de-travail-performants\r\n\r\nThe user-controlled value was:\r\nconcevoir-des-environnements-de-travail-performants"
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
 							"method": "GET",
 							"param": "redirect_to",
@@ -2371,13 +2355,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.agrotour.fr/contact/\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nvotre-telephone=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						}
 					],
-					"count": "26",
+					"count": "23",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [div] tag [role] attribute </p><p></p><p>The user input found was:</p><p>select_resource=document</p><p></p><p>The user-controlled value was:</p><p>document</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://www.agrotour.fr/wp/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://www.agrotour.fr/</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "656"
+					"sourceid": "361"
 				}
 			]
 		}
