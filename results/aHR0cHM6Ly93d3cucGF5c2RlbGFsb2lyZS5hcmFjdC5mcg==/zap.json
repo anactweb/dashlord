@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 12 Nov 2023 03:25:43",
+	"@generated": "Sun, 19 Nov 2023 03:27:11",
 	"site":[ 
 		{
 			"@name": "https://www.paysdelaloire.aract.fr",
@@ -68,7 +68,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: \"email\" \"mentions\" \"nom\" \"prenom\" ]."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -266,22 +266,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/formations/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/outils/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -320,17 +304,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.paysdelaloire.aract.fr/services/dispositifs/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "14",
+					"count": "11",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
@@ -462,7 +438,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "878"
+					"sourceid": "872"
 				},
 				{
 					"pluginid": "10017",
@@ -572,7 +548,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "891"
+					"sourceid": "874"
 				},
 				{
 					"pluginid": "10063",
@@ -641,6 +617,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.paysdelaloire.aract.fr/services/accompagnements-dentreprises/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.paysdelaloire.aract.fr/wp-admin/",
 							"method": "GET",
 							"param": "",
@@ -673,7 +657,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -714,7 +698,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "347"
+					"sourceid": "331"
 				},
 				{
 					"pluginid": "10021",
@@ -1043,7 +1027,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "893"
+					"sourceid": "899"
 				},
 				{
 					"pluginid": "10027",
@@ -1187,14 +1171,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/formations/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"search_header\" data-toggle=\"modal\" data-target=\"#modalsearch\"><i class=\"fas fa-search\"></i></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/",
 							"method": "GET",
 							"param": "",
@@ -1220,6 +1196,14 @@
 						},
 						{
 							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-consultants/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"search_header\" data-toggle=\"modal\" data-target=\"#modalsearch\"><i class=\"fas fa-search\"></i></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.paysdelaloire.aract.fr/services/appuis-partenaires/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1624,7 +1608,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://www.paysdelaloire.aract.fr/a-propos/actualites/",
+							"uri": "https://www.paysdelaloire.aract.fr/a-propos/agence/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1833,7 +1817,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "963"
+					"sourceid": "930"
 				}
 			]
 		}
