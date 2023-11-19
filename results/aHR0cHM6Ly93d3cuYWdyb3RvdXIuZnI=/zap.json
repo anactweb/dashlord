@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 12 Nov 2023 02:22:58",
+	"@generated": "Sun, 19 Nov 2023 02:27:53",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1154"
+					"sourceid": "1151"
 				},
 				{
 					"pluginid": "10202",
@@ -79,6 +79,22 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						},
 						{
+							"uri": "https://www.agrotour.fr/entreprises/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
+						{
+							"uri": "https://www.agrotour.fr/entreprises/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
+						},
+						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -127,7 +143,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -218,15 +234,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -242,7 +250,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -333,7 +341,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -355,7 +363,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "55"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10099",
@@ -406,7 +414,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1105"
+					"sourceid": "1130"
 				},
 				{
 					"pluginid": "10099",
@@ -449,7 +457,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1003"
+					"sourceid": "1012"
 				},
 				{
 					"pluginid": "90003",
@@ -623,7 +631,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "308"
+					"sourceid": "311"
 				},
 				{
 					"pluginid": "10010",
@@ -652,6 +660,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -682,23 +706,15 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
-							"method": "POST",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1202"
+					"sourceid": "1197"
 				},
 				{
 					"pluginid": "10054",
@@ -727,6 +743,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "Set-Cookie: wordpress_test_cookie",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword&wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
@@ -757,23 +789,15 @@
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
-							"method": "POST",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1202"
+					"sourceid": "1197"
 				},
 				{
 					"pluginid": "10017",
@@ -992,7 +1016,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1158,6 +1182,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
@@ -1175,14 +1207,6 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1279,7 +1303,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1050"
+					"sourceid": "1052"
 				},
 				{
 					"pluginid": "10021",
@@ -1364,7 +1388,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1372,7 +1396,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1471,7 +1495,7 @@
 							"otherinfo": "\uFFFD\\x0012J\\x0002)\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD9r\uFFFDs\uFFFD\uFFFD\\x0007P\uFFFD\u029E\uFFFD\\x0007"
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1479,7 +1503,7 @@
 							"otherinfo": "\uFFFD\\x0012J\\x0002)\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD9r\uFFFDs\uFFFD\uFFFD\\x0007P\uFFFD\u029E\uFFFD\\x0007"
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1536,7 +1560,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1206"
+					"sourceid": "1200"
 				},
 				{
 					"pluginid": "10027",
@@ -1565,7 +1589,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.agrotour.fr/",
+							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1573,7 +1597,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.agrotour.fr/",
+							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1728,7 +1752,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1736,7 +1760,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1878,7 +1902,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/laccueil-et-lintegration-de-nouveaux-salaries/",
+							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1929,7 +1953,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1972,7 +1996,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -2015,7 +2039,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -2058,7 +2082,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2107,7 +2131,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "383"
+					"sourceid": "388"
 				},
 				{
 					"pluginid": "10049",
@@ -2393,7 +2417,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "383"
+					"sourceid": "388"
 				}
 			]
 		}
