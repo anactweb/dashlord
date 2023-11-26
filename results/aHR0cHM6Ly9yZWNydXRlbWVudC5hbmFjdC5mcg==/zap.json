@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 19 Nov 2023 03:47:39",
+	"@generated": "Sun, 26 Nov 2023 03:48:23",
 	"site":[ 
 		{
 			"@name": "https://recrutement.anact.fr",
@@ -42,7 +42,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "469"
+					"sourceid": "363"
 				},
 				{
 					"pluginid": "10202",
@@ -54,6 +54,14 @@
 					"riskdesc": "Medium (Low)",
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
+						{
+							"uri": "https://recrutement.anact.fr/blog/author/duplicator/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https://recrutement.anact.fr/\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
@@ -71,27 +79,11 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/poste/3petnd3jv2-chargee-de-mission/#wpcf7-f623-p9359-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/poste/cw5udq1srm-chargee-de-mission-pour-son-departement-elaboration-de-solutions-de-transfert/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/poste/cw5udq1srm-chargee-de-mission-pour-son-departement-elaboration-de-solutions-de-transfert/#wpcf7-f623-p9362-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
-						},
-						{
-							"uri": "https://recrutement.anact.fr/poste/d7n8yo6sdh-chargee-de-mission-numerique/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/poste/d7n8yo6sdh-chargee-de-mission-numerique/#wpcf7-f623-p9353-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
@@ -111,11 +103,11 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/wpcqmdkvjg-responsable-des-affaires-financieres/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/poste/wpcqmdkvjg-responsable-des-affaires-financieres/#wpcf7-f623-p9354-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
+							"evidence": "<form action=\"/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/#wpcf7-f623-p9364-o1\" method=\"post\" class=\"wpcf7-form init\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"init\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
@@ -149,15 +141,23 @@
 							"attack": "",
 							"evidence": "<form action=\"/poste/uh3nczx5ir-chargee-de-communication-a-50/#wpcf7-f623-p9363-o1\" method=\"post\" class=\"wpcf7-form spam\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"spam\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/#wpcf7-f623-p9364-o1\" method=\"post\" class=\"wpcf7-form spam\" enctype=\"multipart/form-data\" novalidate=\"novalidate\" data-status=\"spam\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						}
 					],
 					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "129"
+					"sourceid": "642"
 				},
 				{
 					"pluginid": "10038",
@@ -234,7 +234,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/twhmnci5f0-stage-chargee-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -242,7 +242,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -349,7 +349,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/twhmnci5f0-stage-chargee-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -357,7 +357,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -384,6 +384,14 @@
 					"desc": "<p>Application Source Code was disclosed by the web server - SQL</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr/merci-pour-votre-candidature/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
 							"method": "GET",
 							"param": "",
@@ -400,23 +408,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://recrutement.anact.fr/poste/cw5udq1srm-chargee-de-mission-pour-son-departement-elaboration-de-solutions-de-transfert/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/poste/d7n8yo6sdh-chargee-de-mission-numerique/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -440,7 +432,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/wpcqmdkvjg-responsable-des-affaires-financieres/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -478,6 +470,14 @@
 							"attack": "",
 							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "select it from this list and only those results will show in the dropdown.  Default is all.",
+							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -486,7 +486,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "144"
+					"sourceid": "835"
 				},
 				{
 					"pluginid": "90003",
@@ -511,7 +511,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2026374967&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=684460539&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -519,35 +519,11 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=653683721&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=811082791&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src='https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&#038;ver=3.0' id='google-recaptcha-js'></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1592072192&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -567,11 +543,35 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1645210082&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1241549900&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src='https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&#038;ver=3.0' id='google-recaptcha-js'></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2105969686&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fx61qdrldwx-chargee-de-formation-et-insertion-professionnelle%2F' type='text/javascript'></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -585,7 +585,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "14"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90022",
@@ -612,7 +612,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "267"
+					"sourceid": "259"
 				},
 				{
 					"pluginid": "10017",
@@ -627,17 +627,17 @@
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=2026374967&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=684460539&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2026374967&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=684460539&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=653683721&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=811082791&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=653683721&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=811082791&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -651,9 +651,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1592072192&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1552765254&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1592072192&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1552765254&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -667,9 +667,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1645210082&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1241549900&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1645210082&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1241549900&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -683,9 +683,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1517917547&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=434909067&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1517917547&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=434909067&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -697,15 +697,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=50750820&back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fuh3nczx5ir-chargee-de-communication-a-50%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=2105969686&back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fx61qdrldwx-chargee-de-formation-et-insertion-professionnelle%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=50750820&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fuh3nczx5ir-chargee-de-communication-a-50%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2105969686&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fx61qdrldwx-chargee-de-formation-et-insertion-professionnelle%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&ver=3.0",
 							"attack": "",
@@ -719,7 +719,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "14"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10110",
@@ -762,7 +762,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "386"
+					"sourceid": "322"
 				},
 				{
 					"pluginid": "10023",
@@ -789,7 +789,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "267"
+					"sourceid": "259"
 				},
 				{
 					"pluginid": "10063",
@@ -866,7 +866,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/twhmnci5f0-stage-chargee-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -874,7 +874,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1008,7 +1008,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1115,7 +1115,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD?\u06FE\uFFFD\uFFFDM\uFFFD\uFFFDN\uFFFD\\x0016'!\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/twhmnci5f0-stage-chargee-de-mission/",
+							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1123,7 +1123,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD(\uFFFD\u05E7\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD?\u06FE\uFFFD\uFFFDM\uFFFD\uFFFDN\uFFFD\\x0016'!\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1174,7 +1174,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8039",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D7840",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1182,7 +1182,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8041",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8039",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1238,7 +1238,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Ftwhmnci5f0-stage-chargee-de-mission%2F",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fuh3nczx5ir-chargee-de-communication-a-50%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1246,7 +1246,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fuh3nczx5ir-chargee-de-communication-a-50%2F",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2Fposte%2Fx61qdrldwx-chargee-de-formation-et-insertion-professionnelle%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1260,7 +1260,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "294"
+					"sourceid": "296"
 				},
 				{
 					"pluginid": "10027",
@@ -1345,7 +1345,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1353,7 +1353,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected 4 times, the first in the element starting with: \"<script id='dnd-upload-cf7-js-extra'>\nvar dnd_cf7_uploader = {\"ajax_url\":\"https:\\/\\/recrutement.anact.fr\\/wp-admin\\/admin-ajax.p\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1412,23 +1412,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/3petnd3jv2-chargee-de-mission/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/poste/cw5udq1srm-chargee-de-mission-pour-son-departement-elaboration-de-solutions-de-transfert/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://recrutement.anact.fr/poste/d7n8yo6sdh-chargee-de-mission-numerique/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1452,7 +1436,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/wpcqmdkvjg-responsable-des-affaires-financieres/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1460,7 +1444,23 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://recrutement.anact.fr/poste/2xv5g6sefv-chargee-de-mission-departement-elaboration-de-solutions-de-transfert-cdi/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"\" class=\"elementor-toggle-title\">Rechercher dans les offres r\u00E9centes</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
@@ -1474,7 +1474,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "14"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1543,7 +1543,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1594,6 +1594,14 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1603,14 +1611,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1624,7 +1624,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1637,6 +1637,14 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1646,14 +1654,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1667,7 +1667,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1680,6 +1680,14 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1689,14 +1697,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1710,7 +1710,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1722,6 +1722,14 @@
 					"riskdesc": "Informational (High)",
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
+						{
+							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://recrutement.anact.fr/robots.txt",
 							"method": "GET",
@@ -1737,14 +1745,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/sitemap_index.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "3",
@@ -1753,7 +1753,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1822,7 +1822,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/poste/uh3nczx5ir-chargee-de-communication-a-50/",
+							"uri": "https://recrutement.anact.fr/poste/x61qdrldwx-chargee-de-formation-et-insertion-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2047,7 +2047,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "585"
+					"sourceid": "521"
 				}
 			]
 		}
