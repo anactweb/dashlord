@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 3 Dec 2023 01:54:32
+		Generated on Sun, 10 Dec 2023 01:57:25
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
@@ -205,7 +210,7 @@ td {
 			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">13</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10099">Source Code Disclosure - Perl</a></td>
@@ -245,7 +250,7 @@ td {
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">6</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
@@ -300,7 +305,7 @@ td {
 			<tr>
 				<td><a href="#10015">Re-examine Cache-control Directives</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">11</td>
+				<td align="center">13</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
@@ -325,7 +330,7 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">6</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
@@ -335,7 +340,7 @@ td {
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">13</td>
+				<td align="center">12</td>
 			</tr>
 		</table>
 		<div class="spacer-lg"></div>
@@ -343,6 +348,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OaJw2gJfhxdegQXgXpCCS764OvyHISTQyF0kuuLvyoI&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OaJw2gJfhxdegQXgXpCCS764OvyHISTQyF0kuuLvyoI&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4465206252303972</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 446520
+Brand: VISA
+Category: BUSINESS
+Issuer: CREDIT AGRICOLE CORPORATE AND INVESTMENT BANK CJSC</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1160,71 +1250,9 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.jpg">https://corse.aract.fr/profiles/*.jpg</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.js">https://corse.aract.fr/profiles/*.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">13</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1712,7 +1740,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/">https://corse.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1737,9 +1765,9 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">Location header URI length: 23 [https://corse.aract.fr/].
-Predicted response size: 323.
-Response Body Length: 827.</td>
+						<td width="80%">Location header URI length: 213 [https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on].
+Predicted response size: 513.
+Response Body Length: 1,699.</td>
 					</tr>
 				
 					<tr>
@@ -1877,7 +1905,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1960,7 +1988,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/">https://corse.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2044,7 +2072,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/">https://corse.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://corse.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2128,7 +2156,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/a">https://corse.aract.fr/a</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/">https://corse.aract.fr/index.php/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2159,7 +2187,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/blockquote">https://corse.aract.fr/blockquote</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/actualites">https://corse.aract.fr/index.php/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2190,7 +2218,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/cite">https://corse.aract.fr/cite</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NKqSuMzy0uHcfZw8LUkcmmN6X4x2J4oEExZgiD3Gyis&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NKqSuMzy0uHcfZw8LUkcmmN6X4x2J4oEExZgiD3Gyis&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2221,7 +2249,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/em">https://corse.aract.fr/em</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/espace-presse">https://corse.aract.fr/index.php/espace-presse</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2252,7 +2280,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jg1dL1nQu16S75uYKMd5IVxpQdBo6U80uG9obfpj8M4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jg1dL1nQu16S75uYKMd5IVxpQdBo6U80uG9obfpj8M4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-oC0HWeLaHOFTjwE3oOBVYl_-93yeHpCzNHzdcdSZU_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-oC0HWeLaHOFTjwE3oOBVYl_-93yeHpCzNHzdcdSZU_k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2283,7 +2311,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8iQffed_19rrc6AIxJ_xxaVZAGyoTQSUsH5dZHUAkv8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8iQffed_19rrc6AIxJ_xxaVZAGyoTQSUsH5dZHUAkv8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales">https://corse.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2314,7 +2342,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/comment/reply/?search-404=ZAP">https://corse.aract.fr/index.php/comment/reply/?search-404=ZAP</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/laract-corse">https://corse.aract.fr/index.php/laract-corse</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2345,7 +2373,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-juB4S_UWsvP3OhT_A6rI0FvX7eQ0RPVkGpuqBcSB1k0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-juB4S_UWsvP3OhT_A6rI0FvX7eQ0RPVkGpuqBcSB1k0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/prochains-rdv">https://corse.aract.fr/index.php/prochains-rdv</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2376,7 +2404,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YzZvujInEHPzlmaT5tIil8OkDL9bHehZn-iFs9xn0EY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YzZvujInEHPzlmaT5tIil8OkDL9bHehZn-iFs9xn0EY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-VShmtRbrC_NKcBYzHGvaqieYdnThXx11Ea2SxGDoGjI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-VShmtRbrC_NKcBYzHGvaqieYdnThXx11Ea2SxGDoGjI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2407,7 +2435,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YqVdJ-oiNpI-bzyxYkDIkqF4pGwvFwdgDbXgKnZqtFU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YqVdJ-oiNpI-bzyxYkDIkqF4pGwvFwdgDbXgKnZqtFU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2975,6 +3003,37 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/sites/default/files/js/js_bi2lUgYQIyCv_cWW2ypyX4umLKt1iUC2kkmvg4Ohn70.js">https://corse.aract.fr/sites/default/files/js/js_bi2lUgYQIyCv_cWW2ypyX4umLKt1iUC2kkmvg4Ohn70.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://corse.aract.fr/sites/default/files/js/js_cEd-U6yWbV7cls9wy3QY0ChQ6EvdFGd860KlkwGr4FM.js">https://corse.aract.fr/sites/default/files/js/js_cEd-U6yWbV7cls9wy3QY0ChQ6EvdFGd860KlkwGr4FM.js</a></td>
 					</tr>
 					<tr>
@@ -3129,7 +3188,7 @@ Response Body Length: 827.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">6</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3493,7 +3552,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.jpg">https://corse.aract.fr/profiles/*.jpg</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.gif">https://corse.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3806,37 +3865,6 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js$">https://corse.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">X-Powered-By: PHP/8.1.14</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -3869,6 +3897,37 @@ Response Body Length: 827.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css">https://corse.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/8.1.14</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.gif">https://corse.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4203,7 +4262,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js$">https://corse.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4234,7 +4293,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css">https://corse.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4606,7 +4665,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js$">https://corse.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4637,7 +4696,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css">https://corse.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5054,12 +5113,12 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A</td>
+						<td width="80%">/sites/default/files/css/css_KRG9uakX1LpAY4y3sjlrz-lFmTZkBa9dYikyTsyHRcQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ȭz��y����ߊW���,��,�`�|CRpv��tڮ�&gt;@~�E�a��G��~�</td>
+						<td width="80%">�ȭz��y����ߊW���,��,��F��_R��2���?�dِ�u���;2</td>
 					</tr>
 				
 					<tr>
@@ -5428,7 +5487,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5459,7 +5518,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-aCVNF3a2zwDdWl-sPTnD_xMySmRzXV0p1N00P8Yn7A8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-aCVNF3a2zwDdWl-sPTnD_xMySmRzXV0p1N00P8Yn7A8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-k-Jt4lU57X5usNWtYiX4L3fbR01MKeop0vKpEsvM1tw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-k-Jt4lU57X5usNWtYiX4L3fbR01MKeop0vKpEsvM1tw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5490,7 +5549,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FUu3C81ipU3qm7HWpCLPNx--IeH6DrHDmrmtW3AfBdM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FUu3C81ipU3qm7HWpCLPNx--IeH6DrHDmrmtW3AfBdM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YmyVsfk_AlZsyy-1uhp5i3dsuGSLe1S-yByKW_X7wB4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-YmyVsfk_AlZsyy-1uhp5i3dsuGSLe1S-yByKW_X7wB4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5521,7 +5580,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-cMlIrWs9dy6wUOvlMxaa7MG45fIHI8Ryby3h-CazI9k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-cMlIrWs9dy6wUOvlMxaa7MG45fIHI8Ryby3h-CazI9k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gz9uQ58oPiFFGlhFwNqgVer3QkmV2ufbnj7SbVYsZTc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gz9uQ58oPiFFGlhFwNqgVer3QkmV2ufbnj7SbVYsZTc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5552,7 +5611,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-EJvu8XDDj1baNX7kCSdjLLBUtF4A5xQ9Qnxxk43jpU8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-EJvu8XDDj1baNX7kCSdjLLBUtF4A5xQ9Qnxxk43jpU8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-SdaSR6gaefbCiGyFQCM4fWVJAcudtImpmXpcyOcVYkM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-SdaSR6gaefbCiGyFQCM4fWVJAcudtImpmXpcyOcVYkM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5583,7 +5642,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OaFC15ZLETsH6LrMv_F2KGKkZ_3gho1DUCVGZ4XTzsI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-OaFC15ZLETsH6LrMv_F2KGKkZ_3gho1DUCVGZ4XTzsI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nQpBxkyTLJ6y7NZsHfcP9-G_VWeyQ_CQ_LEYLGVGyos&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nQpBxkyTLJ6y7NZsHfcP9-G_VWeyQ_CQ_LEYLGVGyos&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5614,7 +5673,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gTQCdgJjfVU0n-snulsp6tzDHwWT3ULSzL5meNTZCrM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-gTQCdgJjfVU0n-snulsp6tzDHwWT3ULSzL5meNTZCrM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nduhXnW0mp5Qq6z4dt3slHiWwMkBISENPb-ZTV3xC_o&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nduhXnW0mp5Qq6z4dt3slHiWwMkBISENPb-ZTV3xC_o&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5645,7 +5704,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-zk0N6TBqA_sRL8P9uwDiTCwLtLpcnKFrx4yzMLpolak&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-zk0N6TBqA_sRL8P9uwDiTCwLtLpcnKFrx4yzMLpolak&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-N5kVBQewjp32vdGo1SbK4X_rU0FwPsbkprR4y-m-Ie0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-N5kVBQewjp32vdGo1SbK4X_rU0FwPsbkprR4y-m-Ie0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5676,7 +5735,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7T43HX8r1LNXmnJ_Hp5XqzoIQ9dwxEZpR-VQWgUtkuo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-7T43HX8r1LNXmnJ_Hp5XqzoIQ9dwxEZpR-VQWgUtkuo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-RDWxs6af25CbntvjMs7pgDeobyChBZ14e0zcvi6v_YQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-RDWxs6af25CbntvjMs7pgDeobyChBZ14e0zcvi6v_YQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5707,7 +5766,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-IqYG3Cjkb7yCiFzRqER-Dhs-p6-RWEI24hqq3QbqS8A&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-IqYG3Cjkb7yCiFzRqER-Dhs-p6-RWEI24hqq3QbqS8A&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-H69HYpk0U624tdSzoyuucjDhyIEEnmlzz-N7oXj2wow&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-H69HYpk0U624tdSzoyuucjDhyIEEnmlzz-N7oXj2wow&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5738,7 +5797,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-TvMo0T8SEHUFnmc8erNTJso2JVG9WWKEZ-hjKXL3syM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-TvMo0T8SEHUFnmc8erNTJso2JVG9WWKEZ-hjKXL3syM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5769,7 +5828,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FjufVOfjjEHji8Mn-kKyD9VNdblTOzq2__2ooKTmVa8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FjufVOfjjEHji8Mn-kKyD9VNdblTOzq2__2ooKTmVa8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-kcBjGs2EasbsZgXm0qcEmqmYaudTCKx1am3yqlhhMHo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-kcBjGs2EasbsZgXm0qcEmqmYaudTCKx1am3yqlhhMHo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6551,7 +6610,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/profiles/*.jpg">https://corse.aract.fr/profiles/*.jpg</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.gif">https://corse.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6940,6 +6999,68 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/laract-corse">https://corse.aract.fr/laract-corse</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600, public</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/prochains-rdv">https://corse.aract.fr/prochains-rdv</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600, public</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://corse.aract.fr/README.txt">https://corse.aract.fr/README.txt</a></td>
 					</tr>
 					<tr>
@@ -7094,7 +7215,7 @@ Response Body Length: 827.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">13</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7154,7 +7275,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js">https://corse.aract.fr/core/*.js</a></td>
+						<td width="80%"><a href="https://corse.aract.fr">https://corse.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7300,7 +7421,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js">https://corse.aract.fr/core/*.js</a></td>
+						<td width="80%"><a href="https://corse.aract.fr">https://corse.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7446,7 +7567,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js">https://corse.aract.fr/core/*.js</a></td>
+						<td width="80%"><a href="https://corse.aract.fr">https://corse.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7592,7 +7713,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js">https://corse.aract.fr/core/*.js</a></td>
+						<td width="80%"><a href="https://corse.aract.fr">https://corse.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7738,7 +7859,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/a">https://corse.aract.fr/a</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/actualites">https://corse.aract.fr/index.php/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7758,7 +7879,7 @@ Response Body Length: 827.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7770,7 +7891,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/blockquote">https://corse.aract.fr/blockquote</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/espace-presse">https://corse.aract.fr/index.php/espace-presse</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7790,7 +7911,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7802,7 +7923,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/cite">https://corse.aract.fr/cite</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales">https://corse.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7822,7 +7943,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7834,7 +7955,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/em">https://corse.aract.fr/em</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/laract-corse">https://corse.aract.fr/index.php/laract-corse</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7854,7 +7975,39 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xDzaRWRpjZE6qLmlu8BkJLHcubswixOBfaEhmo8WU8E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS64e6e255ea08606712ac6195251e1199</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7886,7 +8039,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7898,7 +8051,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/blockquote">https://corse.aract.fr/blockquote</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/actualites">https://corse.aract.fr/index.php/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7918,7 +8071,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">z-hBnnY5HDuSeUBnHCQumeP9ZWx9wkyciyLiJWV9A6jmRsv9</td>
+						<td width="80%">DYCYGd0QNXzCsfRYkcT604iHu90U7bpftZD7ODChmTX2znfl</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7929,7 +8082,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">6</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8199,7 +8352,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.js$">https://corse.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8230,7 +8383,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/core/*.png">https://corse.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/profiles/*.css">https://corse.aract.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8363,7 +8516,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8390,7 +8543,7 @@ cookie:SSESS64e6e255ea08606712ac6195251e1199</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8406,7 +8559,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8433,7 +8586,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Jc9kIRKwsqBEM7QgIbsZSUpoEt2o-GCMp3MRYH5IMW4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-chutYzRI4ESSikDRBskmDFVLlDalz96U6TxF1KHhnXA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8449,7 +8602,7 @@ valider</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8476,7 +8629,7 @@ valider</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8492,7 +8645,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8519,7 +8672,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ugVHZewwaOcba5-Z1V7AOHVLyggteWVcNodb5XvM3_Y&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-tQFA1QAAMUlEtXd_ynb_Eorkru6KN1BzY-tLIk1_em8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8530,6 +8683,49 @@ op=Valider
 
 The user-controlled value was:
 valider</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://corse.aract.fr/index.php/recherche?search_api_fulltext=ZAP">https://corse.aract.fr/index.php/recherche?search_api_fulltext=ZAP</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">search_api_fulltext</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://corse.aract.fr/index.php/recherche?search_api_fulltext=ZAP
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+search_api_fulltext=ZAP
+
+The user-controlled value was:
+zap</td>
 					</tr>
 				
 					<tr>
@@ -8578,7 +8774,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8605,7 +8801,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8621,7 +8817,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8648,93 +8844,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://corse.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NbA7t6vycuQeHa_gIzGLhZISQNLU5yLTSEDyNVGodwM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-op=Valider
-
-The user-controlled value was:
-valider</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">form_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-form_id=aract_newsletter_form
-
-The user-controlled value was:
-aract_newsletter_form</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">op</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FGTGm0MWhkSwm6jdxY3oyOLDsZ1WhSuqyLAO7s3J-RM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://corse.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-2Fo1Ade5fcd_ZX0pqSzc5yYqpU6sw9R6ubtpXxmwAg4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8921,7 +9031,7 @@ zap</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">13</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
