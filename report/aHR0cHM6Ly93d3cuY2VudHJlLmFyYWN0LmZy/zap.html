@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 10 Dec 2023 03:55:19
+		Generated on Sun, 17 Dec 2023 03:58:58
 	</h3>
 
 	<h3>
@@ -156,7 +156,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>6</div>
+					<div>8</div>
 				</td>
 			</tr>
 			<tr>
@@ -203,9 +203,19 @@ td {
 				<td align="center">11</td>
 			</tr>
 			<tr>
+				<td><a href="#90022">Application Error Disclosure</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#10033">Directory Browsing</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
@@ -235,7 +245,7 @@ td {
 			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">12</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
@@ -260,7 +270,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
@@ -794,6 +804,87 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-2"><a
+						id="90022"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Application Error Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/">https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Parent Directory</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90022/">90022</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
 						id="10038"></a>
 						<div>Medium</div></th>
 					<th class="risk-2">Content Security Policy (CSP) Header Not Set</th>
@@ -1199,6 +1290,90 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10033"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Directory Browsing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>It is possible to view a listing of the directory contents. Directory listings may reveal hidden scripts, include files, backup source files, etc., which can be accessed to reveal sensitive information.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/">https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;title&gt;Index of /wp-content/plugins/all-in-one-event-calendar/public/js&lt;/title&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Web server identified: Apache 2</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Configure the web server to disable directory browsing.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cwe.mitre.org/data/definitions/548.html">https://cwe.mitre.org/data/definitions/548.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/548.html">548</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">16</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10033/">10033</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -2204,7 +2379,7 @@ HÇ1
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2235,7 +2410,7 @@ HÇ1
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2266,7 +2441,7 @@ HÇ1
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2297,7 +2472,7 @@ HÇ1
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2922,99 +3097,6 @@ CVE-2022-31160
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">//maps.googleapis.com/maps/api/js?ver=6.4.2&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;//maps.googleapis.com/maps/api/js?ver=6.4.2&amp;amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;amp;callback=rgmkInitGoogleMaps&quot; id=&quot;google_map_api-js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://tarteaucitron.io/load.js?locale=fr&amp;iswordpress=true&amp;domain=www.centre.aract.fr&amp;uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;https://tarteaucitron.io/load.js?locale=fr&amp;iswordpress=true&amp;domain=www.centre.aract.fr&amp;uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&amp;render=explicit</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script type=&quot;text/javascript&quot; async defer src=&quot;https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&amp;amp;render=explicit&quot; id=&quot;google-invisible-recaptcha-js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~posterboard/">https://www.centre.aract.fr/calendar/action~posterboard/</a></td>
 					</tr>
 					<tr>
@@ -3107,7 +3189,7 @@ CVE-2022-31160
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3366,6 +3448,37 @@ CVE-2022-31160
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/*controller=ai1ec_exporter_controller">https://www.centre.aract.fr/*controller=ai1ec_exporter_controller</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
@@ -3491,37 +3604,6 @@ CVE-2022-31160
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~poster/">https://www.centre.aract.fr/calendar/action~poster/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3772,69 +3854,69 @@ CVE-2022-31160
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/*/action~*/">https://www.centre.aract.fr/*/action~*/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.4</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~*/">https://www.centre.aract.fr/calendar/action~*/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/7.4</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">X-Powered-By: PHP/7.4</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~default/">https://www.centre.aract.fr/calendar/action~default/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">X-Powered-By: PHP/7.4</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~http:/">https://www.centre.aract.fr/calendar/action~http:/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4606,37 +4688,6 @@ CVE-2022-31160
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1672674458</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1672674458, which evaluates to: 2023-01-02 15:47:38</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~posterboard/">https://www.centre.aract.fr/calendar/action~posterboard/</a></td>
 					</tr>
 					<tr>
@@ -4667,7 +4718,7 @@ CVE-2022-31160
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5163,6 +5214,37 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/*controller=ai1ec_exporter_controller">https://www.centre.aract.fr/*controller=ai1ec_exporter_controller</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Lypjb250cm9sbGVyPWFpMWVjX2V4cG9ydGVyX2NvbnRyb2xsZXI</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">/*controller=ai1ec_exporter_controller</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
@@ -5189,37 +5271,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">/calendar/action~agenda/</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~default/">https://www.centre.aract.fr/calendar/action~default/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">6LdbXZYUAAAAAF_62a9o9xM9mkVQIO_ijHit-g_n</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�[]�    _�ٯh�=�EP ��x���</td>
 					</tr>
 				
 					<tr>
@@ -5560,7 +5611,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-atelier%2F">https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-atelier%2F</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F01%2F21%2Fjeux_30_octobre_2023%2F">https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F01%2F21%2Fjeux_30_octobre_2023%2F</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5591,7 +5642,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-club%2F">https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2023%2F01%2F20%2Fformule-club%2F</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F11%2F16%2Fegalite_prof_pas_a_pas%2F">https://www.centre.aract.fr/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Fwww.centre.aract.fr%2F2022%2F11%2F16%2Fegalite_prof_pas_a_pas%2F</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6082,70 +6133,6 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~month/">https://www.centre.aract.fr/calendar/action~month/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">admin</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;text/javascript&quot; id=&quot;mkd-like-js-extra&quot;&gt;
-/* &lt;![CDATA[ */
-var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~month/">https://www.centre.aract.fr/calendar/action~month/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">query</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bQUERY\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/ld+json&quot; class=&quot;yoast-schema-graph&quot;&gt;{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@graph&quot;:[{&quot;@type&quot;:&quot;WebSite&quot;,&quot;@id&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
 					</tr>
 					<tr>
@@ -6244,6 +6231,70 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~posterboard/">https://www.centre.aract.fr/calendar/action~posterboard/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">query</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bQUERY\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/ld+json&quot; class=&quot;yoast-schema-graph&quot;&gt;{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@graph&quot;:[{&quot;@type&quot;:&quot;WebSite&quot;,&quot;@id&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~week/">https://www.centre.aract.fr/calendar/action~week/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">admin</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;text/javascript&quot; id=&quot;mkd-like-js-extra&quot;&gt;
+/* &lt;![CDATA[ */
+var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~week/">https://www.centre.aract.fr/calendar/action~week/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6325,6 +6376,41 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr">https://www.centre.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a id=&#39;back_to_top&#39; class=&quot;&quot; href=&#39;#&#39;&gt;
+		&lt;span class=&quot;mkd_icon_stack&quot;&gt;
+						&lt;span class=&quot;ion-ios-arrow-up&quot;&gt;&lt;/span&gt;
+					&lt;/span&gt;
+	&lt;/a&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/*controller=ai1ec_exporter_controller">https://www.centre.aract.fr/*controller=ai1ec_exporter_controller</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6500,41 +6586,6 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~oneday/">https://www.centre.aract.fr/calendar/action~oneday/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a id=&#39;back_to_top&#39; class=&quot;&quot; href=&#39;#&#39;&gt;
-		&lt;span class=&quot;mkd_icon_stack&quot;&gt;
-						&lt;span class=&quot;ion-ios-arrow-up&quot;&gt;&lt;/span&gt;
-					&lt;/span&gt;
-	&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~poster/">https://www.centre.aract.fr/calendar/action~poster/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7158,7 +7209,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr">https://www.centre.aract.fr</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7304,7 +7355,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr">https://www.centre.aract.fr</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7450,7 +7501,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr">https://www.centre.aract.fr</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7596,7 +7647,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr">https://www.centre.aract.fr</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7875,7 +7926,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~*/">https://www.centre.aract.fr/calendar/action~*/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7906,7 +7957,7 @@ var mkdLike = {&quot;ajaxurl&quot;:&quot;https:\/\/www.centre.aract.fr\/&quot;, 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~http:/">https://www.centre.aract.fr/calendar/action~http:/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/calendar/action~agenda/">https://www.centre.aract.fr/calendar/action~agenda/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8683,7 +8734,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8710,23 +8761,23 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [input] tag [value] attribute 
 
 The user input found was:
-_wpcf7=14850
+_wpcf7=14838
 
 The user-controlled value was:
-14850</td>
+14838</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8753,23 +8804,23 @@ The user-controlled value was:
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [input] tag [value] attribute 
 
 The user input found was:
-_wpcf7_container_post=14822
+_wpcf7_container_post=14819
 
 The user-controlled value was:
-14822</td>
+14819</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8796,7 +8847,7 @@ The user-controlled value was:
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -8812,7 +8863,7 @@ fr_fr</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8839,7 +8890,7 @@ fr_fr</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -8855,7 +8906,7 @@ fr_fr</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8882,23 +8933,23 @@ fr_fr</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [div] tag [id] attribute 
 
 The user input found was:
-_wpcf7_unit_tag=wpcf7-f14850-p14822-o1
+_wpcf7_unit_tag=wpcf7-f14838-p14819-o1
 
 The user-controlled value was:
-wpcf7-f14850-p14822-o1</td>
+wpcf7-f14838-p14819-o1</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8925,23 +8976,23 @@ wpcf7-f14850-p14822-o1</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [input] tag [aria-describedby] attribute 
 
 The user input found was:
-_wpcf7_unit_tag=wpcf7-f14850-p14822-o1
+_wpcf7_unit_tag=wpcf7-f14838-p14819-o1
 
 The user-controlled value was:
-wpcf7-f14850-p14822-o1-ve-your-lastname</td>
+wpcf7-f14838-p14819-o1-ve-your-lastname</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8968,23 +9019,23 @@ wpcf7-f14850-p14822-o1-ve-your-lastname</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [input] tag [value] attribute 
 
 The user input found was:
-_wpcf7_unit_tag=wpcf7-f14850-p14822-o1
+_wpcf7_unit_tag=wpcf7-f14838-p14819-o1
 
 The user-controlled value was:
-wpcf7-f14850-p14822-o1</td>
+wpcf7-f14838-p14819-o1</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9011,23 +9062,23 @@ wpcf7-f14850-p14822-o1</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
 a(n) [li] tag [id] attribute 
 
 The user input found was:
-_wpcf7_unit_tag=wpcf7-f14850-p14822-o1
+_wpcf7_unit_tag=wpcf7-f14838-p14819-o1
 
 The user-controlled value was:
-wpcf7-f14850-p14822-o1-ve-your-lastname</td>
+wpcf7-f14838-p14819-o1-ve-your-lastname</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9054,7 +9105,7 @@ wpcf7-f14850-p14822-o1-ve-your-lastname</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9070,50 +9121,7 @@ The user-controlled value was:
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">checkbox-58[]</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-checkbox-58[]=Participera aux 5 ateliers
-
-The user-controlled value was:
-participera aux 5 ateliers</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9140,7 +9148,7 @@ participera aux 5 ateliers</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9156,7 +9164,50 @@ width=device-width,initial-scale=1,user-scalable=no</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">preference</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+preference=Session du 13 avril 2023
+
+The user-controlled value was:
+session du 13 avril 2023</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9183,7 +9234,7 @@ width=device-width,initial-scale=1,user-scalable=no</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9199,7 +9250,7 @@ foo-bar@example.com</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9226,7 +9277,7 @@ foo-bar@example.com</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9242,7 +9293,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9269,7 +9320,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9285,7 +9336,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9312,7 +9363,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9328,7 +9379,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9355,7 +9406,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
@@ -9371,7 +9422,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/formule-atelier/">https://www.centre.aract.fr/2023/01/20/formule-atelier/</a></td>
+						<td width="80%"><a href="https://www.centre.aract.fr/2023/01/20/information-sensibilisation/">https://www.centre.aract.fr/2023/01/20/information-sensibilisation/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9398,7 +9449,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://www.centre.aract.fr/2023/01/20/formule-atelier/
+https://www.centre.aract.fr/2023/01/20/information-sensibilisation/
 
 appears to include user input in: 
 
