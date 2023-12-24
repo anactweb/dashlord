@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Dec 2023 01:36:35",
+	"@generated": "Sun, 24 Dec 2023 01:35:27",
 	"site":[ 
 		{
 			"@name": "https://reflexqvt.anact.fr",
@@ -165,7 +165,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10055",
@@ -208,7 +208,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10055",
@@ -251,7 +251,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10038",
@@ -366,34 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "44"
-				},
-				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://reflexqvt.anact.fr/uploads/toolbox/images/9475946a72f10f2c37a6b657589bb33cc5488a54.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#IkNAA",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "288"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "90003",
@@ -406,6 +379,38 @@
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
 					"instances":[ 
 						{
+							"uri": "https://reflexqvt.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"preconnect\" href=\"https://connect.facebook.net\" />",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"preconnect\" href=\"https://maps.gstatic.com\" />",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"preconnect\" href=\"https://www.google-analytics.com\" />",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/en/booking/*/price",
 							"method": "GET",
 							"param": "",
@@ -463,38 +468,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"preconnect\" href=\"https://connect.facebook.net\" />",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"preconnect\" href=\"https://maps.gstatic.com\" />",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"preconnect\" href=\"https://www.google-analytics.com\" />",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -508,7 +481,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "44"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10003",
@@ -535,7 +508,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "219"
+					"sourceid": "216"
 				},
 				{
 					"pluginid": "90022",
@@ -562,7 +535,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "75"
+					"sourceid": "115"
 				},
 				{
 					"pluginid": "10044",
@@ -583,7 +556,7 @@
 							"otherinfo": "Location header URI length: 44 [https://reflexqvt.anact.fr/fr/identification].\nPredicted response size: 344.\nResponse Body Length: 422."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=KWmFeiLLJggoBMoYRRjxJ6XoEtppRXsA6erD15cbdzM&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
+							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=l5FIiykvQnwL_SNkfB8-Ik7yY7QPKJOGBbyFtTJdiwA&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -605,7 +578,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "133"
+					"sourceid": "127"
 				},
 				{
 					"pluginid": "10010",
@@ -632,7 +605,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10011",
@@ -659,7 +632,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10054",
@@ -702,7 +675,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10017",
@@ -844,7 +817,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "219"
+					"sourceid": "216"
 				},
 				{
 					"pluginid": "10063",
@@ -906,7 +879,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "75"
+					"sourceid": "115"
 				},
 				{
 					"pluginid": "10063",
@@ -936,14 +909,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/en/dashboard/message/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -983,6 +948,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/geocoding/*/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/identification-verification",
 							"method": "GET",
 							"param": "",
@@ -1005,7 +978,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "44"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "10035",
@@ -1120,7 +1093,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "44"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "10096",
@@ -2161,6 +2134,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
+							"evidence": "1758783013",
+							"otherinfo": "1758783013, which evaluates to: 2025-09-25 06:50:13"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants",
+							"method": "GET",
+							"param": "",
+							"attack": "",
 							"evidence": "1759592619",
 							"otherinfo": "1759592619, which evaluates to: 2025-10-04 15:43:39"
 						},
@@ -2755,15 +2736,23 @@
 							"attack": "",
 							"evidence": "2017103275",
 							"otherinfo": "2017103275, which evaluates to: 2033-12-02 02:27:55"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2018842272",
+							"otherinfo": "2018842272, which evaluates to: 2033-12-22 05:31:12"
 						}
 					],
-					"count": "203",
+					"count": "205",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1388860784, which evaluates to: 2014-01-04 18:39:44</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "149"
+					"sourceid": "160"
 				},
 				{
 					"pluginid": "10094",
@@ -2808,7 +2797,7 @@
 							"otherinfo": "\uFFFD#_\uFFFD\uFFFD\uFFFD\u07E1\\x0001E\\x000e\uFFFD\u33FA8V\uFFFDi\uFFFD\uFFFDVuH\\x0016\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
+							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2816,7 +2805,7 @@
 							"otherinfo": "\uFFFD#_\uFFFD\uFFFD\uFFFD\u07E1\\x0001E\\x000e\uFFFD\u33FA8V\uFFFDi\uFFFD\uFFFDVuH\\x0016\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
+							"uri": "https://reflexqvt.anact.fr/en/listing/%25url%25",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2891,7 +2880,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=KWmFeiLLJggoBMoYRRjxJ6XoEtppRXsA6erD15cbdzM&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
+							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=l5FIiykvQnwL_SNkfB8-Ik7yY7QPKJOGBbyFtTJdiwA&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
 							"method": "GET",
 							"param": "search-region[_token]",
 							"attack": "",
@@ -2905,7 +2894,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "306"
+					"sourceid": "302"
 				},
 				{
 					"pluginid": "10027",
@@ -3081,14 +3070,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"#\"\n               data-modal-url=\"/fr/modal_login\"\n               data-modal-dialog\n               data-modal-tab=\"login-tab\"\n               data-modal-container=\".modal-dialog\"\n               class=\"btn btn-link p-0 border-0 d-inline-flex align-items-center\">\n               Me connecter\n            </a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -3122,6 +3103,14 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\"\n               data-modal-url=\"/fr/modal_login\"\n               data-modal-dialog\n               data-modal-tab=\"login-tab\"\n               data-modal-container=\".modal-dialog\"\n               class=\"btn btn-link p-0 border-0 d-inline-flex align-items-center\">\n               Me connecter\n            </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -3196,6 +3185,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/annonce-disponibilitee/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -3226,14 +3223,6 @@
 							"attack": "",
 							"evidence": "private",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/tableau-de-bord/message/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
 						}
 					],
 					"count": "9",
@@ -3242,7 +3231,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10015",
@@ -3271,6 +3260,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=0, must-revalidate, private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/consultants/vos-favoris",
 							"method": "GET",
 							"param": "cache-control",
@@ -3280,14 +3277,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/inscription-consultant",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=0, must-revalidate, private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/outils-questionnez-votre-qvt",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -3335,6 +3324,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/robots.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
@@ -3343,7 +3340,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -3392,7 +3389,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -3435,7 +3432,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -3478,7 +3475,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -3521,7 +3518,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "9"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10112",
@@ -3538,7 +3535,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "hmfors0isqc9rk24c466a7jfuk",
+							"evidence": "5koaiqhcfbu81mvfpd7ka0k4o9",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3546,7 +3543,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "nqipoan87i3f9rcgj1oshht3om",
+							"evidence": "me3cr1ev1c5qklches1l24cpta",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3554,7 +3551,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "nqipoan87i3f9rcgj1oshht3om",
+							"evidence": "me3cr1ev1c5qklches1l24cpta",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3562,7 +3559,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "nqipoan87i3f9rcgj1oshht3om",
+							"evidence": "me3cr1ev1c5qklches1l24cpta",
 							"otherinfo": "\ncookie:_csess"
 						}
 					],
@@ -3620,6 +3617,30 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance",
+							"method": "GET",
+							"param": "attributes[switch][19][value]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nattributes[switch][19][value]=1\r\n\r\nThe user-controlled value was:\r\n1"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance",
+							"method": "GET",
+							"param": "attributes[switch][19][value]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\nattributes[switch][19][value]=1\r\n\r\nThe user-controlled value was:\r\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance",
+							"method": "GET",
+							"param": "sort_by",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_by=distance\r\n\r\nThe user-controlled value was:\r\ndistance"
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
 							"method": "GET",
 							"param": "categories[]",
@@ -3652,13 +3673,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\npage=1\r\n\r\nThe user-controlled value was:\r\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
 						}
 					],
-					"count": "4",
+					"count": "7",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>categories[]=18</p><p></p><p>The user-controlled value was:</p><p>18</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://reflexqvt.anact.fr/fr/consultants?attributes%5Bswitch%5D%5B19%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B20%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B21%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B22%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B23%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B24%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B25%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B26%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B27%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B28%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B29%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B30%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B31%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B32%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B33%5D%5Bvalue%5D=1&attributes%5Bswitch%5D%5B39%5D%5Bvalue%5D=1&price_range%5Bmax%5D&price_range%5Bmin%5D&sort_by=distance</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [meta] tag [content] attribute </p><p></p><p>The user input found was:</p><p>attributes[switch][19][value]=1</p><p></p><p>The user-controlled value was:</p><p>1</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "220"
+					"sourceid": "320"
 				}
 			]
 		}
