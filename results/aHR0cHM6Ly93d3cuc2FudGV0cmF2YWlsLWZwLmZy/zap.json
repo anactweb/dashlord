@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Dec 2023 02:46:49",
+	"@generated": "Sun, 24 Dec 2023 02:50:45",
 	"site":[ 
 		{
 			"@name": "https://www.santetravail-fp.fr",
@@ -9,33 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10097",
-					"alertRef": "10097",
-					"alert": "Hash Disclosure - Mac OSX salted SHA-1",
-					"name": "Hash Disclosure - Mac OSX salted SHA-1",
-					"riskcode": "3",
-					"confidence": "2",
-					"riskdesc": "High (Medium)",
-					"desc": "<p>A hash was disclosed by the web server. - Mac OSX salted SHA-1</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/Depliant_com_projet_RPS.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "FEFF0061006E006E00610020006300680061007000750074",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that hashes that are used to protect credentials or other resources are not leaked by the web server or database. There is typically no requirement for password hashes to be accessible to the web browser.      </p>",
-					"otherinfo": "",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "2241"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -251,33 +224,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/2019-02/rapport%20GOLLAC.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#r2GN",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "2179"
-				},
-				{
 					"pluginid": "90003",
 					"alertRef": "90003",
 					"alert": "Sub Resource Integrity Attribute Missing",
@@ -374,7 +320,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10003",
@@ -386,22 +332,6 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The identified library jquery-ui, version 1.12.1 is vulnerable.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_7DiknyH4-9FUgtVljxehioP6EJayPmu99KwusK2RxD0.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/*! jQuery UI - v1.12.1",
-							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_FMUuT6G4eVeyYCC6eZcwxZ9h1Lya3opoPN95Z7Fboe8.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/*! jQuery UI - v1.12.1",
-							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
-						},
 						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_fMXvUpHuIVyK-gpONeIq3DZSj7HkHEd6O75ppn8Mx70.js",
 							"method": "GET",
@@ -441,23 +371,15 @@
 							"attack": "",
 							"evidence": "/*! jQuery UI - v1.12.1",
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Z8HC2JNlYG2kcVqM94kchhBIaYVnMqcKeYPLg583fZE.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/*! jQuery UI - v1.12.1",
-							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						}
 					],
-					"count": "8",
+					"count": "5",
 					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
 					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
 					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2143"
+					"sourceid": "1539"
 				},
 				{
 					"pluginid": "90022",
@@ -469,14 +391,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/node",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.santetravail-fp.fr/temoignage/conference-michel-gollac",
 							"method": "GET",
@@ -492,23 +406,15 @@
 							"attack": "",
 							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/,o,",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
-							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "2",
 					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "2124"
+					"sourceid": "1410"
 				},
 				{
 					"pluginid": "10044",
@@ -623,7 +529,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1275"
+					"sourceid": "1271"
 				},
 				{
 					"pluginid": "10017",
@@ -735,37 +641,21 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_7DiknyH4-9FUgtVljxehioP6EJayPmu99KwusK2RxD0.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_rVP25dB_H7CPKThPEc2uU55ooiSupOK-hdBX-uO8Sc0.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Eval",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Z8HC2JNlYG2kcVqM94kchhBIaYVnMqcKeYPLg583fZE.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "1",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2143"
+					"sourceid": "1532"
 				},
 				{
 					"pluginid": "10063",
@@ -858,14 +748,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -874,7 +756,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -1145,7 +1027,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "771"
+					"sourceid": "770"
 				},
 				{
 					"pluginid": "10021",
@@ -1157,14 +1039,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.js?v=1.9",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
 						{
 							"uri": "https://www.santetravail-fp.fr/robots.txt",
 							"method": "GET",
@@ -1207,6 +1081,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/favicon%281%29.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_fMXvUpHuIVyK-gpONeIq3DZSj7HkHEd6O75ppn8Mx70.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1260,7 +1142,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1553"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -1367,7 +1249,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -1800,7 +1682,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1808,7 +1690,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js",
+							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1830,7 +1712,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "293"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1843,7 +1725,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1851,7 +1733,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js",
+							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1873,7 +1755,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "293"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1886,7 +1768,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1894,7 +1776,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js",
+							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1916,7 +1798,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "293"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1929,7 +1811,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1937,7 +1819,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js",
+							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1959,7 +1841,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "293"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -2141,7 +2023,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "894"
+					"sourceid": "832"
 				}
 			]
 		}
