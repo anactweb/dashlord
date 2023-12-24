@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Dec 2023 01:36:17",
+	"@generated": "Sun, 24 Dec 2023 01:34:39",
 	"site":[ 
 		{
 			"@name": "https://www.anact.fr",
@@ -119,7 +119,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.anact.fr/comment/reply/",
+							"uri": "https://www.anact.fr/filter/tips/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -167,14 +167,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.anact.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.anact.fr/update.php",
 							"method": "GET",
 							"param": "",
@@ -191,7 +183,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -232,7 +224,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "156"
+					"sourceid": "145"
 				},
 				{
 					"pluginid": "10099",
@@ -259,7 +251,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "11561"
+					"sourceid": "11660"
 				},
 				{
 					"pluginid": "10099",
@@ -299,21 +291,45 @@
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
 					"instances":[ 
 						{
+							"uri": "https://www.anact.fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.anact.fr/mabonner-la-newsletter",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.anact.fr/node/12663",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.anact.fr/mabonner-la-newsletter",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "4",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "791"
+					"sourceid": "12860"
 				},
 				{
 					"pluginid": "10003",
@@ -372,7 +388,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/advisories/GHSA-rmxg-73gg-4p98</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://github.com/jquery/jquery.com/issues/162</p><p>https://nvd.nist.gov/vuln/detail/CVE-2020-7656</p><p>https://bugs.jquery.com/ticket/9521</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/advisories/GHSA-q4m3-2j7h-f7xw</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2011-4969</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1201"
+					"sourceid": "1187"
 				},
 				{
 					"pluginid": "10054",
@@ -399,7 +415,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "142"
+					"sourceid": "155"
 				},
 				{
 					"pluginid": "10017",
@@ -412,21 +428,45 @@
 					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.anact.fr/contact",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.anact.fr/mabonner-la-newsletter",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
 							"attack": "",
 							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.anact.fr/node/12663",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.anact.fr/mabonner-la-newsletter",
+							"method": "POST",
+							"param": "https://www.google.com/recaptcha/api.js?hl=fr",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?hl=fr\" async=\"async\" defer=\"defer\"></script>",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "4",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "791"
+					"sourceid": "12860"
 				},
 				{
 					"pluginid": "10110",
@@ -503,6 +543,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.anact.fr/sites/anact/files/js/js_uL_NjMxT9tT3dNrWyE1zFiafAsqmPXCu7N5ZJBiuD_Q.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.anact.fr/sites/anact/files/js/js_XexEZhbTmj1BHeajKr2rPfyR8Y68f4rm0Nv3Vj5_dSI.js",
 							"method": "GET",
 							"param": "",
@@ -511,13 +559,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1185"
+					"sourceid": "1197"
 				},
 				{
 					"pluginid": "10023",
@@ -544,7 +592,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "153"
+					"sourceid": "143"
 				},
 				{
 					"pluginid": "10063",
@@ -566,14 +614,6 @@
 						},
 						{
 							"uri": "https://www.anact.fr/admin/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.anact.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -606,6 +646,14 @@
 						},
 						{
 							"uri": "https://www.anact.fr/modules/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.anact.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -819,7 +867,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.anact.fr/MAINTAINERS.txt",
+							"uri": "https://www.anact.fr/INSTALL.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -882,73 +930,81 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776912",
-							"otherinfo": "1702776912, which evaluates to: 2023-12-17 01:35:12"
+							"evidence": "1703381613",
+							"otherinfo": "1703381613, which evaluates to: 2023-12-24 01:33:33"
 						},
 						{
 							"uri": "https://www.anact.fr/recherche?q=user/register/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776927",
-							"otherinfo": "1702776927, which evaluates to: 2023-12-17 01:35:27"
+							"evidence": "1703381627",
+							"otherinfo": "1703381627, which evaluates to: 2023-12-24 01:33:47"
 						},
 						{
 							"uri": "https://www.anact.fr/recherche?q=user/register/&sort_by=changed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776927",
-							"otherinfo": "1702776927, which evaluates to: 2023-12-17 01:35:27"
+							"evidence": "1703381627",
+							"otherinfo": "1703381627, which evaluates to: 2023-12-24 01:33:47"
 						},
 						{
 							"uri": "https://www.anact.fr/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776912",
-							"otherinfo": "1702776912, which evaluates to: 2023-12-17 01:35:12"
+							"evidence": "1703381614",
+							"otherinfo": "1703381614, which evaluates to: 2023-12-24 01:33:34"
 						},
 						{
 							"uri": "https://www.anact.fr/user/register/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776910",
-							"otherinfo": "1702776910, which evaluates to: 2023-12-17 01:35:10"
+							"evidence": "1703381612",
+							"otherinfo": "1703381612, which evaluates to: 2023-12-24 01:33:32"
 						},
 						{
 							"uri": "https://www.anact.fr/?q=user/register/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776927",
-							"otherinfo": "1702776927, which evaluates to: 2023-12-17 01:35:27"
+							"evidence": "1703381627",
+							"otherinfo": "1703381627, which evaluates to: 2023-12-24 01:33:47"
+						},
+						{
+							"uri": "https://www.anact.fr/?q=user/register/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "1703381628",
+							"otherinfo": "1703381628, which evaluates to: 2023-12-24 01:33:48"
 						},
 						{
 							"uri": "https://www.anact.fr/user/register",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776953",
-							"otherinfo": "1702776953, which evaluates to: 2023-12-17 01:35:53"
+							"evidence": "1703381653",
+							"otherinfo": "1703381653, which evaluates to: 2023-12-24 01:34:13"
 						},
 						{
 							"uri": "https://www.anact.fr/user/register/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "1702776921",
-							"otherinfo": "1702776921, which evaluates to: 2023-12-17 01:35:21"
+							"evidence": "1703381621",
+							"otherinfo": "1703381621, which evaluates to: 2023-12-24 01:33:41"
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1702776912, which evaluates to: 2023-12-17 01:35:12</p>",
+					"otherinfo": "<p>1703381613, which evaluates to: 2023-12-24 01:33:33</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "271"
+					"sourceid": "272"
 				},
 				{
 					"pluginid": "10021",
@@ -1025,7 +1081,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.anact.fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw.css",
+							"uri": "https://www.anact.fr/sites/anact/files/css/css_P9RYYHSoJhL70A8ZKZmBSiBB5c9nYKq7pwY1j4XUnFA.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1063,7 +1119,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "153"
+					"sourceid": "143"
 				},
 				{
 					"pluginid": "10094",
@@ -1093,14 +1149,6 @@
 						},
 						{
 							"uri": "https://www.anact.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw",
-							"otherinfo": "~\uFFFD\uFFFD\u05EC\uFFFD\uFFFD\uFFFDr\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDD\uFFFD[\uFFFDO\uFFFD\\x001b-gt\uFFFD /\uFFFD\uFFFDQ\uFFFD\\x0015P\"\uFFFDa\\x000c\uFFFD)\uFFFD\u0459\\x0018!\uFFFDp"
-						},
-						{
-							"uri": "https://www.anact.fr/cron.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1152,11 +1200,19 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "kFpq2uNchIiDPIk__axF5a9tJ5uZnbNTCWkv5q4ZrIA",
-							"otherinfo": "\uFFFDZj\uFFFD\uFFFD\\\uFFFD\uFFFD\uFFFD<\uFFFD?\uFFFD\uFFFDE\uFFFDm'\uFFFD\uFFFD\uFFFD\uFFFDS\ti/\uFFFD\\x0019\uFFFD\uFFFD"
+							"evidence": "FWVi77ek-SFjCZUvnexRG57Q4L_a0z8OnHQjfSEq1JY",
+							"otherinfo": "\\x0015eb\uFDE4\uFFFD!c\t\uFFFD/\uFFFD\uFFFDQ\\x001b\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD?\\x000e\uFFFDt#}!*\u0516"
 						},
 						{
-							"uri": "https://www.anact.fr/user/password/",
+							"uri": "https://www.anact.fr/user/logout/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/sites/anact/files/css/css_kShW4RPmRstZ3SpIC-ZvVGNFVAi0WEMuCnI0ZkYIaFw",
+							"otherinfo": "~\uFFFD\uFFFD\u05EC\uFFFD\uFFFD\uFFFDr\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDD\uFFFD[\uFFFDO\uFFFD\\x001b-gt\uFFFD /\uFFFD\uFFFDQ\uFFFD\\x0015P\"\uFFFDa\\x000c\uFFFD)\uFFFD\u0459\\x0018!\uFFFDp"
+						},
+						{
+							"uri": "https://www.anact.fr/user/register/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1205,7 +1261,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "10838"
+					"sourceid": "10831"
 				},
 				{
 					"pluginid": "10027",
@@ -1250,7 +1306,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>\n    tarteaucitron.user.matomoId = 112;\n    tarteaucitron.user.matomoHost = 'https://matomo.ebizproduction.com/';\n    ta\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.anact.fr/comment/reply/",
+							"uri": "https://www.anact.fr/filter/tips/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1258,7 +1314,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script>jQuery.extend(Drupal.settings, {\"basePath\":\"\\/\",\"pathPrefix\":\"\",\"setHasJsCookie\":0,\"ajaxPageState\":{\"theme\":\"anact\",\"the\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.anact.fr/comment/reply/",
+							"uri": "https://www.anact.fr/filter/tips/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1341,14 +1397,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.anact.fr/cron.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"#\" id=\"menu\" class=\"element-invisible element-focusable\" tabindex=\"3\">Aller \u00E0 la navigation</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://www.anact.fr/filter/tips/",
 							"method": "GET",
 							"param": "",
@@ -1387,6 +1435,14 @@
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" src=\"https://www.anact.fr/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2\"></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.anact.fr/user/logout/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" id=\"menu\" class=\"element-invisible element-focusable\" tabindex=\"3\">Aller \u00E0 la navigation</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://www.anact.fr/user/password/",
@@ -1462,7 +1518,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "136"
+					"sourceid": "130"
 				},
 				{
 					"pluginid": "10015",
@@ -1483,6 +1539,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.anact.fr/CHANGELOG.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=1209600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.anact.fr/INSTALL.mysql.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -1496,14 +1560,6 @@
 							"param": "cache-control",
 							"attack": "",
 							"evidence": "max-age=1209600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.anact.fr/install.php",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "no-cache, must-revalidate",
 							"otherinfo": ""
 						},
 						{
@@ -1539,14 +1595,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.anact.fr/robots.txt",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=1209600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.anact.fr/UPGRADE.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -1563,7 +1611,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1758,25 +1806,17 @@
 							"method": "GET",
 							"param": "SSESSfca3bb5625449df86b5f3a4dbe3076b8",
 							"attack": "",
-							"evidence": "kFpq2uNchIiDPIk__axF5a9tJ5uZnbNTCWkv5q4ZrIA",
-							"otherinfo": "\ncookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8"
-						},
-						{
-							"uri": "https://www.anact.fr/update.php",
-							"method": "GET",
-							"param": "SSESSfca3bb5625449df86b5f3a4dbe3076b8",
-							"attack": "",
-							"evidence": "kFpq2uNchIiDPIk__axF5a9tJ5uZnbNTCWkv5q4ZrIA",
+							"evidence": "FWVi77ek-SFjCZUvnexRG57Q4L_a0z8OnHQjfSEq1JY",
 							"otherinfo": "\ncookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESSfca3bb5625449df86b5f3a4dbe3076b8</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "142"
+					"sourceid": "155"
 				},
 				{
 					"pluginid": "10049",
@@ -1821,7 +1861,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.anact.fr/MAINTAINERS.txt",
+							"uri": "https://www.anact.fr/INSTALL.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1918,7 +1958,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "919"
+					"sourceid": "915"
 				}
 			]
 		}
