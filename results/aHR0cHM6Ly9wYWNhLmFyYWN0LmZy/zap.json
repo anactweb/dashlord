@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 31 Dec 2023 02:57:33",
+	"@generated": "Sun, 7 Jan 2024 02:58:03",
 	"site":[ 
 		{
 			"@name": "https://paca.aract.fr",
@@ -106,41 +106,9 @@
 							"attack": "",
 							"evidence": "<form  id=\"aract-newsletter-form\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 4: \"edit-email\" \"edit-fonction-newsletter\" \"edit-nom\" \"edit-prenom\" \"edit-submit\" \"form_build_id\" \"form_id\" \"rgpd_consent\" ]."
-						},
-						{
-							"uri": "https://paca.aract.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form region=\"search\" action=\"/recherche\" method=\"get\" id=\"views-exposed-form-recherche-search\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search-api-fulltext\" \"edit-submit-recherche\" ]."
-						},
-						{
-							"uri": "https://paca.aract.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form region=\"search\" action=\"/recherche\" method=\"get\" id=\"views-exposed-form-recherche-search\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-search-api-fulltext--2\" \"edit-submit-recherche--2\" ]."
-						},
-						{
-							"uri": "https://paca.aract.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"small-12 medium-8 margin-auto\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: \"search-404\" ]."
-						},
-						{
-							"uri": "https://paca.aract.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form  id=\"aract-newsletter-form\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 4: \"edit-email\" \"edit-fonction-newsletter\" \"edit-nom\" \"edit-prenom\" \"edit-submit\" \"form_build_id\" \"form_id\" \"rgpd_consent\" ]."
 						}
 					],
-					"count": "15",
+					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search-api-fulltext\" \"edit-submit-recherche\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -231,14 +199,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://paca.aract.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
@@ -255,7 +215,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -344,9 +304,33 @@
 							"attack": "",
 							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,700\" rel=\"stylesheet\">",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link href=\"https://fonts.googleapis.com/css?family=Ubuntu:400,700\" rel=\"stylesheet\">",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
+							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
@@ -364,22 +348,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
-						{
-							"uri": "https://paca.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 212 [https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].\nPredicted response size: 512.\nResponse Body Length: 1,695."
-						},
-						{
-							"uri": "https://paca.aract.fr/index.php/big_pipe/no-js?destination=/index.php/lanact-et-son-reseau-de-16-agences-regionales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 77 [https://paca.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales].\nPredicted response size: 377.\nResponse Body Length: 1,043."
-						},
 						{
 							"uri": "https://paca.aract.fr/index.php/user/logout",
 							"method": "GET",
@@ -411,93 +379,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 22 [https://paca.aract.fr/].\nPredicted response size: 322.\nResponse Body Length: 823."
-						},
-						{
-							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 22 [https://paca.aract.fr/].\nPredicted response size: 322.\nResponse Body Length: 823."
 						}
 					],
-					"count": "7",
+					"count": "4",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 212 [https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].</p><p>Predicted response size: 512.</p><p>Response Body Length: 1,695.</p>",
+					"otherinfo": "<p>Location header URI length: 32 [https://paca.aract.fr/index.php/].</p><p>Predicted response size: 332.</p><p>Response Body Length: 863.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2084"
-				},
-				{
-					"pluginid": "10010",
-					"alertRef": "10010",
-					"alert": "Cookie No HttpOnly Flag",
-					"name": "Cookie No HttpOnly Flag",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
-					"instances":[ 
-						{
-							"uri": "https://paca.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://paca.aract.fr/index.php/big_pipe/no-js?destination=/index.php/lanact-et-son-reseau-de-16-agences-regionales",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs",
-							"otherinfo": ""
-						}
-					],
-					"count": "2",
-					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
-					"cweid": "1004",
-					"wascid": "13",
-					"sourceid": "2084"
-				},
-				{
-					"pluginid": "10011",
-					"alertRef": "10011",
-					"alert": "Cookie Without Secure Flag",
-					"name": "Cookie Without Secure Flag",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
-					"instances":[ 
-						{
-							"uri": "https://paca.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://paca.aract.fr/index.php/big_pipe/no-js?destination=/index.php/lanact-et-son-reseau-de-16-agences-regionales",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs",
-							"otherinfo": ""
-						}
-					],
-					"count": "2",
-					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
-					"cweid": "614",
-					"wascid": "13",
-					"sourceid": "2084"
+					"sourceid": "270"
 				},
 				{
 					"pluginid": "10054",
@@ -510,7 +400,7 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/actualites?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-_3aJNL0Oi3_QK2SYVL1GTgS7EsvQ3c04ouayshntxp4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/actualites",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -518,7 +408,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/actualites?field_categorie_1_target_id%5B155%5D=155&field_categorie_1_target_id%5B156%5D=156&field_categorie_1_target_id%5B157%5D=157&field_categorie_1_target_id%5B158%5D=158&field_categorie_1_target_id%5B159%5D=159&field_theme_target_id%5B3300%5D=3300&field_theme_target_id%5B3302%5D=3302&field_theme_target_id%5B3312%5D=3312&field_theme_target_id%5B3477%5D=3477&field_theme_target_id%5B3482%5D=3482&field_theme_target_id%5B4364%5D=4364",
+							"uri": "https://paca.aract.fr/index.php/charte-qualite-de-vie-au-travail-en-provence-alpes-cote-dazurr",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -526,7 +416,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/actualites?page=1",
+							"uri": "https://paca.aract.fr/index.php/dialogue-social-et-enjeux-de-negociation",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -534,7 +424,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/index.php/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-fNRiDEMOx0HqOWlSShXuzwZdd6D71_8NRuFqewEGVRU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/egalite-professionnelle-2",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -542,7 +432,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/laract-paca?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-U4Trlhl7UvsuCXP5PCHY474t_dZGcAHF1ruAXqAspFU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/espace-presse",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -550,7 +440,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/nos-missions-0?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-nQRDQcGzOO3g87eFT3V8nNrooQ-BK3Kd4qa7hi7eefE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -558,7 +448,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/prochains-rdv?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-YoSuc1BNnDeYFOpLEdmpOfqNbItNZnq3vB6ZlWqeGmc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/marches-publics",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -566,7 +456,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/prochains-rdv?field_categorie_1_target_id%5B101%5D=101&field_categorie_1_target_id%5B102%5D=102&field_categorie_1_target_id%5B104%5D=104&field_categorie_1_target_id%5B105%5D=105&field_categorie_1_target_id%5B160%5D=160&field_categorie_1_target_id%5B161%5D=161&field_theme_target_id%5B3300%5D=3300&field_theme_target_id%5B3302%5D=3302&field_theme_target_id%5B3312%5D=3312&field_theme_target_id%5B3477%5D=3477&field_theme_target_id%5B3482%5D=3482&field_theme_target_id%5B4364%5D=4364",
+							"uri": "https://paca.aract.fr/index.php/prochains-rdv",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -574,7 +464,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/nos-missions-0?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-HCkotGRgQUESCX3f27OhbIrT_HOc6uQF_IuHM7LQ3-M&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
@@ -596,23 +486,15 @@
 							"attack": "",
 							"evidence": "Set-Cookie: SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
-							"method": "POST",
-							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
-							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1105"
+					"sourceid": "826"
 				},
 				{
 					"pluginid": "10017",
@@ -633,7 +515,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/",
+							"uri": "https://paca.aract.fr/admin/",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
 							"attack": "",
@@ -641,7 +523,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/admin/",
+							"uri": "https://paca.aract.fr/comment/reply/",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
 							"attack": "",
@@ -673,7 +555,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/node/add/",
+							"uri": "https://paca.aract.fr/filter/tips",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
 							"attack": "",
@@ -786,7 +668,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "624"
+					"sourceid": "667"
 				},
 				{
 					"pluginid": "10063",
@@ -879,6 +761,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://paca.aract.fr/profiles/*.jpg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://paca.aract.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -887,13 +777,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10037",
@@ -915,6 +805,14 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: PHP/8.1.14",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -994,13 +892,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10036",
@@ -1022,6 +920,14 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Apache/2.4.34 (Red Hat) OpenSSL/1.0.2k-fips PHP/8.1.14",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1062,14 +968,6 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/core/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Apache/2.4.34 (Red Hat) OpenSSL/1.0.2k-fips PHP/8.1.14",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://paca.aract.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1115,7 +1013,7 @@
 					"reference": "<p>http://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>http://msdn.microsoft.com/en-us/library/ff648552.aspx#ht_urlscan_007</p><p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10035",
@@ -1137,6 +1035,14 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1184,7 +1090,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.css",
+							"uri": "https://paca.aract.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1192,7 +1098,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.gif",
+							"uri": "https://paca.aract.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1216,13 +1122,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10096",
@@ -1251,7 +1157,7 @@
 							"otherinfo": "2016102023, which evaluates to: 2033-11-20 12:20:23"
 						},
 						{
-							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1313,7 +1219,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -1330,8 +1236,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
+							"evidence": "/sites/default/files/css/css_KRG9uakX1LpAY4y3sjlrz-lFmTZkBa9dYikyTsyHRcQ",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFDF\uFFFD\uFFFD_R\uFFFD\\x0001\uFFFD2\uFFFD\uFFFD\uFFFD?\uFFFD\\x0016d\u0650\\x0016\uFFFDu\uFFFD\uFFFD\uFFFD;2\\x001d\\x0017\\x0010"
 						},
 						{
 							"uri": "https://paca.aract.fr/admin/",
@@ -1374,7 +1280,7 @@
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						},
 						{
-							"uri": "https://paca.aract.fr/node/add/",
+							"uri": "https://paca.aract.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1416,11 +1322,11 @@
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFDF\uFFFD\uFFFD_R\uFFFD\\x0001\uFFFD2\uFFFD\uFFFD\uFFFD?\uFFFD\\x0016d\u0650\\x0016\uFFFDu\uFFFD\uFFFD\uFFFD;2\\x001d\\x0017\\x0010</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10024",
@@ -1433,7 +1339,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1441,7 +1347,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NtNPUxh0K_cbM2aVCuZlBdETX75Hy6arGJ00g51jnXM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7lUNgWXk3f_R8oBeCOZzG8hn0rD4reocnOSTpwX2jMk&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1449,7 +1355,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ojsvvxypZA0Ezgz3O5FtIs4D0OF4d5DBL7mzBUGzJB0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-VlFHsjsEhAruy6rVNbRG1rHsMF1NmxlP0XbLzxc9zZw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1457,7 +1363,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-eE1g4lqmnJbaiavon10QiwalAJjsOA6EuWaEdC5eho0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-y4tLvvpIiooXD0HIAl3vmqFQFs4Zgo83BJfeCsoi8tc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1465,7 +1371,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-uL8kkcdgroKWoRff328-0GP8H1DPNKvVSHIm-2I4zEQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-iAu7MYLZVonL6fxnbq2FaRzOUi1NnlsV6RBrW8n3AM4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1473,7 +1379,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QOnK79zYnn8_9NqjJKYVyxgAnr2Pb38ua8598aHne5E&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-x9DfL-WKBmWuNg1jiGzHwO8jIYADvld-y50slP6Ulos&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1481,7 +1387,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-79-YnGILU6a9Bm9UmT3Optyeq4Vq3ydbqmUfkuxn1Hg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QtksumcLKScQwZ0bqIqsRTW416TWf8NmGcFRwTtSTFM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1489,7 +1395,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-GFH3IYAZHE0sQQyjDztQaAL3OzdJP9ipxkeOICg9ZHg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Y7cbnjUAa1NS3Kh3IG3xAog2AgjsG_MCamwCFA6mJGE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1497,7 +1403,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-J25EX4VNzoTrXJAyqZY3KwKFKWmAvQ33w0_1m2TXZSU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-0LnaceFKECc1aNBIAeuT6s9Xhx7J5Cndr3g1-OSd2Rs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1505,7 +1411,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form--IVuNKIYih86Ldob0qRAuqokvmMtFG5w1cQhtkuvMhU&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-aWDqzuAX2fdJ4t4VeOa3g8XKmk5dgKNJjsbeN1zBkkw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1513,7 +1419,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-JK0nnbZJnY4NOdQ5exsKmIzm9EMxeqVcJKQjdzn1uzM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-zjeylu02_C1iLhiL5r-TZC1j0YOTs86kf6syBmB8tlw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1521,7 +1427,15 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-2Qvim3U_Twqe1NKCCcjfZ8xeDbUySBDTZebugBTsMdM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "email",
+							"attack": "",
+							"evidence": "zaproxy@example.com",
+							"otherinfo": "The URL contains email address(es)."
+						},
+						{
+							"uri": "https://paca.aract.fr/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-v177YlkUCMxHJwOha6XJ8nNMFcxrxTNtJ8nDZ5uba5U&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1529,13 +1443,13 @@
 							"otherinfo": "The URL contains email address(es)."
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Do not pass sensitive information in URIs.</p>",
 					"otherinfo": "<p>The URL contains email address(es).</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "696"
+					"sourceid": "688"
 				},
 				{
 					"pluginid": "10027",
@@ -1596,7 +1510,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://paca.aract.fr/node/add/",
+							"uri": "https://paca.aract.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1776,7 +1690,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "126"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10015",
@@ -1797,14 +1711,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=3600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://paca.aract.fr/filter/tips",
 							"method": "GET",
 							"param": "cache-control",
@@ -1813,7 +1719,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/laract-paca",
+							"uri": "https://paca.aract.fr/index.php/filter/tips",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=3600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/user/login",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=3600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/user/password",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1822,14 +1744,6 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/nos-missions-0",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=3600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://paca.aract.fr/organisation",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1896,7 +1810,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/core/*.css",
+							"uri": "https://paca.aract.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1926,7 +1840,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "124"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1939,7 +1853,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/core/*.css",
+							"uri": "https://paca.aract.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1969,7 +1883,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "124"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1982,7 +1896,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/core/*.css",
+							"uri": "https://paca.aract.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -2012,7 +1926,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "124"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -2025,7 +1939,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/core/*.css",
+							"uri": "https://paca.aract.fr",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2055,7 +1969,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "124"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10112",
@@ -2068,11 +1982,51 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/actualites",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
-							"evidence": "91vPm81TcnxP0xa-2yhmVx0XRsNmDfO2dPc3xGqAP1dkMQQD",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
+							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/charte-qualite-de-vie-au-travail-en-provence-alpes-cote-dazurr",
+							"method": "GET",
+							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
+							"attack": "",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
+							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/espace-presse",
+							"method": "GET",
+							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
+							"attack": "",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
+							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/lanact-et-son-reseau-de-16-agences-regionales",
+							"method": "GET",
+							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
+							"attack": "",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
+							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/marches-publics",
+							"method": "GET",
+							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
+							"attack": "",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
+							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
+						},
+						{
+							"uri": "https://paca.aract.fr/index.php/prochains-rdv",
+							"method": "GET",
+							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
+							"attack": "",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
 							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
 						},
 						{
@@ -2080,25 +2034,25 @@
 							"method": "POST",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
-							"evidence": "91vPm81TcnxP0xa-2yhmVx0XRsNmDfO2dPc3xGqAP1dkMQQD",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
 							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
 						},
 						{
-							"uri": "https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-LgDC2RbIA3o8wrA5YVqusgCJXU9BX2ZDb7JU0Jj7m0c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/index.php/egalite-professionnelle-2",
 							"method": "GET",
 							"param": "SSESS13c3eb0c4edeefeb2f7b60941d59cf13",
 							"attack": "",
-							"evidence": "91vPm81TcnxP0xa-2yhmVx0XRsNmDfO2dPc3xGqAP1dkMQQD",
+							"evidence": "cdS1NUwgKp3z6HI5t%2CIFTJqepsGtzLPeyk9rji6-W8vnetiZ",
 							"otherinfo": "\ncookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13"
 						}
 					],
-					"count": "3",
+					"count": "8",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESS13c3eb0c4edeefeb2f7b60941d59cf13</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "798"
+					"sourceid": "826"
 				},
 				{
 					"pluginid": "10049",
@@ -2120,6 +2074,14 @@
 						},
 						{
 							"uri": "https://paca.aract.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=3600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://paca.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2167,7 +2129,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.css",
+							"uri": "https://paca.aract.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2175,7 +2137,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://paca.aract.fr/profiles/*.gif",
+							"uri": "https://paca.aract.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2191,13 +2153,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -2210,44 +2172,36 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
-							"uri": "https://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-FVJ_Ol6s9HofhzJMwXvi-YLF79a4g-MplHF4TT99qs0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QtksumcLKScQwZ0bqIqsRTW416TWf8NmGcFRwTtSTFM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-FVJ_Ol6s9HofhzJMwXvi-YLF79a4g-MplHF4TT99qs0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QtksumcLKScQwZ0bqIqsRTW416TWf8NmGcFRwTtSTFM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-FVJ_Ol6s9HofhzJMwXvi-YLF79a4g-MplHF4TT99qs0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QtksumcLKScQwZ0bqIqsRTW416TWf8NmGcFRwTtSTFM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-FVJ_Ol6s9HofhzJMwXvi-YLF79a4g-MplHF4TT99qs0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
-						},
-						{
-							"uri": "https://paca.aract.fr/index.php/recherche?search_api_fulltext=ZAP",
-							"method": "GET",
-							"param": "search_api_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/index.php/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-QtksumcLKScQwZ0bqIqsRTW416TWf8NmGcFRwTtSTFM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
 							"uri": "https://paca.aract.fr/recherche?search_api_fulltext=ZAP",
@@ -2258,20 +2212,36 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/recherche?search_api_fulltext=ZAP\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_fulltext=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EFrA30TPZCPDTRjsFlqYYRq9M8N5SIYVDN0qHljez2o&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EFrA30TPZCPDTRjsFlqYYRq9M8N5SIYVDN0qHljez2o&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
 						},
 						{
-							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EFrA30TPZCPDTRjsFlqYYRq9M8N5SIYVDN0qHljez2o&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-sSQpg0HiqcW5vP0l3paJMkhwCJj9ScU9qr0qbTrZiO8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EFrA30TPZCPDTRjsFlqYYRq9M8N5SIYVDN0qHljez2o&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
+						},
+						{
+							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NRQmTZM_Vp9hSFeK1iXqx6vO7ATRQlZc7fBy082ZWjs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "form_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NRQmTZM_Vp9hSFeK1iXqx6vO7ATRQlZc7fBy082ZWjs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=aract_newsletter_form\r\n\r\nThe user-controlled value was:\r\naract_newsletter_form"
+						},
+						{
+							"uri": "https://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NRQmTZM_Vp9hSFeK1iXqx6vO7ATRQlZc7fBy082ZWjs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "op",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-NRQmTZM_Vp9hSFeK1iXqx6vO7ATRQlZc7fBy082ZWjs&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Valider\r\n\r\nThe user-controlled value was:\r\nvalider"
 						},
 						{
 							"uri": "https://paca.aract.fr/user/login",
@@ -2306,13 +2276,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://paca.aract.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\npass=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-oGusOiOR0ukIw1CY_bBKdS_s52LhW9yqfU8gPD3SBGg&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://paca.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7FoYBKuVxd6gY-nNW_WIxtRebh3En2Hxd6YB4-grpKo&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "696"
+					"sourceid": "688"
 				}
 			]
 		}
