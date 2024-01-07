@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 31 Dec 2023 03:42:14",
+	"@generated": "Sun, 7 Jan 2024 03:44:07",
 	"site":[ 
 		{
 			"@name": "https://recrutement.anact.fr",
@@ -42,7 +42,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "415"
+					"sourceid": "325"
 				},
 				{
 					"pluginid": "10202",
@@ -80,6 +80,14 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/%5C%22https:%5C/%5C/developers.google.com%5C/maps%5C/documentation%5C/geocoding%5C/overview%23geocoding%5C",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https://recrutement.anact.fr/\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
+						{
+							"uri": "https://recrutement.anact.fr/nos-offres-demploi/%5C%22https:%5C/%5C/developers.google.com%5C/maps%5C/documentation%5C/javascript%5C/localization%23Region%5C",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -127,6 +135,14 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						},
 						{
+							"uri": "https://recrutement.anact.fr/poste/cw5udq1srm-chargee-de-mission-ux1-designer-pour-son-departement-elaboration-de-solutions-de-transfert/%5C%22https:%5C/%5C/developers.google.com%5C/maps%5C/documentation%5C/geocoding%5C/get-api-key%5C",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https://recrutement.anact.fr/\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
+						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "POST",
 							"param": "",
@@ -151,13 +167,13 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"_wpcf7\" \"_wpcf7_container_post\" \"_wpcf7_locale\" \"_wpcf7_posted_data_hash\" \"_wpcf7_recaptcha_response\" \"_wpcf7_unit_tag\" \"_wpcf7_version\" \"_wpcf7cf_hidden_group_fields\" \"_wpcf7cf_hidden_groups\" \"_wpcf7cf_options\" \"_wpcf7cf_repeaters\" \"_wpcf7cf_steps\" \"_wpcf7cf_visible_groups\" \"cv\" \"email-candidature\" \"lm\" \"your-consent\" \"your-email\" \"your-firstname\" \"your-name\" \"your-tel\" ]."
 						}
 					],
-					"count": "12",
+					"count": "14",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "538"
+					"sourceid": "539"
 				},
 				{
 					"pluginid": "10038",
@@ -264,7 +280,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10020",
@@ -309,7 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/?attachment_id=8627",
+							"uri": "https://recrutement.anact.fr/?attachment_id=8040",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -446,7 +462,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "679"
+					"sourceid": "676"
 				},
 				{
 					"pluginid": "90003",
@@ -471,7 +487,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1002098606&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2027567022&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -479,11 +495,35 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=421498611&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=893258959&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src='https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&#038;ver=3.0' id='google-recaptcha-js'></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1488122854&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -503,35 +543,11 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=520280433&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=66508945&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src='https://www.google.com/recaptcha/api.js?render=6Le0JrQeAAAAADXCAEVyP618i2r1XRDjp9QAKzeH&#038;ver=3.0' id='google-recaptcha-js'></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.2.3' media='all' />",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=803465923&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fmentions-legales%2F' type='text/javascript'></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -553,7 +569,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "90022",
@@ -580,7 +596,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "234"
+					"sourceid": "238"
 				},
 				{
 					"pluginid": "10017",
@@ -595,17 +611,17 @@
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1002098606&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=2027567022&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1002098606&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=2027567022&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://recrutement.anact.fr",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=421498611&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=893258959&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=421498611&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=893258959&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -619,9 +635,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=517133635&back=https%3A%2F%2Frecrutement.anact.fr%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1488122854&back=https%3A%2F%2Frecrutement.anact.fr%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=517133635&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1488122854&amp;back=https%3A%2F%2Frecrutement.anact.fr%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -635,9 +651,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=520280433&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=66508945&back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=520280433&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=66508945&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fcandidature-spontanee%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -651,9 +667,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/mentions-legales/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=803465923&back=https%3A%2F%2Frecrutement.anact.fr%2Fmentions-legales%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=1952601461&back=https%3A%2F%2Frecrutement.anact.fr%2Fmentions-legales%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=803465923&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fmentions-legales%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=1952601461&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fmentions-legales%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -667,9 +683,9 @@
 						{
 							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
 							"method": "GET",
-							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=574184226&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
+							"param": "https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&action=load&blogid=277&siteid=1&t=381725020&back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F",
 							"attack": "",
-							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=574184226&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
+							"evidence": "<script src='https://beetween-jobs.com/?dm=7425e496bfac85c3c0f58f79e163321d&amp;action=load&amp;blogid=277&amp;siteid=1&amp;t=381725020&amp;back=https%3A%2F%2Frecrutement.anact.fr%2Fnos-offres-demploi%2F' type='text/javascript'></script>",
 							"otherinfo": ""
 						},
 						{
@@ -687,7 +703,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10110",
@@ -730,7 +746,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "379"
+					"sourceid": "304"
 				},
 				{
 					"pluginid": "10023",
@@ -757,7 +773,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "234"
+					"sourceid": "238"
 				},
 				{
 					"pluginid": "10063",
@@ -779,22 +795,6 @@
 						},
 						{
 							"uri": "https://recrutement.anact.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/?attachment_id=7645",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://recrutement.anact.fr/?attachment_id=7840",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -858,6 +858,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://recrutement.anact.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://recrutement.anact.fr/xmlrpc.php?rsd",
 							"method": "GET",
 							"param": "",
@@ -866,13 +874,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10096",
@@ -907,7 +915,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10021",
@@ -952,7 +960,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/comments/feed/",
+							"uri": "https://recrutement.anact.fr/feed/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1014,7 +1022,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10094",
@@ -1121,7 +1129,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "90011",
@@ -1166,7 +1174,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8041",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8040",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1174,7 +1182,7 @@
 							"otherinfo": "There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D8627",
+							"uri": "https://recrutement.anact.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Frecrutement.anact.fr%2F%3Fattachment_id%3D9230",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1236,7 +1244,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "266"
+					"sourceid": "271"
 				},
 				{
 					"pluginid": "10027",
@@ -1273,7 +1281,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1281,7 +1289,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected 4 times, the first in the element starting with: \"<script id='dnd-upload-cf7-js-extra'>\nvar dnd_cf7_uploader = {\"ajax_url\":\"https:\\/\\/recrutement.anact.fr\\/wp-admin\\/admin-ajax.p\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1289,7 +1297,7 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"<script text=\"text/javascript\">\r\nvar getUrlParameter = function getUrlParameter(sParam) {\r\n    var sPageURL = decodeURIComponent\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
+							"uri": "https://recrutement.anact.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1297,7 +1305,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
+							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1305,7 +1313,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected 4 times, the first in the element starting with: \"<script id='dnd-upload-cf7-js-extra'>\nvar dnd_cf7_uploader = {\"ajax_url\":\"https:\\/\\/recrutement.anact.fr\\/wp-admin\\/admin-ajax.p\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
+							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1313,7 +1321,7 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected in the element starting with: \"<script text=\"text/javascript\">\r\nvar getUrlParameter = function getUrlParameter(sParam) {\r\n    var sPageURL = decodeURIComponent\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
+							"uri": "https://recrutement.anact.fr/candidature-spontanee/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1327,7 +1335,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10109",
@@ -1402,7 +1410,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "679"
+					"sourceid": "676"
 				},
 				{
 					"pluginid": "10015",
@@ -1463,14 +1471,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://recrutement.anact.fr/nos-offres-demploi/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://recrutement.anact.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "cache-control",
@@ -1511,7 +1511,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1560,7 +1560,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1603,7 +1603,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1646,7 +1646,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1689,7 +1689,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1742,14 +1742,6 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"uri": "https://recrutement.anact.fr/mentions-legales/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
 							"uri": "https://recrutement.anact.fr/page-sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1782,6 +1774,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://recrutement.anact.fr/wp-json/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://recrutement.anact.fr/wp-json/wp/v2/pages/7689",
 							"method": "GET",
 							"param": "",
@@ -1796,7 +1796,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10031",
@@ -1983,7 +1983,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "434"
+					"sourceid": "423"
 				}
 			]
 		}
