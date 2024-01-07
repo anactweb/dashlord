@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 31 Dec 2023 02:47:06
+		Generated on Sun, 7 Jan 2024 02:45:12
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -164,7 +164,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>11</div>
+					<div>9</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
@@ -215,17 +220,7 @@ td {
 			<tr>
 				<td><a href="#10044">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">6</td>
-			</tr>
-			<tr>
-				<td><a href="#10010">Cookie No HttpOnly Flag</a></td>
-				<td align="center" class="risk-1">Low</td>
-				<td align="center">1</td>
-			</tr>
-			<tr>
-				<td><a href="#10011">Cookie Without Secure Flag</a></td>
-				<td align="center" class="risk-1">Low</td>
-				<td align="center">1</td>
+				<td align="center">4</td>
 			</tr>
 			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
@@ -240,7 +235,7 @@ td {
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">7</td>
+				<td align="center">5</td>
 			</tr>
 			<tr>
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
@@ -265,7 +260,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
@@ -320,12 +315,12 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">8</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">10</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
@@ -338,6 +333,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/accessibilite-3">https://grandest.aract.fr/accessibilite-3</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4322268005133</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 432226
+Brand: VISA
+Category: CLASSIC
+Issuer: FIRST CITY MONUMENT BANK PLC</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1415,7 +1495,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.svg">https://grandest.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1446,7 +1526,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.svg">https://grandest.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1477,7 +1557,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.svg">https://grandest.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1557,39 +1637,6 @@ td {
 				<TR vAlign="top">
 					<TD colspan="2"></TD>
 				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Location header URI length: 206 [https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on].
-Predicted response size: 506.
-Response Body Length: 1,671.</td>
-					</tr>
 				
 					<tr>
 						<td width="20%"
@@ -1723,42 +1770,9 @@ Predicted response size: 326.
 Response Body Length: 839.</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Location header URI length: 26 [https://grandest.aract.fr/].
-Predicted response size: 326.
-Response Body Length: 839.</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">6</td>
+					<td width="80%">4</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1791,174 +1805,6 @@ Response Body Length: 839.</td>
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
-						id="10010"></a>
-						<div>Low</div></th>
-					<th class="risk-1">Cookie No HttpOnly Flag</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">big_pipe_nojs</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: big_pipe_nojs</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">1</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure that the HttpOnly flag is set for all cookies.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://owasp.org/www-community/HttpOnly">https://owasp.org/www-community/HttpOnly</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/1004.html">1004</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10010/">10010</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
-						id="10011"></a>
-						<div>Low</div></th>
-					<th class="risk-1">Cookie Without Secure Flag</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://grandest.aract.fr/big_pipe/no-js?destination=/%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">big_pipe_nojs</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: big_pipe_nojs</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">1</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html">https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/614.html">614</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10011/">10011</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
 						id="10054"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Cookie without SameSite Attribute</th>
@@ -1977,100 +1823,100 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/atelier-de-resolution-collective-egalite-diversite-mixite-inclusion">https://grandest.aract.fr/atelier-de-resolution-collective-egalite-diversite-mixite-inclusion</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/">https://grandest.aract.fr/index.php/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/index.php/actualites">https://grandest.aract.fr/index.php/actualites</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/dialogue-social-dialogue-professionnel">https://grandest.aract.fr/index.php/dialogue-social-dialogue-professionnel</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/egalite-et-mixite-professionnelles">https://grandest.aract.fr/index.php/egalite-et-mixite-professionnelles</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/espace-presse">https://grandest.aract.fr/index.php/espace-presse</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2132,7 +1978,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/laract-grand-est">https://grandest.aract.fr/index.php/laract-grand-est</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/mutations-numeriques-et-changements-organisationnels">https://grandest.aract.fr/index.php/mutations-numeriques-et-changements-organisationnels</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2163,7 +2009,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/laract-grand-est?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-sVmX--1yPNIkceIiAbTpMJQmuQ9Wj5ejm07BZ0Wy21E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/laract-grand-est?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-sVmX--1yPNIkceIiAbTpMJQmuQ9Wj5ejm07BZ0Wy21E&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/prochains-rdv">https://grandest.aract.fr/index.php/prochains-rdv</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2194,7 +2040,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x9dJ-GNFI8LKI9MRwcOqvLA_V0kKHwW1kfBqYnHlWbs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x9dJ-GNFI8LKI9MRwcOqvLA_V0kKHwW1kfBqYnHlWbs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/qualite-de-vie-et-des-conditions-de-travail-qvct">https://grandest.aract.fr/index.php/qualite-de-vie-et-des-conditions-de-travail-qvct</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2225,7 +2071,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/prochains-rdv?page=1">https://grandest.aract.fr/prochains-rdv?page=1</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fZEEmELQUA64OpfqP2FOUZY5BGMd1Itv5X2dqMpRQ3I&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/index.php/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fZEEmELQUA64OpfqP2FOUZY5BGMd1Itv5X2dqMpRQ3I&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2256,7 +2102,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/laract-grand-est?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-_a2K5ii6XiXfxFLFMY5RVDTBDVnEZtjiC_kJz76kpD4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/laract-grand-est?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-_a2K5ii6XiXfxFLFMY5RVDTBDVnEZtjiC_kJz76kpD4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2434,6 +2280,37 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/admin/">https://grandest.aract.fr/admin/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://static.addtoany.com/menu/page.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://static.addtoany.com/menu/page.js&quot; async&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/">https://grandest.aract.fr/comment/reply/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2709,37 +2586,6 @@ Response Body Length: 839.</td>
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/register">https://grandest.aract.fr/user/register</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://static.addtoany.com/menu/page.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://static.addtoany.com/menu/page.js&quot; async&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">11</td>
@@ -2814,37 +2660,6 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%">Eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/sites/default/files/js/js_bi2lUgYQIyCv_cWW2ypyX4umLKt1iUC2kkmvg4Ohn70.js">https://grandest.aract.fr/sites/default/files/js/js_bi2lUgYQIyCv_cWW2ypyX4umLKt1iUC2kkmvg4Ohn70.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">eval</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2948,37 +2763,6 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/sites/default/files/js/js_QoFKLLvYZnIYS0S_3v8dUrQGWBE0jCDghPSXdbVCAGk.js">https://grandest.aract.fr/sites/default/files/js/js_QoFKLLvYZnIYS0S_3v8dUrQGWBE0jCDghPSXdbVCAGk.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/sites/default/files/js/js_Qravz5BMZgwv5-S5uegzRPdTqPJYaX-5JjroT2WrkRE.js">https://grandest.aract.fr/sites/default/files/js/js_Qravz5BMZgwv5-S5uegzRPdTqPJYaX-5JjroT2WrkRE.js</a></td>
 					</tr>
 					<tr>
@@ -3009,7 +2793,7 @@ Response Body Length: 839.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">7</td>
+					<td width="80%">5</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3280,37 +3064,6 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -3343,6 +3096,37 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css">https://grandest.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.gif">https://grandest.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3686,37 +3470,6 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">X-Powered-By: PHP/8.1.14</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -3749,6 +3502,37 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css">https://grandest.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/8.1.14</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js">https://grandest.aract.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4083,7 +3867,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4114,7 +3898,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js">https://grandest.aract.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4486,7 +4270,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4517,7 +4301,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js">https://grandest.aract.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4706,7 +4490,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-818kCjgmWM-dYe4qwqp-hCsFkzmaddTmNwqgwLN6fzc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-818kCjgmWM-dYe4qwqp-hCsFkzmaddTmNwqgwLN6fzc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-s7NUtalAHZ0DgQB1kTjZiKDtf82d1ROVInKlyGwyMkg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-s7NUtalAHZ0DgQB1kTjZiKDtf82d1ROVInKlyGwyMkg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4765,40 +4549,9 @@ Response Body Length: 839.</td>
 						<td width="80%">1647876529, which evaluates to: 2022-03-21 15:28:49</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-500Jt5oJ4zqU5gc4GAY3yOp-sHcd-OLt-8WxNGwEVnM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/index.php/formations?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-500Jt5oJ4zqU5gc4GAY3yOp-sHcd-OLt-8WxNGwEVnM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1647876529</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1647876529, which evaluates to: 2022-03-21 15:28:49</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4883,7 +4636,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/admin/">https://grandest.aract.fr/admin/</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/">https://grandest.aract.fr/comment/reply/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5246,7 +4999,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5277,7 +5030,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qgsR4ZKuuKPThln1rHWyyoYp-IhgCreB5_J3cyEa9yo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qgsR4ZKuuKPThln1rHWyyoYp-IhgCreB5_J3cyEa9yo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-4YTfCxP21StW2x8f-cdxPAObZ1qNTDLuTB7cbZ3VJOg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-4YTfCxP21StW2x8f-cdxPAObZ1qNTDLuTB7cbZ3VJOg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5308,7 +5061,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Dqhe3mrB4BgZf3cqm6Z4-Wla7lQZvsfs-IaROPtaOF4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Dqhe3mrB4BgZf3cqm6Z4-Wla7lQZvsfs-IaROPtaOF4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xLMM6jc9ebYPgymjfOSDbvRJS9i2uuui-95_S1cB7-w&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xLMM6jc9ebYPgymjfOSDbvRJS9i2uuui-95_S1cB7-w&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5339,7 +5092,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-wHb9Q0l4ZsdF2CQoKvWu-dVH3Uj3PFv6xaBlB58HYEU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-wHb9Q0l4ZsdF2CQoKvWu-dVH3Uj3PFv6xaBlB58HYEU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZTRbo-nTdypM2aTnG4DvTM2ve4SegxULdkUzWp1mFFs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZTRbo-nTdypM2aTnG4DvTM2ve4SegxULdkUzWp1mFFs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5370,7 +5123,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nzPIBOAn81LMzD_cfNkTnW_ItJL4wB6c7gazRs5Aalo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-nzPIBOAn81LMzD_cfNkTnW_ItJL4wB6c7gazRs5Aalo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZvZIjOrotJl2roDt3HBhgIUgn5WqEFRoCwWfVvTk-58&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZvZIjOrotJl2roDt3HBhgIUgn5WqEFRoCwWfVvTk-58&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5401,7 +5154,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qN2QSx2kCOE_5ej-Zy6CQFK4xpafBA9xhd0Bd1xSyH8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qN2QSx2kCOE_5ej-Zy6CQFK4xpafBA9xhd0Bd1xSyH8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5432,7 +5185,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xRteJ7G55NaISBLx9VfK2CkVJYNSd2GFnUtoL8VARx4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xRteJ7G55NaISBLx9VfK2CkVJYNSd2GFnUtoL8VARx4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5463,7 +5216,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-D6ajbanKhHD8N5FUvt5P3fV3HpN8t24iLIXX_vvSl_8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-D6ajbanKhHD8N5FUvt5P3fV3HpN8t24iLIXX_vvSl_8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-s43ElKWrOLlQc3njRpK2nP5BxGecjEyXzoRQLbxNLFo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-s43ElKWrOLlQc3njRpK2nP5BxGecjEyXzoRQLbxNLFo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5494,7 +5247,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-21uwv_NxACVSNyTs8g-t8Nix729vEalIK3JYQ_PbqOo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-21uwv_NxACVSNyTs8g-t8Nix729vEalIK3JYQ_PbqOo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dUugZq-_I7odd8qCHES7FySXF7FJAANZIRPeZTQwib8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-dUugZq-_I7odd8qCHES7FySXF7FJAANZIRPeZTQwib8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5525,7 +5278,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XmST4WrCR0O9fPSviJh91jm5KcFeQZfFkJG2gfXbGGM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XmST4WrCR0O9fPSviJh91jm5KcFeQZfFkJG2gfXbGGM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HPdzjeOwqu6VNXCuY2_DcqpCsvXWeoxQ1WL60CNw6GE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HPdzjeOwqu6VNXCuY2_DcqpCsvXWeoxQ1WL60CNw6GE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5556,7 +5309,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-eAPQSRIBAThz5hErq9riLlelspBLXnKNTHuI-Uxzanw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-eAPQSRIBAThz5hErq9riLlelspBLXnKNTHuI-Uxzanw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5587,7 +5340,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-4mLWYcqyYm_UpTvCh80-F3EgtHpJYXrkoskC8A2Uch4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-4mLWYcqyYm_UpTvCh80-F3EgtHpJYXrkoskC8A2Uch4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Gjmk-grWijMqkw9JjOMVmpe_HvQexjzV_4MY0EZRJ28&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Gjmk-grWijMqkw9JjOMVmpe_HvQexjzV_4MY0EZRJ28&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5725,6 +5478,37 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/">https://grandest.aract.fr/comment/reply/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">user</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
 					<tr>
@@ -5948,37 +5732,6 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/search/">https://grandest.aract.fr/search/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">user</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/register">https://grandest.aract.fr/user/register</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6276,37 +6029,6 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;&quot;&gt;L&amp;#039;Aract&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -6339,6 +6061,37 @@ Response Body Length: 839.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css">https://grandest.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script&gt;(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-130613749-3&#39;, &#39;auto&#39;);ga(&#39;require&#39;, &#39;displayfeatures&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No links have been found while there are scripts, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.gif">https://grandest.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6972,7 +6725,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.css">https://grandest.aract.fr/core/*.css</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$">https://grandest.aract.fr/core/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7118,7 +6871,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.css">https://grandest.aract.fr/core/*.css</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$">https://grandest.aract.fr/core/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7264,7 +7017,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.css">https://grandest.aract.fr/core/*.css</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$">https://grandest.aract.fr/core/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7410,7 +7163,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.css">https://grandest.aract.fr/core/*.css</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.css$">https://grandest.aract.fr/core/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7556,7 +7309,7 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-JN_8PU81IZkjnrpyY-o1j62Kirzn76sDkvMJB-PK3yI&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/actualites">https://grandest.aract.fr/index.php/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7576,7 +7329,103 @@ Response Body Length: 839.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/dialogue-social-dialogue-professionnel">https://grandest.aract.fr/index.php/dialogue-social-dialogue-professionnel</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/egalite-et-mixite-professionnelles">https://grandest.aract.fr/index.php/egalite-et-mixite-professionnelles</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/espace-presse">https://grandest.aract.fr/index.php/espace-presse</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7608,7 +7457,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7620,7 +7469,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/laract-grand-est">https://grandest.aract.fr/index.php/laract-grand-est</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/prochains-rdv">https://grandest.aract.fr/index.php/prochains-rdv</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7640,71 +7489,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x9dJ-GNFI8LKI9MRwcOqvLA_V0kKHwW1kfBqYnHlWbs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-x9dJ-GNFI8LKI9MRwcOqvLA_V0kKHwW1kfBqYnHlWbs&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESSed0e6951f38b521ad145441e5c709f5d</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7736,7 +7521,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7748,7 +7533,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/">https://grandest.aract.fr/index.php/</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/mutations-numeriques-et-changements-organisationnels">https://grandest.aract.fr/index.php/mutations-numeriques-et-changements-organisationnels</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7768,7 +7553,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7780,7 +7565,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-l-6qFVo7D9glcMibpDjxCVS_gC6s2-xFw0mjGI341NY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/index.php/qualite-de-vie-et-des-conditions-de-travail-qvct">https://grandest.aract.fr/index.php/qualite-de-vie-et-des-conditions-de-travail-qvct</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7800,7 +7585,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KtCk4oail-47VMO3kGo30f843yikG4Pg0AoyV-fkOv9NlmXX</td>
+						<td width="80%">bXdXsCxoZ1sinLG%2CrMJyJs7s8QatQW%2CCGcHu4ORiRtxLW6LS</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7811,7 +7596,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">8</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8081,7 +7866,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.js$">https://grandest.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8112,7 +7897,38 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/core/*.png">https://grandest.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.css">https://grandest.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/profiles/*.js">https://grandest.aract.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8173,7 +7989,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8245,7 +8061,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8272,7 +8088,7 @@ cookie:SSESSed0e6951f38b521ad145441e5c709f5d</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8288,7 +8104,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8315,7 +8131,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-MOMEFG_GCA2bWm1GgiPDRCYZ5Tn8w88qYNg1CxUWzGY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-yGOuKpvBekO3IPhoG63iEdm52wdaOeugrM7LZ66mptE&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8331,7 +8147,7 @@ valider</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8358,7 +8174,7 @@ valider</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8374,7 +8190,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8401,93 +8217,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FK8TGpUbzS2frPkMZH3AVzm6llpxdtFVjl8FfcmtPI0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-op=Valider
-
-The user-controlled value was:
-valider</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">form_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-form_id=aract_newsletter_form
-
-The user-controlled value was:
-aract_newsletter_form</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">op</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://grandest.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8GDr0OQGs-vyYKolQxM1FgTXkyRMM9PxsUAhiD96DVA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-894I17SZHtXdS5NwytU28ZnmpH9Onwz-EPDE7ILU_o8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8546,7 +8276,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8573,7 +8303,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8589,7 +8319,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8616,7 +8346,93 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-qWwzPBBb4VFmAHnp-9NVGzijJZhqNHj4dM7r1E3YzZU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://grandest.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-3M9Ar3dghrwSxSiNJYh8yyxKKSEe-lCg9NvQRm5oiZA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+op=Valider
+
+The user-controlled value was:
+valider</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">form_id</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+form_id=aract_newsletter_form
+
+The user-controlled value was:
+aract_newsletter_form</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">op</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://grandest.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-J8C2SvUqCdbwjIaIL48Q9A3afNjRhdLmDo1zYVMysfw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
