@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 03:26:16",
+	"@generated": "Sun, 14 Jan 2024 03:28:37",
 	"site":[ 
 		{
 			"@name": "https://www.aractidf.org",
@@ -9,6 +9,41 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aractidf.org/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "58697969897846",
+							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 586979\nBrand: MAESTRO\nCategory: STANDARD\nIssuer: "
+						},
+						{
+							"uri": "https://www.aractidf.org/qualite-de-vie-au-travail/ressources/conseil-flash-qvt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "4019780803280",
+							"otherinfo": "Credit Card Type detected: Visa\nBank Identification Number: 401978\nBrand: VISA\nCategory: PLATINUM\nIssuer: CUMORAH C.U."
+						}
+					],
+					"count": "2",
+					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 586979</p><p>Brand: MAESTRO</p><p>Category: STANDARD</p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "376"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -438,7 +473,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/advisories/GHSA-rmxg-73gg-4p98</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://github.com/jquery/jquery.com/issues/162</p><p>https://nvd.nist.gov/vuln/detail/CVE-2020-7656</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/advisories/GHSA-q4m3-2j7h-f7xw</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "786"
+					"sourceid": "812"
 				},
 				{
 					"pluginid": "90022",
@@ -465,7 +500,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1127"
+					"sourceid": "1499"
 				},
 				{
 					"pluginid": "10054",
@@ -548,7 +583,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "889"
+					"sourceid": "895"
 				},
 				{
 					"pluginid": "10017",
@@ -724,14 +759,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/sites/default/files/js/js__JuFmti1OZYyBBidIUJvoDOZg81ze1_8XkKpzZ5SPsY.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aractidf.org/sites/default/files/js/js_bKlUCCF9Be4sPzkExU2C800mFxzaaKT4QCk-q8ATqk8.js",
 							"method": "GET",
 							"param": "",
@@ -749,6 +776,14 @@
 						},
 						{
 							"uri": "https://www.aractidf.org/sites/default/files/js/js_s7yA-hwRxnKty__ED6DuqmTMKG39xvpRyrtyCrbWH4M.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aractidf.org/sites/default/files/js/js_sFz42jHWbWn87EYsIwdIACuMz0WKn9ioBdO4c_pFSCw.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -778,7 +813,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "624"
+					"sourceid": "622"
 				},
 				{
 					"pluginid": "10063",
@@ -847,14 +882,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/misc/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aractidf.org/misc/*.png",
 							"method": "GET",
 							"param": "",
@@ -872,6 +899,14 @@
 						},
 						{
 							"uri": "https://www.aractidf.org/modules/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aractidf.org/modules/*.jpeg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -930,6 +965,14 @@
 							"otherinfo": "tag=img src=http://aractidf.org/sites/default/files/maison.png\ntag=img src=http://aractidf.org/sites/default/files/iledefrancefse.jpg\ntag=img src=http://aractidf.org/sites/default/files/logo_ue_bleu_ce.jpg\n"
 						},
 						{
+							"uri": "https://www.aractidf.org/ressources/outils-methodes?page=6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://aractidf.org/sites/default/files/logo_ars-idf_hd_0.jpg",
+							"otherinfo": "tag=img src=http://aractidf.org/sites/default/files/logo_ars-idf_hd_0.jpg\n"
+						},
+						{
 							"uri": "https://www.aractidf.org/seniors/ressources/exemples-daccords-gpec-et-gestion-des-ages",
 							"method": "GET",
 							"param": "",
@@ -938,13 +981,13 @@
 							"otherinfo": "tag=img src=http://aractidf.org/sites/default/files/maison.png\ntag=img src=http://aractidf.org/sites/default/files/iledefrancefse.jpg\ntag=img src=http://aractidf.org/sites/default/files/logo_ue_bleu_ce.jpg\n"
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
 					"otherinfo": "<p>tag=img src=http://aractidf.org/sites/default/files/maison.png</p><p>tag=img src=http://aractidf.org/sites/default/files/iledefrancefse.jpg</p><p>tag=img src=http://aractidf.org/sites/default/files/logo_ue_bleu_ce.jpg</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "1592"
+					"sourceid": "1320"
 				},
 				{
 					"pluginid": "10037",
@@ -1051,9 +1094,17 @@
 							"attack": "",
 							"evidence": "X-Powered-By: PleskLin",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aractidf.org/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: PHP/7.4.33",
+							"otherinfo": "The following X-Powered-By headers were also found:\r\nX-Powered-By: PleskLin\r\n"
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.</p>",
 					"otherinfo": "<p>The following X-Powered-By headers were also found:</p><p>X-Powered-By: PleskLin</p><p></p>",
 					"reference": "<p>http://blogs.msdn.com/b/varunm/archive/2013/04/23/remove-unwanted-http-response-headers.aspx</p><p>http://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
@@ -1128,14 +1179,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/misc/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aractidf.org/misc/*.png",
 							"method": "GET",
 							"param": "",
@@ -1160,7 +1203,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/modules/*.js",
+							"uri": "https://www.aractidf.org/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1168,7 +1211,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/robots.txt",
+							"uri": "https://www.aractidf.org/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1176,7 +1219,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
@@ -1199,101 +1242,101 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597899",
-							"otherinfo": "1704597899, which evaluates to: 2024-01-07 03:24:59"
+							"evidence": "1705202840",
+							"otherinfo": "1705202840, which evaluates to: 2024-01-14 03:27:20"
 						},
 						{
 							"uri": "https://www.aractidf.org/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597914",
-							"otherinfo": "1704597914, which evaluates to: 2024-01-07 03:25:14"
+							"evidence": "1705202853",
+							"otherinfo": "1705202853, which evaluates to: 2024-01-14 03:27:33"
 						},
 						{
 							"uri": "https://www.aractidf.org/cron.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597913",
-							"otherinfo": "1704597913, which evaluates to: 2024-01-07 03:25:13"
+							"evidence": "1705202852",
+							"otherinfo": "1705202852, which evaluates to: 2024-01-14 03:27:32"
 						},
 						{
 							"uri": "https://www.aractidf.org/install.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597914",
-							"otherinfo": "1704597914, which evaluates to: 2024-01-07 03:25:14"
+							"evidence": "1705202852",
+							"otherinfo": "1705202852, which evaluates to: 2024-01-14 03:27:32"
 						},
 						{
 							"uri": "https://www.aractidf.org/misc/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597908",
-							"otherinfo": "1704597908, which evaluates to: 2024-01-07 03:25:08"
+							"evidence": "1705202849",
+							"otherinfo": "1705202849, which evaluates to: 2024-01-14 03:27:29"
 						},
 						{
 							"uri": "https://www.aractidf.org/misc/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597909",
-							"otherinfo": "1704597909, which evaluates to: 2024-01-07 03:25:09"
+							"evidence": "1705202849",
+							"otherinfo": "1705202849, which evaluates to: 2024-01-14 03:27:29"
 						},
 						{
 							"uri": "https://www.aractidf.org/modules/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597910",
-							"otherinfo": "1704597910, which evaluates to: 2024-01-07 03:25:10"
+							"evidence": "1705202849",
+							"otherinfo": "1705202849, which evaluates to: 2024-01-14 03:27:29"
 						},
 						{
 							"uri": "https://www.aractidf.org/modules/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597910",
-							"otherinfo": "1704597910, which evaluates to: 2024-01-07 03:25:10"
+							"evidence": "1705202850",
+							"otherinfo": "1705202850, which evaluates to: 2024-01-14 03:27:30"
 						},
 						{
 							"uri": "https://www.aractidf.org/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597911",
-							"otherinfo": "1704597911, which evaluates to: 2024-01-07 03:25:11"
+							"evidence": "1705202850",
+							"otherinfo": "1705202850, which evaluates to: 2024-01-14 03:27:30"
 						},
 						{
 							"uri": "https://www.aractidf.org/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597911",
-							"otherinfo": "1704597911, which evaluates to: 2024-01-07 03:25:11"
+							"evidence": "1705202850",
+							"otherinfo": "1705202850, which evaluates to: 2024-01-14 03:27:30"
 						},
 						{
 							"uri": "https://www.aractidf.org/themes/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597912",
-							"otherinfo": "1704597912, which evaluates to: 2024-01-07 03:25:12"
+							"evidence": "1705202851",
+							"otherinfo": "1705202851, which evaluates to: 2024-01-14 03:27:31"
 						},
 						{
 							"uri": "https://www.aractidf.org/themes/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1704597912",
-							"otherinfo": "1704597912, which evaluates to: 2024-01-07 03:25:12"
+							"evidence": "1705202851",
+							"otherinfo": "1705202851, which evaluates to: 2024-01-14 03:27:31"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1704597899, which evaluates to: 2024-01-07 03:24:59</p>",
+					"otherinfo": "<p>1705202840, which evaluates to: 2024-01-14 03:27:20</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1402,8 +1445,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ieMHOe_z0KmblTmhiQ-I536QryZzzPEYnhrJwVAJ6wo",
-							"otherinfo": "\uFFFD\uFFFD\\x00079\uFFFD\uFFFD\u0429\uFFFD\uFFFD9\uFFFD\uFFFD\\x000f\uFFFD\uFFFD~\uFFFD\uFFFD&s\uFFFD\uFFFD\\x0018\uFFFD\\x001a\uFFFD\uFFFDP\t\uFFFD\n"
+							"evidence": "BL20oLN9pvNkjf5tYnZiIHDqWsOu7ZDJuDk9upE4ySo",
+							"otherinfo": "\\x0004\uFFFD\uFFFD\uFFFD\uFFFD}\uFFFD\uFFFDd\uFFFD\uFFFDmbvb p\uFFFDZ\u00EE\uFFFD\u02789=\uFFFD\uFFFD8\uFFFD*"
 						}
 					],
 					"count": "12",
@@ -1413,6 +1456,33 @@
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10024",
+					"alertRef": "10024",
+					"alert": "Information Disclosure - Sensitive Information in URL",
+					"name": "Information Disclosure - Sensitive Information in URL",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aractidf.org/file/1729/download?token=z39czV8I",
+							"method": "GET",
+							"param": "token",
+							"attack": "",
+							"evidence": "token",
+							"otherinfo": "The URL contains potentially sensitive information. The following string was found via the pattern: token\ntoken"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Do not pass sensitive information in URIs.</p>",
+					"otherinfo": "<p>The URL contains potentially sensitive information. The following string was found via the pattern: token</p><p>token</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "2877"
 				},
 				{
 					"pluginid": "10027",
@@ -1519,17 +1589,9 @@
 							"attack": "",
 							"evidence": "admin",
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script>jQuery.extend(Drupal.settings, {\"basePath\":\"\\/\",\"pathPrefix\":\"\",\"setHasJsCookie\":0,\"ajaxPageState\":{\"theme\":\"custom_boot\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.aractidf.org/update.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\">\n<!--//--><![CDATA[//><!--\njQuery.extend(Drupal.settings, {\"basePath\":\"\\/\",\"pathPrefix\":\"\",\"setHa\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script>jQuery.extend(Drupal.settings, {\"basePath\":\"\\/\",\"pathPrefix\":\"\",\"setHasJsCookie\":0,\"ajaxPageState\":{\"theme\":\"custom_boot\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1549,6 +1611,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.aractidf.org",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href='#'>Recherche avanc\u00E9e</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.aractidf.org/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1634,14 +1704,6 @@
 							"attack": "",
 							"evidence": "<a href='#'>Recherche avanc\u00E9e</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.aractidf.org/update.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://www.aractidf.org/sites/all/modules/contrib/jquery_update/replace/jquery/1.8/jquery.min.js?v=1.8.3\"></script>",
-							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
 					"count": "12",
@@ -1743,6 +1805,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.aractidf.org/vis-mon-travail",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "no-cache, must-revalidate",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.aractidf.org/xmlrpc.php",
 							"method": "GET",
 							"param": "cache-control",
@@ -1751,7 +1821,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1770,7 +1840,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.aractidf.org",
+							"uri": "https://www.aractidf.org/misc/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1800,7 +1870,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "79"
 				},
 				{
 					"pluginid": "90005",
@@ -1813,7 +1883,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.aractidf.org",
+							"uri": "https://www.aractidf.org/misc/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1843,7 +1913,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "79"
 				},
 				{
 					"pluginid": "90005",
@@ -1856,7 +1926,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.aractidf.org",
+							"uri": "https://www.aractidf.org/misc/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1886,7 +1956,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "79"
 				},
 				{
 					"pluginid": "90005",
@@ -1899,7 +1969,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.aractidf.org",
+							"uri": "https://www.aractidf.org/misc/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1929,7 +1999,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "79"
 				},
 				{
 					"pluginid": "10112",
@@ -1946,7 +2016,7 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "wUM4BcChtnuVVxd_mapqCGo-1Vg4weSDQogN4j48qpc",
+							"evidence": "Kpd2WTQ_ZrHM2b3eURWZXr1YuNWTKpPV9QiD1bAICCI",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
@@ -1954,7 +2024,7 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "48KEj8TiPiOPtWALuc1UCZwaBIzTpbuBOsCfD_vU-Vc",
+							"evidence": "NWJXqXKoAyL7oW_ewS8-b6NUrjhKb1wb4cf5zT1r3tM",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
@@ -1962,15 +2032,7 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "cY-lWjOmBnDRalwCm5Zohj1SY0h7nYt11d5GKXlTz4Q",
-							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
-						},
-						{
-							"uri": "https://www.aractidf.org/teletravail/ressources/webinaire-fonction-publique-comment-organiser-le-teletravail-confine",
-							"method": "GET",
-							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
-							"attack": "",
-							"evidence": "pFljbSsb6kNMP-XBhwvmmM5fx2bHLvHCY7epELEzgJk",
+							"evidence": "TfCDWEzMNWglE22ur5HWiADcXR1Ug6xXgJ4wSoi3VFQ",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
@@ -1978,7 +2040,7 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "ieMHOe_z0KmblTmhiQ-I536QryZzzPEYnhrJwVAJ6wo",
+							"evidence": "BL20oLN9pvNkjf5tYnZiIHDqWsOu7ZDJuDk9upE4ySo",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
@@ -1986,15 +2048,23 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "5zpxGkFqP67vk-JAJ3AoMD8ut_YPpSALrO6n7AuazB4",
+							"evidence": "kXaLassB9oeuFN55HyTAbYYlqIW6sTG_pDcqmATDlmk",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
-							"uri": "https://www.aractidf.org/teletravail/ressources/vous-souhaitez-dans-votre-demarche-de-mise-en-oeuvre-du-teletravail",
+							"uri": "https://www.aractidf.org/teletravail/ressources/un-kit-pour-associer-teletravail-et-qvt",
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "cY-lWjOmBnDRalwCm5Zohj1SY0h7nYt11d5GKXlTz4Q",
+							"evidence": "N5-O_y9CY9DKwrGPm0NR5O2OzA8ouMoQTWEV9jjWqYY",
+							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
+						},
+						{
+							"uri": "https://www.aractidf.org/teletravail/ressources/webinaire-fonction-publique-comment-organiser-le-teletravail-confine",
+							"method": "GET",
+							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
+							"attack": "",
+							"evidence": "0i3OFO5xJUXok-mVzhxXvhyAQvdHN_hOY25jvbupv1M",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						},
 						{
@@ -2002,7 +2072,7 @@
 							"method": "GET",
 							"param": "SSESS2622544f35215f8c6bf8834e3676a46c",
 							"attack": "",
-							"evidence": "ieMHOe_z0KmblTmhiQ-I536QryZzzPEYnhrJwVAJ6wo",
+							"evidence": "BL20oLN9pvNkjf5tYnZiIHDqWsOu7ZDJuDk9upE4ySo",
 							"otherinfo": "\ncookie:SSESS2622544f35215f8c6bf8834e3676a46c"
 						}
 					],
@@ -2012,7 +2082,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "889"
+					"sourceid": "895"
 				},
 				{
 					"pluginid": "10049",
@@ -2124,7 +2194,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/modules/*.gif",
+							"uri": "https://www.aractidf.org/modules/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2132,11 +2202,11 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aractidf.org/modules/*.js",
+							"uri": "https://www.aractidf.org/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "must-revalidate",
 							"otherinfo": ""
 						}
 					],
@@ -2212,7 +2282,7 @@
 							"param": "captcha_sid",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncaptcha_sid=38894682\r\n\r\nThe user-controlled value was:\r\n38894682"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncaptcha_sid=39010990\r\n\r\nThe user-controlled value was:\r\n39010990"
 						},
 						{
 							"uri": "https://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24",
@@ -2228,7 +2298,7 @@
 							"param": "form_build_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_build_id=form-q8ngRvaPPu5IiLQQi4JZuIp5-9mvLpBUbnJD7PCmigU\r\n\r\nThe user-controlled value was:\r\nform-q8ngrvappu5iilqqi4jzuip5-9mvlpbubnjd7pcmigu"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_build_id=form-0fvVl-F89JAnlQuzgdROG-RTbo6K32Z03h19Q_F72a4\r\n\r\nThe user-controlled value was:\r\nform-0fvvl-f89janlquzgdrog-rtbo6k32z03h19q_f72a4"
 						},
 						{
 							"uri": "https://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24",
@@ -2244,7 +2314,7 @@
 							"param": "honeypot_time",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nhoneypot_time=1704597908|BVVzifPySFMLSYU-zhhBnnITtL39OxO-I9LEddwkoEA\r\n\r\nThe user-controlled value was:\r\n1704597908|bvvzifpysfmlsyu-zhhbnnittl39oxo-i9leddwkoea"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nhoneypot_time=1705202849|vk0aFthXEj6iDGWjTlrOD_qQFbjsPyxJJMFRIkNcFlU\r\n\r\nThe user-controlled value was:\r\n1705202849|vk0afthxej6idgwjtlrod_qqfbjspyxjjmfrikncflu"
 						},
 						{
 							"uri": "https://www.aractidf.org/content/newsletter?destination=misc/%2A.css%24",
@@ -2325,7 +2395,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "653"
+					"sourceid": "668"
 				}
 			]
 		}
