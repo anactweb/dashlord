@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 03:15:37",
+	"@generated": "Sun, 14 Jan 2024 03:24:18",
 	"site":[ 
 		{
 			"@name": "https://www.nouvelle-aquitaine.aract.fr",
@@ -68,6 +68,22 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
 						},
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"search-form mx-4 mx-xl-5\" action=\"/recherche\" method=\"GET\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche[motcles]\" ]."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"description\" id=\"theform\" name=\"theform\" action=\"https://compte.begital-mailing.fr/users/subscribeembed/js_id/6ty6/id/1\" onsubmit=\"return false;\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -84,7 +100,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/qualite-de-vie-au-travail",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/innovation-sociale",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -92,7 +108,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche[motcles]\" ]."
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/qualite-de-vie-au-travail",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/innovation-sociale",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -100,7 +116,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche[motcles]\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -143,7 +159,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -304,7 +320,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "2321"
+					"sourceid": "2336"
 				},
 				{
 					"pluginid": "10099",
@@ -347,7 +363,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "2323"
+					"sourceid": "2324"
 				},
 				{
 					"pluginid": "90003",
@@ -384,7 +400,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -454,7 +470,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10003",
@@ -604,7 +620,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2317"
+					"sourceid": "2312"
 				},
 				{
 					"pluginid": "10054",
@@ -625,7 +641,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/admin",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/ajax",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet",
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
@@ -641,7 +673,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "5",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
@@ -818,7 +850,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -888,7 +920,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10096",
@@ -925,7 +957,7 @@
 							"otherinfo": "1613977173, which evaluates to: 2021-02-22 06:59:33"
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1022,7 +1054,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1592"
+					"sourceid": "512"
 				},
 				{
 					"pluginid": "10094",
@@ -1059,7 +1091,7 @@
 							"otherinfo": "\uFFFDhU\uFFFD\uFFFD\\x0003\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDB\uFFFD\\x0006\uFFFD\uFFFD\\x0016\uFFFDA\\x0019\uFFFD\\x0015\uFFFDf\uFFFDZ\uFFFDY\uFFFD\uFFFDhx"
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1129,7 +1161,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10027",
@@ -1166,7 +1198,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script>\n            tarteaucitron.init({\n                \"privacyUrl\": \"/protection-des-donnees\", /* Privacy policy url */\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1303,7 +1335,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "348"
+					"sourceid": "422"
 				},
 				{
 					"pluginid": "10049",
@@ -1356,6 +1388,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1381,14 +1421,6 @@
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/qualite-de-vie-au-travail",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/sante-et-travail",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1431,6 +1463,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet/login",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=0, must-revalidate, private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/robots.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -1440,14 +1480,6 @@
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/services",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=0, must-revalidate, private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services/dossier-special-coronavirus",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1552,7 +1584,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "60"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1595,7 +1627,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "60"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1638,7 +1670,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "60"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -1681,7 +1713,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "60"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10112",
@@ -1698,7 +1730,7 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "4ra1igg9t0pm7h42304desgnbm",
+							"evidence": "bbn5vcbs38pn5fcde37g9anm10",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1706,7 +1738,15 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "g6ejc1c9hmkpgt0e7df5ge6ipf",
+							"evidence": "l4divddf76vb571dv6goo4qfca",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/admin",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "ic07das13jg7tdpikcln0sjaal",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1714,7 +1754,15 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "nih58ejfjj3f4icm9nj0ggcq04",
+							"evidence": "qadu7hebb4df35b0rtllq09rb6",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "p1a42nmcg7cpkni75qurkf20ih",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1722,23 +1770,7 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "63k1fi91atf19380d27tc59la0",
-							"otherinfo": "\ncookie:PHPSESSID"
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/ajax",
-							"method": "GET",
-							"param": "PHPSESSID",
-							"attack": "",
-							"evidence": "nih58ejfjj3f4icm9nj0ggcq04",
-							"otherinfo": "\ncookie:PHPSESSID"
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
-							"method": "GET",
-							"param": "PHPSESSID",
-							"attack": "",
-							"evidence": "63k1fi91atf19380d27tc59la0",
+							"evidence": "788tst2abuo2a68npa2uq7so7e",
 							"otherinfo": "\ncookie:PHPSESSID"
 						}
 					],
@@ -1748,7 +1780,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10049",
@@ -1793,7 +1825,7 @@
 							"param": "contact[_token]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.nouvelle-aquitaine.aract.fr/contactez-nous\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncontact[_token]=gDzZ01NQcdJvUpnFCl8eTBIDhJIdUvB3-9-Id5LB1PU\r\n\r\nThe user-controlled value was:\r\ngdzz01nqcdjvupnfcl8etbidhjiduvb3-9-id5lb1pu"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.nouvelle-aquitaine.aract.fr/contactez-nous\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncontact[_token]=M3igOT4gRxGwqTJ2rNpF3gBv6Cj9lpy0hPIHKzVv6OE\r\n\r\nThe user-controlled value was:\r\nm3igot4grxgwqtj2rnpf3gbv6cj9lpy0hpihkzvv6oe"
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/contactez-nous",
@@ -1910,11 +1942,11 @@
 					],
 					"count": "15",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.nouvelle-aquitaine.aract.fr/contactez-nous</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>contact[_token]=gDzZ01NQcdJvUpnFCl8eTBIDhJIdUvB3-9-Id5LB1PU</p><p></p><p>The user-controlled value was:</p><p>gdzz01nqcdjvupnfcl8etbidhjiduvb3-9-id5lb1pu</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.nouvelle-aquitaine.aract.fr/contactez-nous</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>contact[_token]=M3igOT4gRxGwqTJ2rNpF3gBv6Cj9lpy0hPIHKzVv6OE</p><p></p><p>The user-controlled value was:</p><p>m3igot4grxgwqtj2rnpf3gbv6cj9lpy0hpihkzvv6oe</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1485"
+					"sourceid": "1592"
 				}
 			]
 		}
