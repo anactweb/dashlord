@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 02:43:38",
+	"@generated": "Sun, 14 Jan 2024 02:50:26",
 	"site":[ 
 		{
 			"@name": "https://www.santetravail-fp.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "2251"
+					"sourceid": "2241"
 				},
 				{
 					"pluginid": "10202",
@@ -226,6 +226,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.santetravail-fp.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -234,7 +242,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.gif",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -242,40 +250,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - PHP",
-					"name": "Source Code Disclosure - PHP",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - PHP</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/2022%20-%20flyer%20Anact-BD.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<?=$\u00C9\u00C7\u0091\\x001e\u00A5\u00E8N\u00FE\\x00063\\x0016 1\u00D7\u00CA\\x000f\u00C1\u008B\u00B5-yc#\u00B6\u00E4\u0082\u0086\u0095\u0097\\x00133E\u00CE;P^\u00C0\u00C3\u0086\\x0011\u00E7\u00A06\u00E9K4\\x0003\u0087=\u0090\\x001f\u00D9T\\x0013\u0087\u00F2\u00E3\u00C7\u00FD\\x0003\u00929\\x001af\u009CE\u00C3\u00FD\u0092\\x0004\\x0011<\u0093\u00FC\u0088f \u00F2;D3i;\u008C9\\x0013\u00ED\u00C9\\x000f!\u00DCO\u00E1\u0082\u0087l\n\u00C6\u009CA\u008A8y|\u00920\u00D0Xxy\u0086\u00A3A\u00F1\\x001b\u0092\u0084\u00C1\u00C6j\u00C0\u00FA4t(\u0093\u0087'\t\u0083\u008Bm\u00DD\u009DRt\u00BC\u00C3\u0094\\x0019h\u00EC\u00BDLY(\u00A7w\u00A1\u00FEf\u00D1N\u0093\u00B2D\u00E3s`\u00BA\u00E7\u009B\u0085\\x0013\u0097#Gb\u00D0\u00A1\u00FC\u00F9P\u00CFF\u00D2\u0095\\x001f\u00C1l\u00B5k\u00C77\u00AF\\x0005\\x0010\\x0019\u0095\t\u00A2\\x001b\\x001d\u008A\u00CF\\x0010}\u00F1\u0094\\x0001\u00C8\\x0008;\\x0008.t(;d\u00C9\u00BF\u00DDc \u00B2&\\x000c9\u0092\u00AC\u00F2\u0090!\u00FFr\u00C2\\x0003<\u00B6Yz\u0083\u0096\u00CB=>\u00F2\\x0006h\\x001c\u008A2\\x0012\u008E\\x0012%\u00BB\\x0019rL\u00EE\u00B7\u00C3-\u00EAt\u00B8p\\x0018\u0095\u00F8\t<X\u00EC\u00CEd\u0093\u00A6\u00AA\u00A1V\u00A9\u00B5^\u0081\u00F2\u00D0\u00CC\u00C3+6\\x0004\u00D5\u0089\\x000fi\u00FE\u00F1\u00FE\\x0002\u0086\u00D9\u00E2\u00A3\u0098\u00C3\u00CE\u00A0\u00E2\u00EB\u00A7\\x000c\\x001e\u0096\\\u009A\u00F1\u009B\u00CC\u00C7\u0093\u00FC\\x0000\u0086u\\x0000\u00F2>\u00A45\u008FO\u008D\\x0001\\x000e\u00BB\u00C2\u0084\u00BD\u00C9\u00B6\u00E5\u00DE7^\u0080p\\x0004,\u00D8\u008B\\x0000\\x0011\u00A7\u0084\u00C6_\u00EE\u00F0\u00CE\u00E11U\u00C2\u00DD<)\u00A5\\x001e\u009D\\x001b=\u00D4\u00CD\u00C8\r\\x000f\u00F4%>D\u00EF\u00BFu\u00B5n\u009A1\u00F8\u00B0;\u00DA\u0092\u00BD\";\u00A0\\x0019\u0085\\x0014\\x0004\u00EFF\\x0013\u00B0\u00B7W\u00ACq\\x0003\u0084e\u00FC\u00A3\u009As^\u0091\\x001f\r\\x00166]\u009A\\x0015\u00A5I\\x001f\u009F\\x001f\r\\x0016\\x0006\u00B3A\u00AF\u0090N|\u009F\\x001fWz\u0085SD/3\u00C6{|\\x00081:Z\u00A3,\u00A8\u00B5AO\u00E2]\\x0017\u00BEw{\u0095\u00AA\rnl\u008D\u00AEd\u00CF\\x001f\u00B1P\u00CFJ:+*\u00CF\\x001701\\x00143\\x000f\u00D2\u00C3\u0092:\u00E6\u008C\u00F4\u00B8v\u00C2x\u00A4\u008A\u00E4\u00B0@e\u0082\u00B1\u00BD`\u008B\\x000b(l\u00F8\u00FD\u00D2\u00CC\\x001d\u00AF\u00C8\u008D\\x0002\\x000e{\u00C3\u0087\u00CDI\u00A6\\x001f\\x000f\u00C6U\u00E4)\u00E0x3\\x0014&\u0091'\u00E7F%E\u00F9rbEY:\u00B4\u00C2\u00FF\u00CD$6\u00B4n\\x0018D\\x0005e/\\x0010\n\u00CB3\\x001c\u00F8\u00FA\u00DDu\u00AA\u0099\u0095\\x001a\u00F8\u0082\u00CF!\u0086\u00FF\u00E9\u00EE\\x0002\u0082\\x0005o\u00BA\\x000ez\u0092\u009E\u0092\\x001a\u00D7\u00D30T\u00B3\\x0006\u009CX\u009B\u00BA\u00E2\\x0010\u00C3\u00FFt\u00CA\\x0000`\u00EB\u0080\u00DE\u00A2\u00E9~\u0087\\x000b\\x0003\u0082C\u00EC\u00A3YX\u00CEp\u00E1\u00EB53Y\u00FA\u00D2\u009C\u00A8K\u00BE\u00EB\u00C4\u00B7j\u00CE!\u00AFBzh\u0090\u00E9\u00AEa\u00DC\\x0012\\x001e\u00D9\\x0014\u00B06u\\x0002\u00C8\\x001f\u0082\u00F8\u00DFeG\u0082\u0082Y\u0097ZCS\u00DA\u009E\u00EB\u00BD\u00AB\\x0000\\x000e\u0096\\x0000\u00C2\u00ABRf\u009C\\x0001\u00C4\u00D7k\\x0006\\x000bk/+\\x0016\u00AA\u00EA3\u00AC\u00F8\\x000e\u00CD\u00EC\u00B24\u00E3k#g\u0080\u00FC\u00A5\u00F1!\u00A06+\u00AF?\u00A0 ,\\x0006\\x001f\u00F2\u00E2\u0093SzGu\u0090w%T\\x0007V\u00C3\\x000e\u00B9\u00F17\u008D\u00F4k\u00BDN\u00C9\\x001c\u00D0\u00EB\u00D4}\n\n]*\u00D7\u00A8\u00C4\\x001cr\u00C1p\u00D3\u00DB~|\u009B^\u00A5\u00D6\u00D4\u008F^\u00B4\u00A4C8\u00FF\u00ED\\x0012\u00ADYhl\\x0004\u009A\u0095T\u00FD\u00F2\u009D8\u00E1\u00E8\u00848\u00D6\u0090\u0085\u00CC\u00EA\u0090\\x001d\u00FF|\u00C8x\u0086\u00AE\\x0004\u00CD\u00EBE\u00DE.\u00A5w-2\u0088M\u00AB\u00E0\u00C6\u00E8L\u0091\u00F6\\x00127\\x0006\u00BC\u00D90\u00DC\\x0018\u009D)+Oq\u00E3\\x001bT\\x0017\\x0005\\x001b<\\x0019-\u00A4\u0090\u00D5o\u00D8\u00E7S_n\u00B9\u0091#I\\x0010\u00BCJ\u009F\u00C0\\x0011\u00EF\u00C7\u00FD/\u00B6\u00CE\u00DA\u00DF\u00C5BP\u0091\u00A5\u00AC\u00FE\\x0018\u00A0[$\u00E5\u0093\u00884\u00F3`\u008D+\\x000e43\\x0017V\u00F4x0\u00B3\\x000e\u00B5\u00AD\u00BF\u00F2\u008A\u00C6-`~4/\u00F5\u00CC\u008A\u00CC\u00BC\t\u00E5M\u00FC@\u00E5|;2\\x0015\u009D\u00D7\\x0014\\x0007,\u00E4\\x0016*?z\u00C2\\x000e\u00A9&\u0091\u00B9<9\u00EB\u00DBW\u00DC:\u0083\u008E\\x000c3\\x001b\u00A2\u00EA|\u008B(x\u00E9.\\x001e+\u00B2\u00F7G\\x0016\u00F9{\\x001c\u00F3y\u00A9+4?\u00B1v|\u00A5O\\x001aZ\u0097\\x0017O\u0097\u00BF\u00F4+\u00E68\u00A9g7\u00D2X\\x0007\u00AB}<\u008D\u0093b\u008E\u00ABq2\u00AF\u00B8\u009C\u009F\u00B709W\u00DE\u0086\u0086\u00FF\u00C8\\x001e\u009A7\u00B1\u00CD\rD\\x000b\u0096u\u00BC:\\x0018W\u00C6\u00A9\\x000eMx\u00ED-\\x0018~\u00FC\u00CA\\x0005t\u008B\u00EA\u00D0@\\x000c\u00EF\u00DE\u00E9gL+\u00CB\u0092\u00C2\u00EA\u00C8\u00CD\\x001fQ\u00F8\u00CF\u00D5\u0091\u00D4\u00B2\u00D9\u0085bC\u00CB\u009C\u00AF\\x000ej\u00D9\u00F9B\u00AAbLni\u00F1\u008F\\x000f2\u00DF\u008C\u00B9\u00DC!X\u00F7\u00E3Y\\x001c\\x000bn\u00A2\u00F6\u00CA+Q\u00C7\u00B38\\x0006\u00D3A\\x0018\u00CB\u0082\u00DD\u00A2\u008E\u00CF\u00DB\u00D8)\u00C2X\\x0006\u00D6v\u00BC<\u0098Wv\tbi\u00F8\u00E4- ~\u00FA\u00CE\\x0005\u00BD\u00CC-\u0094\u0099\\x000b\u00B1\u00F3\u00A3\\x001e\u00FF\u00A7gL/\u00DB\u00B5\u008BJ\u00A2\u00F4;\u00DC\\x0011\u00F42\u00E7\u0081\u0099\\x0003m\u00C7\u00AFvA-\u00D3\u00CD\u008C\u00EB\\x0018\u0096\u00A0\\x000f\u009C\u00F1\u00DB\u0091\rUA\\x0012\u008Bac\u00CF'\u00B1\u00A2\u00FB\u00AA\u00C5\u00CC+e\u00B7\u0090\u00F8\\x0003s\u00CC\u00AF\\4V>\u0092\u00E7\u00D3\u0098R\\x0016\u00BB\u00F2\nl\u00E6\u00F8k\u00E7\u0094\u00B2\u00E6\u00FC\u008B]\u0084\u00E8\u00F15\u00DE)e\u009Bb\u00DE\\x0001W\u008F[\u00CC\u00F1\u00FC\\x000c;\u00D5\\x001cz\u00A5\u00EE\u00EB\\x0013\u00B7\u00F4\u00F8\u00A7\u00E9\u00E6u=\\x001f\u00CC\\h\u00DF[\u00BA\u00FC\u00A3\u0093\u0091\u00C8\u00E2\\x000fc\\x0013\u0093v|\u008F\u00F7@\u008D\\x0018\u00F3\\x0006\u00B6\u00F2\\x0016{<>\\x0013\u008E^E\u0096\u009E/\\x0011\u0088\u00D3\u00CE\u0092\u00CB\u00D4\\x000e]=^!\u00CC+:W^\u0083K\u009C\u00AF\\x0010\u009A\u00D9\u00B5\u0099W\\x0011\u00DA\u00C7\u0097y\u00A7\u0099#.\\x0018\\x000b\u00D2\u00E5#0~\u008Am\u00E1\u00D9\u00F9/fQ\u00F1\\x0015[\u009E\r\u00A2\u0085\\x0006\u0099\\x0001\u00AB\u00DB\u00F1\\x0006\u00B1F\u008E\\x0013o\u00D3\u0098\u009A[\\x000c\u00F2\u00F8\\x0019\\x0017j\u008B\\x0016\u0099\u00C2\u008E~\u0085E\u008C\u0082\u0096}E\u0096\u008D[x\u00FC\u0081\u00FBGK\u009B^\u00A9\\x0013&}\u00BCE\u0098W<\u00AE\u00BC\\x000179\u00DE\"F9G\u0093\u00CA\u00E3\\x0008\u00F7\u00E3-b\\x0006+\u00B9\u00F2\\x001a2\u00EA\\x0016\u008B<\u009AW\u00E1\u00ED\u0097?\\x0014\u00F5\\x0005,\u00E6\u00F3S\\x0017\u008B\\x0005\u00DDz|^]\u00E4.9\u00DC\u008B\u00998~\u00FBP*\u00993\u00C1\u00BC\u0083\u00DD\u00FEH\u0095;3\u00B5l\u00F9\u008A\u00AC*_\u00E2\r\u00A5\u0097\u00BD\u00C9\u00E1n\u0098\u00F9\u00F1\\x001cf^I\\x0019\u00E6-\u00B8\u00D7-E\u00F3\u00D1\u00BC\t-'\u0087;\\x0011\\\u0099\u008E\u00CF\\x001b\u00B0\u00AE+o \u00CB\u008E\u00F7\u0086:|\u00F6\u00BAu\u008E:\u00BF\u00F6(m,Fo\u00B4\u00A1\u00A7?\u00D2\u00E1o\u0080\\x0004\u009D\u00ACy\u00D9C\u00B1\"\\x001fi\u00F17\u00A4\u00A6\u009Am\u00F4\u0095Z\u00D4oq\u00C8\u0093\u00B3!Ts\\\u008BG\u00F3!\u00AB[P\u00FC\u00FC)\\x000b\\x0005\u009DN \u00D7\u00C2|o\\x0001\u00F2GRKU3\u00F5\u00C0\u00D3n\u00C1\u00F2\u00D3\u00FDB\u009A?[\u00A2\u00B9\\x001aQy<\u009A\u00A5`{\\x0015\u00A2*\u00E4=\u00A8{4.\\x0005-|\u0081G\u008BZ9\u00BE\u00D2\\x000b\\x0005\u00ADC(W\u00F0\u0097\u00FA\u0097@Y\u00A8iWB\u00B9\\x001c\u00AB\u00F5\u0091bCj\u00DA:\u00E2\\x0015Zl?R\u00ED\u00DF\u008E\u00AC\u0098\u00AC\u008B\u00CB\\x0006\r\u00FB\\x0011\u0097\u00FF\u00FE\u009C\\x0005[{aYa\u0099\\x001f\u00C1\u00F2-\u00A9e\u00ECJ-\u00F0\u009A\u00D3;\u00FE.t\u0093\\x001e\u00C9E\u008C\u00DE\u00E2\u0091\u0087\u00A7yii\\x0019^\u00C0\\x001c\u00E4\u00FA\u00E9l^\n\u00DA\u0094-?\\x001b-u\u00BA\u00FA\u0096~\u00F6\u00A0I\u00B20\u00BA\u00C7\u00C7\u00A5\u009F\u00D9\u00E9\\x00197\u00B1n\u00A7\u00F7\u00FA\rt\u00EE\u00BE\u00E2\n\u00FF\u00F3\\x0015L[\u00C7\u00B4]\u00A1\\x0003\u009As\u00CB.\u00F2\u00E4\\x0019\\x001bv\u0092\\x0004N\u0087\u00B5~\u00877\\x0018Zv.\\x000e\\x001b|\u00E2xmP\u00C9\u00AA\u00AC\u00F3\u00A9\u0088\u00FDH\u00DD|71ulqa\u0098_\u0090=\u00DD\\x001aC\\x001d;\\x0016\u00B1h\u00B3[0\u00FC\u00F0\t\\x000fu\u009CBs\u00C4`<o\\x0019\u008A'O\u00B8Qu\\x001dpccn!\u00F1\u0093i\\x000bMs\u00BC\u00E2J\u00E9-\\x000c~\\x001cj\u0093\\x0018\u00FEa\u00E8\u00E23\u00F1\u00A3\u00B5\u00E3\u00AF\u0087\u0098^\\x0016%\u0087#a\u00D3?\u00EA\u00C3~\u00CC\u00D4\u00B2\u00C6\u00959\\x0010L\u00FA(S\u00CB\u00D6\u00EC\u00EF\u00E1H\u00B5\\x001f\u0091\u00F8\u008F\u0087\u0082N\\x000e\u00B9Xa\u00FCB\\x001e\u00EF\\x000e:9\u00FD\\x0002\u00B1\u00A2}>b\u00E7\u00F7\u0087X\u0090U,\u00F2\u00C1\u00AF\u00A5\u009E^\u00E4{QM\\x001c\u00FBb+N\u00B7G\\x000fz\u00F5\u00BFq\u00A5\u00FB\u00F4\\x0006\u00DFT\u00B2\\x0004\\x001b\u00BC\\x000ft\u00E5#\r\u00FE\u00FD\u00C8\u00A2M\\x0006{\u00C3\u00C5oa\u00F0\u00E3w\u00AE\u00A9e\\x0017\u00B6x/\u00C4\u00F9W\u008EF\\x000e\u00A77<\u00916\u00A7S\u00B8\\x0003\u009EW\u00C1\u00F4@\u0085\u00DE\u00D2\u00E0\u009F\u008C\u00EB\u0088Z\u00F2\u00D7\\x001d\u009Dq\u00CB0<?\u00C0\u0086\\x001c\u008A\u00CE\rS\u00FD\u0091\u00CC\u00EF&V\u00D4\u00C6Eb\u00C5\u008E\\x001cO\u00E2\u00EBW\u00F5\u00BC\u00E2\u00CA\u00FA-\r\u00FE\u00C1\u00B8E\\x001b\u009B\\\u00E2\\x0010\u0098\u00D47\u0088\u0083\u0091\u00C5\u009D\\x000c\u00B6\u0085\u00EB-P{\u00FC\u00DA\\x0015\u00B5\\x001cE\\x0012\u00DB >\\x0014\u00FA\u00DD\u00C8\r\\x0016w\u00D2\u00D8\\x001a\\x0019q\u00BA<\u00AA\u00E0m$\u009B\\x0015*\u00FB\u0096\n\u00FFd\u00DCD\u00CC5\u00C3\u0089n\u00F9\\x000ewT \u0097d\u00B3\u00C0\u008C\u00DF\u00D2\u00E0\u009F\u009Ea\u009AY\u00E5\u008A\u00EC\u00D8\u00AD[`\u00FCtd\u008A\u00D9\u00BC_\u0091\u0095\\x00029|\u008E\u0095\u00A5M\u00B3\u00F6_r\u00F3\u0098\u00FEQg\u00FB\u00EB9\u00E6\u00BF\u00C3\u008A\u0093\u009C\\=v\u00E5Gh\u00FB\\x001f\u00A1?t\u00C0\\x0006\\x001f\u00BEz\u0085U\u00F1\u00DF\u009E\u00F0\u0087\u00C2*b\u00B3\\x0018\u00B6`Z?\u00A2\u00F0\u00DF\u0085\u00E5\u009BB\\x0008'\u00D7#\u00B7\u00FD\\x0011\u00D0\u00FEo\u00D8\u0087\u00D1\u00A0l>m\u00EA\\x000c\\x001c\\x0008b\u00F8\u0086\u00CB\u00F6\u00FF\u00CE\u00F7\u00FD\u008B\u00C6\u00DA3\\x001e\u00C6\u00C0\u008E\u00CC\u00FC\\x0011\u00CC\u00FE\u00F6\u0084\t\u0084he`C\u00D5\u00FC\u00A8\\x000e\u00FF\u00D9\u00FC2\u00AC\u00E4^\u00E8U\u00F4\u00E8W\u00A0\u00975\u008DD\u00BB2\u00F3s\u00EB\u00BFE\u00EF\u0087C'lr^\u00A1E\u00EA}\\x0004?>",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "2763"
 				},
 				{
 					"pluginid": "10099",
@@ -320,14 +301,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/fiche_agir_management_4_Prendre_FP.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#OVwza",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/fiche_agir_management_5_Repenser_FP.pdf",
 							"method": "GET",
 							"param": "",
@@ -336,13 +309,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "2277"
+					"sourceid": "2177"
 				},
 				{
 					"pluginid": "90003",
@@ -387,22 +360,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://tag.aticdn.net/601971/smarttag.js\"></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
@@ -428,6 +385,22 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://tag.aticdn.net/601971/smarttag.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -441,7 +414,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10003",
@@ -510,14 +483,6 @@
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_xbKX_1ipMkOGjIFF-snYYRJsaSvwP5SaRb_pUj66gdM.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/*! jQuery UI - v1.12.1",
-							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Ya4ysPnEJdWqY615STC0hzIVCE3gdl83RknpPrNtfz4.js",
 							"method": "GET",
 							"param": "",
@@ -534,13 +499,13 @@
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						}
 					],
-					"count": "10",
+					"count": "9",
 					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
 					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
 					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2158"
+					"sourceid": "2152"
 				},
 				{
 					"pluginid": "90022",
@@ -591,7 +556,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "2123"
+					"sourceid": "2142"
 				},
 				{
 					"pluginid": "10044",
@@ -706,58 +671,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1192"
-				},
-				{
-					"pluginid": "10054",
-					"alertRef": "10054",
-					"alert": "Cookie without SameSite Attribute",
-					"name": "Cookie without SameSite Attribute",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/comprendre/,o,",
-							"method": "GET",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS5e6f132176cc68d73083c13d50c97280",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/connexe/,o,",
-							"method": "GET",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS5e6f132176cc68d73083c13d50c97280",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/page-generique/,o,",
-							"method": "GET",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS5e6f132176cc68d73083c13d50c97280",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/contact",
-							"method": "POST",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS5e6f132176cc68d73083c13d50c97280",
-							"otherinfo": ""
-						}
-					],
-					"count": "4",
-					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
-					"cweid": "1275",
-					"wascid": "13",
-					"sourceid": "2823"
+					"sourceid": "1287"
 				},
 				{
 					"pluginid": "10017",
@@ -907,7 +821,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2158"
+					"sourceid": "2152"
 				},
 				{
 					"pluginid": "10063",
@@ -929,14 +843,6 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -977,6 +883,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/core/*.png",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1014,7 +928,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10036",
@@ -1036,14 +950,6 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "nginx/1.10.3",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1092,6 +998,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "nginx/1.10.3",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1150,14 +1064,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/core/*.gif",
 							"method": "GET",
 							"param": "",
@@ -1199,6 +1105,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1273,14 +1187,6 @@
 							"otherinfo": "2004083737, which evaluates to: 2033-07-04 09:55:37"
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/2022%20-%20flyer%20Anact-BD.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1547844428",
-							"otherinfo": "1547844428, which evaluates to: 2019-01-18 20:47:08"
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/2022%20-%20plaquette%20Anact-BD.pdf",
 							"method": "GET",
 							"param": "",
@@ -1289,13 +1195,13 @@
 							"otherinfo": "1547844428, which evaluates to: 2019-01-18 20:47:08"
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1416714436, which evaluates to: 2014-11-23 03:47:16</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "766"
+					"sourceid": "771"
 				},
 				{
 					"pluginid": "10021",
@@ -1348,14 +1254,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_wnE4fHFBvgseWgNrU-N2VSqpJt-fT07krzmTRVXC2P0.css",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_ZzI8X7_6SQgvHHEQJN6zkj1_0T3sKlC6Rr5PEC0e3kk.css",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -1365,6 +1263,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/favicon%281%29.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_fMXvUpHuIVyK-gpONeIq3DZSj7HkHEd6O75ppn8Mx70.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1410,7 +1316,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1298"
+					"sourceid": "1457"
 				},
 				{
 					"pluginid": "10094",
@@ -1517,7 +1423,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -1624,7 +1530,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10109",
@@ -1731,7 +1637,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10049",
@@ -1753,14 +1659,6 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1816,6 +1714,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.santetravail-fp.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1830,7 +1736,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1937,7 +1843,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1950,7 +1856,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1958,7 +1864,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
+							"uri": "https://www.santetravail-fp.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1980,7 +1886,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "248"
+					"sourceid": "486"
 				},
 				{
 					"pluginid": "90005",
@@ -1993,7 +1899,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -2001,7 +1907,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
+							"uri": "https://www.santetravail-fp.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -2023,7 +1929,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "248"
+					"sourceid": "486"
 				},
 				{
 					"pluginid": "90005",
@@ -2036,7 +1942,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -2044,7 +1950,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
+							"uri": "https://www.santetravail-fp.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -2066,7 +1972,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "248"
+					"sourceid": "486"
 				},
 				{
 					"pluginid": "90005",
@@ -2079,7 +1985,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css",
+							"uri": "https://www.santetravail-fp.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2087,7 +1993,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
+							"uri": "https://www.santetravail-fp.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2109,42 +2015,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "248"
-				},
-				{
-					"pluginid": "10112",
-					"alertRef": "10112",
-					"alert": "Session Management Response Identified",
-					"name": "Session Management Response Identified",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/contact",
-							"method": "POST",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "GqjLw4c-76WMSDgYSal-RgvEoHeLongeOJyTdCi4uYI",
-							"otherinfo": "\ncookie:SSESS5e6f132176cc68d73083c13d50c97280"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/connexe/,o,",
-							"method": "GET",
-							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
-							"attack": "",
-							"evidence": "GqjLw4c-76WMSDgYSal-RgvEoHeLongeOJyTdCi4uYI",
-							"otherinfo": "\ncookie:SSESS5e6f132176cc68d73083c13d50c97280"
-						}
-					],
-					"count": "2",
-					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
-					"otherinfo": "<p></p><p>cookie:SSESS5e6f132176cc68d73083c13d50c97280</p>",
-					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
-					"cweid": "-1",
-					"wascid": "-1",
-					"sourceid": "2780"
+					"sourceid": "486"
 				},
 				{
 					"pluginid": "10049",
@@ -2208,54 +2079,6 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B1%5D=1&field_audience_target_id%5B40%5D=40&field_audience_target_id%5B55%5D=55&site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n22"
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[42]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[42]=42\r\n\r\nThe user-controlled value was:\r\n42"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[43]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[43]=43\r\n\r\nThe user-controlled value was:\r\n432"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "field_audience_target_id[43]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_audience_target_id[43]=43\r\n\r\nThe user-controlled value was:\r\n43"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n217"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n219"
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21",
-							"method": "GET",
-							"param": "site[21]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B21%5D=21\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[21]=21\r\n\r\nThe user-controlled value was:\r\n21"
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B2%5D=2&field_audience_target_id%5B42%5D=42&field_audience_target_id%5B43%5D=43&site%5B22%5D=22",
 							"method": "GET",
 							"param": "field_audience_target_id[42]",
@@ -2317,16 +2140,24 @@
 							"param": "site[22]",
 							"attack": "",
 							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [article] tag [data-history-node-id] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n224"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22",
+							"method": "GET",
+							"param": "site[22]",
+							"attack": "",
+							"evidence": "",
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.santetravail-fp.fr/temoignages/convaincre?site%5B22%5D=22\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsite[22]=22\r\n\r\nThe user-controlled value was:\r\n22"
 						}
 					],
-					"count": "17",
+					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.santetravail-fp.fr/temoignages/convaincre?field_audience_target_id%5B1%5D=1&field_audience_target_id%5B40%5D=40&field_audience_target_id%5B55%5D=55&site%5B22%5D=22</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_audience_target_id[40]=40</p><p></p><p>The user-controlled value was:</p><p>40</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "829"
+					"sourceid": "951"
 				}
 			]
 		}
