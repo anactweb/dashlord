@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 21 Jan 2024 01:39:30",
+	"@generated": "Sun, 28 Jan 2024 01:31:48",
 	"site":[ 
 		{
 			"@name": "https://reflexqvt.anact.fr",
@@ -44,7 +44,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"categories_18\" \"categories_19\" \"categories_20\" \"categories_21\" \"categories_22\" \"categories_23\" \"categories_24\" \"categories_25\" \"categories_26\" \"categories_27\" \"categories_28\" \"categories_29\" \"categories_30\" \"categories_32\" \"keywords\" \"location\" \"location_addressType\" \"location_area\" \"location_city\" \"location_country\" \"location_department\" \"location_lat\" \"location_lng\" \"location_route\" \"location_streetNumber\" \"location_viewport\" \"location_zip\" \"page\" ]."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/dashboard/message/",
+							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -76,6 +76,14 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"categories_18\" \"categories_19\" \"categories_20\" \"categories_21\" \"categories_22\" \"categories_23\" \"categories_24\" \"categories_25\" \"categories_26\" \"categories_27\" \"categories_28\" \"categories_29\" \"categories_30\" \"categories_32\" \"keywords\" \"location\" \"location_addressType\" \"location_area\" \"location_city\" \"location_country\" \"location_department\" \"location_lat\" \"location_lng\" \"location_route\" \"location_streetNumber\" \"location_viewport\" \"location_zip\" \"page\" ]."
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"get\" action=\"/fr/consultants\" class=\"form-category bg-white text-size-lg rounded-xl p-0_75\" autocomplete=\"off\" matomo-form=\"\" matomo-label=\"Recherche consultant HP\" matomo-page=\"/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DCocorico%255CListingSearchBundle%255CController%255CFrontend%255CListingSearchController%253A%253AsearchHomeFormAction\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"categories_18\" \"categories_19\" \"categories_20\" \"categories_21\" \"categories_22\" \"categories_23\" \"categories_24\" \"categories_25\" \"categories_26\" \"categories_27\" \"categories_28\" \"categories_29\" \"categories_30\" \"categories_32\" \"keywords\" \"location\" \"location_addressType\" \"location_area\" \"location_city\" \"location_country\" \"location_department\" \"location_lat\" \"location_lng\" \"location_route\" \"location_streetNumber\" \"location_viewport\" \"location_zip\" \"page\" ]."
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/annonce-disponibilitee/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -85,14 +93,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form method=\"get\" action=\"/fr/consultants\" id=\"form-search\" class=\"header-search mb-1 mb-lg-0 header-search-bar-form\" data-animated-search=\"\" autocomplete=\"off\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"categories_18\" \"categories_19\" \"categories_20\" \"categories_21\" \"categories_22\" \"categories_23\" \"categories_24\" \"categories_25\" \"categories_26\" \"categories_27\" \"categories_28\" \"categories_29\" \"categories_30\" \"categories_32\" \"keywords\" \"location\" \"location_addressType\" \"location_area\" \"location_city\" \"location_country\" \"location_department\" \"location_lat\" \"location_lng\" \"location_route\" \"location_streetNumber\" \"location_viewport\" \"location_zip\" \"page\" ]."
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -143,7 +143,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/demande/creer",
+							"uri": "https://reflexqvt.anact.fr/fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -162,10 +162,10 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
-					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10055",
@@ -186,7 +186,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/demande/creer",
+							"uri": "https://reflexqvt.anact.fr/fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -205,10 +205,10 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
-					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10055",
@@ -229,7 +229,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/demande/creer",
+							"uri": "https://reflexqvt.anact.fr/fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -248,10 +248,10 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
-					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10038",
@@ -366,7 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "28"
+					"sourceid": "44"
 				},
 				{
 					"pluginid": "90003",
@@ -411,7 +411,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/currency/*/switch",
+							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -419,7 +419,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/currency/*/switch",
+							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -427,7 +427,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/currency/*/switch",
+							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -435,7 +435,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/currency/*/switch",
+							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -481,7 +481,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "28"
+					"sourceid": "44"
 				},
 				{
 					"pluginid": "10003",
@@ -508,7 +508,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "217"
+					"sourceid": "226"
 				},
 				{
 					"pluginid": "90022",
@@ -535,7 +535,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "65"
+					"sourceid": "81"
 				},
 				{
 					"pluginid": "10044",
@@ -556,7 +556,7 @@
 							"otherinfo": "Location header URI length: 44 [https://reflexqvt.anact.fr/fr/identification].\nPredicted response size: 344.\nResponse Body Length: 422."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=taw1zNoai05CViFkKA3UZE6GQFr91MbQhpnwbaZmAiY&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
+							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=vlaXJA2qUrbKY3zEsy8SUulxMOHKJ2R0xXCdlrJAgBE&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -578,7 +578,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "92"
+					"sourceid": "144"
 				},
 				{
 					"pluginid": "10010",
@@ -605,7 +605,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10011",
@@ -632,11 +632,11 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10054",
-					"alertRef": "10054",
+					"alertRef": "10054-1",
 					"alert": "Cookie without SameSite Attribute",
 					"name": "Cookie without SameSite Attribute",
 					"riskcode": "1",
@@ -661,22 +661,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/booking/*/price",
-							"method": "GET",
-							"param": "_csess",
-							"attack": "",
-							"evidence": "Set-Cookie: _csess",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
-							"method": "GET",
-							"param": "_csess",
-							"attack": "",
-							"evidence": "Set-Cookie: _csess",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/fr/tableau-de-bord/message/",
 							"method": "GET",
 							"param": "_csess",
@@ -685,13 +669,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "3",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10017",
@@ -736,14 +720,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/dashboard/message/",
-							"method": "GET",
-							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
-							"attack": "",
-							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7\"></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
@@ -760,6 +736,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "//maps.googleapis.com/maps/api/js?libraries=places&language=fr&key=AIzaSyBnowPp_E8m4G-qrsd3BbjQoE6KnLVj6x0",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\"\n        src=\"//maps.googleapis.com/maps/api/js?libraries=places&language=fr&key=AIzaSyBnowPp_E8m4G-qrsd3BbjQoE6KnLVj6x0\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/annonce-disponibilitee/*/*/*/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
@@ -769,14 +761,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
-							"method": "GET",
-							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
-							"attack": "",
-							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/geocoding/*/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?render=6LcAKVkaAAAAALARxuP7kTD9rDqVC3g4sCIE_zn7",
 							"attack": "",
@@ -833,7 +817,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "217"
+					"sourceid": "226"
 				},
 				{
 					"pluginid": "10063",
@@ -852,9 +836,17 @@
 							"attack": "",
 							"evidence": "Feature-Policy",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Feature-Policy",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header instead of the Feature-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/</p>",
@@ -887,7 +879,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "65"
+					"sourceid": "81"
 				},
 				{
 					"pluginid": "10063",
@@ -924,23 +916,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/en/listing/%25url%25",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -996,13 +972,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "28"
+					"sourceid": "44"
 				},
 				{
 					"pluginid": "10035",
@@ -1117,7 +1093,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "28"
+					"sourceid": "44"
 				},
 				{
 					"pluginid": "10096",
@@ -1942,14 +1918,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1688239973",
-							"otherinfo": "1688239973, which evaluates to: 2023-07-01 19:32:53"
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/consultants",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "1702261128",
 							"otherinfo": "1702261128, which evaluates to: 2023-12-11 02:18:48"
 						},
@@ -2422,14 +2390,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1869106624",
-							"otherinfo": "1869106624, which evaluates to: 2029-03-25 04:17:04"
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/consultants",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "1869904663",
 							"otherinfo": "1869904663, which evaluates to: 2029-04-03 09:57:43"
 						},
@@ -2646,6 +2606,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
+							"evidence": "1957682867",
+							"otherinfo": "1957682867, which evaluates to: 2032-01-14 08:47:47"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants",
+							"method": "GET",
+							"param": "",
+							"attack": "",
 							"evidence": "1966609049",
 							"otherinfo": "1966609049, which evaluates to: 2032-04-26 16:17:29"
 						},
@@ -2786,13 +2754,13 @@
 							"otherinfo": "1587686740, which evaluates to: 2020-04-24 00:05:40"
 						}
 					],
-					"count": "207",
+					"count": "206",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1394010583, which evaluates to: 2014-03-05 09:09:43</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "157"
+					"sourceid": "150"
 				},
 				{
 					"pluginid": "10094",
@@ -2837,14 +2805,6 @@
 							"otherinfo": "\uFFFD#_\uFFFD\uFFFD\uFFFD\u07E1\\x0001E\\x000e\uFFFD\u33FA8V\uFFFDi\uFFFD\uFFFDVuH\\x0016\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "8yNfpKes36EBRQ7W44-6OFa0adPoVnVIFoHFUo_5uqk",
-							"otherinfo": "\uFFFD#_\uFFFD\uFFFD\uFFFD\u07E1\\x0001E\\x000e\uFFFD\u33FA8V\uFFFDi\uFFFD\uFFFDVuH\\x0016\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFD\uFFFD"
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/en/listing-availabilities/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -2854,6 +2814,14 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/en/login-check",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "8yNfpKes36EBRQ7W44-6OFa0adPoVnVIFoHFUo_5uqk",
+							"otherinfo": "\uFFFD#_\uFFFD\uFFFD\uFFFD\u07E1\\x0001E\\x000e\uFFFD\u33FA8V\uFFFDi\uFFFD\uFFFDVuH\\x0016\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2920,7 +2888,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=taw1zNoai05CViFkKA3UZE6GQFr91MbQhpnwbaZmAiY&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
+							"uri": "https://reflexqvt.anact.fr/fr/search-region?search-region%5B_token%5D=vlaXJA2qUrbKY3zEsy8SUulxMOHKJ2R0xXCdlrJAgBE&search-region%5Bcountry%5D=France&search-region%5Bregion%5D=Auvergne+-+Rh%C3%B4ne+Alpes",
 							"method": "GET",
 							"param": "search-region[_token]",
 							"attack": "",
@@ -2934,7 +2902,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "296"
+					"sourceid": "306"
 				},
 				{
 					"pluginid": "10027",
@@ -3019,12 +2987,28 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>\n  $(function () {\n    var $searchForm = $(\"input#location\").closest('form');\n    var currentMapLocation;\n    var curren\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/fr/identification",
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script>\n    $(function () {\n        var personTypeNatural = '1';\n        var personTypeLEGAL = '2';\n\n        $('.tac-checkbox-i\", see evidence field for the suspicious comment/snippet."
+							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script>\n          $(function () {\n            //Refresh map on load\n            refreshMapFunc('', '', '');\n\n            //Set \", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "todo",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"<script>\n  var geocoder, map, marker, autoComplete, latlng, boundingBox, markerDraggable;\n  var displayMarker = true;\n  var mark\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script>\n  $(function () {\n    var $searchForm = $(\"input#location\").closest('form');\n    var currentMapLocation;\n    var curren\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/inscription-consultant",
@@ -3043,7 +3027,7 @@
 							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script>\n    $(function () {\n        var personTypeNatural = '1';\n        var personTypeLEGAL = '2';\n\n        $('.tac-checkbox-i\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "12",
+					"count": "14",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>  $(function () {</p><p></p><p>    const updateCategoriesLinkLocations = function () {</p><p>              const p\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -3086,7 +3070,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/dashboard/message/",
+							"uri": "https://reflexqvt.anact.fr/en/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -3118,6 +3102,14 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\"\n               data-modal-url=\"/fr/modal_login\"\n               data-modal-dialog\n               data-modal-tab=\"login-tab\"\n               data-modal-container=\".modal-dialog\"\n               class=\"btn btn-link p-0 border-0 d-inline-flex align-items-center\">\n               Me connecter\n            </a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/fr/annonce-disponibilitee/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -3127,14 +3119,6 @@
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/devise/*/changer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"#\"\n               data-modal-url=\"/fr/modal_login\"\n               data-modal-dialog\n               data-modal-tab=\"login-tab\"\n               data-modal-container=\".modal-dialog\"\n               class=\"btn btn-link p-0 border-0 d-inline-flex align-items-center\">\n               Me connecter\n            </a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/geocoding/*/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -3209,14 +3193,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://reflexqvt.anact.fr/en/login-check",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://reflexqvt.anact.fr/fr/annonce-disponibilitee/*/*/*/",
 							"method": "GET",
 							"param": "",
@@ -3249,13 +3225,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10015",
@@ -3413,7 +3389,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -3456,7 +3432,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -3499,7 +3475,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90005",
@@ -3542,7 +3518,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "14"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10112",
@@ -3559,7 +3535,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "20k6qng8s471m90ak3ro59cbev",
+							"evidence": "3hcvq3fa4avf65qql18415n1lc",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3567,23 +3543,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "la90an2t312eg7jac7417ui0nu",
-							"otherinfo": "\ncookie:_csess"
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/en/booking/*/price",
-							"method": "GET",
-							"param": "_csess",
-							"attack": "",
-							"evidence": "fmat0sd27rv0fv6nvrp10tcmja",
-							"otherinfo": "\ncookie:_csess"
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr/fr/reservation/*/prix",
-							"method": "GET",
-							"param": "_csess",
-							"attack": "",
-							"evidence": "2emaa8da30kr8famdoem0rbc53",
+							"evidence": "g8j3l869j32t1q5jhca6igq343",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3591,15 +3551,7 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "fmat0sd27rv0fv6nvrp10tcmja",
-							"otherinfo": "\ncookie:_csess"
-						},
-						{
-							"uri": "https://reflexqvt.anact.fr",
-							"method": "GET",
-							"param": "_csess",
-							"attack": "",
-							"evidence": "la90an2t312eg7jac7417ui0nu",
+							"evidence": "g8j3l869j32t1q5jhca6igq343",
 							"otherinfo": "\ncookie:_csess"
 						},
 						{
@@ -3607,11 +3559,11 @@
 							"method": "GET",
 							"param": "_csess",
 							"attack": "",
-							"evidence": "fmat0sd27rv0fv6nvrp10tcmja",
+							"evidence": "g8j3l869j32t1q5jhca6igq343",
 							"otherinfo": "\ncookie:_csess"
 						}
 					],
-					"count": "7",
+					"count": "4",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:_csess</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
@@ -3638,6 +3590,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://reflexqvt.anact.fr/sitemap-fr-default.xml.gz",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
 							"uri": "https://reflexqvt.anact.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -3646,7 +3606,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -3670,7 +3630,7 @@
 							"param": "categories[]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncategories[]=18\r\n\r\nThe user-controlled value was:\r\n18"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncategories[]=18\n\nThe user-controlled value was:\n18"
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
@@ -3678,7 +3638,7 @@
 							"param": "keywords",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nkeywords=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nkeywords=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
@@ -3686,7 +3646,7 @@
 							"param": "page",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\npage=1\r\n\r\nThe user-controlled value was:\r\n1"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\n\nappears to include user input in: \n\na(n) [meta] tag [content] attribute \n\nThe user input found was:\npage=1\n\nThe user-controlled value was:\n1"
 						},
 						{
 							"uri": "https://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1",
@@ -3694,7 +3654,7 @@
 							"param": "page",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [meta] tag [content] attribute \r\n\r\nThe user input found was:\r\npage=1\r\n\r\nThe user-controlled value was:\r\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://reflexqvt.anact.fr/fr/consultants?categories%5B%5D=18&keywords=ZAP&location%5Baddress%5D&location%5BaddressType%5D&location%5Barea%5D&location%5Bcity%5D&location%5Bcountry%5D&location%5Bdepartment%5D&location%5Blat%5D&location%5Blng%5D&location%5Broute%5D&location%5BstreetNumber%5D&location%5Bviewport%5D&location%5Bzip%5D&page=1\n\nappears to include user input in: \n\na(n) [meta] tag [content] attribute \n\nThe user input found was:\npage=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
 						}
 					],
 					"count": "4",
@@ -3703,7 +3663,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "221"
+					"sourceid": "228"
 				}
 			]
 		}
