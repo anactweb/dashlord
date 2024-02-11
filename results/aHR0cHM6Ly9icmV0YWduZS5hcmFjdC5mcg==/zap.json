@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 4 Feb 2024 01:50:01",
+	"@generated": "Sun, 11 Feb 2024 01:46:03",
 	"site":[ 
 		{
 			"@name": "https://bretagne.aract.fr",
@@ -9,6 +9,41 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://bretagne.aract.fr/maintien-en-emploi",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "38492160968322",
+							"otherinfo": "Credit Card Type detected: DinersClub\nBank Identification Number: 384921\nBrand: DISCOVER\nCategory: BUSINESS CARD\nIssuer: "
+						},
+						{
+							"uri": "https://bretagne.aract.fr/temoignage-dentreprise-la-modernisation-dun-atelier-de-production?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form--hrbZBt1v1RzjD2z4Mb-svSNhVtayikpDvK1-kfWRU0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "57844593832044",
+							"otherinfo": "Credit Card Type detected: Maestro\nBank Identification Number: 578445\nBrand: MAESTRO\nCategory: \nIssuer: "
+						}
+					],
+					"count": "2",
+					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
+					"otherinfo": "<p>Credit Card Type detected: DinersClub</p><p>Bank Identification Number: 384921</p><p>Brand: DISCOVER</p><p>Category: BUSINESS CARD</p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "370"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -199,7 +234,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.css",
+							"uri": "https://bretagne.aract.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -207,7 +242,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -282,7 +317,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.svg",
+							"uri": "https://bretagne.aract.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -290,7 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.svg",
+							"uri": "https://bretagne.aract.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -298,7 +333,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.svg",
+							"uri": "https://bretagne.aract.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -324,6 +359,30 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/filter/tips%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 217 [https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].\nPredicted response size: 517.\nResponse Body Length: 1,715."
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-pmZ8I_riDGBt-i-Pw1g_wSs6-zBjEDxa1gg9xn3yyOI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 216 [https://bretagne.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-pmZ8I_riDGBt-i-Pw1g_wSs6-zBjEDxa1gg9xn3yyOI&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].\nPredicted response size: 516.\nResponse Body Length: 1,711."
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 219 [https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].\nPredicted response size: 519.\nResponse Body Length: 1,723."
+						},
 						{
 							"uri": "https://bretagne.aract.fr/index.php/user/logout",
 							"method": "GET",
@@ -355,15 +414,109 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 26 [https://bretagne.aract.fr/].\nPredicted response size: 326.\nResponse Body Length: 839."
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 26 [https://bretagne.aract.fr/].\nPredicted response size: 326.\nResponse Body Length: 839."
 						}
 					],
-					"count": "4",
+					"count": "8",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 36 [https://bretagne.aract.fr/index.php/].</p><p>Predicted response size: 336.</p><p>Response Body Length: 879.</p>",
+					"otherinfo": "<p>Location header URI length: 217 [https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on].</p><p>Predicted response size: 517.</p><p>Response Body Length: 1,715.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "270"
+					"sourceid": "2372"
+				},
+				{
+					"pluginid": "10010",
+					"alertRef": "10010",
+					"alert": "Cookie No HttpOnly Flag",
+					"name": "Cookie No HttpOnly Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
+					"instances":[ 
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/filter/tips%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-pmZ8I_riDGBt-i-Pw1g_wSs6-zBjEDxa1gg9xn3yyOI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
+					"cweid": "1004",
+					"wascid": "13",
+					"sourceid": "2372"
+				},
+				{
+					"pluginid": "10011",
+					"alertRef": "10011",
+					"alert": "Cookie Without Secure Flag",
+					"name": "Cookie Without Secure Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
+					"instances":[ 
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/filter/tips%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-pmZ8I_riDGBt-i-Pw1g_wSs6-zBjEDxa1gg9xn3yyOI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
+					"cweid": "614",
+					"wascid": "13",
+					"sourceid": "2372"
 				},
 				{
 					"pluginid": "10054",
@@ -376,7 +529,31 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr/index.php/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-8fcv041HqgQnxGUPGlKZfV9DtY25D7iA_EXoCaZ_BcA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/filter/tips%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/login%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-pmZ8I_riDGBt-i-Pw1g_wSs6-zBjEDxa1gg9xn3yyOI%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don",
+							"method": "GET",
+							"param": "big_pipe_nojs",
+							"attack": "",
+							"evidence": "Set-Cookie: big_pipe_nojs",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
@@ -384,7 +561,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Q5zOkt7VY-t3tZyY3vB5gklAMF-nSmi2lqvmO9AnWAQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/index.php/big_pipe/no-js?destination=/index.php/la-gouvernance",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
@@ -392,7 +569,47 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-tD293lhKE8L0Oyqs_cgenBrNGTa8aK-PVZ69dAEh2rc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/index.php/big_pipe/no-js?destination=/index.php/lanact-et-son-reseau-de-16-agences-regionales",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/index.php/big_pipe/no-js?destination=/index.php/laract-bretagne",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/index.php/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-U1C5f7f3NcqSRK5DgZ8dvau3z6XEwL3mh7q-NlBi5F4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/index.php/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-r-v1TVdnK1cCBTR39pRvyGx11Tkmsj_VgKUy1PLGk8g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/login?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-yTiIVCB9nmwHlt5TnNyLo_9K_MANEe8tzCf9bopNqk4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
@@ -414,15 +631,23 @@
 							"attack": "",
 							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "POST",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS20a69b9094f1c227881ede36d5cd5547",
+							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "14",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1004"
+					"sourceid": "2372"
 				},
 				{
 					"pluginid": "10017",
@@ -483,14 +708,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips",
-							"method": "GET",
-							"param": "https://static.addtoany.com/menu/page.js",
-							"attack": "",
-							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://bretagne.aract.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
@@ -516,6 +733,14 @@
 						},
 						{
 							"uri": "https://bretagne.aract.fr/search/",
+							"method": "GET",
+							"param": "https://static.addtoany.com/menu/page.js",
+							"attack": "",
+							"evidence": "<script src=\"https://static.addtoany.com/menu/page.js\" async></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/register",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
 							"attack": "",
@@ -550,6 +775,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://bretagne.aract.fr/sites/default/files/js/js_cEd-U6yWbV7cls9wy3QY0ChQ6EvdFGd860KlkwGr4FM.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bretagne.aract.fr/sites/default/files/js/js_iUVLj0YHe7WdxGbGa9Q4uvsDHDg3lqlAQxfaS7pJgbU.js",
 							"method": "GET",
 							"param": "",
@@ -580,15 +813,23 @@
 							"attack": "",
 							"evidence": "eval",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/sites/default/files/js/js_t5aYJj6JDpX8mGfPpm9xKpPwIUjxN6y70qMWWWqsnjo.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "679"
+					"sourceid": "663"
 				},
 				{
 					"pluginid": "10063",
@@ -657,6 +898,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://bretagne.aract.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bretagne.aract.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -673,15 +922,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -764,6 +1005,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://bretagne.aract.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: PHP/8.1.14",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bretagne.aract.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -772,15 +1021,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: PHP/8.1.14",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -802,7 +1043,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/2012/02/shhh-dont-let-your-response-headers.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10036",
@@ -871,7 +1112,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.png",
+							"uri": "https://bretagne.aract.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -879,7 +1120,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -909,7 +1150,7 @@
 					"reference": "<p>https://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10035",
@@ -978,7 +1219,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.png",
+							"uri": "https://bretagne.aract.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -986,7 +1227,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1016,7 +1257,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10096",
@@ -1035,15 +1276,23 @@
 							"attack": "",
 							"evidence": "2020190916",
 							"otherinfo": "2020190916, which evaluates to: 2034-01-06 20:08:36"
+						},
+						{
+							"uri": "https://bretagne.aract.fr/soutenir-le-dialogue-social-areso?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-8YCrWS3LxgYeCs5VjREk4sGRnL31w4tA0qtkM-_5Szw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2020190916",
+							"otherinfo": "2020190916, which evaluates to: 2034-01-06 20:08:36"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>2020190916, which evaluates to: 2034-01-06 20:08:36</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "601"
+					"sourceid": "592"
 				},
 				{
 					"pluginid": "10094",
@@ -1104,14 +1353,6 @@
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
-						},
-						{
 							"uri": "https://bretagne.aract.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1142,6 +1383,14 @@
 							"attack": "",
 							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD`\uFFFD|\rCRpv\uFFFD\uFFFD\\x0013t\u06AE\uFFFD>\\x0019@~\uFFFDE\uFFFDa\uFFFD\uFFFDG\uFFFD\\x0011\uFFFD~\uFFFD"
 						}
 					],
 					"count": "11",
@@ -1163,7 +1412,7 @@
 					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1171,7 +1420,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-yNIWSmMAN-IZs84Wa_WvYud8E5YKNPos3mOU0eYY7q0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/admin/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-9IEt61_HVkzulqEd_sPHTgj5FAR6HJ-5LtH2lBM049A&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1179,7 +1428,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-EP52FySMj6cV-9lrFYXloMQZn7Hk2D8ga2I8j2r8e8c&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/comment/reply/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-I7emMO81UsXfgTWo1G6uOYLBesj_cTE6SEpBDbXJuvc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1187,7 +1436,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-U0XnLxuAgKMJnxUFaqXwCpj1oucUcG_tAruXM-UIW84&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/core/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-zjRx-TtVVar2NZe4pZmrRCOW1NWtEmyzj1EAFRYZC0Y&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1195,7 +1444,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6suz20WsaRMI4F0F3zoliu1wEaU8iaXegtLoSqAe9fA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/core/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-P5d1sWh1MWOYvqXKZ84mDvgUxImM8PLunJl-OqPXu1o&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1203,7 +1452,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-PGpHo_y43BFBQhffzkFH2NxnY1moOmqG68Ar_fEmm88&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/core/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-yGAV9jYRuFSmpYi9hlLj_vycSj5nud39QVorPQcudew&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1211,7 +1460,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6RATGZ76z4EdpZZkf7SaUGbiqFjhz3vFBx4vcisH1DE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Qm5RsRwRL4chJm1nmSLSgm6LY8EVs0kO7BNXtOwm2dk&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1219,7 +1468,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-7RwryX7Pjs9sZG-r6BxbfWeo1_ZazNqFqvazAtiqW5g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/profiles/*.css$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-hUZNn-34vH2TIKMvlqEELlBth_cfJjUyWPdnwNL--Wk&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1227,7 +1476,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-5qoQKuF8YEX601x9IdBFTWHgZEbRu-0FkJEAWoGNYYk&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/profiles/*.js$?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DyoVj8AP_0ejdBWiajBYu4XWkSXAByX4SLEDXx0Ords&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1235,7 +1484,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-ordjyc-_BrCD1VevEHCYW49nBOIPmHn18RquzSv6a_8&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/profiles/*.svg?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-GlzzZtBQ5uGzPWZ-sBGrvv4k5IfU2_etb7EvH_lp_5I&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1243,7 +1492,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-9kDBMCscY2T6RBN877eh8-9Uc3CTG1htpmaS3IyWvHM&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/search/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-pdGZXuLQXb0QEbuf6my-nzX4Xh38OjTk-trIRJ5IxjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1251,7 +1500,7 @@
 							"otherinfo": "The URL contains email address(es)."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-s4YdHlWu3oipVWnx7Hmy1NHwSun_jdaU5RDwIGBNA8Y&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/user/register?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-2pva5LisnO95eF3AdQxPjMBMgkf9Z2T36GimhwJYls0&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "email",
 							"attack": "",
@@ -1265,7 +1514,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "744"
+					"sourceid": "743"
 				},
 				{
 					"pluginid": "10027",
@@ -1326,14 +1575,6 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://bretagne.aract.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1359,6 +1600,14 @@
 						},
 						{
 							"uri": "https://bretagne.aract.fr/search/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1457,7 +1706,7 @@
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.css",
+							"uri": "https://bretagne.aract.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1465,7 +1714,7 @@
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
+							"uri": "https://bretagne.aract.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1559,7 +1808,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bretagne.aract.fr/la-gouvernance",
+							"uri": "https://bretagne.aract.fr/laract-bretagne",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1626,7 +1875,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr",
+							"uri": "https://bretagne.aract.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1656,7 +1905,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "90005",
@@ -1669,7 +1918,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr",
+							"uri": "https://bretagne.aract.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1699,7 +1948,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "90005",
@@ -1712,7 +1961,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr",
+							"uri": "https://bretagne.aract.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1742,7 +1991,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "90005",
@@ -1755,7 +2004,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr",
+							"uri": "https://bretagne.aract.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1785,7 +2034,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "10112",
@@ -1798,19 +2047,27 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Q5zOkt7VY-t3tZyY3vB5gklAMF-nSmi2lqvmO9AnWAQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
-							"evidence": "C5-FijFmpeUX1rOxj1K%2CxgNG4zH0IFt93932q1YysG8hhQhq",
+							"evidence": "zAAJPEb00dc6NnvVb137OuszsGrgPQdPH67qzfK4bxX9NTcw",
 							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-tD293lhKE8L0Oyqs_cgenBrNGTa8aK-PVZ69dAEh2rc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/index.php/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-r-v1TVdnK1cCBTR39pRvyGx11Tkmsj_VgKUy1PLGk8g&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
-							"evidence": "C5-FijFmpeUX1rOxj1K%2CxgNG4zH0IFt93932q1YysG8hhQhq",
+							"evidence": "H3%2Cn4CkW8XXpQp0DM6E7QOSHdV7gpRVSTblj9eJN%2CkgtyBSM",
+							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
+						},
+						{
+							"uri": "https://bretagne.aract.fr/user/password?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-DZUbGf_C7SSVF10TjBIoullfkmWAI_d2jMh00bZCAKc&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"method": "GET",
+							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
+							"attack": "",
+							"evidence": "zAAJPEb00dc6NnvVb137OuszsGrgPQdPH67qzfK4bxX9NTcw",
 							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
 						},
 						{
@@ -1818,7 +2075,7 @@
 							"method": "POST",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
-							"evidence": "yw2xq1YhE3kC3U0Qg7awh-%2CZExcc3SaXdQbVxduGsJbEtRG2",
+							"evidence": "H3%2Cn4CkW8XXpQp0DM6E7QOSHdV7gpRVSTblj9eJN%2CkgtyBSM",
 							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
 						},
 						{
@@ -1826,25 +2083,25 @@
 							"method": "POST",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
-							"evidence": "C5-FijFmpeUX1rOxj1K%2CxgNG4zH0IFt93932q1YysG8hhQhq",
+							"evidence": "zAAJPEb00dc6NnvVb137OuszsGrgPQdPH67qzfK4bxX9NTcw",
 							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/node/add/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-Q5zOkt7VY-t3tZyY3vB5gklAMF-nSmi2lqvmO9AnWAQ&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-cCP2h5GReHmosRmGuyOG8PkAsQUytssLLwHuw7sU1-4&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "SSESS20a69b9094f1c227881ede36d5cd5547",
 							"attack": "",
-							"evidence": "C5-FijFmpeUX1rOxj1K%2CxgNG4zH0IFt93932q1YysG8hhQhq",
+							"evidence": "zAAJPEb00dc6NnvVb137OuszsGrgPQdPH67qzfK4bxX9NTcw",
 							"otherinfo": "\ncookie:SSESS20a69b9094f1c227881ede36d5cd5547"
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESS20a69b9094f1c227881ede36d5cd5547</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "837"
+					"sourceid": "839"
 				},
 				{
 					"pluginid": "10049",
@@ -1866,6 +2123,14 @@
 						},
 						{
 							"uri": "https://bretagne.aract.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=3600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://bretagne.aract.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1905,23 +2170,15 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://bretagne.aract.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=3600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bretagne.aract.fr/core/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=3600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bretagne.aract.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=3600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://bretagne.aract.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1956,36 +2213,36 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nform_id=aract_newsletter_form\n\nThe user-controlled value was:\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nform_id=aract_newsletter_form\n\nThe user-controlled value was:\naract_newsletter_form"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nop=Valider\n\nThe user-controlled value was:\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nop=Valider\n\nThe user-controlled value was:\nvalider"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6RATGZ76z4EdpZZkf7SaUGbiqFjhz3vFBx4vcisH1DE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-asVsfmhqqQW4jpLpukp-CbrKQYLGM0Cb_VUtCaOqqUw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "form_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6RATGZ76z4EdpZZkf7SaUGbiqFjhz3vFBx4vcisH1DE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nform_id=aract_newsletter_form\n\nThe user-controlled value was:\naract_newsletter_form"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-asVsfmhqqQW4jpLpukp-CbrKQYLGM0Cb_VUtCaOqqUw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nform_id=aract_newsletter_form\n\nThe user-controlled value was:\naract_newsletter_form"
 						},
 						{
-							"uri": "https://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6RATGZ76z4EdpZZkf7SaUGbiqFjhz3vFBx4vcisH1DE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
+							"uri": "https://bretagne.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-asVsfmhqqQW4jpLpukp-CbrKQYLGM0Cb_VUtCaOqqUw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-6RATGZ76z4EdpZZkf7SaUGbiqFjhz3vFBx4vcisH1DE&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nop=Valider\n\nThe user-controlled value was:\nvalider"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://bretagne.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-asVsfmhqqQW4jpLpukp-CbrKQYLGM0Cb_VUtCaOqqUw&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nop=Valider\n\nThe user-controlled value was:\nvalider"
 						},
 						{
 							"uri": "https://bretagne.aract.fr/index.php/recherche?search_api_fulltext=ZAP",
@@ -2070,11 +2327,11 @@
 					],
 					"count": "14",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-IhXoUqKPrvOc1khz2m-556U2QmERnu-CF3wM8qRhxVA&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://bretagne.aract.fr/?email=zaproxy%40example.com&fonction=ZAP&form_build_id=form-UEBUbXMeK0qrcQCCEHuILdomsy1BmYp6HrMxjLj-OjY&form_id=aract_newsletter_form&nom=ZAP&op=Valider&prenom=ZAP&rgpd_consent=on</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=aract_newsletter_form</p><p></p><p>The user-controlled value was:</p><p>aract_newsletter_form</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "744"
+					"sourceid": "743"
 				}
 			]
 		}
