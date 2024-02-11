@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 4 Feb 2024 03:23:47",
+	"@generated": "Sun, 11 Feb 2024 03:12:23",
 	"site":[ 
 		{
 			"@name": "https://www.nouvelle-aquitaine.aract.fr",
@@ -29,22 +29,6 @@
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"description\" id=\"theform\" name=\"theform\" action=\"https://compte.begital-mailing.fr/users/subscribeembed/js_id/6ty6/id/1\" onsubmit=\"return false;\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"search-form mx-4 mx-xl-5\" action=\"/recherche\" method=\"GET\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche[motcles]\" ]."
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -116,7 +100,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"email\" \"from_url\" \"hdn_email_txt\" \"js_id\" \"NOM\" \"req_hid\" ]."
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche[motcles]\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -400,12 +384,36 @@
 							"otherinfo": "Location header URI length: 54 [https://www.nouvelle-aquitaine.aract.fr/extranet/login].\nPredicted response size: 354.\nResponse Body Length: 460."
 						},
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/285-formation-charge-de-travail-reperes-methodes-et-outils-pour-la-reguler",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 54 [https://www.nouvelle-aquitaine.aract.fr/extranet/login].\nPredicted response size: 354.\nResponse Body Length: 460."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/294-formation-les-fondamentaux-de-l-intervention-en-entreprise",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 54 [https://www.nouvelle-aquitaine.aract.fr/extranet/login].\nPredicted response size: 354.\nResponse Body Length: 460."
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 54 [https://www.nouvelle-aquitaine.aract.fr/extranet/login].\nPredicted response size: 354.\nResponse Body Length: 460."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/services/aides-financieres/page/1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 27 [/services/aides-financieres].\nPredicted response size: 327.\nResponse Body Length: 352."
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/services/animation-de-reseaux/page/1",
@@ -456,13 +464,13 @@
 							"otherinfo": "Location header URI length: 51 [/thematiques/sante-et-travail/risques-psychosociaux].\nPredicted response size: 351.\nResponse Body Length: 448."
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 48 [https://www.nouvelle-aquitaine.aract.fr/a-la-une].</p><p>Predicted response size: 348.</p><p>Response Body Length: 436.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2323"
+					"sourceid": "2349"
 				},
 				{
 					"pluginid": "10054",
@@ -588,33 +596,9 @@
 							"attack": "",
 							"evidence": "<script type='text/javascript' src='https://compte.begital-mailing.fr/public/theme/version4/assets/js/src/subscribe-validate.js?v=1613977173'></script>",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques",
-							"method": "GET",
-							"param": "//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js",
-							"attack": "",
-							"evidence": "<script src=\"//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques",
-							"method": "GET",
-							"param": "//oss.maxcdn.com/respond/1.4.2/respond.min.js",
-							"attack": "",
-							"evidence": "<script src=\"//oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques",
-							"method": "GET",
-							"param": "https://compte.begital-mailing.fr/public/theme/version4/assets/js/src/subscribe-validate.js?v=1613977173",
-							"attack": "",
-							"evidence": "<script type='text/javascript' src='https://compte.begital-mailing.fr/public/theme/version4/assets/js/src/subscribe-validate.js?v=1613977173'></script>",
-							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "9",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
@@ -714,7 +698,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "56"
+					"sourceid": "72"
 				},
 				{
 					"pluginid": "10063",
@@ -955,7 +939,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1604"
+					"sourceid": "1615"
 				},
 				{
 					"pluginid": "10094",
@@ -1182,6 +1166,46 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/337-0703-matinale-consultants",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/338-1806-matinale-consultants-le-travail-de-demain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/339-2006-matinale-consultants-transformer-pour-comprendre",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/340-2409-matinale-consultants-management-des-tensions-organisationnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/341-1211-matinale-consultants-formation-et-developpement-des-competences",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
@@ -1202,7 +1226,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"\" class=\"d-block\" >\n                                                                                    <img src=\"https://via.placeholder.com/300x200\" alt=\"Formation Am\u00E9liorer le Dialogue Social\" class=\"card-img rounded-0\" />\n                                                                            </a>",
+							"evidence": "<a href=\"\" class=\"d-block\" >\n                                                                                    <img src=\"https://via.placeholder.com/300x200\" alt=\"07/03 - Matinale Consultants sur le FACT\" class=\"card-img rounded-0\" />\n                                                                            </a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
@@ -1214,12 +1238,20 @@
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/thematiques/sante-et-travail/risques-psychosociaux/311-prevenir-les-rps-un-sujet-toujours-d-actualite",
-							"method": "GET",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/337-0703-matinale-consultants",
+							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "<a><br><br></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/agenda/338-1806-matinale-consultants-le-travail-de-demain",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"width: 302px; height: 352px;\"><div style=\"width: 302px; height: 352px; position: relative;\"><div style=\"width: 302px; height: 352px; position: absolute;\"><iframe src=\"https://www.google.com/recaptcha/api/fallback?k=6Le2QtAUAAAAACtXEvDQXq7YBSMcdWRoR6p1mxfB\"\n                                    frameborder=\"0\" scrolling=\"no\"\n                                    style=\"width: 302px; height:352px; border-style: none;\"\n                            ></iframe></div><div style=\"width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;\"><textarea id=\"g-recaptcha-response\" name=\"g-recaptcha-response\"\n                                      class=\"g-recaptcha-response\"\n                                      style=\"width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0; padding: 0; resize: none;\"\n                            ></textarea></div></div></div></noscript>",
+							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/contactez-nous",
@@ -1230,13 +1262,13 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						}
 					],
-					"count": "6",
+					"count": "12",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "350"
+					"sourceid": "492"
 				},
 				{
 					"pluginid": "10049",
@@ -1380,7 +1412,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/services/dossier-special-coronavirus",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/services/animation-de-reseaux",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1477,23 +1509,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "90005",
@@ -1528,23 +1552,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "90005",
@@ -1579,23 +1595,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "90005",
@@ -1630,23 +1638,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "10112",
@@ -1663,7 +1663,7 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "nk777h3d3504bsbaaaj55pm2pt",
+							"evidence": "42en54ogllvjbcae4u3sjh6o25",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1671,7 +1671,7 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "tgdmfgf18mf0c7jcb9ei63ji0l",
+							"evidence": "cbf88nes945iu3a7b7nlra299e",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1679,7 +1679,7 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "klgc1j2vqqcoe2rehbphot05k5",
+							"evidence": "oaj7k8a307rt4i8qfhv44htre3",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
@@ -1687,19 +1687,51 @@
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "8n54m4ma5n1g9jg9ekg5l0l3lq",
+							"evidence": "69ekevttmlu5m1q3b8gbdi5hh9",
 							"otherinfo": "\ncookie:PHPSESSID"
 						},
 						{
-							"uri": "https://www.nouvelle-aquitaine.aract.fr/ajax",
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/contactez-nous",
 							"method": "GET",
 							"param": "PHPSESSID",
 							"attack": "",
-							"evidence": "klgc1j2vqqcoe2rehbphot05k5",
+							"evidence": "oaj7k8a307rt4i8qfhv44htre3",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/evenements",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "oaj7k8a307rt4i8qfhv44htre3",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/extranet",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "69ekevttmlu5m1q3b8gbdi5hh9",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/ressources/dix-questions-sur",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "oaj7k8a307rt4i8qfhv44htre3",
+							"otherinfo": "\ncookie:PHPSESSID"
+						},
+						{
+							"uri": "https://www.nouvelle-aquitaine.aract.fr/ressources/videos",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "oaj7k8a307rt4i8qfhv44htre3",
 							"otherinfo": "\ncookie:PHPSESSID"
 						}
 					],
-					"count": "5",
+					"count": "9",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:PHPSESSID</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
@@ -1750,7 +1782,7 @@
 							"param": "contact[_token]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.nouvelle-aquitaine.aract.fr/contactez-nous\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[_token]=oe0aGkhGftUAJeEdYazZ-Mxo55F8aoJMLS1SY8B_yd0\n\nThe user-controlled value was:\noe0agkhgftuajeedyazz-mxo55f8aojmls1sy8b_yd0"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.nouvelle-aquitaine.aract.fr/contactez-nous\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[_token]=KBy1qVWNsfiXLscKHJfJm-pWfk7oF9KE1wugX52vqRU\n\nThe user-controlled value was:\nkby1qvwnsfixlsckhjfjm-pwfk7of9ke1wugx52vqru"
 						},
 						{
 							"uri": "https://www.nouvelle-aquitaine.aract.fr/contactez-nous",
@@ -1867,11 +1899,11 @@
 					],
 					"count": "15",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.nouvelle-aquitaine.aract.fr/contactez-nous</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>contact[_token]=oe0aGkhGftUAJeEdYazZ-Mxo55F8aoJMLS1SY8B_yd0</p><p></p><p>The user-controlled value was:</p><p>oe0agkhgftuajeedyazz-mxo55f8aojmls1sy8b_yd0</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.nouvelle-aquitaine.aract.fr/contactez-nous</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>contact[_token]=KBy1qVWNsfiXLscKHJfJm-pWfk7oF9KE1wugX52vqRU</p><p></p><p>The user-controlled value was:</p><p>kby1qvwnsfixlsckhjfjm-pwfk7of9ke1wugx52vqru</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1494"
+					"sourceid": "1514"
 				}
 			]
 		}
