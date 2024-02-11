@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 4 Feb 2024 02:49:09",
+	"@generated": "Sun, 11 Feb 2024 02:44:03",
 	"site":[ 
 		{
 			"@name": "https://www.santetravail-fp.fr",
@@ -9,6 +9,33 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10097",
+					"alertRef": "10097",
+					"alert": "Hash Disclosure - Mac OSX salted SHA-1",
+					"name": "Hash Disclosure - Mac OSX salted SHA-1",
+					"riskcode": "3",
+					"confidence": "2",
+					"riskdesc": "High (Medium)",
+					"desc": "<p>A hash was disclosed by the web server. - Mac OSX salted SHA-1</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/Depliant_com_projet_RPS.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF0061006E006E00610020006300680061007000750074",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that hashes that are used to protect credentials or other resources are not leaked by the web server or database. There is typically no requirement for password hashes to be accessible to the web browser.      </p>",
+					"otherinfo": "",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "2243"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -114,7 +141,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10038",
@@ -183,14 +210,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -200,6 +219,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -221,7 +248,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "90003",
@@ -298,7 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css$",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -306,7 +333,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css$",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -320,7 +347,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10003",
@@ -332,6 +359,14 @@
 					"riskdesc": "Medium (Medium)",
 					"desc": "<p>The identified library jquery-ui, version 1.12.1 is vulnerable.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_7DiknyH4-9FUgtVljxehioP6EJayPmu99KwusK2RxD0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						},
 						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_FMUuT6G4eVeyYCC6eZcwxZ9h1Lya3opoPN95Z7Fboe8.js",
 							"method": "GET",
@@ -373,7 +408,31 @@
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						},
 						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_vOtVNe-V-DB1HEXq20ZH-4rEvKVNvKTNSEqCfwVdadY.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_xbKX_1ipMkOGjIFF-snYYRJsaSvwP5SaRb_pUj66gdM.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						},
+						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Ya4ysPnEJdWqY615STC0hzIVCE3gdl83RknpPrNtfz4.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Z8HC2JNlYG2kcVqM94kchhBIaYVnMqcKeYPLg583fZE.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -381,13 +440,13 @@
 							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
 						}
 					],
-					"count": "6",
+					"count": "10",
 					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
 					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
 					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2102"
+					"sourceid": "2186"
 				},
 				{
 					"pluginid": "90022",
@@ -399,6 +458,14 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/node",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://www.santetravail-fp.fr/temoignage/conference-michel-gollac",
 							"method": "GET",
@@ -414,15 +481,23 @@
 							"attack": "",
 							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/temoignages/,o,",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1448"
+					"sourceid": "2117"
 				},
 				{
 					"pluginid": "10044",
@@ -449,6 +524,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 123 [https://www.santetravail-fp.fr/qualite-de-vie-au-travail/demarcheetape-1/etape-1-conception-et-pilotage-de-la-demarche-qvct].\nPredicted response size: 423.\nResponse Body Length: 738."
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/demarche/etape/crise-du-covid-19-quels-enjeux-en-matiere-de-rps",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 106 [https://www.santetravail-fp.fr/crise-sanitaire/comprendre/crise-du-covid-19-quels-enjeux-en-matiere-de-rps].\nPredicted response size: 406.\nResponse Body Length: 670."
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/index.php/filter/tips",
@@ -491,14 +574,6 @@
 							"otherinfo": "Location header URI length: 44 [https://www.santetravail-fp.fr/user/register].\nPredicted response size: 344.\nResponse Body Length: 422."
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/les-17-difficultes/et-les-solutions-qui-vont-avec-0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 108 [https://www.santetravail-fp.fr/qualite-de-vie-au-travail/les-difficultes/et-les-solutions-qvct-qui-vont-avec].\nPredicted response size: 408.\nResponse Body Length: 678."
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -537,7 +612,34 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1248"
+					"sourceid": "1410"
+				},
+				{
+					"pluginid": "10054",
+					"alertRef": "10054-1",
+					"alert": "Cookie without SameSite Attribute",
+					"name": "Cookie without SameSite Attribute",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/contact",
+							"method": "POST",
+							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS5e6f132176cc68d73083c13d50c97280",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
+					"cweid": "1275",
+					"wascid": "13",
+					"sourceid": "2878"
 				},
 				{
 					"pluginid": "10017",
@@ -614,7 +716,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css$",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "https://static.addtoany.com/menu/page.js",
 							"attack": "",
@@ -622,7 +724,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css$",
+							"uri": "https://www.santetravail-fp.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "https://tag.aticdn.net/601971/smarttag.js",
 							"attack": "",
@@ -636,7 +738,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10110",
@@ -649,21 +751,45 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_7DiknyH4-9FUgtVljxehioP6EJayPmu99KwusK2RxD0.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_rVP25dB_H7CPKThPEc2uU55ooiSupOK-hdBX-uO8Sc0.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Eval",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_vOtVNe-V-DB1HEXq20ZH-4rEvKVNvKTNSEqCfwVdadY.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Z8HC2JNlYG2kcVqM94kchhBIaYVnMqcKeYPLg583fZE.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "4",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1407"
+					"sourceid": "2186"
 				},
 				{
 					"pluginid": "10063",
@@ -732,6 +858,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.santetravail-fp.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -741,14 +875,6 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1027,15 +1153,31 @@
 							"attack": "",
 							"evidence": "2004083737",
 							"otherinfo": "2004083737, which evaluates to: 2033-07-04 09:55:37"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/2022%20-%20flyer%20Anact-BD.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1547844428",
+							"otherinfo": "1547844428, which evaluates to: 2019-01-18 20:47:08"
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/inline-files/2022%20-%20plaquette%20Anact-BD.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1547844428",
+							"otherinfo": "1547844428, which evaluates to: 2019-01-18 20:47:08"
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1416714436, which evaluates to: 2014-11-23 03:47:16</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "757"
+					"sourceid": "822"
 				},
 				{
 					"pluginid": "10021",
@@ -1047,14 +1189,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.santetravail-fp.fr/modules/custom/mgen_core/images/ft-logo-mgen.png",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
 						{
 							"uri": "https://www.santetravail-fp.fr/robots.txt",
 							"method": "GET",
@@ -1072,7 +1206,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_mGfCmyWSamD81j0AW6DHkPtlOQhrzy-uESlXXfs9kVY.css",
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_fXP6p0LnhGKLpUYbQU12Y7xQOdTd5eQaDl8gROc9YuU.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1081,6 +1215,14 @@
 						},
 						{
 							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_pn-Y2illucJOUnMF4s8_yDG62hMfIuJQZgf9V6zhO_c.css",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/css/css_wnE4fHFBvgseWgNrU-N2VSqpJt-fT07krzmTRVXC2P0.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1120,7 +1262,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_rVP25dB_H7CPKThPEc2uU55ooiSupOK-hdBX-uO8Sc0.js",
+							"uri": "https://www.santetravail-fp.fr/sites/default/files/js/js_Uj8l82V05_JUcQ80PLKvZ3Hioaex8iIjj7P5QoRB32k.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1150,7 +1292,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1408"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10094",
@@ -1471,7 +1613,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10049",
@@ -1540,7 +1682,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.png",
+							"uri": "https://www.santetravail-fp.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1548,7 +1690,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/profiles/*.css",
+							"uri": "https://www.santetravail-fp.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1570,7 +1712,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1639,7 +1781,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/risques-psychosociaux/comprendre/comparaisons-internationales",
+							"uri": "https://www.santetravail-fp.fr/risques-psychosociaux/comprendre/les-grands-modeles-danalyse",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1677,7 +1819,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "90005",
@@ -1691,14 +1833,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.santetravail-fp.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1722,7 +1856,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1749,14 +1883,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1773,7 +1899,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1800,14 +1926,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1824,7 +1942,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1851,14 +1969,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.santetravail-fp.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.santetravail-fp.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1875,13 +1985,40 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
 					"sourceid": "47"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.santetravail-fp.fr/contact",
+							"method": "POST",
+							"param": "SSESS5e6f132176cc68d73083c13d50c97280",
+							"attack": "",
+							"evidence": "LTYqyJxFOP-QvkvxcgWCygLrOSFCxYKe_m4LsJl25wY",
+							"otherinfo": "\ncookie:SSESS5e6f132176cc68d73083c13d50c97280"
+						}
+					],
+					"count": "1",
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p></p><p>cookie:SSESS5e6f132176cc68d73083c13d50c97280</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "2878"
 				},
 				{
 					"pluginid": "10049",
@@ -2023,7 +2160,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "831"
+					"sourceid": "977"
 				}
 			]
 		}
