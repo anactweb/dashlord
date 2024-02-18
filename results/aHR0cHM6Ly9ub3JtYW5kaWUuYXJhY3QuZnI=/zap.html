@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 11 Feb 2024 02:01:17
+		Generated on Sun, 18 Feb 2024 02:00:26
 	</h3>
 
 	<h3>
@@ -156,7 +156,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>5</div>
+					<div>6</div>
 				</td>
 			</tr>
 			<tr>
@@ -206,6 +206,11 @@ td {
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">5</td>
+			</tr>
+			<tr>
+				<td><a href="#10055">CSP: Wildcard Directive</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
@@ -275,7 +280,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">18</td>
+				<td align="center">13</td>
 			</tr>
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
@@ -687,6 +692,105 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10202/">10202</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10055"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">CSP: Wildcard Directive</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">default-src &#39;self&#39;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+frame-ancestors, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a>
+							<br />
+						
+							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
+							<br />
+						
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10055/">10055</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -2008,7 +2112,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/js/laboweb.min.65c31bd21c307d74e2cbb3e1.js">https://normandie.aract.fr/js/laboweb.min.65c31bd21c307d74e2cbb3e1.js</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr/js/laboweb.min.65d163cd593e8f07d2c68e45.js">https://normandie.aract.fr/js/laboweb.min.65d163cd593e8f07d2c68e45.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2100,6 +2204,37 @@ CVE-2019-11358
 				<TR vAlign="top">
 					<TD colspan="2"></TD>
 				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">set-cookie: connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
 				
 					<tr>
 						<td width="20%"
@@ -2322,37 +2457,6 @@ CVE-2019-11358
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">set-cookie: connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2529,6 +2633,37 @@ CVE-2019-11358
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">set-cookie: connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
 					</tr>
 					<tr>
@@ -2747,37 +2882,6 @@ CVE-2019-11358
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">set-cookie: connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3376,7 +3480,7 @@ CVE-2019-11358
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/js/laboweb.min.65c31bd21c307d74e2cbb3e1.js">https://normandie.aract.fr/js/laboweb.min.65c31bd21c307d74e2cbb3e1.js</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr/js/laboweb.min.65d163cd593e8f07d2c68e45.js">https://normandie.aract.fr/js/laboweb.min.65d163cd593e8f07d2c68e45.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3965,6 +4069,37 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">x-powered-by: Express</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
 					</tr>
 					<tr>
@@ -4183,37 +4318,6 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">x-powered-by: Express</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4393,6 +4497,37 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">nginx/1.12.0</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
 					</tr>
 					<tr>
@@ -4611,37 +4746,6 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">nginx/1.12.0</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4824,6 +4928,37 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
 					</tr>
 					<tr>
@@ -5042,37 +5177,6 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5318,6 +5422,37 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">1672533315, which evaluates to: 2023-01-01 00:35:15</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1483388376</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1483388376, which evaluates to: 2017-01-02 20:19:36</td>
 					</tr>
 				
 					<tr>
@@ -5571,7 +5706,7 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr/ressources/etudes-et-sondages.html">https://normandie.aract.fr/ressources/etudes-et-sondages.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5591,18 +5726,18 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1486123146</td>
+						<td width="80%">1640099247</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1486123146, which evaluates to: 2017-02-03 11:59:06</td>
+						<td width="80%">1640099247, which evaluates to: 2021-12-21 15:07:27</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr/ressources/etudes-et-sondages.html">https://normandie.aract.fr/ressources/etudes-et-sondages.html</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5622,203 +5757,17 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1559118000</td>
+						<td width="80%">1647884647</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1559118000, which evaluates to: 2019-05-29 08:20:00</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1624551471</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1624551471, which evaluates to: 2021-06-24 16:17:51</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1796895404</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1796895404, which evaluates to: 2026-12-10 09:36:44</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1818725579</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1818725579, which evaluates to: 2027-08-20 01:32:59</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1844402817</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1844402817, which evaluates to: 2028-06-12 06:06:57</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1882161365</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1882161365, which evaluates to: 2029-08-23 06:36:05</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/ressources/documentations-et-outils.html">https://normandie.aract.fr/ressources/documentations-et-outils.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">2004921750</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">2004921750, which evaluates to: 2033-07-14 02:42:30</td>
+						<td width="80%">1647884647, which evaluates to: 2022-03-21 17:44:07</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">18</td>
+					<td width="80%">13</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5830,7 +5779,7 @@ tag=img src=http://img.youtube.com/vi/AcW9AGXHVpo/0.jpg
 				<tr>
 					<td width="20%">Reference</td>
 					<td width="80%">
-							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							<a href="https://cwe.mitre.org/data/definitions/200.html">https://cwe.mitre.org/data/definitions/200.html</a>
 							
 						</td>
 				</tr>
@@ -6315,6 +6264,99 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">3Ay8b1F9bAmJ94TBcwjVMUdsEeCEApO9LG</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">��oQ}l	����s�1Gl����,</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr/">https://normandie.aract.fr/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
 					</tr>
 					<tr>
@@ -6335,12 +6377,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6366,12 +6408,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6397,12 +6439,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6428,12 +6470,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6459,12 +6501,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6490,12 +6532,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6521,105 +6563,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
+						<td width="80%">3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html">https://normandie.aract.fr/les-dossiers-de-l-aract/penibilite-et-prevention-de-la-desinsertion-professionnelle.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail.html">https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail.html</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�ML˻�Ae7��y7��uu���</td>
+						<td width="80%">����jT��v�.T;��b�s�)</td>
 					</tr>
 				
 					<tr>
@@ -6645,12 +6594,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3AhaPg_73pYGtLDbnD0rh3smD6MzEnBhuU</td>
+						<td width="80%">3A_V2TvhHSUbp-AGCULKY258qLH6QOLGkh</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�Z&gt;�ޖ��ۜ=+�{&amp;�3pa�</td>
+						<td width="80%">���;�%��	B�cn|���@�ƒ</td>
 					</tr>
 				
 					<tr>
@@ -6676,12 +6625,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">3A8YPb3dTHJN59pmwS3eURhusnJ4ef3OPH</td>
+						<td width="80%">3Al6Hn1pEmo71Xn5LwvI2Lr5KmvmiLJdxW</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�=��LrM��f�-�Qn�rxy��&lt;</td>
+						<td width="80%">�	z}ij;�y�/�غ�*k戲]�</td>
 					</tr>
 				
 				<tr>
@@ -7213,12 +7162,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;mailto:info@laboweb.fr&quot; target=&quot;_self&quot; class=&quot;network&quot; data-ui-icon=&quot;mail&quot;&gt;&lt;/a&gt;</td>
+						<td width="80%">&lt;a href=&quot;#&quot; class=&quot;ui-icon lwt-search-close&quot; data-ui-icon=&quot;close&quot;&gt;&lt;/a&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">Links have been found with a target of &#39;_self&#39; - this is often used by modern frameworks to force a full page reload.</td>
+						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
 					</tr>
 				
 					<tr>
@@ -7399,12 +7348,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;mailto:info@laboweb.fr&quot; target=&quot;_self&quot; class=&quot;network&quot; data-ui-icon=&quot;mail&quot;&gt;&lt;/a&gt;</td>
+						<td width="80%">&lt;a href=&quot;#&quot; class=&quot;ui-icon lwt-search-close&quot; data-ui-icon=&quot;close&quot;&gt;&lt;/a&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">Links have been found with a target of &#39;_self&#39; - this is often used by modern frameworks to force a full page reload.</td>
+						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
 					</tr>
 				
 					<tr>
@@ -7461,12 +7410,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;mailto:info@laboweb.fr&quot; target=&quot;_self&quot; class=&quot;network&quot; data-ui-icon=&quot;mail&quot;&gt;&lt;/a&gt;</td>
+						<td width="80%">&lt;a href=&quot;#&quot; class=&quot;ui-icon lwt-search-close&quot; data-ui-icon=&quot;close&quot;&gt;&lt;/a&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">Links have been found with a target of &#39;_self&#39; - this is often used by modern frameworks to force a full page reload.</td>
+						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
 					</tr>
 				
 					<tr>
@@ -8014,7 +7963,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8160,7 +8109,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8306,7 +8255,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8452,7 +8401,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/a-propos-de-l-aract.html">https://normandie.aract.fr/a-propos-de-l-aract.html</a></td>
+						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8618,71 +8567,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3A8zBYPXIh9aEXGJ1jHRJ4uO35rFswvC67.ntqVKPIIY2bMtC7Ln7K3MFaMeOX%2FLN80rEJPsW641Xg</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:connect.sid</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr">https://normandie.aract.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:connect.sid</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://normandie.aract.fr/">https://normandie.aract.fr/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">connect.sid</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3Ay8b1F9bAmJ94TBcwjVMUdsEeCEApO9LG.FYMfDrPJAE%2BkCsRKOxFSNAqsXJ%2BAMOlrPaliroFR5bo</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8714,7 +8599,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8746,7 +8631,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8778,7 +8663,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8810,7 +8695,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8842,7 +8727,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8874,7 +8759,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8906,7 +8791,71 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AtNTMu7z0FlN6AW55N5FTeN03V12NkMo5.3PxaqaTH0NiLP%2FC3glwp4BSIif7gJMFgF0pzFU%2BIIvY</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:connect.sid</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract.html">https://normandie.aract.fr/les-dossiers-de-l-aract.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:connect.sid</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail.html">https://normandie.aract.fr/les-dossiers-de-l-aract/qualite-de-vie-au-travail.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">connect.sid</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">s%3AMU_NTxalTk8nYDiRMuVAs7mo5ivHOUKU.MJaicR6BAzjn%2BwyRqeV0opGAiEDeyEA301gmuGYqXmI</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8938,7 +8887,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3AhaPg_73pYGtLDbnD0rh3smD6MzEnBhuU.ysvKH7H%2BA7LVNqEpvk7%2B8hV2Jymrg%2B6aeXO1wMU0Ogw</td>
+						<td width="80%">s%3A_V2TvhHSUbp-AGCULKY258qLH6QOLGkh.mbLNx8BE434zvSuLGB6FqM0CYd4WzQB9man%2BMLKcIfE</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8970,7 +8919,7 @@ cookie:connect.sid</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">s%3A8YPb3dTHJN59pmwS3eURhusnJ4ef3OPH.7g4rRH9N1R2gpd2yC2v3NDkhY7Zd8vUpoXXzl939XQE</td>
+						<td width="80%">s%3Al6Hn1pEmo71Xn5LwvI2Lr5KmvmiLJdxW.RS1ST%2Bq4bpcMrGpl%2Fi8E%2Fdmj98uucjU%2BOkMkJnZJgFE</td>
 					</tr>
 					<tr>
 						<td width="20%"
