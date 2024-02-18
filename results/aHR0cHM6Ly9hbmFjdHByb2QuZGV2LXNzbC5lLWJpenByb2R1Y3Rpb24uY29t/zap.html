@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 11 Feb 2024 04:05:48
+		Generated on Sun, 18 Feb 2024 04:03:19
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -156,7 +156,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>3</div>
+					<div>2</div>
 				</td>
 			</tr>
 			<tr>
@@ -164,7 +164,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>8</div>
+					<div>7</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
@@ -208,19 +213,9 @@ td {
 				<td align="center">11</td>
 			</tr>
 			<tr>
-				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
-				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
-			</tr>
-			<tr>
 				<td><a href="#10044">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
 				<td align="center" class="risk-1">Low</td>
 				<td align="center">10</td>
-			</tr>
-			<tr>
-				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
-				<td align="center" class="risk-1">Low</td>
-				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
@@ -245,7 +240,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">4</td>
+				<td align="center">5</td>
 			</tr>
 			<tr>
 				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
@@ -308,6 +303,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/pays-de-la-loire">https://anactprod.dev-ssl.e-bizproduction.com/pays-de-la-loire</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">670180793834754</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Maestro
+Bank Identification Number: 670180
+Brand: MAESTRO
+Category: STANDARD
+Issuer: VISA AUSTRIA</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -472,37 +552,6 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form action=&quot;/recherche&quot; method=&quot;get&quot; id=&quot;views-exposed-form-search-page-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: &quot;edit-search-api-fulltext&quot; &quot;edit-submit-search&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/cart">https://anactprod.dev-ssl.e-bizproduction.com/cart</a></td>
 					</tr>
 					<tr>
@@ -596,6 +645,99 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form action=&quot;/recherche&quot; method=&quot;get&quot; id=&quot;views-exposed-form-search-page-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: &quot;edit-search-api-fulltext--4&quot; &quot;edit-submit-search&quot; ].</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form action=&quot;/services&quot; method=&quot;get&quot; id=&quot;views-exposed-form-services-page-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;edit-search-api-fulltext--2&quot; &quot;edit-submit-services--2&quot; ].</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form action=&quot;/services&quot; method=&quot;get&quot; id=&quot;views-exposed-form-services-page-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: &quot;edit-search-api-fulltext--2&quot; &quot;edit-submit-services--2&quot; ].</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
@@ -622,68 +764,6 @@ td {
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: &quot;edit-search-api-fulltext&quot; &quot;edit-submit-search&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form action=&quot;/recherche&quot; method=&quot;get&quot; id=&quot;views-exposed-form-search-page-1&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: &quot;edit-search-api-fulltext&quot; &quot;edit-submit-search&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form class=&quot;user-login-form form-&quot; data-drupal-selector=&quot;user-login-form&quot; action=&quot;/user/login&quot; method=&quot;post&quot; id=&quot;user-login-form&quot; accept-charset=&quot;UTF-8&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;edit-name&quot; &quot;edit-pass&quot; &quot;edit-submit&quot; &quot;edit-view-pass&quot; &quot;form_build_id&quot; &quot;form_id&quot; ].</td>
 					</tr>
 				
 				<tr>
@@ -880,38 +960,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bretagne">https://anactprod.dev-ssl.e-bizproduction.com/bretagne</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1066,7 +1115,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1097,7 +1146,38 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1174,152 +1254,6 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-2"><a
-						id="90003"></a>
-						<div>Medium</div></th>
-					<th class="risk-2">Sub Resource Integrity Attribute Missing</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus">https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://crm.e-deal.net/anactApi/front/webforms_css_look?code=ANA_EVENEMENT_ANACTFR&quot; type=&quot;text/css&quot;/&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus">https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://crm.e-deal.net/anactApi/front/webforms_css_position?code=ANA_EVENEMENT_ANACTFR&quot; type=&quot;text/css&quot;/&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus">https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;https://crm.e-deal.net/anactApi/front/webforms_js?code=ANA_EVENEMENT_ANACTFR&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">3</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Provide a valid integrity attribute to the tag.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">15</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -1707,87 +1641,6 @@ Response Body Length: 430.</td>
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
-						id="10017"></a>
-						<div>Low</div></th>
-					<th class="risk-1">Cross-Domain JavaScript Source File Inclusion</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The page includes one or more script files from a third-party domain.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus">https://anactprod.dev-ssl.e-bizproduction.com/evenement-avec-formulaire-dinscription-inclus</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://crm.e-deal.net/anactApi/front/webforms_js?code=ANA_EVENEMENT_ANACTFR</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;https://crm.e-deal.net/anactApi/front/webforms_js?code=ANA_EVENEMENT_ANACTFR&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">1</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure JavaScript source files are loaded from only trusted sources, and the sources can&#39;t be controlled by end users of the application.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">15</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10017/">10017</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
 						id="10110"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Dangerous JS Functions</th>
@@ -1806,7 +1659,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_2nHrx0gFAEvxDroj_9aPAF4DLuAanzfQ0JNkakBAGH0.js?delta=2&amp;include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_2nHrx0gFAEvxDroj_9aPAF4DLuAanzfQ0JNkakBAGH0.js?delta=2&amp;include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_7zeohGGH4BGfMsaooAidCJvlzuE9WsbiUQGssLUAFRc.js?delta=2&amp;include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_7zeohGGH4BGfMsaooAidCJvlzuE9WsbiUQGssLUAFRc.js?delta=2&amp;include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1837,7 +1690,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_9Rqb3lNpKORYgLc-stturY5iPE5qtDhqRZ7Dnl5CrTc.js?delta=2&amp;include=eJx1T-1uwzAIfCHXfiSL2JeO1QkW4GZ7-yWNukmT8gfdl-Do0lqqOjq12Hd8a7w-LNi3OZY0kSEMzjbYkavNmuQJVa6wMLWBqtJP3al82oH-6X_5V-LM_WJ10CjsKmucNe7Ok7FZes24SB0NYYI7NOOri6HmmdtOLd2xQqld2TRc9uLTwh5mKnB7_3myeHSssq23jesdF6H3EQNp-cjUOR-Liyy9wZEu9B-0k4dQ&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_9Rqb3lNpKORYgLc-stturY5iPE5qtDhqRZ7Dnl5CrTc.js?delta=2&amp;include=eJx1T-1uwzAIfCHXfiSL2JeO1QkW4GZ7-yWNukmT8gfdl-Do0lqqOjq12Hd8a7w-LNi3OZY0kSEMzjbYkavNmuQJVa6wMLWBqtJP3al82oH-6X_5V-LM_WJ10CjsKmucNe7Ok7FZes24SB0NYYI7NOOri6HmmdtOLd2xQqld2TRc9uLTwh5mKnB7_3myeHSssq23jesdF6H3EQNp-cjUOR-Liyy9wZEu9B-0k4dQ&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_a0gwyYZ6CQRaZNl7SbrvTc27uNcwsIMMybnUAXLYpuQ.js?delta=2&amp;include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_a0gwyYZ6CQRaZNl7SbrvTc27uNcwsIMMybnUAXLYpuQ.js?delta=2&amp;include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1899,69 +1752,69 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFSbMFg9tEtlPg96StBBJSL9bu7BxcC7PP0mrkofZ8YVoe6vSthtmnqHCNgjYyhKyT-LJChDLUJW7IUurBLY533dIf__m7cXjfLIbYRjIpyzDJ0JeV8FS_32EuuTFcghkk4FWLIoeJuFf1VyyQyGdzbFb642kmc4oo4y3ESmHDY5krw-BP-AdL1W3-&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFSbMFg9tEtlPg96StBBJSL9bu7BxcC7PP0mrkofZ8YVoe6vSthtmnqHCNgjYyhKyT-LJChDLUJW7IUurBLY533dIf__m7cXjfLIbYRjIpyzDJ0JeV8FS_32EuuTFcghkk4FWLIoeJuFf1VyyQyGdzbFb642kmc4oo4y3ESmHDY5krw-BP-AdL1W3-&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">eval</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFSbMFg9tEtlPg96StBBJSL9bu7BxcC7PP0mrkofZ8YVoe6vSthtmnqHCNgjYyhKyT-LJChDLUJW7IUurBLY533dIf__m7cXjfLIbYRjIpyzDJ0JeV8FS_32EuuTFcghkk4FWLIoeJuFf1VyyQyGdzbFb642kmc4oo4y3ESmHDY5krw-BP-AdL1W3-&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&amp;include=eJx1jkEOwjAMBD8UmidFSbMFg9tEtlPg96StBBJSL9bu7BxcC7PP0mrkofZ8YVoe6vSthtmnqHCNgjYyhKyT-LJChDLUJW7IUurBLY533dIf__m7cXjfLIbYRjIpyzDJ0JeV8FS_32EuuTFcghkk4FWLIoeJuFf1VyyQyGdzbFb642kmc4oo4y3ESmHDY5krw-BP-AdL1W3-&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2085,7 +1938,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&amp;include=eJx1T-1uwzAIfCHXfiSL2JeO1QkW4GZ7-yWNukmT8gfdl-Do0lqqOjq12Hd8a7w-LNi3OZY0kSEMzjbYkavNmuQJVa6wMLWBqtJP3al82oH-6X_5V-LM_WJ10CjsKmucNe7Ok7FZes24SB0NYYI7NOOri6HmmdtOLd2xQqld2TRc9uLTwh5mKnB7_3myeHSssq23jesdF6H3EQNp-cjUOR-Liyy9wZEu9B-0k4dQ&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&amp;include=eJx1T-1uwzAIfCHXfiSL2JeO1QkW4GZ7-yWNukmT8gfdl-Do0lqqOjq12Hd8a7w-LNi3OZY0kSEMzjbYkavNmuQJVa6wMLWBqtJP3al82oH-6X_5V-LM_WJ10CjsKmucNe7Ok7FZes24SB0NYYI7NOOri6HmmdtOLd2xQqld2TRc9uLTwh5mKnB7_3myeHSssq23jesdF6H3EQNp-cjUOR-Liyy9wZEu9B-0k4dQ&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&amp;include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&amp;include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&amp;language=fr&amp;scope=footer&amp;theme=bluedrop_dsfr</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2355,69 +2208,38 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/core/*.css$">https://anactprod.dev-ssl.e-bizproduction.com/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/system/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/core/*.js$">https://anactprod.dev-ssl.e-bizproduction.com/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/system/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/core/*.svg">https://anactprod.dev-ssl.e-bizproduction.com/core/*.svg</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/system/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/node/add/">https://anactprod.dev-ssl.e-bizproduction.com/node/add/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2600,6 +2422,37 @@ Response Body Length: 430.</td>
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/search/">https://anactprod.dev-ssl.e-bizproduction.com/search/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/system/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">12</td>
@@ -2749,7 +2602,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2935,7 +2788,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2966,7 +2819,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3155,7 +3008,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3279,7 +3132,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets">https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3341,7 +3194,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3372,7 +3225,7 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3488,12 +3341,12 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1426775647</td>
+						<td width="80%">1733712927</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1426775647, which evaluates to: 2015-03-19 14:34:07</td>
+						<td width="80%">1733712927, which evaluates to: 2024-12-09 02:55:27</td>
 					</tr>
 				
 					<tr>
@@ -3519,18 +3372,18 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1426775647</td>
+						<td width="80%">1733712927</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1426775647, which evaluates to: 2015-03-19 14:34:07</td>
+						<td width="80%">1733712927, which evaluates to: 2024-12-09 02:55:27</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/cart">https://anactprod.dev-ssl.e-bizproduction.com/cart</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/actualites">https://anactprod.dev-ssl.e-bizproduction.com/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3550,18 +3403,18 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1739531638</td>
+						<td width="80%">1432803130</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1739531638, which evaluates to: 2025-02-14 11:13:58</td>
+						<td width="80%">1432803130, which evaluates to: 2015-05-28 08:52:10</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/cart">https://anactprod.dev-ssl.e-bizproduction.com/cart</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/actualites">https://anactprod.dev-ssl.e-bizproduction.com/actualites</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3581,17 +3434,48 @@ Response Body Length: 430.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1895033478</td>
+						<td width="80%">1530192261</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1895033478, which evaluates to: 2030-01-19 06:11:18</td>
+						<td width="80%">1530192261, which evaluates to: 2018-06-28 13:24:21</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/actualites">https://anactprod.dev-ssl.e-bizproduction.com/actualites</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1534153285</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1534153285, which evaluates to: 2018-08-13 09:41:25</td>
 					</tr>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">5</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3603,7 +3487,7 @@ Response Body Length: 430.</td>
 				<tr>
 					<td width="20%">Reference</td>
 					<td width="80%">
-							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							<a href="https://cwe.mitre.org/data/definitions/200.html">https://cwe.mitre.org/data/definitions/200.html</a>
 							
 						</td>
 				</tr>
@@ -3837,6 +3721,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/2024-02/visuels_posts_rs_et_site_7.png">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/2024-02/visuels_posts_rs_et_site_7.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/css/css_vIcv8XdRp54KdAOxe_QuBuTY5E2NxT7CEplkcLKvCUM.css?delta=0&amp;include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&amp;language=fr&amp;theme=bluedrop_dsfr">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/css/css_vIcv8XdRp54KdAOxe_QuBuTY5E2NxT7CEplkcLKvCUM.css?delta=0&amp;include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&amp;language=fr&amp;theme=bluedrop_dsfr</a></td>
 					</tr>
 					<tr>
@@ -3869,7 +3785,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/actualite_fallback/public/2023-11/lancement_site_odds_pour_le_30_5.png?itok=Ualy9paL">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/actualite_fallback/public/2023-11/lancement_site_odds_pour_le_30_5.png?itok=Ualy9paL</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/actualite_fallback/public/2024-02/bandeau-50-ans.jpg?itok=Jbbp5BlQ">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/actualite_fallback/public/2024-02/bandeau-50-ans.jpg?itok=Jbbp5BlQ</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3902,38 +3818,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/hero_fallback/public/2023-11/Hero%20horizontal%201280%20x%20720-7.jpg?itok=zxnZZSfw">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/hero_fallback/public/2023-11/Hero%20horizontal%201280%20x%20720-7.jpg?itok=zxnZZSfw</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/ressources_384x216_retina/public/2023-12/10qsur-charge_travail.png.webp?itok=HLXXWjuV">https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/styles/ressources_384x216_retina/public/2023-12/10qsur-charge_travail.png.webp?itok=HLXXWjuV</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4182,39 +4066,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/sites/default/files/css/css_W179WLdKXYFpCOU5ti3lJaLO_EUCrEpqRh6KsTtp_CE</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�ȭz��y����ߊW���,��,�m{�b�)v�#��ط���;�
-�)�z*����</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bretagne">https://anactprod.dev-ssl.e-bizproduction.com/bretagne</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4370,6 +4222,68 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/sites/default/files/css/css_s_48dmrMpcYj8OwpYjCN3eiW9mLXCQn9PGMKARzW8Go</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">�ȭz��y����ߊW���,��,����٫2��ð���7w�[ً\$&#39;��(s[��</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/sites/default/files/css/css_9Mzi6mWWqPPo-2Zewutu5Jv4DVAvntYVAG54Wt5iXLQ</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">�ȭz��y����ߊW���,��,��3���Z�ϣ�{���o�5@�{XT��ky�r�</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
@@ -4397,37 +4311,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 							class="indent2">Other Info</td>
 						<td width="80%">�ȭz��y����ߊW���,��,�m{�b�)v�#��ط���;�
 �)�z*����</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/sites/default/files/css/css_9bCBYWcsTR-0BP6Zup6q1IlFPu7l4_8c7lcTOfXkpfc</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">�ȭz��y����ߊW���,��,������4~��f�z�R%�����s�\L�ג��</td>
 					</tr>
 				
 				<tr>
@@ -4579,38 +4462,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">user</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;pathPrefix&quot;:&quot;&quot;,&quot;currentPath&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bretagne">https://anactprod.dev-ssl.e-bizproduction.com/bretagne</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4765,7 +4617,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4796,7 +4648,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">user</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;pathPrefix&quot;:&quot;&quot;,&quot;currentPath&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4970,38 +4853,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bretagne">https://anactprod.dev-ssl.e-bizproduction.com/bretagne</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5158,7 +5010,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5189,7 +5041,38 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;&lt;/a&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5362,7 +5245,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes">https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte">https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5486,7 +5369,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets">https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5548,7 +5431,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/services">https://anactprod.dev-ssl.e-bizproduction.com/services</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5579,7 +5462,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5669,7 +5552,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com">https://anactprod.dev-ssl.e-bizproduction.com</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5700,7 +5583,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter">https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5815,7 +5698,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com">https://anactprod.dev-ssl.e-bizproduction.com</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5846,7 +5729,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter">https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5961,7 +5844,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com">https://anactprod.dev-ssl.e-bizproduction.com</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5992,7 +5875,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter">https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6107,7 +5990,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com">https://anactprod.dev-ssl.e-bizproduction.com</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6138,7 +6021,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter">https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter</a></td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/">https://anactprod.dev-ssl.e-bizproduction.com/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6501,6 +6384,37 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/ressources">https://anactprod.dev-ssl.e-bizproduction.com/ressources</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/robots.txt">https://anactprod.dev-ssl.e-bizproduction.com/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -6533,37 +6447,6 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/thematiques">https://anactprod.dev-ssl.e-bizproduction.com/thematiques</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=3600</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/user/login">https://anactprod.dev-ssl.e-bizproduction.com/user/login</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6661,6 +6544,49 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				<TR vAlign="top">
 					<TD colspan="2"></TD>
 				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1542">https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1542</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">f[0]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1542
+
+appears to include user input in: 
+
+a(n) [a] tag [data-drupal-facet-filter-value] attribute 
+
+The user input found was:
+f[0]=type_actu:1542
+
+The user-controlled value was:
+type_actu:1542</td>
+					</tr>
 				
 					<tr>
 						<td width="20%"
@@ -6875,49 +6801,6 @@ f[0]=type_actu:1682
 
 The user-controlled value was:
 type_actu:1682</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1722">https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1722</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">f[0]</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=type_actu%3A1722
-
-appears to include user input in: 
-
-a(n) [a] tag [data-drupal-facet-filter-value] attribute 
-
-The user input found was:
-f[0]=type_actu:1722
-
-The user-controlled value was:
-type_actu:1722</td>
 					</tr>
 				
 					<tr>
