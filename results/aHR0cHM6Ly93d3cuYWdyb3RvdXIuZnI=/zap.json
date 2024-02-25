@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 18 Feb 2024 02:22:21",
+	"@generated": "Sun, 25 Feb 2024 02:23:40",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>https://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1285"
+					"sourceid": "1269"
 				},
 				{
 					"pluginid": "10202",
@@ -79,6 +79,22 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						},
 						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ]."
+						},
+						{
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\" action=\"https://www.agrotour.fr/\" id=\"search-form-desktop\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
+						},
+						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -127,7 +143,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"s\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -325,7 +341,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -424,6 +440,70 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css?ver=5.9\">",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Ubuntu%3A300%2C700&#038;ver=5.9\">",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=5.9\">",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js\" id=\"mapbox/js-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" id=\"jquery-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcSSgIpAAAAAPPxmnn7oo05csZz-OcHUODKnokH&#038;ver=3.0\" id=\"google-recaptcha-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-maps\" data-category=\"marketing\" src=\"https://maps.google.com/maps/api/js?sensor=false&#038;libraries=geometry&#038;v=3.22&#038;key=AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE\" id=\"ggmaps/js-js\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -488,7 +568,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "16",
+					"count": "24",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
@@ -521,7 +601,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/advisories/GHSA-pj7m-g53m-7638</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://github.com/advisories/GHSA-9v3m-8fp8-mj99</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "305"
+					"sourceid": "308"
 				},
 				{
 					"pluginid": "10010",
@@ -574,15 +654,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "POST",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -590,13 +678,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1342"
+					"sourceid": "1338"
 				},
 				{
 					"pluginid": "10054",
@@ -649,15 +737,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
-							"method": "POST",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
+							"method": "GET",
+							"param": "wp_lang",
+							"attack": "",
+							"evidence": "Set-Cookie: wp_lang",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -665,13 +761,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1342"
+					"sourceid": "1338"
 				},
 				{
 					"pluginid": "10017",
@@ -724,6 +820,46 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js",
+							"attack": "",
+							"evidence": "<script src=\"https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js\" id=\"mapbox/js-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "https://code.jquery.com/jquery-3.6.0.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" id=\"jquery-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE",
+							"attack": "",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-maps\" data-category=\"marketing\" src=\"https://maps.google.com/maps/api/js?sensor=false&#038;libraries=geometry&#038;v=3.22&#038;key=AIzaSyCZb1A22KRG10FwNcVM3NLmb-ccCrooQHE\" id=\"ggmaps/js-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?render=6LcSSgIpAAAAAPPxmnn7oo05csZz-OcHUODKnokH&ver=3.0",
+							"attack": "",
+							"evidence": "<script src=\"https://www.google.com/recaptcha/api.js?render=6LcSSgIpAAAAAPPxmnn7oo05csZz-OcHUODKnokH&#038;ver=3.0\" id=\"google-recaptcha-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
+							"method": "GET",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-94079663-40",
+							"attack": "",
+							"evidence": "<script type=\"text/plain\" data-service=\"google-analytics\" async data-category=\"statistics\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-94079663-40\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
 							"method": "GET",
 							"param": "https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js",
@@ -764,7 +900,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "15",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
@@ -805,7 +941,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "306"
+					"sourceid": "304"
 				},
 				{
 					"pluginid": "10063",
@@ -890,14 +1026,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "",
@@ -914,7 +1042,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -957,14 +1085,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprises/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "X-Powered-By: PHP/7.4",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/etapes/?statut=a_venir",
 							"method": "GET",
 							"param": "",
@@ -974,6 +1094,14 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "X-Powered-By: PHP/7.4",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1064,14 +1192,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/contact/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
@@ -1089,6 +1209,14 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/le-tour/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/ressources/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1185,7 +1313,7 @@
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1123"
+					"sourceid": "1121"
 				},
 				{
 					"pluginid": "10021",
@@ -1270,7 +1398,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1442,7 +1570,7 @@
 					"reference": "<p>https://en.wikipedia.org/wiki/HTTP_cookie</p><p>https://cwe.mitre.org/data/definitions/565.html</p>",
 					"cweid": "565",
 					"wascid": "20",
-					"sourceid": "1346"
+					"sourceid": "1351"
 				},
 				{
 					"pluginid": "10027",
@@ -1471,7 +1599,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.agrotour.fr/",
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1479,7 +1607,7 @@
 							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type='text/javascript' id='sage/js-js-extra'>\n/* <![CDATA[ */\nvar MyAjax = {\"ajaxurl\":\"https:\\/\\/www.agrotour.fr\\/wp\\/wp\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.agrotour.fr/",
+							"uri": "https://www.agrotour.fr/categorie/actualite/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1634,7 +1762,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
+							"uri": "https://www.agrotour.fr/thematique/prevention-de-lusure-professionnelle/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1841,9 +1969,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1884,9 +2020,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1927,9 +2071,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1970,9 +2122,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1999,7 +2159,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/app/uploads/2019/09/logo-aoste-133x70.png",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6295-pdf-image-200x160.jpg",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2007,7 +2167,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/app/uploads/2022/08/agro-tour-naturealiment-banniere-2-183x70.png",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6295-pdf-image-312x250.jpg",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2015,7 +2175,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/app/uploads/2023/10/regierurale-pour-site-200x102.jpg",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6295-pdf-image-87x70.jpg",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2023,7 +2183,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprise/nature-et-aliments",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6295.pdf",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2031,7 +2191,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprise/organiser-limprevu-avec-les-services-de-remplacement-penser-la-qvct-des-salaries-et-exploitants-agricoles-chez-earl-de-jussy",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6315.pdf",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2039,7 +2199,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp-json/wp/v2/categories",
+							"uri": "https://www.agrotour.fr/ressources/page/2",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2053,7 +2213,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "416"
+					"sourceid": "436"
 				},
 				{
 					"pluginid": "10049",
@@ -2339,7 +2499,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "416"
+					"sourceid": "436"
 				}
 			]
 		}
