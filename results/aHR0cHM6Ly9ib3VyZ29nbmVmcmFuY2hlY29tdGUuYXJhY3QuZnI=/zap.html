@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 18 Feb 2024 03:42:15
+		Generated on Sun, 25 Feb 2024 03:43:25
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
@@ -230,7 +235,7 @@ td {
 			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">12</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
@@ -260,7 +265,7 @@ td {
 			<tr>
 				<td><a href="#10035">Strict-Transport-Security Header Not Set</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">11</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
@@ -270,7 +275,7 @@ td {
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">11</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#10024">Information Disclosure - Sensitive Information in URL</a></td>
@@ -300,22 +305,22 @@ td {
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Mode Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Site Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-User Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
@@ -325,12 +330,12 @@ td {
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">10</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">13</td>
+				<td align="center">12</td>
 			</tr>
 		</table>
 		<div class="spacer-lg"></div>
@@ -338,6 +343,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/presentation-du-fonds-pour-lamelioration-des-conditions-de-travail">https://bourgognefranchecomte.aract.fr/presentation-du-fonds-pour-lamelioration-des-conditions-de-travail</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4854780015752</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 485478
+Brand: VISA
+Category: 
+Issuer: WASHINGTON MUTUAL</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -471,7 +561,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -502,7 +592,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -533,7 +623,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -564,7 +654,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -595,7 +685,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -626,7 +716,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -657,7 +747,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -688,7 +778,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -879,37 +969,6 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -1034,37 +1093,6 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -1097,6 +1125,68 @@ td {
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.jpg">https://bourgognefranchecomte.aract.fr/profiles/*.jpg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1322,7 +1412,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1353,7 +1443,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1384,7 +1474,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1415,7 +1505,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1446,7 +1536,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1477,7 +1567,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg">https://bourgognefranchecomte.aract.fr/core/*.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1561,7 +1651,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1586,9 +1676,9 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">Location header URI length: 39 [https://bourgognefranchecomte.aract.fr/].
-Predicted response size: 339.
-Response Body Length: 891.</td>
+						<td width="80%">Location header URI length: 232 [https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on].
+Predicted response size: 532.
+Response Body Length: 1,775.</td>
 					</tr>
 				
 					<tr>
@@ -1726,7 +1816,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1809,7 +1899,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1893,7 +1983,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1977,7 +2067,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/a.cnockaert@anact.fr">https://bourgognefranchecomte.aract.fr/a.cnockaert@anact.fr</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/a">https://bourgognefranchecomte.aract.fr/a</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2008,38 +2098,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/a.loos@anact.fr">https://bourgognefranchecomte.aract.fr/a.loos@anact.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don">https://bourgognefranchecomte.aract.fr/big_pipe/no-js?destination=/user/password%3Femail%3Dzaproxy%2540example.com%26fonction%3DZAP%26form_build_id%3Dform--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0%26form_id%3Daract_newsletter_form%26nom%3DZAP%26op%3DValider%26prenom%3DZAP%26rgpd_consent%3Don</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2070,7 +2129,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/em?search-404=ZAP">https://bourgognefranchecomte.aract.fr/em?search-404=ZAP</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Nf1ET3-V_2amJbs9m2vYcZHMX7RvE1ss8RmV3ops-Uo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/index.php/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Nf1ET3-V_2amJbs9m2vYcZHMX7RvE1ss8RmV3ops-Uo&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2101,131 +2160,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/k.bourgeois-gautheron@anact.fr">https://bourgognefranchecomte.aract.fr/k.bourgeois-gautheron@anact.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fIM2Usyk62UTeaMmpx8CVEsw6oQwAfvyx5BOjfJmI7Q&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on&amp;search-404=ZAP">https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-fIM2Usyk62UTeaMmpx8CVEsw6oQwAfvyx5BOjfJmI7Q&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on&amp;search-404=ZAP</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XC8uQQ1ae_es7ezdW9UqEh_lMSp06xqXpUIjXEFHp5I&amp;form_build_id=form-fIM2Usyk62UTeaMmpx8CVEsw6oQwAfvyx5BOjfJmI7Q&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XC8uQQ1ae_es7ezdW9UqEh_lMSp06xqXpUIjXEFHp5I&amp;form_build_id=form-fIM2Usyk62UTeaMmpx8CVEsw6oQwAfvyx5BOjfJmI7Q&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/strong">https://bourgognefranchecomte.aract.fr/strong</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/tout-savoir-sur-laract-bourgogne-franche-comte?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Qy5ycHZNKuO-2e9BpeaZLXYThwSJxangsg5tj9vKE-g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/tout-savoir-sur-laract-bourgogne-franche-comte?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-Qy5ycHZNKuO-2e9BpeaZLXYThwSJxangsg5tj9vKE-g&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2318,7 +2253,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2348,7 +2283,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2403,6 +2338,37 @@ Response Body Length: 891.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr">https://bourgognefranchecomte.aract.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://static.addtoany.com/menu/page.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://static.addtoany.com/menu/page.js&quot; async&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/">https://bourgognefranchecomte.aract.fr/admin/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2681,38 +2647,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password">https://bourgognefranchecomte.aract.fr/user/password</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://static.addtoany.com/menu/page.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://static.addtoany.com/menu/page.js&quot; async&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/register">https://bourgognefranchecomte.aract.fr/user/register</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login">https://bourgognefranchecomte.aract.fr/user/login</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3094,37 +3029,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -3249,37 +3153,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -3312,6 +3185,68 @@ Response Body Length: 891.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.jpg">https://bourgognefranchecomte.aract.fr/profiles/*.jpg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3500,37 +3435,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">X-Powered-By: PHP/8.1.14</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -3655,7 +3559,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3686,7 +3590,38 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">X-Powered-By: PHP/8.1.14</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.jpg">https://bourgognefranchecomte.aract.fr/profiles/*.jpg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3897,37 +3832,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Apache/2.4.34 (Red Hat) OpenSSL/1.0.2k-fips PHP/8.1.14</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -4052,7 +3956,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4083,7 +3987,38 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Apache/2.4.34 (Red Hat) OpenSSL/1.0.2k-fips PHP/8.1.14</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4297,37 +4232,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -4452,7 +4356,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4483,7 +4387,69 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.jpg">https://bourgognefranchecomte.aract.fr/profiles/*.jpg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4575,7 +4541,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -4911,6 +4877,37 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/node/add/">https://bourgognefranchecomte.aract.fr/node/add/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/sites/default/files/css/css_WDitHwNQ1Jwdo-_E3TartY-GUB-70WkYf35R70Rm36A</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">�ȭz��y����ߊW���,��,�`�|CRpv��tڮ�&gt;@~�E�a��G��~�</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$">https://bourgognefranchecomte.aract.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
@@ -5004,7 +5001,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password">https://bourgognefranchecomte.aract.fr/user/password</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/">https://bourgognefranchecomte.aract.fr/search/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5035,7 +5032,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/register">https://bourgognefranchecomte.aract.fr/user/register</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login">https://bourgognefranchecomte.aract.fr/user/login</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5065,7 +5062,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">11</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5119,7 +5116,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5150,7 +5147,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-BzMLSQffoDwdEOSpwCl9h9Wnn2P2D207gKMS245Yi4c&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-BzMLSQffoDwdEOSpwCl9h9Wnn2P2D207gKMS245Yi4c&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-1W4SZZekdrG5MbgnQmk8fmjDsZDdqmNp1w41hKR3oVc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/admin/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-1W4SZZekdrG5MbgnQmk8fmjDsZDdqmNp1w41hKR3oVc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5181,7 +5178,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-47whKbHH_hW2Y5trefZa_xktUigqgQ6zgtaR5cj1YSU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-47whKbHH_hW2Y5trefZa_xktUigqgQ6zgtaR5cj1YSU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-CGZZJWG6fG4iF7nNeEdDuDJJFvgXgvpagUb-JHh8K8A&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/comment/reply/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-CGZZJWG6fG4iF7nNeEdDuDJJFvgXgvpagUb-JHh8K8A&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5212,7 +5209,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rKMMvvdO8sTh8pJKcM6GQkVQRBFPX02GrleSArg14Jw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rKMMvvdO8sTh8pJKcM6GQkVQRBFPX02GrleSArg14Jw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ve5AU1gLwXnkBxLK4W9wtWXNIukMdJtfU1GyG3sSc_M&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ve5AU1gLwXnkBxLK4W9wtWXNIukMdJtfU1GyG3sSc_M&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5243,7 +5240,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-1ep2FqfNpnodZRKQopm3RcKien4OZapggHMX4auvxQU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-1ep2FqfNpnodZRKQopm3RcKien4OZapggHMX4auvxQU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-pnyPm44fLw47jviJxS3rFDzQ2kJ1e88zGCvVUSMMmzk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-pnyPm44fLw47jviJxS3rFDzQ2kJ1e88zGCvVUSMMmzk&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5274,7 +5271,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--Ybbj5auJGtpsg6Tqlil-9y7pChJBT6acafzDlvsThQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--Ybbj5auJGtpsg6Tqlil-9y7pChJBT6acafzDlvsThQ&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NM4ekEAlN3dF43BZy7RDyc2Ppj3xZZCqCWwcgw2LRGc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/core/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-NM4ekEAlN3dF43BZy7RDyc2Ppj3xZZCqCWwcgw2LRGc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5305,7 +5302,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xEbPjDB0DDY80g0-qyTGs64k4m-joR3DuiuH6aBH0yM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/node/add/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-xEbPjDB0DDY80g0-qyTGs64k4m-joR3DuiuH6aBH0yM&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-w7GEXOUHw71VLjh5brFwAygt0zkU3t4Sb0KqcrnT7s8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-w7GEXOUHw71VLjh5brFwAygt0zkU3t4Sb0KqcrnT7s8&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5336,7 +5333,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-GaE_w2ntcEmwivREno2D-LavZOaWHR-XuWKv-6O8glw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.css$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-GaE_w2ntcEmwivREno2D-LavZOaWHR-XuWKv-6O8glw&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-C9lJAU9uMbuMfSX6QsULD7x6BFHK33Enb9NM1Y9Jb54&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-C9lJAU9uMbuMfSX6QsULD7x6BFHK33Enb9NM1Y9Jb54&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5367,7 +5364,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-6QHrhVjJNBezYUIrz8t8qixj7kHMA3BzrSjP0QntAzY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.js$?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-6QHrhVjJNBezYUIrz8t8qixj7kHMA3BzrSjP0QntAzY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-22z2EqPWbQdPozUTHIfzgfNCaBqr7Wkfqi6VcYLzuOU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-22z2EqPWbQdPozUTHIfzgfNCaBqr7Wkfqi6VcYLzuOU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5398,7 +5395,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-g-V_nsY5zWDHroOdlDi8Za_LWZrf55HZIZALdEsF2Y4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/profiles/*.svg?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-g-V_nsY5zWDHroOdlDi8Za_LWZrf55HZIZALdEsF2Y4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZPcvica2dgRaWZ_Yn-KZPnG7uFGAsxitKPi4CTWJKR4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/search/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-ZPcvica2dgRaWZ_Yn-KZPnG7uFGAsxitKPi4CTWJKR4&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5429,7 +5426,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5460,7 +5457,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XqcquWA9klQ2IvcppEDfC1CSTrr_m5VYneDmzTXaIAA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-XqcquWA9klQ2IvcppEDfC1CSTrr_m5VYneDmzTXaIAA&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-b5GkDukaE_pjRRa5EOew_q1B0IZyYf95k2LuSPPA8nc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/register?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-b5GkDukaE_pjRRa5EOew_q1B0IZyYf95k2LuSPPA8nc&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5567,6 +5564,37 @@ Response Body Length: 891.</td>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/admin/">https://bourgognefranchecomte.aract.fr/admin/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">admin</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bADMIN\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
 					<tr>
@@ -5696,6 +5724,37 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/node/add/">https://bourgognefranchecomte.aract.fr/node/add/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">user</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css$">https://bourgognefranchecomte.aract.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
@@ -5789,69 +5848,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/search/">https://bourgognefranchecomte.aract.fr/search/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">user</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password">https://bourgognefranchecomte.aract.fr/user/password</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">user</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;&lt;script type=&quot;application/json&quot; data-drupal-selector=&quot;drupal-settings-json&quot;&gt;{&quot;path&quot;:{&quot;baseUrl&quot;:&quot;\/&quot;,&quot;scriptPath&quot;:null,&quot;pathPrefi&quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/register">https://bourgognefranchecomte.aract.fr/user/register</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login">https://bourgognefranchecomte.aract.fr/user/login</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5994,37 +5991,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;&quot;&gt;L&amp;#039;Aract&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.gif">https://bourgognefranchecomte.aract.fr/core/*.gif</a></td>
 					</tr>
 					<tr>
@@ -6149,37 +6115,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a href=&quot;&quot;&gt;L&amp;#039;Aract&lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
@@ -6211,7 +6146,69 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script&gt;(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-152795908-1&#39;, &#39;auto&#39;);ga(&#39;require&#39;, &#39;displayfeatures&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No links have been found while there are scripts, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script&gt;(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);ga(&#39;create&#39;, &#39;UA-152795908-1&#39;, &#39;auto&#39;);ga(&#39;require&#39;, &#39;displayfeatures&#39;);ga(&#39;send&#39;, &#39;pageview&#39;);&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">No links have been found while there are scripts, which is an indication that this is a modern web application.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.jpg">https://bourgognefranchecomte.aract.fr/profiles/*.jpg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6876,37 +6873,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css">https://bourgognefranchecomte.aract.fr/core/*.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Dest</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -6968,7 +6934,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7053,37 +7019,6 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css">https://bourgognefranchecomte.aract.fr/core/*.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Mode</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/robots.txt">https://bourgognefranchecomte.aract.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -7145,7 +7080,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7258,9 +7193,40 @@ Response Body Length: 891.</td>
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sitemap.xml">https://bourgognefranchecomte.aract.fr/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Sec-Fetch-Site</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7315,37 +7281,6 @@ Response Body Length: 891.</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr">https://bourgognefranchecomte.aract.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-User</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css">https://bourgognefranchecomte.aract.fr/core/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7437,7 +7372,7 @@ Response Body Length: 891.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7491,7 +7426,7 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/strong">https://bourgognefranchecomte.aract.fr/strong</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/a">https://bourgognefranchecomte.aract.fr/a</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7511,7 +7446,39 @@ Response Body Length: 891.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KRinHVQa2xhwzyH7i7yTzH7P-2axMKgKysEYLRqVaOIE-AhB</td>
+						<td width="80%">I7G2bMRb24AGGZHKvJ680iaMMmVFG7oahVUrXNjejsF6pusH</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form--ZwmKzYI394Vu5EGNxZdBbJDo6F1I3OrBnOVKf9smf0&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">I7G2bMRb24AGGZHKvJ680iaMMmVFG7oahVUrXNjejsF6pusH</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7543,7 +7510,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">9X1Euoi1aST1TQSViEwjSEDdTjcjSMMoGhc2ohX6GlaIFady</td>
+						<td width="80%">J1gMLXR7wbi4lHL2pSOkneaCu0ljD5I9o9YxJDVGborvqtpA</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7575,7 +7542,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">KRinHVQa2xhwzyH7i7yTzH7P-2axMKgKysEYLRqVaOIE-AhB</td>
+						<td width="80%">I7G2bMRb24AGGZHKvJ680iaMMmVFG7oahVUrXNjejsF6pusH</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7587,7 +7554,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/sites/default/files/styles/ckeditor_embed/public/2019-03/KH.jpg?itok=CZuf7FB3">https://bourgognefranchecomte.aract.fr/sites/default/files/styles/ckeditor_embed/public/2019-03/KH.jpg?itok=CZuf7FB3</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/a">https://bourgognefranchecomte.aract.fr/a</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7607,39 +7574,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">9X1Euoi1aST1TQSViEwjSEDdTjcjSMMoGhc2ohX6GlaIFady</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/strong">https://bourgognefranchecomte.aract.fr/strong</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">KRinHVQa2xhwzyH7i7yTzH7P-2axMKgKysEYLRqVaOIE-AhB</td>
+						<td width="80%">I7G2bMRb24AGGZHKvJ680iaMMmVFG7oahVUrXNjejsF6pusH</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7735,37 +7670,6 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css">https://bourgognefranchecomte.aract.fr/core/*.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=3600</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.css$">https://bourgognefranchecomte.aract.fr/core/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7920,7 +7824,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.js$">https://bourgognefranchecomte.aract.fr/core/*.js$</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7951,7 +7855,69 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/core/*.png">https://bourgognefranchecomte.aract.fr/core/*.png</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.css">https://bourgognefranchecomte.aract.fr/profiles/*.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.gif">https://bourgognefranchecomte.aract.fr/profiles/*.gif</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=3600</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/profiles/*.js">https://bourgognefranchecomte.aract.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8012,7 +7978,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8084,7 +8050,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8111,7 +8077,7 @@ cookie:SSESS49e53a5abe49f4ba45962eb650cbe78c</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8127,7 +8093,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8154,7 +8120,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-WX3RPonBqWJNH-v-g84vWlwG8mzZ2kZIy_UBD39r0JU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-14W62W7NQwQT-VgBYwuS-gT4YV1KjazK0Ep2iN_fYoY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8170,7 +8136,7 @@ valider</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8197,7 +8163,7 @@ valider</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8213,7 +8179,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8240,7 +8206,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-HTXiEwlCaJ-ldkExjw3yh9Ug1LcbgqS2_I6HalXmccY&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/filter/tips?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-FlF3D3mPxyY2omTnsYpej9_tbYjraMmpNHnFdWXG0Js&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8251,6 +8217,49 @@ op=Valider
 
 The user-controlled value was:
 valider</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/index.php/recherche?search_api_fulltext=ZAP">https://bourgognefranchecomte.aract.fr/index.php/recherche?search_api_fulltext=ZAP</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">search_api_fulltext</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://bourgognefranchecomte.aract.fr/index.php/recherche?search_api_fulltext=ZAP
+
+appears to include user input in: 
+
+a(n) [input] tag [value] attribute 
+
+The user input found was:
+search_api_fulltext=ZAP
+
+The user-controlled value was:
+zap</td>
 					</tr>
 				
 					<tr>
@@ -8299,7 +8308,7 @@ zap</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8326,7 +8335,7 @@ zap</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8342,7 +8351,7 @@ aract_newsletter_form</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
+						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8369,93 +8378,7 @@ aract_newsletter_form</td>
 							class="indent2">Other Info</td>
 						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-n8grNiNfZ_FlpCopWn25JMQMGSJYt8Mo_lvejJlQPGU&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-op=Valider
-
-The user-controlled value was:
-valider</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">form_id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
-
-appears to include user input in: 
-
-a(n) [input] tag [value] attribute 
-
-The user input found was:
-form_id=aract_newsletter_form
-
-The user-controlled value was:
-aract_newsletter_form</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on">https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">op</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://bourgognefranchecomte.aract.fr/user/password?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-rkGRzWfBkBos_bD9_Xr33PJxe8OASC69wspIkM8X08k&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
+https://bourgognefranchecomte.aract.fr/user/login?email=zaproxy%40example.com&amp;fonction=ZAP&amp;form_build_id=form-8Ac_scqOzaHpHoauoV-9MB_O1JCodvRnr_wfDjy9GWg&amp;form_id=aract_newsletter_form&amp;nom=ZAP&amp;op=Valider&amp;prenom=ZAP&amp;rgpd_consent=on
 
 appears to include user input in: 
 
@@ -8642,7 +8565,7 @@ zap</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">13</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
