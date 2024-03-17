@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Mar 2024 03:38:03",
+	"@generated": "Sun, 17 Mar 2024 03:38:07",
 	"site":[ 
 		{
 			"@name": "https://www.centre.aract.fr",
@@ -117,6 +117,33 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Parent Directory",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "3032"
+				},
+				{
 					"pluginid": "10038",
 					"alertRef": "10038-1",
 					"alert": "Content Security Policy (CSP) Header Not Set",
@@ -183,14 +210,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~poster/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
 							"method": "GET",
 							"param": "",
@@ -223,13 +242,40 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10033",
+					"alertRef": "10033",
+					"alert": "Directory Browsing",
+					"name": "Directory Browsing",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>It is possible to view a listing of the directory contents. Directory listings may reveal hidden scripts, include files, backup source files, etc., which can be accessed to reveal sensitive information.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.centre.aract.fr/wp-content/plugins/all-in-one-event-calendar/public/js/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<title>Index of /wp-content/plugins/all-in-one-event-calendar/public/js</title>",
+							"otherinfo": "Web server identified: Apache 2"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Configure the web server to disable directory browsing.</p>",
+					"otherinfo": "<p>Web server identified: Apache 2</p>",
+					"reference": "<p>https://cwe.mitre.org/data/definitions/548.html</p>",
+					"cweid": "548",
+					"wascid": "16",
+					"sourceid": "3032"
 				},
 				{
 					"pluginid": "10020",
@@ -381,7 +427,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -389,7 +435,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -397,7 +443,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -405,7 +451,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -413,7 +459,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
+							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -421,7 +467,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
+							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -429,7 +475,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
+							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -437,7 +483,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
+							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -486,7 +532,7 @@
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/advisories/GHSA-rmxg-73gg-4p98</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://github.com/jquery/jquery.com/issues/162</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "954"
+					"sourceid": "955"
 				},
 				{
 					"pluginid": "90022",
@@ -513,7 +559,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1879"
+					"sourceid": "1869"
 				},
 				{
 					"pluginid": "10017",
@@ -550,6 +596,30 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "//maps.googleapis.com/maps/api/js?ver=6.4.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"//maps.googleapis.com/maps/api/js?ver=6.4.3&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps\" id=\"google_map_api-js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "https://tarteaucitron.io/load.js?locale=fr&iswordpress=true&domain=www.centre.aract.fr&uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"https://tarteaucitron.io/load.js?locale=fr&iswordpress=true&domain=www.centre.aract.fr&uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&render=explicit",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" async defer src=\"https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&amp;render=explicit\" id=\"google-invisible-recaptcha-js\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "//maps.googleapis.com/maps/api/js?ver=6.4.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
@@ -591,30 +661,6 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
-							"method": "GET",
-							"param": "https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&render=explicit",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" async defer src=\"https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&amp;render=explicit\" id=\"google-invisible-recaptcha-js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~week/",
-							"method": "GET",
-							"param": "//maps.googleapis.com/maps/api/js?ver=6.4.3&key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&callback=rgmkInitGoogleMaps",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"//maps.googleapis.com/maps/api/js?ver=6.4.3&amp;key=AIzaSyDUX4DwE3Zc0Q-k8jOb45YawpUK7f9Zcks&amp;callback=rgmkInitGoogleMaps\" id=\"google_map_api-js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~week/",
-							"method": "GET",
-							"param": "https://tarteaucitron.io/load.js?locale=fr&iswordpress=true&domain=www.centre.aract.fr&uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"https://tarteaucitron.io/load.js?locale=fr&iswordpress=true&domain=www.centre.aract.fr&uuid=90831e8d6debf1663bb3a95b45bad317ce4b3a37\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~week/",
 							"method": "GET",
 							"param": "https://www.google.com/recaptcha/api.js?onload=renderInvisibleReCaptcha&render=explicit",
 							"attack": "",
@@ -679,7 +725,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "954"
+					"sourceid": "955"
 				},
 				{
 					"pluginid": "110009",
@@ -1136,6 +1182,14 @@
 							"otherinfo": "1672674458, which evaluates to: 2023-01-02 15:47:38"
 						},
 						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1672674458",
+							"otherinfo": "1672674458, which evaluates to: 2023-01-02 15:47:38"
+						},
+						{
 							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
@@ -1144,7 +1198,7 @@
 							"otherinfo": "1672674458, which evaluates to: 2023-01-02 15:47:38"
 						},
 						{
-							"uri": "https://www.centre.aract.fr/calendar/action~week/",
+							"uri": "https://www.centre.aract.fr/calendar/action~posterboard/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1152,7 +1206,7 @@
 							"otherinfo": "1672674458, which evaluates to: 2023-01-02 15:47:38"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1672674458, which evaluates to: 2023-01-02 15:47:38</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
@@ -1180,6 +1234,14 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/agenda/action~agenda/",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/agenda/action~default/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1244,14 +1306,6 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/robots.txt",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.centre.aract.fr/sitemap_index.xml",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1516,6 +1570,38 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\" id=\"mkd-like-js-extra\">\n/* <![CDATA[ */\nvar mkdLike = {\"ajaxurl\":\"https:\\/\\/www.centre.aract.fr\\/\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/calendar/action~agenda/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/calendar/action~month/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin",
+							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\" id=\"mkd-like-js-extra\">\n/* <![CDATA[ */\nvar mkdLike = {\"ajaxurl\":\"https:\\/\\/www.centre.aract.fr\\/\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/calendar/action~month/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
 							"method": "GET",
 							"param": "",
@@ -1580,7 +1666,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "10",
+					"count": "14",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"text/javascript\" id=\"mkd-like-js-extra\"></p><p>/* <![CDATA[ */</p><p>var mkdLike = {\"ajaxurl\":\"https:\\/\\/www.centre.aract.fr\\/\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1600,6 +1686,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.centre.aract.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id='back_to_top' class=\"\" href='#'>\n\t\t<span class=\"mkd_icon_stack\">\n\t\t\t\t\t\t<span class=\"ion-ios-arrow-up\"></span>\n\t\t\t\t\t</span>\n\t</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.centre.aract.fr/*controller=ai1ec_exporter_controller",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1640,14 +1734,6 @@
 						},
 						{
 							"uri": "https://www.centre.aract.fr/calendar/action~oneday/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id='back_to_top' class=\"\" href='#'>\n\t\t<span class=\"mkd_icon_stack\">\n\t\t\t\t\t\t<span class=\"ion-ios-arrow-up\"></span>\n\t\t\t\t\t</span>\n\t</a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.centre.aract.fr/calendar/action~poster/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1784,9 +1870,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.centre.aract.fr/robots.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -2172,7 +2266,7 @@
 							"param": "_wpcf7_version",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.centre.aract.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\n_wpcf7_version=5.9\n\nThe user-controlled value was:\n5.9"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.centre.aract.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\n_wpcf7_version=5.9.2\n\nThe user-controlled value was:\n5.9.2"
 						},
 						{
 							"uri": "https://www.centre.aract.fr/",
@@ -2260,7 +2354,7 @@
 							"param": "_wpcf7_version",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.centre.aract.fr/2023/05/30/serious_game_2024/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\n_wpcf7_version=5.9\n\nThe user-controlled value was:\n5.9"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.centre.aract.fr/2023/05/30/serious_game_2024/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\n_wpcf7_version=5.9.2\n\nThe user-controlled value was:\n5.9.2"
 						},
 						{
 							"uri": "https://www.centre.aract.fr/2023/05/30/serious_game_2024/",
@@ -2333,7 +2427,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "654"
+					"sourceid": "657"
 				}
 			]
 		}
