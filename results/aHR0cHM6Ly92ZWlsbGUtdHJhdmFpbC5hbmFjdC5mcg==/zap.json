@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Mar 2024 01:23:02",
+	"@generated": "Sun, 24 Mar 2024 01:25:43",
 	"site":[ 
 		{
 			"@name": "https://veille-travail.anact.fr",
@@ -34,7 +34,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "4900"
+					"sourceid": "5992"
 				},
 				{
 					"pluginid": "10202",
@@ -95,6 +95,22 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"details[finished]\" \"details[page_count]\" \"details[page_num]\" \"details[sid]\" \"edit-submitted-mot-de-passe\" \"edit-submitted-numero-de-carte\" \"form_build_id\" \"form_id\" ]."
 						},
 						{
+							"uri": "https://veille-travail.anact.fr/modules/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"form-horizontal form-header\" action=\"/osiros/result/resultat.php\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"bool[]\" \"fulltext\" \"index[]\" \"nouveaute\" \"type_rech\" ]."
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/modules/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"webform-client-form webform-client-form-1\" enctype=\"multipart/form-data\" action=\"/modules/*.css$\" method=\"post\" id=\"webform-client-form-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"details[finished]\" \"details[page_count]\" \"details[page_num]\" \"details[sid]\" \"edit-submitted-mot-de-passe\" \"edit-submitted-numero-de-carte\" \"form_build_id\" \"form_id\" ]."
+						},
+						{
 							"uri": "https://veille-travail.anact.fr/modules/*.js$",
 							"method": "GET",
 							"param": "",
@@ -127,7 +143,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"details[finished]\" \"details[page_count]\" \"details[page_num]\" \"details[sid]\" \"edit-submitted-mot-de-passe\" \"edit-submitted-numero-de-carte\" \"form_build_id\" \"form_id\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"bool[]\" \"fulltext\" \"index[]\" \"nouveaute\" \"type_rech\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -240,7 +256,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "572"
+					"sourceid": "564"
 				},
 				{
 					"pluginid": "10038",
@@ -301,14 +317,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/misc/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://veille-travail.anact.fr/misc/*.js$",
 							"method": "GET",
 							"param": "",
@@ -333,6 +341,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://veille-travail.anact.fr/modules/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/modules/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://veille-travail.anact.fr/modules/*.js$",
 							"method": "GET",
 							"param": "",
@@ -349,7 +373,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
@@ -470,7 +494,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "572"
+					"sourceid": "564"
 				},
 				{
 					"pluginid": "10099",
@@ -510,7 +534,7 @@
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
 					"instances":[ 
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -518,7 +542,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -526,7 +550,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -534,15 +558,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async=\"\" src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -614,13 +630,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "125"
 				},
 				{
 					"pluginid": "10003",
@@ -679,7 +695,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/advisories/GHSA-rmxg-73gg-4p98</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://github.com/jquery/jquery.com/issues/162</p><p>https://nvd.nist.gov/vuln/detail/CVE-2020-7656</p><p>https://bugs.jquery.com/ticket/9521</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/advisories/GHSA-q4m3-2j7h-f7xw</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2011-4969</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "563"
+					"sourceid": "556"
 				},
 				{
 					"pluginid": "90022",
@@ -706,7 +722,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "705"
+					"sourceid": "708"
 				},
 				{
 					"pluginid": "10044",
@@ -821,7 +837,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "549"
+					"sourceid": "539"
 				},
 				{
 					"pluginid": "10054",
@@ -874,14 +890,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/admin/",
-							"method": "POST",
-							"param": "SSESS835103f430ee31852815462c05d70c86",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS835103f430ee31852815462c05d70c86",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://veille-travail.anact.fr/comment/reply/",
 							"method": "POST",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
@@ -890,15 +898,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/misc/*.css$",
-							"method": "POST",
-							"param": "SSESS835103f430ee31852815462c05d70c86",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESS835103f430ee31852815462c05d70c86",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/misc/*.js$",
+							"uri": "https://veille-travail.anact.fr/filter/tips/",
 							"method": "POST",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
@@ -922,7 +922,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/profiles/*.css$",
+							"uri": "https://veille-travail.anact.fr/sitemap.xml",
 							"method": "POST",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
@@ -930,7 +930,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/sitemap.xml",
+							"uri": "https://veille-travail.anact.fr/user/logout/",
+							"method": "POST",
+							"param": "SSESS835103f430ee31852815462c05d70c86",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESS835103f430ee31852815462c05d70c86",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/user/password/",
 							"method": "POST",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
@@ -938,13 +946,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "291"
+					"sourceid": "297"
 				},
 				{
 					"pluginid": "10017",
@@ -1142,7 +1150,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "6634"
+					"sourceid": "6664"
 				},
 				{
 					"pluginid": "110009",
@@ -1257,7 +1265,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "220"
+					"sourceid": "219"
 				},
 				{
 					"pluginid": "10023",
@@ -1377,7 +1385,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/modules/*.js$",
+							"uri": "https://veille-travail.anact.fr/modules/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1514,7 +1522,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "1006"
+					"sourceid": "1026"
 				},
 				{
 					"pluginid": "10036",
@@ -1781,6 +1789,22 @@
 							"otherinfo": "1543226471, which evaluates to: 2018-11-26 10:01:11"
 						},
 						{
+							"uri": "https://veille-travail.anact.fr/osiros/result/resultat.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1710759606",
+							"otherinfo": "1710759606, which evaluates to: 2024-03-18 11:00:06"
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/osiros/result/resultat.php?fq&osirosrows=10&queryosiros=sujets_tous%3A%28sante%29%20AND%20sujets_tous%3A%28prevention%20des%20risques%29%20&sort_define=date_crea_notice&sort_order=1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1710768370",
+							"otherinfo": "1710768370, which evaluates to: 2024-03-18 13:26:10"
+						},
+						{
 							"uri": "https://veille-travail.anact.fr/produits-documentaires/comment-ameliorer-les-conditions-de-travail-des-travailleurs-atteints-de",
 							"method": "GET",
 							"param": "",
@@ -1819,55 +1843,15 @@
 							"attack": "",
 							"evidence": "1620216230",
 							"otherinfo": "1620216230, which evaluates to: 2021-05-05 12:03:50"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/produits-documentaires/comment-ameliorer-les-conditions-de-travail-des-travailleurs-atteints-de",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "1543226471",
-							"otherinfo": "1543226471, which evaluates to: 2018-11-26 10:01:11"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/produits-documentaires/quelles-conditions-de-travail-pour-les-travailleurs-des-plateformes",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "2008022017",
-							"otherinfo": "2008022017, which evaluates to: 2033-08-18 23:53:37"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/produits-documentaires/transformation-numerique-transformation-des-competences",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "1531734056",
-							"otherinfo": "1531734056, which evaluates to: 2018-07-16 09:40:56"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/user",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "1710638459",
-							"otherinfo": "1710638459, which evaluates to: 2024-03-17 01:20:59"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/user",
-							"method": "POST",
-							"param": "Link",
-							"attack": "",
-							"evidence": "1710638459",
-							"otherinfo": "1710638459, which evaluates to: 2024-03-17 01:20:59"
 						}
 					],
-					"count": "13",
+					"count": "10",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>2008022017, which evaluates to: 2033-08-18 23:53:37</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "7185"
+					"sourceid": "7244"
 				},
 				{
 					"pluginid": "10021",
@@ -1936,14 +1920,6 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/misc/drupal.js?s6ozzs",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://veille-travail.anact.fr/misc/jquery.once.js?v=1.2",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -1961,6 +1937,14 @@
 						},
 						{
 							"uri": "https://veille-travail.anact.fr/sites/all/modules/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/sites/all/modules/osiros/osirosdrupal/js/jquery.autocomplete.min.js?s6ozzs",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -2158,6 +2142,22 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 22 times, the first in the element starting with: \"<!-- BEGIN OUTPUT from 'sites/all/themes/themedemo/templates/system/html.tpl.php' -->\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://veille-travail.anact.fr/modules/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "DEBUG",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected 11 times, the first in the element starting with: \"<!-- THEME DEBUG -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/modules/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from",
+							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 22 times, the first in the element starting with: \"<!-- BEGIN OUTPUT from 'sites/all/themes/themedemo/templates/system/html.tpl.php' -->\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://veille-travail.anact.fr/modules/*.js$",
 							"method": "GET",
 							"param": "",
@@ -2190,7 +2190,7 @@
 							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 22 times, the first in the element starting with: \"<!-- BEGIN OUTPUT from 'sites/all/themes/themedemo/templates/system/html.tpl.php' -->\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bDEBUG\\b and was detected 39 times, the first in the element starting with: \"<!-- THEME DEBUG -->\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -2388,14 +2388,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://veille-travail.anact.fr/robots.txt",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://veille-travail.anact.fr/UPGRADE.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -2404,7 +2396,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -2423,7 +2415,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -2453,7 +2445,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "120"
 				},
 				{
 					"pluginid": "90005",
@@ -2466,7 +2458,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -2496,7 +2488,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "120"
 				},
 				{
 					"pluginid": "90005",
@@ -2509,7 +2501,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -2539,7 +2531,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "120"
 				},
 				{
 					"pluginid": "90005",
@@ -2552,7 +2544,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://veille-travail.anact.fr",
+							"uri": "https://veille-travail.anact.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2582,7 +2574,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "120"
 				},
 				{
 					"pluginid": "10112",
@@ -2599,7 +2591,7 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "P76BqJL752Q9uyr8hL6LnLCpQzhgwMv3wL3YW3tpvZE",
+							"evidence": "5iU3fFJ-n16LFjoJ12UP8AGuycK9FTt0p5C_TK2NFdI",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2607,7 +2599,7 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "3Zn5KYWLSE4vA0B--0AsdgmpaBFjVM9MONZ6H-s8W48",
+							"evidence": "MXXdVWpxmnfp9LkO1fvjpk5usLUdvwQ61AXXTxM28UA",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2615,7 +2607,7 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "hx1TwdYK-9jbAC8TjAYEKuQhD6JSzdytVr4eqGWvDTg",
+							"evidence": "fT3-y6lzufeUOeWmM_r-KQqAdmIt-eWLR2lOe4gRbd8",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2623,15 +2615,7 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "LyuTvp2HYqgXVFc99LqS_S_BGo4f_V78K5qM_GaPcmw",
-							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
-						},
-						{
-							"uri": "https://veille-travail.anact.fr/misc/*.css$",
-							"method": "POST",
-							"param": "SSESS835103f430ee31852815462c05d70c86",
-							"attack": "",
-							"evidence": "V5EYjmyQNcJKo6ZHlavhdGehctpFkNO8ENcyI1B4swg",
+							"evidence": "fxv9in-INRwkUMesW4-px-C0njPtj9AJInIiiIRruXE",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2639,7 +2623,7 @@
 							"method": "POST",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "i4rT8_Md7ai4dKTr4YpC9ZbocL95_JRIRHdmwU0GDB4",
+							"evidence": "7VUgUSYeIA0PDA_RhrBMYo3UJGPYVs5bowlsqKEh9vM",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2647,7 +2631,7 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "3Zn5KYWLSE4vA0B--0AsdgmpaBFjVM9MONZ6H-s8W48",
+							"evidence": "MXXdVWpxmnfp9LkO1fvjpk5usLUdvwQ61AXXTxM28UA",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						},
 						{
@@ -2655,7 +2639,15 @@
 							"method": "GET",
 							"param": "SSESS835103f430ee31852815462c05d70c86",
 							"attack": "",
-							"evidence": "LyuTvp2HYqgXVFc99LqS_S_BGo4f_V78K5qM_GaPcmw",
+							"evidence": "fxv9in-INRwkUMesW4-px-C0njPtj9AJInIiiIRruXE",
+							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
+						},
+						{
+							"uri": "https://veille-travail.anact.fr/misc/*.js$",
+							"method": "POST",
+							"param": "SSESS835103f430ee31852815462c05d70c86",
+							"attack": "",
+							"evidence": "fT3-y6lzufeUOeWmM_r-KQqAdmIt-eWLR2lOe4gRbd8",
 							"otherinfo": "\ncookie:SSESS835103f430ee31852815462c05d70c86"
 						}
 					],
@@ -2665,7 +2657,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "291"
+					"sourceid": "297"
 				},
 				{
 					"pluginid": "10049",
@@ -2954,7 +2946,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "430"
+					"sourceid": "428"
 				}
 			]
 		}
