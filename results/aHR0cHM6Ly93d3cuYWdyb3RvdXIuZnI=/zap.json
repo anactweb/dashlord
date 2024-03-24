@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Mar 2024 02:25:11",
+	"@generated": "Sun, 24 Mar 2024 02:23:32",
 	"site":[ 
 		{
 			"@name": "https://www.agrotour.fr",
@@ -34,7 +34,7 @@
 					"reference": "<p>https://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1229"
+					"sourceid": "1275"
 				},
 				{
 					"pluginid": "10202",
@@ -133,7 +133,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "10038",
@@ -163,6 +163,14 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -203,14 +211,6 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -325,7 +325,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/developper-les-competences-des-managers/",
+							"uri": "https://www.agrotour.fr/thematique/impliquer-ses-salaries-dans-les-nouveaux-projets/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -521,7 +521,7 @@
 					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/advisories/GHSA-pj7m-g53m-7638</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p>https://github.com/advisories/GHSA-ph58-4vrj-w6hr</p><p>https://github.com/twbs/bootstrap/issues/20631</p><p>https://github.com/advisories/GHSA-4p24-vmcr-4gqj</p><p>https://github.com/advisories/GHSA-9v3m-8fp8-mj99</p><p>https://nvd.nist.gov/vuln/detail/CVE-2018-20676</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "301"
+					"sourceid": "307"
 				},
 				{
 					"pluginid": "10010",
@@ -574,23 +574,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
-							"method": "GET",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php",
+							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
 							"evidence": "Set-Cookie: wordpress_test_cookie",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
-							"method": "GET",
-							"param": "wp_lang",
-							"attack": "",
-							"evidence": "Set-Cookie: wp_lang",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php",
+							"uri": "https://www.agrotour.fr/wp/wp-login.php?action=lostpassword",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -598,13 +590,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "7",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1325"
+					"sourceid": "1341"
 				},
 				{
 					"pluginid": "10054",
@@ -657,22 +649,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
-							"method": "GET",
-							"param": "wordpress_test_cookie",
-							"attack": "",
-							"evidence": "Set-Cookie: wordpress_test_cookie",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/wp/wp-login.php?wp_lang=fr_FR",
-							"method": "GET",
-							"param": "wp_lang",
-							"attack": "",
-							"evidence": "Set-Cookie: wp_lang",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php",
 							"method": "POST",
 							"param": "wordpress_test_cookie",
@@ -689,13 +665,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "7",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1325"
+					"sourceid": "1341"
 				},
 				{
 					"pluginid": "10017",
@@ -829,7 +805,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "308"
+					"sourceid": "292"
 				},
 				{
 					"pluginid": "10063",
@@ -859,6 +835,14 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/categorie/actualite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -899,14 +883,6 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1080,6 +1056,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/entreprises/",
 							"method": "GET",
 							"param": "",
@@ -1104,6 +1088,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.agrotour.fr/ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1113,14 +1105,6 @@
 						},
 						{
 							"uri": "https://www.agrotour.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1144,7 +1128,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
@@ -1201,7 +1185,7 @@
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1140"
+					"sourceid": "1152"
 				},
 				{
 					"pluginid": "10021",
@@ -1458,7 +1442,7 @@
 					"reference": "<p>https://en.wikipedia.org/wiki/HTTP_cookie</p><p>https://cwe.mitre.org/data/definitions/565.html</p>",
 					"cweid": "565",
 					"wascid": "20",
-					"sourceid": "1332"
+					"sourceid": "1346"
 				},
 				{
 					"pluginid": "10027",
@@ -1565,7 +1549,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "10109",
@@ -1672,7 +1656,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "10049",
@@ -1800,14 +1784,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/thematique/concevoir-des-environnements-de-travail-performants/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/thematique/transfert-de-savoir/",
 							"method": "GET",
 							"param": "cache-control",
@@ -1824,7 +1800,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1843,14 +1819,6 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1859,7 +1827,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1873,7 +1849,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1886,14 +1862,6 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1902,7 +1870,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1916,7 +1892,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1929,14 +1905,6 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1945,7 +1913,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1959,7 +1935,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1972,14 +1948,6 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.agrotour.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.agrotour.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1988,7 +1956,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.agrotour.fr/sitemap.xml",
+							"uri": "https://www.agrotour.fr/wp/wp-admin/",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp/wp-admin/admin-ajax.php",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -2002,7 +1978,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10112",
@@ -2023,7 +1999,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6315.pdf",
+							"uri": "https://www.agrotour.fr/app/uploads/2022/07",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2031,7 +2007,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/app/uploads/2023/11/guide-exo-1-640x400.png",
+							"uri": "https://www.agrotour.fr/app/uploads/2022/08/agro-tour-naturealiment-banniere-2.png",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2039,7 +2015,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprise/eplefpa-lycee-agricole-de-blanquefort",
+							"uri": "https://www.agrotour.fr/app/uploads/2023/11/ed6315-pdf-image-177x250.jpg",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2047,7 +2023,7 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprise/projet-pluridisciplinaire-de-maintenance-autonome-chez-aoste-un-enjeu-pour-lamelioration-continue-et-les-conditions-de-travail",
+							"uri": "https://www.agrotour.fr/ressources/page/12",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2055,7 +2031,23 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						},
 						{
-							"uri": "https://www.agrotour.fr/entreprises/page/3",
+							"uri": "https://www.agrotour.fr/ressources/page/6",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "WP%20Cookie%20check",
+							"otherinfo": "\ncookie:wordpress_test_cookie"
+						},
+						{
+							"uri": "https://www.agrotour.fr/ressources/page/6/",
+							"method": "GET",
+							"param": "wordpress_test_cookie",
+							"attack": "",
+							"evidence": "WP%20Cookie%20check",
+							"otherinfo": "\ncookie:wordpress_test_cookie"
+						},
+						{
+							"uri": "https://www.agrotour.fr/wp-json/wp/v2/pages/13",
 							"method": "GET",
 							"param": "wordpress_test_cookie",
 							"attack": "",
@@ -2063,13 +2055,13 @@
 							"otherinfo": "\ncookie:wordpress_test_cookie"
 						}
 					],
-					"count": "6",
+					"count": "8",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:wordpress_test_cookie</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "424"
+					"sourceid": "408"
 				},
 				{
 					"pluginid": "10049",
@@ -2164,30 +2156,6 @@
 					"riskdesc": "Informational (Low)",
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\n\nappears to include user input in: \n\na(n) [div] tag [role] attribute \n\nThe user input found was:\nselect_resource=document\n\nThe user-controlled value was:\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_resource",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nselect_resource=document\n\nThe user-controlled value was:\ndocument"
-						},
-						{
-							"uri": "https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants",
-							"method": "GET",
-							"param": "select_thematique",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nselect_thematique=concevoir-des-environnements-de-travail-performants\n\nThe user-controlled value was:\nconcevoir-des-environnements-de-travail-performants"
-						},
 						{
 							"uri": "https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F",
 							"method": "GET",
@@ -2373,13 +2341,13 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.agrotour.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nvotre-telephone=ZAP\n\nThe user-controlled value was:\nzap"
 						}
 					],
-					"count": "26",
+					"count": "23",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/ressources/?select_etape&select_resource=document&select_thematique=concevoir-des-environnements-de-travail-performants</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [div] tag [role] attribute </p><p></p><p>The user input found was:</p><p>select_resource=document</p><p></p><p>The user-controlled value was:</p><p>document</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.agrotour.fr/wp/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fwww.agrotour.fr%2Fwp%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://www.agrotour.fr/wp/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://www.agrotour.fr/</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "689"
+					"sourceid": "408"
 				}
 			]
 		}
