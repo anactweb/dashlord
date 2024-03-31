@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Mar 2024 03:59:35",
+	"@generated": "Sun, 31 Mar 2024 03:54:14",
 	"site":[ 
 		{
 			"@name": "https://anactprod.dev-ssl.e-bizproduction.com",
@@ -53,6 +53,14 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"views-exposed-form-search-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search-api-fulltext\" \"edit-submit-search\" ]."
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -116,13 +124,13 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: \"edit-search-api-fulltext--2\" \"edit-submit-services--2\" ]."
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search-api-fulltext\" \"edit-submit-search\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10038",
@@ -152,6 +160,14 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -199,14 +215,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/ressources?f%5B0%5D=region%3A140",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/services?f%5B0%5D=territory_service%3A140",
 							"method": "GET",
 							"param": "",
@@ -229,7 +237,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90022",
@@ -256,7 +264,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "4351"
+					"sourceid": "5175"
 				},
 				{
 					"pluginid": "10044",
@@ -283,14 +291,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 55 [https://anactprod.dev-ssl.e-bizproduction.com/grand-est].\nPredicted response size: 355.\nResponse Body Length: 466."
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/aract-ile-de-france",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 59 [https://anactprod.dev-ssl.e-bizproduction.com/ile-de-france].\nPredicted response size: 359.\nResponse Body Length: 482."
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/aract-la-reunion",
@@ -341,6 +341,14 @@
 							"otherinfo": "Location header URI length: 121 [https://anactprod.dev-ssl.e-bizproduction.com/formation-intervenir-en-entreprise-pour-ameliorer-les-conditions-de-travail].\nPredicted response size: 421.\nResponse Body Length: 730."
 						},
 						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/mettre-en-place-des-espaces-de-discussion-sur-le-travail-edt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 116 [https://anactprod.dev-ssl.e-bizproduction.com/formation-mettre-en-place-des-espaces-de-discussion-sur-le-travail-edt].\nPredicted response size: 416.\nResponse Body Length: 710."
+						},
+						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/normandie-0",
 							"method": "GET",
 							"param": "",
@@ -371,7 +379,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "8842"
+					"sourceid": "9065"
 				},
 				{
 					"pluginid": "10110",
@@ -384,7 +392,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_-DIDkPjntz-aANZVwLp1cbKPH8eBcPnTNpOcS0YS0t0.js?delta=2&include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_2nHrx0gFAEvxDroj_9aPAF4DLuAanzfQ0JNkakBAGH0.js?delta=2&include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -392,23 +400,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_7zeohGGH4BGfMsaooAidCJvlzuE9WsbiUQGssLUAFRc.js?delta=2&include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&language=fr&scope=footer&theme=bluedrop_dsfr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_a0gwyYZ6CQRaZNl7SbrvTc27uNcwsIMMybnUAXLYpuQ.js?delta=2&include=eJx1UEluwzAM_JAiPUnQMk7YyKZAUnH6-9ox3AJFciFmw5Bg59ZCldFT833Dl0bLXZ1-q2EOOSncoKiDDLHqJIEfEKEKdbkNVOF-6JbKl-7on_6XfyWO3C8WQxqFTHjxk_jNeRBWDa_pZ66jwU2pwPS88mB-31B5XS4r1SvsfeiKBZLae7PcUO6Zn2dDhhkk4tlZUeNEbaMazo4PdhrG23_yTOYUScotpk5xlwvPvcEQPug_l9WVcw&language=fr&scope=footer&theme=bluedrop_dsfr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_DG2HhI6b27SrDiyhuT4fzhnVNjjaNOFWq9stbUlvZtU.js?delta=2&include=eJx1j1GOwjAMRC8UmiNFTjOlZt3Gsh20e3vKIhUJib-ZN-_D1i6Smw0lmfTIF-H9x5P_eWDLlRxpcPHBgdJ8sdzvMOMGT1UGmnV98aD55s_0wd_-v_HyzmwBGjOH9X1abDoWJaOrka5-nnWSaew6qrCvaKkiAlbwq93RysJyVM9X7DCSbzON6Mc7deNIDrJ5LaRcnnjumwoC-Qt_ABg7dsc&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -424,7 +416,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&include=eJx1j1GOwjAMRC8UmiNFTjOlZt3Gsh20e3vKIhUJib-ZN-_D1i6Smw0lmfTIF-H9x5P_eWDLlRxpcPHBgdJ8sdzvMOMGT1UGmnV98aD55s_0wd_-v_HyzmwBGjOH9X1abDoWJaOrka5-nnWSaew6qrCvaKkiAlbwq93RysJyVM9X7DCSbzON6Mc7deNIDrJ5LaRcnnjumwoC-Qt_ABg7dsc&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -432,11 +424,19 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_QHzpzhVt1-wDba8iCDuir-rYzR2BjzY4bncykHPLewI.js?delta=0&include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_P_7aBMPcUV5Ds_hY_m4su19E-4XG2BETVSpT3dCq3UA.js?delta=2&include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Eval",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_sHjGyoaPErv4hctFbwaXoFlVm5QDiNwQ_0kxH7USa5o.js?delta=2&include=eJx1T-2OgzAMeyHWPlLVD7PlVkiVpGP39gdDbNJ0_Ikc24qdxrX6Ir3F6tqKL5Xmuw76q4bJp6gYOgXtZAhFR_H8gAgV6JBqRxFuO28x_-iGvviP_-XYfW8shtgzmfDsRnGr8iAs6l_TTVx6xZBgBgl4NlaUMFJdV_VXzJBYz-TYjdfiaSIbxphhevy5b27rWHiZLwuVK05MR8i_Yr4h3xM_jwuKKPkWYqOwpWeeWoXBn_B_JiCVcw&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
 							"otherinfo": ""
 						},
 						{
@@ -449,6 +449,14 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&scope=footer&theme=bluedrop_dsfr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&include=eJx1jkEOwjAMBD8UmidFbrIFg9tEtoPg9wQqgYTU23h2Dm5VJBbtjWRqg0_C282CPc2xxpkMoXOyzo5UbNFY71DlAguzdBStbfdO-Wpv-vO__lPs3ZfVQT2za92mRaexzHCHJjxaNZS0sIzT4hkblORopu51fDmv7MFAmi-JGqe3znVtAkc88C-Cw2aT&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -486,7 +494,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2888"
+					"sourceid": "1743"
 				},
 				{
 					"pluginid": "110009",
@@ -498,6 +506,14 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>The full path of files which might be sensitive has been exposed to the client.</p>",
 					"instances":[ 
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/system/",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/composer/Plugin/ProjectMessage/README.md",
 							"method": "GET",
@@ -540,14 +556,6 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/system/",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -601,7 +609,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "1373"
+					"sourceid": "1454"
 				},
 				{
 					"pluginid": "10063",
@@ -631,6 +639,14 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -671,14 +687,6 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets?f%5B0%5D=realisation_territory%3A140",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/ressources?f%5B0%5D=region%3A140",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -745,7 +753,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -753,7 +761,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/decryptage",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -801,7 +809,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sitemap.xml",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/thematiques-0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -815,7 +823,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10096",
@@ -832,53 +840,53 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1446869088",
-							"otherinfo": "1446869088, which evaluates to: 2015-11-07 04:04:48"
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1528748244",
-							"otherinfo": "1528748244, which evaluates to: 2018-06-11 20:17:24"
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1948924244",
-							"otherinfo": "1948924244, which evaluates to: 2031-10-04 23:50:44"
+							"evidence": "1495081265",
+							"otherinfo": "1495081265, which evaluates to: 2017-05-18 04:21:05"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1446869088",
-							"otherinfo": "1446869088, which evaluates to: 2015-11-07 04:04:48"
+							"evidence": "1495081265",
+							"otherinfo": "1495081265, which evaluates to: 2017-05-18 04:21:05"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1528748244",
-							"otherinfo": "1528748244, which evaluates to: 2018-06-11 20:17:24"
+							"evidence": "1445246076",
+							"otherinfo": "1445246076, which evaluates to: 2015-10-19 09:14:36"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1948924244",
-							"otherinfo": "1948924244, which evaluates to: 2031-10-04 23:50:44"
+							"evidence": "1464042605",
+							"otherinfo": "1464042605, which evaluates to: 2016-05-23 22:30:05"
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1495081265",
+							"otherinfo": "1495081265, which evaluates to: 2017-05-18 04:21:05"
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1678384733",
+							"otherinfo": "1678384733, which evaluates to: 2023-03-09 17:58:53"
 						}
 					],
 					"count": "6",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1446869088, which evaluates to: 2015-11-07 04:04:48</p>",
+					"otherinfo": "<p>1495081265, which evaluates to: 2017-05-18 04:21:05</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -896,6 +904,14 @@
 					"instances":[ 
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/core/misc/favicon.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/libraries/dsfr/dist/dsfr.module.js?v=1.x",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -951,7 +967,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/css/css_8FtLAVCCzZUXeY5VwMxbijwfKIfoJXpZS5fzvX2xTDg.css?delta=1&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/css/css_vIcv8XdRp54KdAOxe_QuBuTY5E2NxT7CEplkcLKvCUM.css?delta=0&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -959,7 +975,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/css/css_vIcv8XdRp54KdAOxe_QuBuTY5E2NxT7CEplkcLKvCUM.css?delta=0&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&theme=bluedrop_dsfr",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/sites/default/files/js/js_ThsLOJDmlxZwGOg_PSB89NhKy-JdZ2joO3YwTIlP2b4.js?delta=0&include=eJx1j1GOwzAIRC_kjY9k4XjSsCUxAtzdvf2mrZRKlfqDHm_mA7SL5GZDSSY9-Et4v3ryPw9suZIjDS4-OFCaL5b7DWbc4KnKQLOuTx80f_ud3vyr_2g8eydbgMbMYX2fFpuO5Mb48fyY09bbECQlo4uRrn5eeppp7DqqsK9oqSICVvCr3dHKwnKsni_YYSSfYhrRjw_rxpEcZPNaSLnc9dw3FQTyB_8PEX9-Mg&language=fr&scope=footer&theme=bluedrop_dsfr",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -981,14 +997,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/web.config",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
 					"count": "12",
@@ -997,7 +1005,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1314"
+					"sourceid": "1332"
 				},
 				{
 					"pluginid": "10094",
@@ -1034,7 +1042,7 @@
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDa\uFFFD\\x000e\uFFFD\uFFFD\uFFFD\\x0017\uFFFD\uFFFDm\uFFFD\u2002V\r\uFFFD&A\uFFFD\uFFFD\"@qKS\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/bourgogne-franche-comte",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1046,8 +1054,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_EoJ3xVQQIQFD9kJjrtE6QAJtVV8OIkaEOIFKguttWaA",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDJ\t\uFFFD\\x0015P@\uFFFD\\x0005\\x000f\uFFFD\t\uFFFD\uFFFDD\uFFFD\\x0000\t\uFFFDU|8\uFFFD\\x001a\\x0010\uFFFD\\x0005*\\x000b\uFFFD\uFFFDf\uFFFD"
+							"evidence": "/sites/default/files/css/css_9bCBYWcsTR-0BP6Zup6q1IlFPu7l4_8c7lcTOfXkpfc",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\uFFFD4~\uFFFD\\x0013\uFFFDf\uFFFDz\uFFFDR%\\x0014\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDs\uFFFD\\L\uFFFD\u05D2\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/decryptage",
@@ -1070,32 +1078,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_EoJ3xVQQIQFD9kJjrtE6QAJtVV8OIkaEOIFKguttWaA",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDJ\t\uFFFD\\x0015P@\uFFFD\\x0005\\x000f\uFFFD\t\uFFFD\uFFFDD\uFFFD\\x0000\t\uFFFDU|8\uFFFD\\x001a\\x0010\uFFFD\\x0005*\\x000b\uFFFD\uFFFDf\uFFFD"
+							"evidence": "/sites/default/files/css/css_9bCBYWcsTR-0BP6Zup6q1IlFPu7l4_8c7lcTOfXkpfc",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\uFFFD4~\uFFFD\\x0013\uFFFDf\uFFFDz\uFFFDR%\\x0014\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDs\uFFFD\\L\uFFFD\u05D2\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets?f%5B0%5D=realisation_territory%3A140",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_9Mzi6mWWqPPo-2Zewutu5Jv4DVAvntYVAG54Wt5iXLQ",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD3\uFFFD\uFFFD\uFFFDZ\uFFFD\u03E3\uFFFD{\\x000b\uFFFD\uFFFD\uFFFDo\uFFFD5@\uFFFD{XT\\x0001\uFFFD\uFFFDky\uFFFDr\uFFFD"
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/ressources?f%5B0%5D=region%3A140",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/sites/default/files/css/css_9Mzi6mWWqPPo-2Zewutu5Jv4DVAvntYVAG54Wt5iXLQ",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD3\uFFFD\uFFFD\uFFFDZ\uFFFD\u03E3\uFFFD{\\x000b\uFFFD\uFFFD\uFFFDo\uFFFD5@\uFFFD{XT\\x0001\uFFFD\uFFFDky\uFFFDr\uFFFD"
+							"evidence": "/sites/default/files/css/css_BedjiyBGV3gGDC41h2uGF-E-NXHlp5xsV4_d86IBP1Y",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\\x0017\uFFFD\uFFFD,\uFFFD\\x0019]\uFFFD\\x00180\uFFFD\uFFFD\\x001d\uFFFD\\x0018_\uFFFD\uFFFD\uFFFD\u01D6\uFFFDq\uFFFD^?w\u0388\\x0004\uFFFDX"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/services?f%5B0%5D=territory_service%3A140",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_9Mzi6mWWqPPo-2Zewutu5Jv4DVAvntYVAG54Wt5iXLQ",
-							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD3\uFFFD\uFFFD\uFFFDZ\uFFFD\u03E3\uFFFD{\\x000b\uFFFD\uFFFD\uFFFDo\uFFFD5@\uFFFD{XT\\x0001\uFFFD\uFFFDky\uFFFDr\uFFFD"
+							"evidence": "/sites/default/files/css/css_BedjiyBGV3gGDC41h2uGF-E-NXHlp5xsV4_d86IBP1Y",
+							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\\x0017\uFFFD\uFFFD,\uFFFD\\x0019]\uFFFD\\x00180\uFFFD\uFFFD\\x001d\uFFFD\\x0018_\uFFFD\uFFFD\uFFFD\u01D6\uFFFDq\uFFFD^?w\u0388\\x0004\uFFFDX"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/thematiques-0",
@@ -1106,7 +1106,7 @@
 							"otherinfo": "\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFDb\uFFFD\uFFFD6\\x000e3\uFFFD\t\\x0014L\uFFFD`\uFFFDk\uFFFD\uFFFDq\uFFFD=\uFFFD\uFFFD\\x0014\\x0019\\x0014-<?\nC\uFFFD|"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD\\x001c\uFFFD\uFFFD\uFFFDF\uFFFDx)\uFFFD\\x000e\uFFFD\uFFFD\u0438\\x001b\uFFFDc\uFFFD67\\x0014\uFFFD\\x0008Je\uFFFD\uFFFD\u02BC%\\x000c</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1149,6 +1149,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/cart",
 							"method": "GET",
 							"param": "",
@@ -1189,14 +1197,6 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/ressources?f%5B0%5D=region%3A140",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/services?f%5B0%5D=territory_service%3A140",
 							"method": "GET",
 							"param": "",
@@ -1219,7 +1219,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10109",
@@ -1249,6 +1249,14 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/auvergne-rhone-alpes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1289,14 +1297,6 @@
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets?f%5B0%5D=realisation_territory%3A140",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/ressources?f%5B0%5D=region%3A140",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1371,14 +1371,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/decryptage",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=3600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements",
 							"method": "GET",
 							"param": "cache-control",
@@ -1425,6 +1417,14 @@
 							"attack": "",
 							"evidence": "must-revalidate, private",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/thematiques-0",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=3600, public",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -1433,7 +1433,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1446,7 +1446,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/contact",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1454,7 +1454,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1476,7 +1476,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "140"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1489,7 +1489,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/contact",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1497,7 +1497,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1519,7 +1519,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "140"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1532,7 +1532,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/contact",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1540,7 +1540,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1562,7 +1562,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "140"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1575,7 +1575,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/contact",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1583,7 +1583,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/form/inscription-newsletter",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1605,7 +1605,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "140"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1733,36 +1733,36 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=territory:140\n\nThe user-controlled value was:\nterritory:140"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=theme%3A11852",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A11971",
 							"method": "GET",
 							"param": "f[0]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=theme%3A11852\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=territory:140\n\nThe user-controlled value was:\nterritory:140"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A11971\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=event_type:11971\n\nThe user-controlled value was:\nevent_type:11971"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=theme%3A11852",
-							"method": "GET",
-							"param": "f[1]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=theme%3A11852\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[1]=theme:11852\n\nThe user-controlled value was:\ntheme:11852"
-						},
-						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=type_actu%3A1562",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A11991",
 							"method": "GET",
 							"param": "f[0]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=type_actu%3A1562\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=territory:140\n\nThe user-controlled value was:\nterritory:140"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A11991\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=event_type:11991\n\nThe user-controlled value was:\nevent_type:11991"
 						},
 						{
-							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=type_actu%3A1562",
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A50",
 							"method": "GET",
-							"param": "f[1]",
+							"param": "f[0]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/actualites?f%5B0%5D=territory%3A140&f%5B1%5D=type_actu%3A1562\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[1]=type_actu:1562\n\nThe user-controlled value was:\ntype_actu:1562"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A50\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=event_type:50\n\nThe user-controlled value was:\nevent_type:50"
+						},
+						{
+							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A51",
+							"method": "GET",
+							"param": "f[0]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://anactprod.dev-ssl.e-bizproduction.com/evenements?f%5B0%5D=event_type%3A51\n\nappears to include user input in: \n\na(n) [a] tag [data-drupal-facet-filter-value] attribute \n\nThe user input found was:\nf[0]=event_type:51\n\nThe user-controlled value was:\nevent_type:51"
 						},
 						{
 							"uri": "https://anactprod.dev-ssl.e-bizproduction.com/realisations-et-projets?f%5B0%5D=realisation_territory%3A140",
@@ -1827,7 +1827,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "141"
+					"sourceid": "199"
 				}
 			]
 		}
